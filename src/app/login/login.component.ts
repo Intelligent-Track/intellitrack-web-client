@@ -17,11 +17,9 @@ export class LoginComponent implements OnInit {
   errorMessage = '';
   roles: string[] = [];
 
-  constructor(private authService: AuthService, private storageService: StorageService,private router: Router) {
-  
-   }
+  constructor(private authService: AuthService, private storageService: StorageService, private router: Router) { }
 
-   navegarAPantallaDestino(parametro: String): void {
+  navegarAPantallaDestino(parametro: String): void {
     const navigationExtras = {
       queryParams: {
         miParametro: parametro
@@ -32,10 +30,6 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    window.history.pushState(null, '', window.location.href);
-    window.onpopstate = () => {
-      this.router.navigateByUrl('/home');
-    };
     if (this.storageService.isLoggedIn()) {
       this.isLoggedIn = true;
       this.roles = this.storageService.getUser().roles;
@@ -52,9 +46,6 @@ export class LoginComponent implements OnInit {
 
   onSubmit(): void {
     const { username, password } = this.form;
-
-  
-
     this.authService.login(username, password).subscribe({
       next: data => {
         this.storageService.saveUser(data);

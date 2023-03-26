@@ -16,6 +16,7 @@ import { ProductsServicesComponent } from './products-services/products-services
 import { AdminAddManagerComponent } from './admin-add-manager/admin-add-manager.component';
 import { EditProfileOperadorComponent } from './edit-profile-operador/edit-profile-operador.component';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { ManagerListComponent } from './manager-list/manager-list.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { AboutUsComponent } from './about-us/about-us.component';
     ProductsServicesComponent,
     AdminAddManagerComponent,
     EditProfileOperadorComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    ManagerListComponent
   ],
   imports: [
     BrowserModule,

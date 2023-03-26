@@ -12,6 +12,7 @@ import { ProductsServicesComponent } from './products-services/products-services
 import { AdminAddManagerComponent } from './admin-add-manager/admin-add-manager.component';
 import { EditProfileOperadorComponent } from './edit-profile-operador/edit-profile-operador.component';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { ManagerListComponent } from './manager-list/manager-list.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -22,9 +23,10 @@ const routes: Routes = [
   { path: 'user', component: BoardUserComponent },
   { path: 'mod', component: BoardModeratorComponent },
   { path: 'admin', component: BoardAdminComponent },
-  { path: 'amindAddManager', component: AdminAddManagerComponent},
-  {path: 'EditProfileOperador', component: EditProfileOperadorComponent},
-  {path: 'AboutUs', component:AboutUsComponent},
+  { path: 'adminAddManager', component: AdminAddManagerComponent},
+  { path: 'editProfileOperador', component: EditProfileOperadorComponent },
+  { path: 'aboutUs', component: AboutUsComponent },
+  { path: 'manager-list', component: ManagerListComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

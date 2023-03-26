@@ -1,0 +1,26 @@
+<div class="container">
+  <table class="table">
+    <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Nombre completo</th>
+          <th scope="col">Región</th>
+          <th scope="col">Cantidad de conductores</th>
+          <th scope="col">Cantidad de operadores</th>
+          <th scope="col">Almacén</th>
+        </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngIf="infoManagers">
+        <tr *ngFor="let infoManager of infoManagers">
+          <th scope="row">{{infoManager.id}}</th>
+          <td>{{infoManager.fullName}}</td>
+          <td>{{infoManager.region}}</td>
+          <td>{{infoManager.driversInCharge}}</td>
+          <td>{{infoManager.operatorsInCharge}}</td>
+          <td>{{infoManager.warehouseLocation}}</td>
+        </tr>
+      </ng-container>
+    </tbody>
+</table>
+</div>
