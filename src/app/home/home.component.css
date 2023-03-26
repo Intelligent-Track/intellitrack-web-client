@@ -1,42 +1,44 @@
 .header {
-    background: url(src/assets/quienesSomos.png) no-repeat center;
-    background-size: cover;
-  }
-  .header .navbar {
-    background-color: #FAF8F6;
-  }
+  background: url(src/assets/quienesSomos.png) no-repeat center;
+  background-size: cover;
+}
 
-  .navbar{
-    justify-content: space-around;
-  }
+.header .navbar {
+  background-color: #FAF8F6;
+}
 
-  .custom-nav{
-    background-color: #FF6E59;
-  }
+.navbar {
+  justify-content: space-around;
+}
 
-  .bordeLogin {
-    background-color: #FF6E59; 
-    border-radius: 50px; 
-    padding: 10px; 
-  }
-  
-  .nav-link {
-    margin-right: 20px; 
-    color: #333; 
-    font-weight:500;
-  }
+.custom-nav {
+  background-color: #FF6E59;
+}
 
-.a{
-    text-align: right;
-    color: black;
-    font-weight: 500;
+.bordeLogin {
+  background-color: #FF6E59;
+  border-radius: 50px;
+  padding: 10px;
+}
+
+.nav-link {
+  margin-right: 20px;
+  color: #333;
+  font-weight: 500;
+}
+
+.a {
+  text-align: right;
+  color: black;
+  font-weight: 500;
 }
 
 .navbar-brand {
-    font-size: 44px; /* ajusta el tamaño de la fuente a 24 píxeles */
-  }
+  font-size: 44px;
+  /* ajusta el tamaño de la fuente a 24 píxeles */
+}
 
-.container{
+.container {
   display: flex;
   padding: none;
   height: 83vh;

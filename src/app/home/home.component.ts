@@ -23,25 +23,25 @@ export class HomeComponent implements OnInit {
   username?: string;
   activeMenu: string = 'perfil';
 
-  constructor(private storageService: StorageService, private authService: AuthService, private router: Router,private route: ActivatedRoute) { }
+  constructor(private storageService: StorageService, private authService: AuthService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
       switch (params['miParametro']) {
         case 'Admin':
-            this.showAdminBoard = true;
+          this.showAdminBoard = true;
           break;
-          case 'Manager':
-            this.showManagerBoard = true;
+        case 'Manager':
+          this.showManagerBoard = true;
           break;
-          case 'Driver':
-            this.showDriverBoard = true;
+        case 'Driver':
+          this.showDriverBoard = true;
           break;
-          case 'Operario':
-            this.showOperarioBoard = true;
+        case 'Operario':
+          this.showOperarioBoard = true;
           break;
-          case 'Custumer':
-            this.showCustumerBoard = true;
+        case 'Custumer':
+          this.showCustumerBoard = true;
           break;
         default:
           break;
@@ -56,6 +56,7 @@ export class HomeComponent implements OnInit {
       this.username = user.username;
     }
   }
+  
   navegarAPantallaLogin() {
     // Ocultar la barra de navegación
     // ...
@@ -63,6 +64,7 @@ export class HomeComponent implements OnInit {
     // Navegar a la pantalla limpia
     this.router.navigateByUrl('/login');
   }
+
   navegarAappbarr() {
     // Ocultar la barra de navegación
     // ...
