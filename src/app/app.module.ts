@@ -13,6 +13,7 @@ import { BoardModeratorComponent } from './board-moderator/board-moderator.compo
 import { BoardUserComponent } from './board-user/board-user.component';
 import { HomeComponent } from './home/home.component';
 import { ProductsServicesComponent } from './products-services/products-services.component';
+import { DriversListComponent } from './board-admin/drivers-list/drivers-list.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ProductsServicesComponent } from './products-services/products-services
     BoardModeratorComponent,
     BoardUserComponent,
     HomeComponent,
-    ProductsServicesComponent
+    ProductsServicesComponent,
+    DriversListComponent
   ],
   imports: [
     BrowserModule,

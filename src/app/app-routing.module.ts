@@ -1,3 +1,4 @@
+import { DriversListComponent } from './board-admin/drivers-list/drivers-list.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes, ExtraOptions  } from '@angular/router';
 
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'user', component: BoardUserComponent },
   { path: 'mod', component: BoardModeratorComponent },
   { path: 'admin', component: BoardAdminComponent },
+  { path: 'admin/drivers-list', component: DriversListComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 
