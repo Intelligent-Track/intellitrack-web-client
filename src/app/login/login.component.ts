@@ -21,7 +21,21 @@ export class LoginComponent implements OnInit {
   
    }
 
+   navegarAPantallaDestino(parametro: String): void {
+    const navigationExtras = {
+      queryParams: {
+        miParametro: parametro
+      }
+    };
+
+    this.router.navigate(['/home'], navigationExtras);
+  }
+
   ngOnInit(): void {
+    window.history.pushState(null, '', window.location.href);
+    window.onpopstate = () => {
+      this.router.navigateByUrl('/home');
+    };
     if (this.storageService.isLoggedIn()) {
       this.isLoggedIn = true;
       this.roles = this.storageService.getUser().roles;
@@ -32,8 +46,14 @@ export class LoginComponent implements OnInit {
     this.router.navigateByUrl('/register');
   }
 
+  navegarAPantallaNuevoManager() {
+    this.router.navigateByUrl('/EditProfileOperador');
+  }
+
   onSubmit(): void {
     const { username, password } = this.form;
+
+  
 
     this.authService.login(username, password).subscribe({
       next: data => {
@@ -54,4 +74,5 @@ export class LoginComponent implements OnInit {
   reloadPage(): void {
     window.location.reload();
   }
+
 }
