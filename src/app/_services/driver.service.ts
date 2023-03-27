@@ -12,8 +12,8 @@ const DRIVER_API = 'http://localhost:8080/api/dri/';
 export class DriverService {
 
   private httpOptions = {
-    headers : new HttpHeaders({
-      "Content-Type" : "application/json"
+    headers: new HttpHeaders({
+      "Content-Type": "application/json"
     })
   }
   constructor(private http: HttpClient) { }

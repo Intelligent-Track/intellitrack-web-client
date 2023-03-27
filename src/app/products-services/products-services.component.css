@@ -52,9 +52,9 @@
 .text1 {
   margin-left: 15px;
 }
-.r{
-    display: flex;
-    justify-content: center;
+.r {
+  display: flex;
+  justify-content: center;
 }
 
 .navbar {
@@ -131,18 +131,18 @@
 }
 
 .e {
-    font-size: 220%;
-    text-align: center;
+  font-size: 220%;
+  text-align: center;
 }
 
-p{
-    font-size: 130%;
-    text-align: center;
+p {
+  font-size: 130%;
+  text-align: center;
 }
 
-h5{
-    font-size: 150%;
-    text-align: center;
+h5 {
+  font-size: 150%;
+  text-align: center;
 }
 
 .footer-clean .item.social > a:hover {

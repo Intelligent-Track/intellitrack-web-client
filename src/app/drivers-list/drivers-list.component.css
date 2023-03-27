@@ -1,54 +1,52 @@
-header{
-    background-size: cover;
-    min-height: 100vh;
+header {
+  background-size: cover;
+  min-height: 100vh;
 }
 
 .bordeLogin {
-
-    background-color: #FF6E59; 
-    padding: 10px; 
+  background-color: #ff6e59;
+  padding: 10px;
 }
 
-
 .navbar-brand {
-    font-size: 44px; /* ajusta el tamaño de la fuente a 24 píxeles */
- }
+  font-size: 44px; /* ajusta el tamaño de la fuente a 24 píxeles */
+}
 
 li {
-    float: right;
+  float: right;
 }
 
 .nav-link {
-    margin-right: 20px; 
-    color: #333; 
-    font-weight:500;
-  }
-
-.bu {
-    font-size: 14px;
+  margin-right: 20px;
+  color: #333;
+  font-weight: 500;
 }
 
-.pad{
-    padding-top: 5%;
-    padding-left: 10%;
-    padding-right: 10%;
+.bu {
+  font-size: 14px;
+}
+
+.pad {
+  padding-top: 5%;
+  padding-left: 10%;
+  padding-right: 10%;
 }
 
 .no-border {
-    border: none;
+  border: none;
 }
 
-h2{
-    margin-bottom: 2%;
+h2 {
+  margin-bottom: 2%;
 }
-.x{
-    background-color: #FF6E59;
+.x {
+  background-color: #ff6e59;
 }
 
-.text{
-    font-size: large;
+.text {
+  font-size: large;
 }
 
 .navbar-nav {
-    text-align: left;
+  text-align: left;
 }
