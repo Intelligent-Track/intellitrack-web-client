@@ -45,7 +45,18 @@
               minlength="6"
               #password="ngModel"
             />
-
+          </div>
+          <div class="form-group">
+            <input
+              type="number"
+              class="form-control custom-input"
+              placeholder="Numero telefonico"
+              [(ngModel)]="form.phonenumber"
+              name="Nombre"
+              required
+              minlength="3"
+              maxlength="20"
+            />
           </div>
         </form>
         </div>
@@ -69,20 +80,39 @@
             <input
               type="text"
               class="form-control custom-input"
-              name="username"
               [(ngModel)]="form.enterprisename"
               placeholder="Nombre de la Empresa"
               required
               minlength="3"
-              maxlength="20"
-              #username="ngModel"            />
+              maxlength="20"          />
           </div>
           <div class="form-group">
             <input
-              type="email"
+              type="number"
+              class="form-control custom-input"
+              placeholder="Nit de la empresa"
+              [(ngModel)]="form.nit"
+              name="Nombre"
+              required
+              minlength="3"
+              maxlength="20" 
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control custom-input"
+              [(ngModel)]="form.position"
+              placeholder="Cargo de la empresa"
+              required
+              minlength="3"
+              maxlength="20"/>
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
               class="form-control custom-input input-lg"
-              name="email"
-              placeholder="Descripcion"
+              placeholder="Descripción de la empresa"
               [(ngModel)]="form.desciption"
               required
               email
