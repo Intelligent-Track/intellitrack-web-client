@@ -1,3 +1,4 @@
+import { DriversListComponent } from './drivers-list/drivers-list.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes, ExtraOptions  } from '@angular/router';
 
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'user', component: BoardUserComponent },
   { path: 'mod', component: BoardModeratorComponent },
   { path: 'admin', component: BoardAdminComponent },
+  { path: 'drivers-list', component: DriversListComponent },
   { path: 'adminAddManager', component: AdminAddManagerComponent},
   { path: 'editProfileOperador', component: EditProfileOperadorComponent },
   { path: 'aboutUs', component: AboutUsComponent },
