@@ -17,9 +17,17 @@ export class LoginComponent implements OnInit {
   errorMessage = '';
   roles: string[] = [];
 
-  constructor(private authService: AuthService, private storageService: StorageService,private router: Router) {
-  
-   }
+  constructor(private authService: AuthService, private storageService: StorageService, private router: Router) { }
+
+  navegarAPantallaDestino(parametro: String): void {
+    const navigationExtras = {
+      queryParams: {
+        miParametro: parametro
+      }
+    };
+
+    this.router.navigate(['/home'], navigationExtras);
+  }
 
   ngOnInit(): void {
     if (this.storageService.isLoggedIn()) {
@@ -32,9 +40,12 @@ export class LoginComponent implements OnInit {
     this.router.navigateByUrl('/register');
   }
 
+  navegarAPantallaNuevoManager() {
+    this.router.navigateByUrl('/EditProfileOperador');
+  }
+
   onSubmit(): void {
     const { username, password } = this.form;
-
     this.authService.login(username, password).subscribe({
       next: data => {
         this.storageService.saveUser(data);
@@ -54,4 +65,5 @@ export class LoginComponent implements OnInit {
   reloadPage(): void {
     window.location.reload();
   }
+
 }

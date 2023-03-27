@@ -1,10 +1,174 @@
-<body>
-  <div class="container">
-    <section class="info_inicial">
-      <div class="infosolotexto">
-        <h1 class="titulohome">Somos la solución confiable y directa al seguimiento de un envío</h1>
-        <p class="infohome">Se adapta perfectamente a sus necesidades y le brinda un control completo sobre todos tus procesos de logística y transporte.</p>
+<div id="app">
+  <header class="header"
+    *ngIf="!initLogin && !showAdminBoard  && !showCustumerBoard && !showOperarioBoard && !showDriverBoard && !showManagerBoard">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="/home">
+        <img src="assets/icono.png" width="100" height="100" class="d-inline-block align-center" alt="">
+        IntelliTrack
+      </a>
+      <section class="bordeLogin">
+        <ul class="navbar-nav ml-auto" routerLinkActive="active">
+          <li class="nav-item">
+            <a href="/AboutUs" class="nav-link">Quienes somos</a>
+          </li>
+          <li class="nav-item">
+            <a href="/prdServic" class="nav-link">Productos y servicios</a>
+          </li>
+          <li class="nav-item" (click)="navegarAPantallaLogin()">
+            <a class="nav-link">Iniciar sesion</a>
+          </li>
+        </ul>
+      </section>
+    </nav>
+    <div class="container">
+      <router-outlet></router-outlet>
+    </div>
+  </header>
+  <header
+    *ngIf="initLogin && !showAdminBoard && !showCustumerBoard && !showOperarioBoard && !showDriverBoard && !showManagerBoard">
+    <router-outlet></router-outlet>
+  </header>
+  <header *ngIf="showAdminBoard">
+    <nav class="navbar navbar-expand-lg navbar-light custom-nav">
+      <a class="navbar-brand" href="#">
+        <img src="assets/Iconoblanco.png" width="100" height="100" class="d-inline-block align-top" alt="">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="">Rutas</a>
+          </li>
+          <li class="nav-item" [ngClass]="{ 'show': activeMenu === 'perfil' }">
+            <a class="nav-link" routerLink="/amindAddManager" (click)="activeMenu = 'perfil'">Gerentes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="">Conductores</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="">Operadores</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="">Gastos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="">Perfil</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="">Cerrar sesión</a>
+          </li>
+        </ul>
       </div>
-    </section>
-  </div>
-</body>
+    </nav>
+    <router-outlet></router-outlet>
+  </header>
+  <header *ngIf="showManagerBoard">
+    <nav class="navbar navbar-expand-lg navbar-light custom-nav">
+      <a class="navbar-brand" href="#">
+        <img src="assets/Iconoblanco.png" width="100" height="100" class="d-inline-block align-top" alt="">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="#">Informes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="#">Vehículos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="#">Rentabilidad</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="#">Perfil</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="#">Cerrar sesión</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <router-outlet></router-outlet>
+  </header>
+  <header *ngIf="showDriverBoard">
+    <nav class="navbar navbar-expand-lg navbar-light custom-nav">
+      <a class="navbar-brand" href="#">
+        <img src="assets/Iconoblanco.png" width="100" height="100" class="d-inline-block align-top" alt="">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="#">Servicios</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="#">Perfil</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="#">Cerrar sesión</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <router-outlet></router-outlet>
+  </header>
+  <header *ngIf="showOperarioBoard">
+    <nav class="navbar navbar-expand-lg navbar-light custom-nav">
+      <a class="navbar-brand" href="#">
+        <img src="assets/Iconoblanco.png" width="100" height="100" class="d-inline-block align-top" alt="">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="#">Bodegas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="EditProfileOperador">Perfil</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="#">Cerrar sesión</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <router-outlet></router-outlet>
+  </header>
+  <header *ngIf="showCustumerBoard">
+    <nav class="navbar navbar-expand-lg navbar-light custom-nav">
+      <a class="navbar-brand" href="#">
+        <img src="assets/Iconoblanco.png" width="100" height="100" class="d-inline-block align-top" alt="">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="#">Envios</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="#">Perfil</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="#">Cerrar sesión</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <router-outlet></router-outlet>
+  </header>
+</div>

@@ -1,0 +1,51 @@
+header{
+    background-size: cover;
+    min-height: 100vh;
+}
+
+.bordeLogin {
+
+    background-color: #FF6E59; 
+    padding: 10px; 
+}
+
+
+.navbar-brand {
+    font-size: 44px; /* ajusta el tamaño de la fuente a 24 píxeles */
+ }
+
+li {
+    float: right;
+}
+
+.nav-link {
+    margin-right: 20px; 
+    color: #333; 
+    font-weight:500;
+  }
+
+.bu {
+    font-size: 14px;
+}
+
+.pad{
+    padding-top: 5%;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.no-border {
+    border: none;
+}
+
+.x{
+    background-color: #FF6E59;
+}
+
+.text{
+    font-size: large;
+}
+
+.navbar-nav {
+    text-align: left;
+}
