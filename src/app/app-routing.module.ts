@@ -13,6 +13,8 @@ import { AdminAddManagerComponent } from './admin-add-manager/admin-add-manager.
 import { EditProfileOperadorComponent } from './edit-profile-operador/edit-profile-operador.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ManagerListComponent } from './manager-list/manager-list.component';
+import { OperatorListComponent } from './operator-list/operator-list.component';
+import { OperatorCreateComponent } from './operator-create/operator-create.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -27,6 +29,8 @@ const routes: Routes = [
   { path: 'editProfileOperador', component: EditProfileOperadorComponent },
   { path: 'aboutUs', component: AboutUsComponent },
   { path: 'manager-list', component: ManagerListComponent },
+  { path: 'operator-list', component: OperatorListComponent },
+  { path: 'operator-create', component: OperatorCreateComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

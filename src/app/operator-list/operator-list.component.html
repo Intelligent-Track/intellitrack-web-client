@@ -1,0 +1,38 @@
+<div class="container">
+    <h2>Operadores</h2>
+    <div class = "options-container">
+      <form (ngSubmit)="onSubmit()">
+        <input type="text" placeholder="Nombre de operador a buscar" class = "form-control" name="search" [(ngModel)]="operatorSearch">
+        <div>
+          <button class="btn btn-orange btn-block custom-btn"> Buscar</button>
+        </div>
+      </form>
+      <form (ngSubmit)="onAddSubmit()">
+        <div>
+          <button class="btn btn-green btn-block custom-btn"> Agregar</button>
+        </div>
+      </form>
+    </div>
+    <table class="table">
+      <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nombre completo</th>
+            <th scope="col">Correo</th>
+            <th scope="col">Gerente</th>
+            <th scope="col">Opciones</th>
+          </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngIf="infoOperators">
+          <tr *ngFor="let infoOperator of infoOperators">
+            <td scope="row">{{infoOperator.id}}</td>
+            <td>{{infoOperator.fullName}}</td>
+            <td>{{infoOperator.email}}</td>
+            <td>{{infoOperator.managerName}}</td>
+            <td> <img (click)="deleteOperator(infoOperator)" src="../../assets/icons/trashCan.png"> <img src="../../assets/icons/edit.png"></td>
+          </tr>
+        </ng-container>
+      </tbody>
+  </table>
+  </div>
