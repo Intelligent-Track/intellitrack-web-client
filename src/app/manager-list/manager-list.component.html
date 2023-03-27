@@ -32,6 +32,20 @@
   </div>
 </nav>
 <div class="container">
+  <h2>Gerentes</h2>
+    <div class = "options-container">
+      <form (ngSubmit)="onSubmit()">
+        <input type="text" placeholder="Nombre de gerente a buscar" class = "form-control" name="search" [(ngModel)]="managerSearch">
+        <div>
+          <button class="btn btn-orange btn-block custom-btn"> Buscar</button>
+        </div>
+      </form>
+      <form (ngSubmit)="onAddSubmit()">
+        <div>
+          <button class="btn btn-green btn-block custom-btn"> Agregar</button>
+        </div>
+      </form>
+    </div>
   <table class="table">
     <thead>
         <tr>
@@ -41,17 +55,19 @@
           <th scope="col">Cantidad de conductores</th>
           <th scope="col">Cantidad de operadores</th>
           <th scope="col">Almacén</th>
+          <th scope="col">Opciones</th>
         </tr>
     </thead>
     <tbody>
       <ng-container *ngIf="infoManagers">
         <tr *ngFor="let infoManager of infoManagers">
-          <th scope="row">{{infoManager.id}}</th>
+          <td scope="row">{{infoManager.id}}</td>
           <td>{{infoManager.fullName}}</td>
           <td>{{infoManager.region}}</td>
           <td>{{infoManager.driversInCharge}}</td>
           <td>{{infoManager.operatorsInCharge}}</td>
           <td>{{infoManager.warehouseLocation}}</td>
+          <td> <img src="../../assets/icons/trashCan.png"> <img src="../../assets/icons/edit.png"></td>
         </tr>
       </ng-container>
     </tbody>

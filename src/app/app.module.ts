@@ -18,6 +18,8 @@ import { AdminAddManagerComponent } from './admin-add-manager/admin-add-manager.
 import { EditProfileOperadorComponent } from './edit-profile-operador/edit-profile-operador.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ManagerListComponent } from './manager-list/manager-list.component';
+import { OperatorListComponent } from './operator-list/operator-list.component';
+import { OperatorCreateComponent } from './operator-create/operator-create.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { ManagerListComponent } from './manager-list/manager-list.component';
     AdminAddManagerComponent,
     EditProfileOperadorComponent,
     AboutUsComponent,
-    ManagerListComponent
+    ManagerListComponent,
+    OperatorListComponent,
+    OperatorCreateComponent
   ],
   imports: [
     BrowserModule,
