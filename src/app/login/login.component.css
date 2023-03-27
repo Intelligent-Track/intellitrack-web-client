@@ -32,8 +32,13 @@
 .mi-seccion-titulo {
   text-align: center;
   display: flex;
+  
   align-items: center;
   margin-bottom: 20px;
+}
+
+.r{
+  font-size: 290%;
 }
 
 .mi-seccion-titulo img {
@@ -98,6 +103,7 @@
 }
 
 .custom-input {
+  height: 35px;
   border-radius: 15px;
   background-color: #F2F3F7;
   border: none;
@@ -108,11 +114,13 @@
 }
 
 .Bienvenido {
+  font-size: 150%;
   text-align: center;
   padding-bottom: 10px;
 }
 
 .btn-orange {
+  height: 35px;
   background-color: #FF6E59;
   /* aquí puedes cambiar el color de fondo */
   border-color: #FF6E59;

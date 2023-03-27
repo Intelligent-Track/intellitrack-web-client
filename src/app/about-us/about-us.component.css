@@ -13,7 +13,7 @@ body{
 .infosolotexto{
     border-radius: 20px;
     width: 48%;
-    height: 50%;
+    height: 52%;
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -31,4 +31,9 @@ body{
 .h1{
     color: #000000;
     font-size: medium;
+}
+
+p{
+    margin-top: 3%;
+    font-size: small;
 }

@@ -4,15 +4,7 @@
     left: 50%;
     transform: translate(-50%, -30%);
 }
-td img{
-    width: 2vw;
-    height: 4vh;
-    margin: 3%;
-}
 
-td img:hover{
-    transform: scale(1.08);
-}
 
 .options-container{
     display: flex;
@@ -21,10 +13,6 @@ td img:hover{
     margin-bottom: 3%;
 }
 
-input{
-    width: 20vw;
-    margin-right: 10%;
-}
 
 form{
     display: flex;
@@ -46,7 +34,7 @@ form{
     color: black; /* aquí puedes cambiar el color de la letra */
     border-radius: 20px; 
     width: 300px;
-=======
+}
 .bordeLogin {
 
     background-color: #FF6E59; 
@@ -92,4 +80,7 @@ li {
 
 .navbar-nav {
     text-align: left;
+}
+h2{
+    margin-bottom: 2%;
 }

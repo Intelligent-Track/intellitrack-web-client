@@ -34,6 +34,7 @@
 </nav>
 
 <div class="pad">
+    <h2>Conductores</h2>
     <div class="input-group pb-2">
         <div class="input-group-prepend border-0">
             <span class="input-group-text border-0 bg-transparent">
@@ -62,6 +63,23 @@
                 </tr>
             </thead>
             <tbody>
+                <tr>
+                    <td>erwrewwer</td>
+                    <td>fdifufds</td>
+                    <td>dfsfdsfd</td>
+                    <td>fddfsfsd</td>
+                    <td>sdfdsfsfd</td>
+                    <td class="no-border">
+                        <div class="btn-group" role="group">
+                            <button class="btn btn-lg" type="button" (click)="editDriver()">
+                                <i class="fa fa-pencil"></i>
+                            </button>
+                            <button class="btn btn-lg ml-2" type="button">
+                                <i class="fa fa-trash"></i>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
                 <ng-container *ngIf="infoDrivers">
                     <tr *ngFor="let infodriver of infoDrivers">
                         <td>{{infodriver.id}}</td>
@@ -79,9 +97,9 @@
                                 </button>
                             </div>
                         </td>
+                        
                     </tr>
                 </ng-container>
-                <!-- Agrega más filas aquí -->
             </tbody>
         </table>
     </div>
