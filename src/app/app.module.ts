@@ -13,7 +13,11 @@ import { BoardModeratorComponent } from './board-moderator/board-moderator.compo
 import { BoardUserComponent } from './board-user/board-user.component';
 import { HomeComponent } from './home/home.component';
 import { ProductsServicesComponent } from './products-services/products-services.component';
-import { DriversListComponent } from './board-admin/drivers-list/drivers-list.component';
+import { DriversListComponent } from './drivers-list/drivers-list.component';
+import { AdminAddManagerComponent } from './admin-add-manager/admin-add-manager.component';
+import { EditProfileOperadorComponent } from './edit-profile-operador/edit-profile-operador.component';
+import { AboutUsComponent } from './about-us/about-us.component';
+import { ManagerListComponent } from './manager-list/manager-list.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +30,11 @@ import { DriversListComponent } from './board-admin/drivers-list/drivers-list.co
     BoardUserComponent,
     HomeComponent,
     ProductsServicesComponent,
-    DriversListComponent
+    DriversListComponent,
+    AdminAddManagerComponent,
+    EditProfileOperadorComponent,
+    AboutUsComponent,
+    ManagerListComponent
   ],
   imports: [
     BrowserModule,
