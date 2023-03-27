@@ -20,8 +20,6 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { ManagerListComponent } from './manager-list/manager-list.component';
 import { OperatorListComponent } from './operator-list/operator-list.component';
 import { OperatorCreateComponent } from './operator-create/operator-create.component';
-import { ManagerEditProfileComponent } from './manager-edit-profile/manager-edit-profile.component';
-import { OperatoEditProfileComponent } from './operato-edit-profile/operato-edit-profile.component';
 
 @NgModule({
   declarations: [
@@ -40,9 +38,7 @@ import { OperatoEditProfileComponent } from './operato-edit-profile/operato-edit
     AboutUsComponent,
     ManagerListComponent,
     OperatorListComponent,
-    OperatorCreateComponent,
-    ManagerEditProfileComponent,
-    OperatoEditProfileComponent
+    OperatorCreateComponent
   ],
   imports: [
     BrowserModule,
