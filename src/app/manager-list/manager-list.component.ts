@@ -11,12 +11,22 @@ export class ManagerListComponent implements OnInit {
 
   infoManagers: DtoManager[] | undefined;
 
+  managerSearch: string | undefined;
+
   constructor(private managerService: ManagerService) { }
 
   ngOnInit(): void {
     this.managerService.listInfoManagers().subscribe(mans => {
       this.infoManagers = mans
     });
+  }
+
+  onSubmit(){
+
+  }
+
+  onAddSubmit(){
+
   }
 
 }
