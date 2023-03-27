@@ -1,9 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-light x">
   <a class="navbar-brand" href="#">
-    <img src="../../assets/whitebrand.png" width="50" height="50" class="d-inline-block align-top" alt="">
+      <img src="../../assets/whitebrand.png" width="50" height="50" class="d-inline-block align-top" alt="">
   </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
-    aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
@@ -18,100 +17,20 @@
         <a class="nav-link text" routerLink="/drivers-list">Conductores</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text  active"><span class="sr-only">(current)</span>Gerentes</a>
+        <a class="nav-link text  active" ><span class="sr-only">(current)</span>Gerentes</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text" href="#">Gastos</a>
+          <a class="nav-link text" href="#">Gastos</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text" href="#">Perfil</a>
+          <a class="nav-link text" href="#">Perfil</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text ">Cerrar sesión</a>
+          <a class="nav-link text ">Cerrar sesión</a>
       </li>
     </ul>
   </div>
 </nav>
-
-
-
-<div class="pad">
-  <h2>Conductores</h2>
-  <div class="input-group pb-2">
-    <div class="input-group-prepend border-0">
-      <span class="input-group-text border-0 bg-transparent">
-        <i class="fa fa-search"></i>
-      </span>
-    </div>
-    <input type="text" class="form-control border">
-    <div class="input-group-append ml-5">
-      <button class="btn btn-outline-secondary border-0  bu" type="button" routerLink="/adminAddManager">
-        <i class="fa fa-plus"></i> Agregar
-      </button>
-    </div>
-  </div>
-
-
-  <div style="padding-top: 3%;" class="table-responsive  ">
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">ID</th>
-          <th scope="col">Nombre completo</th>
-          <th scope="col">Región</th>
-          <th scope="col">Cantidad de conductores</th>
-          <th scope="col">Cantidad de operadores</th>
-          <th scope="col">Almacén</th>
-          <th class="no-border"></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>erwrewwer</td>
-          <td>fdifufds</td>
-          <td>dfsfdsfd</td>
-          <td>fddfsfsd</td>
-          <td>sdfdsfsfd</td>
-          <td>sdfdsfsfd</td>
-          <td class="no-border">
-            <div class="btn-group" role="group">
-              <button class="btn btn-lg" type="button">
-                <i class="fa fa-pencil"></i>
-              </button>
-              <button class="btn btn-lg ml-2" type="button">
-                <i class="fa fa-trash"></i>
-              </button>
-            </div>
-          </td>
-        </tr>
-        <ng-container *ngIf="infoManagers">
-          <tr *ngFor="let infoManager of infoManagers">
-            <td scope="row">{{infoManager.id}}</td>
-            <td>{{infoManager.fullName}}</td>
-            <td>{{infoManager.region}}</td>
-            <td>{{infoManager.driversInCharge}}</td>
-            <td>{{infoManager.operatorsInCharge}}</td>
-            <td>{{infoManager.warehouseLocation}}</td>
-            <td class="no-border">
-              <div class="btn-group" role="group">
-                <button class="btn btn-lg" type="button">
-                  <i class="fa fa-pencil"></i>
-                </button>
-                <button class="btn btn-lg ml-2" type="button">
-                  <i class="fa fa-trash"></i>
-                </button>
-              </div>
-            </td>
-
-          </tr>
-        </ng-container>
-      </tbody>
-    </table>
-  </div>
-
-</div>
-
-<!-- 
 <div class="container">
   <h2>Gerentes</h2>
     <div class = "options-container">
@@ -154,4 +73,3 @@
     </tbody>
 </table>
 </div>
--->
