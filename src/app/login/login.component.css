@@ -1,7 +1,7 @@
 .Continer {
   width: 206vh;
   height: 100vh;
-  background: linear-gradient(to right, #ff6e59 50%, #424549 50%);
+  background: linear-gradient(to right, #FF6E59 50%, #424549 50%);
   background-size: cover;
 }
 
@@ -10,7 +10,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #ffffff;
+  background-color: #FFFFFF;
   border-radius: 30px;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
   width: 80%;
@@ -28,21 +28,18 @@
   padding: 20px;
 }
 
+
 .mi-seccion-titulo {
   text-align: center;
   display: flex;
-
   align-items: center;
   margin-bottom: 20px;
-}
-
-.r {
-  font-size: 290%;
 }
 
 .mi-seccion-titulo img {
   width: 30%;
 }
+
 .mi-seccion-formulario {
   display: flex;
   flex-direction: column;
@@ -65,6 +62,7 @@
 .form-group {
   margin-bottom: 20px;
 }
+
 
 .form-control {
   border: 1px solid #ccc;
@@ -100,9 +98,8 @@
 }
 
 .custom-input {
-  height: 35px;
   border-radius: 15px;
-  background-color: #f2f3f7;
+  background-color: #F2F3F7;
   border: none;
 }
 
@@ -111,16 +108,14 @@
 }
 
 .Bienvenido {
-  font-size: 150%;
   text-align: center;
   padding-bottom: 10px;
 }
 
 .btn-orange {
-  height: 35px;
-  background-color: #ff6e59;
+  background-color: #FF6E59;
   /* aquí puedes cambiar el color de fondo */
-  border-color: #ff6e59;
+  border-color: #FF6E59;
   /* aquí puedes cambiar el color del borde */
   color: black;
   /* aquí puedes cambiar el color de la letra */
@@ -130,9 +125,9 @@
 
 .custom-btn:focus,
 .custom-btn:hover {
-  background-color: #ff6e59;
+  background-color: #FF6E59;
   /* aquí puedes cambiar el color de fondo en estado :hover y :focus */
-  border-color: #ff6e59;
+  border-color: #FF6E59;
   /* aquí puedes cambiar el color del borde en estado :hover y :focus */
   color: black;
   /* aquí puedes cambiar el color de la letra en estado :hover y :focus */
@@ -142,9 +137,9 @@
 
 .registroconten {
   text-align: center;
-  text-decoration-color: #a1a4b2;
+  text-decoration-color: #A1A4B2;
 }
 
 .textRegistrarce {
-  color: #ff6e59;
+  color: #FF6E59;
 }

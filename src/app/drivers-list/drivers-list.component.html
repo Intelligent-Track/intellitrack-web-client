@@ -1,40 +1,39 @@
+
 <nav class="navbar navbar-expand-lg navbar-light x">
     <a class="navbar-brand" href="#">
         <img src="../../assets/whitebrand.png" width="50" height="50" class="d-inline-block align-top" alt="">
     </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ml-auto"> <!-- Agregar la clase ml-auto -->
-            <li class="nav-item">
-                <a class="nav-link text" href="#">Rutas</a>
-            </li>
-            <li class="nav-item text">
-                <a class="nav-link" href="#">Operadores</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text active"><span class="sr-only">(current)</span>Conductores</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text" routerLink="/manager-list">Gerentes</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text" href="#">Gastos</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text" href="#">Perfil</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text ">Cerrar sesión</a>
-            </li>
-        </ul>
+      <ul class="navbar-nav ml-auto"> <!-- Agregar la clase ml-auto -->
+        <li class="nav-item">
+          <a class="nav-link text" href="#">Rutas</a>
+        </li>
+        <li class="nav-item text">
+          <a class="nav-link" href="#">Operadores</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text active"><span class="sr-only">(current)</span>Conductores</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text" routerLink="/manager-list">Gerentes</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text" href="#">Gastos</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text" href="#">Perfil</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text ">Cerrar sesión</a>
+        </li>
+      </ul>
     </div>
 </nav>
 
 <div class="pad">
-    <h2>Conductores</h2>
     <div class="input-group pb-2">
         <div class="input-group-prepend border-0">
             <span class="input-group-text border-0 bg-transparent">
@@ -63,23 +62,6 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>erwrewwer</td>
-                    <td>fdifufds</td>
-                    <td>dfsfdsfd</td>
-                    <td>fddfsfsd</td>
-                    <td>sdfdsfsfd</td>
-                    <td class="no-border">
-                        <div class="btn-group" role="group">
-                            <button class="btn btn-lg" type="button" (click)="editDriver()">
-                                <i class="fa fa-pencil"></i>
-                            </button>
-                            <button class="btn btn-lg ml-2" type="button">
-                                <i class="fa fa-trash"></i>
-                            </button>
-                        </div>
-                    </td>
-                </tr>
                 <ng-container *ngIf="infoDrivers">
                     <tr *ngFor="let infodriver of infoDrivers">
                         <td>{{infodriver.id}}</td>
@@ -97,9 +79,9 @@
                                 </button>
                             </div>
                         </td>
-
                     </tr>
                 </ng-container>
+                <!-- Agrega más filas aquí -->
             </tbody>
         </table>
     </div>
