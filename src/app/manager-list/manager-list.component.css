@@ -1,29 +1,43 @@
-.container {
-  position: absolute;
-  top: 30%;
-  left: 50%;
-  transform: translate(-50%, -30%);
+.container{
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -30%);
+}
+td img{
+    width: 2vw;
+    height: 4vh;
+    margin: 3%;
 }
 
-.options-container {
-  display: flex;
-  flex-direction: row;
-  margin-top: 3%;
-  margin-bottom: 3%;
+td img:hover{
+    transform: scale(1.08);
 }
 
-form {
-  display: flex;
-  flex-direction: row;
-  margin-right: 5%;
+.options-container{
+    display: flex;
+    flex-direction: row;
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+
+input{
+    width: 20vw;
+    margin-right: 10%;
+}
+
+form{
+    display: flex;
+    flex-direction: row;
+    margin-right: 5%;
 }
 
 .btn-orange {
-  background-color: #ff6e59; /* aquí puedes cambiar el color de fondo */
-  border-color: #ff6e59; /* aquí puedes cambiar el color del borde */
-  color: black; /* aquí puedes cambiar el color de la letra */
-  border-radius: 20px;
-  width: 300px;
+    background-color: #FF6E59; /* aquí puedes cambiar el color de fondo */
+    border-color: #FF6E59; /* aquí puedes cambiar el color del borde */
+    color: black; /* aquí puedes cambiar el color de la letra */
+    border-radius: 20px; 
+    width: 300px;
 }
 
 .btn-green {
@@ -34,49 +48,48 @@ form {
   width: 300px;
 }
 .bordeLogin {
-  background-color: #ff6e59;
-  padding: 10px;
+
+    background-color: #FF6E59; 
+    padding: 10px; 
 }
+
 
 .navbar-brand {
-  font-size: 44px; /* ajusta el tamaño de la fuente a 24 píxeles */
-}
+    font-size: 44px; /* ajusta el tamaño de la fuente a 24 píxeles */
+ }
 
 li {
-  float: right;
+    float: right;
 }
 
 .nav-link {
-  margin-right: 20px;
-  color: #333;
-  font-weight: 500;
-}
+    margin-right: 20px; 
+    color: #333; 
+    font-weight:500;
+  }
 
 .bu {
-  font-size: 14px;
+    font-size: 14px;
 }
 
-.pad {
-  padding-top: 5%;
-  padding-left: 10%;
-  padding-right: 10%;
+.pad{
+    padding-top: 5%;
+    padding-left: 10%;
+    padding-right: 10%;
 }
 
 .no-border {
-  border: none;
+    border: none;
 }
 
-.x {
-  background-color: #ff6e59;
+.x{
+    background-color: #FF6E59;
 }
 
-.text {
-  font-size: large;
+.text{
+    font-size: large;
 }
 
 .navbar-nav {
-  text-align: left;
-}
-h2 {
-  margin-bottom: 2%;
+    text-align: left;
 }
