@@ -25,4 +25,8 @@ export class DriverService {
   listInfoDrivers(): Observable<DtoDriver[]> {
     return this.http.get<DtoDriver[]>(DRIVER_API + 'allDrivers', this.httpOptions);
   }
+
+  createDriver(driver: Driver){
+    return this.http.post<Driver>(DRIVER_API + "driver", driver, this.httpOptions);
+  }
 }
