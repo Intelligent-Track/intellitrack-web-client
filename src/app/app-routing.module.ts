@@ -16,6 +16,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { ManagerListComponent } from './manager-list/manager-list.component';
 import { OperatorListComponent } from './operator-list/operator-list.component';
 import { OperatorCreateComponent } from './operator-create/operator-create.component';
+import { EditProfileClientComponent } from './edit-profile-client/edit-profile-client.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -33,6 +34,7 @@ const routes: Routes = [
   { path: 'manager-list', component: ManagerListComponent },
   { path: 'operator-list', component: OperatorListComponent },
   { path: 'operator-create', component: OperatorCreateComponent },
+  { path: 'edit-profile-client', component: EditProfileClientComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

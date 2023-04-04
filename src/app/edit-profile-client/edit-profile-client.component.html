@@ -1,0 +1,29 @@
+<div class = "container">
+    <div class = "columnas">
+        <div class = "columna">
+            <h1>Editar perfil</h1>
+            <form (ngSubmit)="onSubmit()">
+                <input type="text" placeholder="Nombre" class="form-control custom-input" name="nameAdd" [(ngModel)]="nameClt">
+                <input type="text" placeholder="Correo" class="form-control custom-input" name="idAdd" [(ngModel)]="emailClt">
+                <input type="text" placeholder="Telefono" class="form-control custom-input" name="locationAdd" [(ngModel)]="phoneClt">
+                <input type="text" placeholder="Dirección" class="form-control custom-input" name="phoneAdd" [(ngModel)]="dirClt">
+                <input type="text" placeholder="NIT" class="form-control custom-input" name="emailAdd" [(ngModel)]="nitClt">
+                <input type="text" placeholder="Razon social" class="form-control custom-input" name="emailAdd" [(ngModel)]="socialClt">
+                <button class="btn btn-orange btn-block custom-btn" (ngSubmit)="onSubmit()"> Buscar</button>
+            </form>
+        </div>
+        <div class="columna">
+            <hr>
+        </div>
+        
+        <div class="columna vertical-center">
+           
+            <form (ngSubmit)="onPasswordSubmit()">
+                <h3>Cambiar contraseña</h3>
+                <input type="text" placeholder="Contraseña actual" class="form-control custom-input" name="nameAdd" [(ngModel)]="passwordOld">
+                <input type="text" placeholder="Contraseña nueva" class="form-control custom-input" name="idAdd" [(ngModel)]="passwordNew">
+                <button class="btn btn-orange btn-block custom-btn" (ngSubmit)="onPasswordSubmit()"> Cambiar contraseña</button>
+            </form>
+        </div>
+    </div>
+</div>

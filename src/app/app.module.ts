@@ -20,6 +20,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { ManagerListComponent } from './manager-list/manager-list.component';
 import { OperatorListComponent } from './operator-list/operator-list.component';
 import { OperatorCreateComponent } from './operator-create/operator-create.component';
+import { EditProfileClientComponent } from './edit-profile-client/edit-profile-client.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { OperatorCreateComponent } from './operator-create/operator-create.compo
     AboutUsComponent,
     ManagerListComponent,
     OperatorListComponent,
-    OperatorCreateComponent
+    OperatorCreateComponent,
+    EditProfileClientComponent
   ],
   imports: [
     BrowserModule,
