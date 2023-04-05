@@ -1,0 +1,118 @@
+<nav class="navbar navbar-expand-lg navbar-light x">
+  <a class="navbar-brand" href="#">
+    <img src="../../assets/whitebrand.png" width="50" height="50" class="d-inline-block align-top" alt="">
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto"> <!-- Agregar la clase ml-auto -->
+      <li class="nav-item">
+        <a class="nav-link text" href="#">Rutas</a>
+      </li>
+      <li class="nav-item text">
+        <a class="nav-link" href="#">Operadores</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text" routerLink="/drivers-list">Conductores</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text  active"><span class="sr-only">(current)</span>Gerentes</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text" href="#">Gastos</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text" href="#">Perfil</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text " >Cerrar sesión</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<Section class="Content">
+  <div class="Columnas">
+      <div class="Columna">
+          <h3>Editar Perfil</h3>
+          <form>
+              <div class="form-group">
+                <input
+                  type="text"
+                  class="form-control custom-input"
+                  placeholder="Nombre"
+                  name="Nombre"
+                  required
+                  minlength="3"
+                  maxlength="20"
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  type="text"
+                  class="form-control custom-input"
+                  placeholder="Correo electronico"
+                  required
+                  minlength="6"
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  placeholder="Numero Telefono"
+                  type="text"
+                  class="form-control custom-input"
+                  required
+                  minlength="6"
+                />
+              </div>
+              <div class="form-group">
+                  <input
+                    placeholder="Direccion"
+                    type="text"
+                    class="form-control custom-input"
+                    required
+                    minlength="6"
+                  />
+                </div>
+                <div class="form-group">
+                  <button class="btn btn-orange btn-block custom-btn">
+                    Guardar
+                  </button>
+                </div>
+            </form>
+      </div>
+      <div class="Columna">
+          <h3>Cambiar contraseña</h3>
+          <form>
+              <div class="form-group">
+                <input
+                  type="password"
+                  class="form-control custom-input"
+                  name="password1"
+                  placeholder="Contraseña"
+                  required
+                  minlength="6"
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  placeholder="Confirmar Contraseña"
+                  type="password"
+                  class="form-control custom-input"
+                  name="password"
+                  required
+                  minlength="6"
+                />
+
+              </div>
+              <div class="form-group">
+                  <button class="btn btn-orange btn-block custom-btn">
+                    Cambiar
+                  </button>
+                </div>
+            </form>
+      </div>
+  </div>
+</Section>

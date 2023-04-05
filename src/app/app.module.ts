@@ -20,6 +20,8 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { ManagerListComponent } from './manager-list/manager-list.component';
 import { OperatorListComponent } from './operator-list/operator-list.component';
 import { OperatorCreateComponent } from './operator-create/operator-create.component';
+import { LogOutComponent } from './log-out/log-out.component';
+import { EditProfileManagerComponent } from './edit-profile-manager/edit-profile-manager.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { OperatorCreateComponent } from './operator-create/operator-create.compo
     AboutUsComponent,
     ManagerListComponent,
     OperatorListComponent,
-    OperatorCreateComponent
+    OperatorCreateComponent,
+    LogOutComponent,
+    EditProfileManagerComponent
   ],
   imports: [
     BrowserModule,
