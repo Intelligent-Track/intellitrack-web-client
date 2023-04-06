@@ -1,29 +1,28 @@
-
-.Container{
-    height: 60vh;
-    align-items: center;
-    display: flex;
-    justify-content:space-around ;
-    flex-direction: column;
+.Container {
+  height: 60vh;
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
 }
 
-.Columnas{
-    width: 50%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+.Columnas {
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
 .custom-input {
-    border-radius: 15px;
-    background-color: #F2F3F7;
-    border: none;
-  }
+  border-radius: 15px;
+  background-color: #f2f3f7;
+  border: none;
+}
 
 .btn-orange {
-    background-color: #FF6E59; /* aquí puedes cambiar el color de fondo */
-    border-color: #FF6E59; /* aquí puedes cambiar el color del borde */
-    color: black; /* aquí puedes cambiar el color de la letra */
-    border-radius: 20px; 
-    width: 300px;
-  }
+  background-color: #ff6e59; /* aquí puedes cambiar el color de fondo */
+  border-color: #ff6e59; /* aquí puedes cambiar el color del borde */
+  color: black; /* aquí puedes cambiar el color de la letra */
+  border-radius: 20px;
+  width: 300px;
+}

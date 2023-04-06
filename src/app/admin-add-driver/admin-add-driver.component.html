@@ -1,0 +1,76 @@
+<Section class="Container">
+    <h3 style="font-size: 200%;">Agregar conductor</h3>
+    <div class="Columnas">
+        <div class="Columna">
+            <form>
+                <div class="form-group">
+                  <input
+                    type="text"
+                    class="form-control custom-input"
+                    placeholder="Nombre"
+                    name="Nombre"
+                    required
+                    minlength="3"
+                    maxlength="20"
+                  />
+                </div>
+                <div class="form-group">
+                    <input
+                      type="text"
+                      class="form-control custom-input"
+                      placeholder="Identificación"
+                      name="Identificación"
+                      required
+                      minlength="3"
+                      maxlength="20"
+                    />
+                </div>
+                <div class="form-group">
+                    <select class="form-control custom-input" required [(ngModel)]="selectedCity">
+                        <option *ngFor="let city of cities" [value]="city">{{ city }}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input
+                      placeholder="Numero Telefono"
+                      type="text"
+                      class="form-control custom-input"
+                      required
+                      minlength="6"
+                    /> 
+                </div>
+                <div class="form-group">
+                  <input
+                    type="text"
+                    class="form-control custom-input"
+                    placeholder="Correo electronico"
+                    required
+                    minlength="6"
+                  />
+                </div>
+                
+              </form>
+        </div>
+        <div class="Columna">
+            <form>
+                <div class="form-group">
+                    <input
+                      placeholder="Licencia"
+                      type="text"
+                      class="form-control custom-input"
+                      required
+                      minlength="6"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <select class="form-control custom-input" required [(ngModel)]="selectedCity">
+                        <option *ngFor="let city of cities" [value]="city">{{ city }}</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <button class="btn btn-orange btn-block custom-btn">Registrar</button>
+                  </div>
+            </form>
+        </div>
+    </div>
+</Section>

@@ -1,0 +1,47 @@
+<div class="Container" style="margin-bottom: 50px;">
+    <h2>Cotiza con nosotros</h2>
+    <p style="margin-bottom: 3%;">Puedes cotizar nuestros servicios con los siguientes datos:</p>
+    <div class="Columnas">
+        <div class="Columna">
+            <form style="margin-top: 30%;">
+                <div class="form-group">
+                    <select class="form-control custom-input" required [(ngModel)]="selectedLoad" name="selectedLoad">
+                        <option value="" disabled selected>Tipo de carga según su volúmen</option>
+                        <option *ngFor="let load of typeLoad" [value]="load">{{ load }}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <select class="form-control custom-input" required [(ngModel)]="selectedOrigin" name="selectOrigin">
+                        <option value="" disabled selected>Ciudad de origen</option>
+                        <option *ngFor="let city of cities" [value]="city">{{ city }}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <select class="form-control custom-input" required [(ngModel)]="selectedDes" name="selectedDes">
+                        <option value="" disabled selected>Ciudad de destino</option>
+                        <ng-container *ngFor="let city of cities">
+                            <option *ngIf="city !== selectedOrigin" [value]="city">{{ city }}</option>
+                        </ng-container>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input [(ngModel)]="weightLoad" placeholder="Peso de la carga (kg)" type="number"
+                        class="form-control custom-input" required />
+                </div>
+                <div class="form-group">
+                    <input type="date" class="form-control datepicker custom-input" name="fecha"
+                        placeholder="Fecha de entrega" [(ngModel)]="selectedDate" />
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-orange btn-block custom-btn">Cotizar</button>
+                </div>
+            </form>
+        </div>
+        <div class="Columna2">
+            <img src="assets/brandquote.png" width="400" height="400" class="d-inline-block " alt="">
+            <p class="infoImage">El precio por usar nuestro servicio con sus especifícaciones son:</p>
+            <p class="infoQuote">$$$$$$$</p>
+        </div>
+    </div>
+
+</div>
