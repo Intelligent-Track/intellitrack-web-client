@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { StorageService } from '../_services/storage.service';
 import { AuthService } from '../_services/auth.service';
@@ -22,8 +22,20 @@ export class HomeComponent implements OnInit {
   showCustumerBoard = false;
   username?: string;
   activeMenu: string = 'perfil';
+  isScrolled = false;
 
   constructor(private storageService: StorageService, private authService: AuthService, private router: Router, private route: ActivatedRoute) { }
+
+
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    if (scrollTop > 100) {
+      this.isScrolled = true;
+    } else {
+      this.isScrolled  = false;
+    }
+  }
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
@@ -84,5 +96,15 @@ export class HomeComponent implements OnInit {
         console.log(err);
       }
     });
+  }
+
+  scrollTo(target: string) {
+    const element = document.querySelector(target);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      console.error('El elemento no existe');
+    }
+     
   }
 }

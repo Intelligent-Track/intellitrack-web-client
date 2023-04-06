@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { DtoDriver } from '../dto/dto-driver';
 import { Driver } from '../model/driver';
 
-const DRIVER_API = 'http://localhost:8080/api/driver/';
+const DRIVER_API = 'http://localhost:8080/api/adm/';
 
 @Injectable({
   providedIn: 'root'

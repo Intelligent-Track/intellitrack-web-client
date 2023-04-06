@@ -1,3 +1,3 @@
 export class Driver {
-    constructor(public id: number, public fullName: string, public email: string, public phoneNumber: number) { }
+    constructor(public fullName: string, public email: string, public phoneNumber: number, public location: string, public idManager: string) { }
 }

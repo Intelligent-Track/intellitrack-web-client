@@ -20,6 +20,9 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { ManagerListComponent } from './manager-list/manager-list.component';
 import { OperatorListComponent } from './operator-list/operator-list.component';
 import { OperatorCreateComponent } from './operator-create/operator-create.component';
+import { AdminAddDriverComponent } from './admin-add-driver/admin-add-driver.component';
+import { QuoteServicesComponent } from './quote-services/quote-services.component';
+import { MovilMocksComponent } from './movil-mocks/movil-mocks.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +41,10 @@ import { OperatorCreateComponent } from './operator-create/operator-create.compo
     AboutUsComponent,
     ManagerListComponent,
     OperatorListComponent,
-    OperatorCreateComponent
+    OperatorCreateComponent,
+    AdminAddDriverComponent,
+    QuoteServicesComponent,
+    MovilMocksComponent
   ],
   imports: [
     BrowserModule,
