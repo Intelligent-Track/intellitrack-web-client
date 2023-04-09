@@ -1,99 +1,52 @@
 <header class="Continer">
   <section class="SeccionSU">
     <div class="mi-seccion-titulo">
-      <img src="assets/icono.png" width="100" alt="Título con imagen" (click)="navegarAPantallaInicial()"> 
+      <img src="assets/icono.png" width="100" alt="Título con imagen" (click)="navegarAPantallaInicial()">
       <h4>IntelliTrack</h4>
-      <p class="parrafo">Bienvenido(a) a IntelliTrack, por favor coloca tus credenciales para empezar a usar la mejor aplicación de logística y transporte.</p>
+      <p class="parrafo">Bienvenido(a) a IntelliTrack, por favor coloca tus credenciales para empezar a usar la mejor
+        aplicación de logística y transporte.</p>
     </div>
     <div class="sectionForm">
       <div class="mi-seccion-columna mi-seccion-columna-izquierda">
         <div class="formContainer">
           <form>
-          <div class="form-group">
-            <input
-              type="text"
-              class="form-control custom-input"
-              placeholder="Nombre"
-              name="Nombre"
-              [(ngModel)]="form.username"
-              required
-              minlength="3"
-              maxlength="20"
-              #username="ngModel"
-            />
-          </div>
-          <div class="form-group">
-            <input
-              type="password"
-              class="form-control custom-input"
-              name="password1"
-              placeholder="Contraseña"
-              [(ngModel)]="form.password"
-              required
-              minlength="6"
-              #password1="ngModel"
-            />
-          </div>
-          <div class="form-group">
-            <input
-              placeholder="Confirmar Contraseña"
-              type="password"
-              class="form-control custom-input"
-              name="password"
-              [(ngModel)]="form.password1"
-              required
-              minlength="6"
-              #password="ngModel"
-            />
+            <div class="form-group">
+              <input type="text" class="form-control custom-input" placeholder="Nombre" name="Nombre"
+                [(ngModel)]="form.username" required minlength="3" maxlength="20" #username="ngModel" />
+            </div>
+            <div class="form-group">
+              <input type="password" class="form-control custom-input" name="password1" placeholder="Contraseña"
+                [(ngModel)]="form.password" required minlength="6" #password1="ngModel" />
+            </div>
+            <div class="form-group">
+              <input placeholder="Confirmar Contraseña" type="password" class="form-control custom-input"
+                name="password" [(ngModel)]="form.password1" required minlength="6" #password="ngModel" />
 
-          </div>
-        </form>
+            </div>
+          </form>
         </div>
       </div>
       <div class="mi-seccion-columna mi-seccion-columna-derecha">
         <div class="formContainer">
           <form>
-        <div class="form-group">
-          <input
-            type="email"
-            class="form-control custom-input"
-            name="Correo Electronico"
-            [(ngModel)]="form.email"
-            placeholder="Correo electronico"
-            required
-            email
-            #email="ngModel"
-          />
-        </div>
-          <div class="form-group">
-            <input
-              type="text"
-              class="form-control custom-input"
-              name="username"
-              [(ngModel)]="form.enterprisename"
-              placeholder="Nombre de la Empresa"
-              required
-              minlength="3"
-              maxlength="20"
-              #username="ngModel"            />
-          </div>
-          <div class="form-group">
-            <input
-              type="email"
-              class="form-control custom-input input-lg"
-              name="email"
-              placeholder="Descripcion"
-              [(ngModel)]="form.desciption"
-              required
-              email
-              #email="ngModel"            />
-          </div>
-        </form>
+            <div class="form-group">
+              <input type="email" class="form-control custom-input" name="Correo Electronico" [(ngModel)]="form.email"
+                placeholder="Correo electronico" required email #email="ngModel" />
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control custom-input" name="username" [(ngModel)]="form.enterprisename"
+                placeholder="Nombre de la Empresa" required minlength="3" maxlength="20" #username="ngModel" />
+            </div>
+            <div class="form-group">
+              <input type="email" class="form-control custom-input input-lg" name="email" placeholder="Descripcion"
+                [(ngModel)]="form.desciption" required email #email="ngModel" />
+            </div>
+          </form>
         </div>
       </div>
     </div>
     <div class="form-group">
-      <button class="btn btn-orange btn-block custom-btn">Regístrate</button>
+      <button (click)="onSubmit()" class="btn btn-orange btn-block custom-btn">Regístrate</button>
     </div>
     <div class="iniciarconten">
       ¿Ya tiene cuenta?
