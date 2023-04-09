@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DtoDriver} from '../dto/dto-driver';
 import { DriverService } from '../_services/driver.service';
+import { Driver } from '../model/driver';
+import { AdminService } from '../_services/admin.service';
 
 @Component({
   selector: 'app-drivers-list',
@@ -9,12 +11,12 @@ import { DriverService } from '../_services/driver.service';
 })
 export class DriversListComponent implements OnInit {
 
-  infoDrivers: DtoDriver[] | undefined;
+  infoDrivers: Driver[] | undefined;
 
-  constructor(private driverService: DriverService) { }
+  constructor(private adminService: AdminService) { }
 
   ngOnInit(): void {
-    this.driverService.listInfoDrivers().subscribe(driver => {
+    this.adminService.listAllDrivers().subscribe(driver => {
       this.infoDrivers = driver
     });
   }

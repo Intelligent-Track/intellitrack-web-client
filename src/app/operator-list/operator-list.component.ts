@@ -4,6 +4,8 @@ import { skip } from 'rxjs';
 import { DtoOperator } from '../dto/dto-operator';
 import { Operator } from '../model/operator';
 import { OperatorService } from '../_services/operator.service';
+import { ManagerService } from '../_services/manager.service';
+import { AdminService } from '../_services/admin.service';
 
 @Component({
   selector: 'app-operator-list',
@@ -13,25 +15,25 @@ import { OperatorService } from '../_services/operator.service';
 export class OperatorListComponent implements OnInit {
 
   operators: Operator[] | undefined;
-  infoOperators: DtoOperator[] | undefined;
+  infoOperators: Operator[] | undefined;
   operatorSearch: string | undefined;
 
   constructor(
-    private operatorService: OperatorService,
+    private adminService: AdminService,
     private route: ActivatedRoute,
     private router: Router
   ) { }
 
   ngOnInit(): void {
-    this.operatorService.listInfoOperators().subscribe(listInfo => {
+    this.adminService.listAllOperators().subscribe(listInfo => {
       this.infoOperators = listInfo
     });
     
   }
 
-  deleteOperator(operator: DtoOperator){
-    this.operatorService.unlinkManagerOperator(operator.id ,operator.managerId).subscribe(() => {
-      this.operatorService.deleteOperator(operator.id).subscribe(() => {
+  deleteOperator(operator: Operator){
+    this.adminService.unlinkManagerOperator(operator.id, 0).subscribe(() => {
+      this.adminService.deleteOperator(operator.id).subscribe(() => {
         this.router.navigateByUrl('/', { skipLocationChange: true}).then(() => {
           this.router.navigate(['/operator-list'])
         })

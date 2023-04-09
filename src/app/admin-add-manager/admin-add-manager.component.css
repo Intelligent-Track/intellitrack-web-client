@@ -1,11 +1,3 @@
-.Container {
-  height: 60vh;
-  align-items: center;
-  display: flex;
-  justify-content: space-around;
-  flex-direction: column;
-}
-
 .Columnas {
   width: 50%;
   display: flex;
@@ -25,4 +17,54 @@
   color: black; /* aquí puedes cambiar el color de la letra */
   border-radius: 20px;
   width: 300px;
+}
+
+
+.bordeLogin {
+  background-color: #ff6e59;
+  padding: 10px;
+}
+
+.navbar-brand {
+  font-size: 44px;
+  /* ajusta el tamaño de la fuente a 24 píxeles */
+}
+
+li {
+  float: right;
+}
+
+.nav-link {
+  margin-right: 20px;
+
+}
+
+.bu {
+  font-size: 14px;
+}
+
+.pad {
+  padding-top: 5%;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.no-border {
+  border: none;
+}
+
+.x {
+  background-color: #ff6e59;
+}
+
+.text {
+  font-size: large;
+}
+
+.navbar-nav {
+  text-align: left;
+}
+
+h2 {
+  margin-bottom: 2%;
 }

@@ -19,12 +19,4 @@ export class ManagerService {
   }
   constructor(private http: HttpClient) { }
 
-  listAllManagers(): Observable<Manager[]> {
-    return this.http.get<Manager[]>(`${environment.apiUrl}/${SERVICE_PATH}/allManagers`, this.httpOptions);
-  }
-
-  listInfoManagers(): Observable<DtoManager[]> {
-    return this.http.get<DtoManager[]>(`${environment.apiUrl}/${SERVICE_PATH}/allManagers`, this.httpOptions);
-  }
-
 }

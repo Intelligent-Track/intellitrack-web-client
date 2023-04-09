@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DtoManager } from '../dto/dto-manager';
 import { ManagerService } from '../_services/manager.service';
+import { AdminService } from '../_services/admin.service';
+import { Manager } from '../model/manager';
 
 @Component({
   selector: 'app-manager-list',
@@ -9,14 +11,14 @@ import { ManagerService } from '../_services/manager.service';
 })
 export class ManagerListComponent implements OnInit {
 
-  infoManagers: DtoManager[] | undefined;
+  infoManagers: Manager[] | undefined;
 
   managerSearch: string | undefined;
 
-  constructor(private managerService: ManagerService) { }
+  constructor(private adminService: AdminService) { }
 
   ngOnInit(): void {
-    this.managerService.listInfoManagers().subscribe(mans => {
+    this.adminService.listAllManagers().subscribe(mans => {
       this.infoManagers = mans
     });
   }
