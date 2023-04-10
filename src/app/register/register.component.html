@@ -21,6 +21,9 @@
               maxlength="20"
               #username="ngModel"
             />
+            <div *ngIf="form.usernameisValid" class="text-danger">
+              El nombre debe tener entre 3 y 20 caracteres
+            </div>
           </div>
           <div class="form-group">
             <input
@@ -32,7 +35,11 @@
               required
               minlength="6"
               #password1="ngModel"
+              (ngModelChange)="validatePasswords()"
             />
+            <div *ngIf="form.passwordisValid" class="text-danger">
+              Ingrese Contraseña valida
+            </div>
           </div>
           <div class="form-group">
             <input
@@ -44,8 +51,13 @@
               required
               minlength="6"
               #password="ngModel"
+              (ngModelChange)="validatePasswords()"
             />
+            <div *ngIf="form.passwordMismatch" class="text-danger">
+              Las contraseñas no coinciden
+            </div>
           </div>
+          
           <div class="form-group">
             <input
               type="number"
@@ -57,6 +69,24 @@
               minlength="3"
               maxlength="20"
             />
+            <div *ngIf="form.phonenumberisValid" class="text-danger">
+              El número de teléfono debe tener entre 3 y 20 caracteres
+            </div>
+          </div>
+          <div class="form-group">
+            <input
+              type="number"
+              class="form-control custom-input"
+              placeholder="Cedula"
+              [(ngModel)]="form.cedula"
+              name="Nombre"
+              required
+              minlength="3"
+              maxlength="20"
+            />
+            <div *ngIf="form.cedulaisValid" class="text-danger">
+              La cédula debe tener entre 3 y 20 caracteres
+            </div>
           </div>
         </form>
         </div>
@@ -75,6 +105,9 @@
             email
             #email="ngModel"
           />
+          <div *ngIf="form.emailisValid" class="text-danger">
+            El correo electrónico no es válido
+          </div>
         </div>
           <div class="form-group">
             <input
@@ -85,6 +118,9 @@
               required
               minlength="3"
               maxlength="20"          />
+              <div *ngIf="form.enterprisenameisValid" class="text-danger">
+                El nombre de la empresa debe tener entre 3 y 20 caracteres
+              </div>
           </div>
           <div class="form-group">
             <input
@@ -97,6 +133,8 @@
               minlength="3"
               maxlength="20" 
             />
+            <div *ngIf="form.nitisValid" class="text-danger">
+              El nit de la empresa debe tener entre 3 y 20 caracteres            </div>
           </div>
           <div class="form-group">
             <input
@@ -107,13 +145,15 @@
               required
               minlength="3"
               maxlength="20"/>
+              <div *ngIf="form.positionisValid" class="text-danger">
+                El cargo de la empresa debe tener entre 3 y 20 caracteres              </div>
           </div>
         </form>
         </div>
       </div>
     </div>
     <div class="form-group">
-      <button class="btn btn-orange btn-block custom-btn">Regístrate</button>
+      <button class="btn btn-orange btn-block custom-btn"  (click)="register()">Crear Cuenta</button>
     </div>
     <div class="iniciarconten">
       ¿Ya tiene cuenta?
