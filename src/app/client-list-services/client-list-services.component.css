@@ -49,38 +49,28 @@ header {
   .navbar-nav {
     text-align: left;
   }
-.container{
-    position: absolute;
-    top: 30%;
-    left: 50%;
-    transform: translate(-50%, -30%);
-}
 
-.btn-orange {
+  .filter{
+    justify-content: space-around;
+    width: 400px;
+    display: flex;
+    flex-direction: row;
+  }
+  .btn-orange {
     background-color: #FF6E59; /* aquí puedes cambiar el color de fondo */
     border-color: #FF6E59; /* aquí puedes cambiar el color del borde */
     color: black; /* aquí puedes cambiar el color de la letra */
     border-radius: 20px; 
-    width: 10vw;
-}
-
-.form-control {
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    padding: 5px 10px;
-}
-
-.custom-input {
-    border-radius: 15px;
-    background-color: #F2F3F7;
-    border: none;
-    width: 20vw;
-}
-
-input{
-    margin: 2%;
-}
-
-button{
-    margin: 2%
-}
+    width: 200px;
+    height: 30px;
+  }
+  
+  .custom-btn:focus,
+  .custom-btn:hover {
+    background-color: #FF6E59; /* aquí puedes cambiar el color de fondo en estado :hover y :focus */
+    border-color: #FF6E59; /* aquí puedes cambiar el color del borde en estado :hover y :focus */
+    color: black; /* aquí puedes cambiar el color de la letra en estado :hover y :focus */
+    box-shadow: none; /* aquí puedes cambiar la sombra */
+    align-items: center;
+  }
+  

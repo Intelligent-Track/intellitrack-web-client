@@ -23,6 +23,7 @@ import { OperatorCreateComponent } from './operator-create/operator-create.compo
 import { AdminAddDriverComponent } from './admin-add-driver/admin-add-driver.component';
 import { QuoteServicesComponent } from './quote-services/quote-services.component';
 import { MovilMocksComponent } from './movil-mocks/movil-mocks.component';
+import { ClientListServicesComponent } from './client-list-services/client-list-services.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { MovilMocksComponent } from './movil-mocks/movil-mocks.component';
     OperatorCreateComponent,
     AdminAddDriverComponent,
     QuoteServicesComponent,
-    MovilMocksComponent
+    MovilMocksComponent,
+    ClientListServicesComponent
   ],
   imports: [
     BrowserModule,
