@@ -24,6 +24,7 @@ import { AdminAddDriverComponent } from './admin-add-driver/admin-add-driver.com
 import { QuoteServicesComponent } from './quote-services/quote-services.component';
 import { MovilMocksComponent } from './movil-mocks/movil-mocks.component';
 import { ClientListServicesComponent } from './client-list-services/client-list-services.component';
+import { ManagerListWarehouseComponent } from './manager-list-warehouse/manager-list-warehouse.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { ClientListServicesComponent } from './client-list-services/client-list-
     AdminAddDriverComponent,
     QuoteServicesComponent,
     MovilMocksComponent,
-    ClientListServicesComponent
+    ClientListServicesComponent,
+    ManagerListWarehouseComponent
   ],
   imports: [
     BrowserModule,
