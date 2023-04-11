@@ -23,6 +23,9 @@ import { OperatorCreateComponent } from './operator-create/operator-create.compo
 import { AdminAddDriverComponent } from './admin-add-driver/admin-add-driver.component';
 import { QuoteServicesComponent } from './quote-services/quote-services.component';
 import { MovilMocksComponent } from './movil-mocks/movil-mocks.component';
+import { ChangePasswordRequestComponent } from './change-password-request/change-password-request.component';
+import { ChangePasswordSendedComponent } from './change-password-sended/change-password-sended.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +47,10 @@ import { MovilMocksComponent } from './movil-mocks/movil-mocks.component';
     OperatorCreateComponent,
     AdminAddDriverComponent,
     QuoteServicesComponent,
-    MovilMocksComponent
+    MovilMocksComponent,
+    ChangePasswordRequestComponent,
+    ChangePasswordSendedComponent,
+    ChangePasswordComponent
   ],
   imports: [
     BrowserModule,

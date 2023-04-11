@@ -17,6 +17,9 @@ import { ManagerListComponent } from './manager-list/manager-list.component';
 import { OperatorListComponent } from './operator-list/operator-list.component';
 import { OperatorCreateComponent } from './operator-create/operator-create.component';
 import { AdminAddDriverComponent } from './admin-add-driver/admin-add-driver.component';
+import { ChangePasswordRequestComponent } from './change-password-request/change-password-request.component';
+import { ChangePasswordSendedComponent } from './change-password-sended/change-password-sended.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -35,6 +38,9 @@ const routes: Routes = [
   { path: 'operator-list', component: OperatorListComponent },
   { path: 'operator-create', component: OperatorCreateComponent },
   { path: 'driver-create', component: AdminAddDriverComponent },
+  { path: 'change-password-r', component: ChangePasswordRequestComponent },
+  { path: 'change-password-s', component: ChangePasswordSendedComponent},
+  { path: 'change-password', component: ChangePasswordComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 
