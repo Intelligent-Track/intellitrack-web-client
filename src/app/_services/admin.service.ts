@@ -7,6 +7,7 @@ import { environment } from 'src/environments/environment';
 import { Driver } from '../model/driver';
 import { Operator } from '../model/operator';
 import { DtoLinkOperatorManager } from '../dto/dto-link-operator-manager';
+import { DtoOperator } from '../dto/dto-operator';
 
 const SERVICE_PATH = "users/api/adm"
 
@@ -46,16 +47,12 @@ export class AdminService {
     return this.http.get<Operator[]>(`${environment.apiUrl}/${SERVICE_PATH}/GetOperators`, this.httpOptions);
   }
 
-  deleteOperator(id: number){
-    return this.http.delete<Operator>(`${environment.apiUrl}/${SERVICE_PATH}/operator/` + id, this.httpOptions);
+  deleteOperator(username: string){
+    return this.http.delete<Operator>(`${environment.apiUrl}/${SERVICE_PATH}/DeleteOperator/` + username, this.httpOptions);
   }
 
-  createOperator(operator: Operator){
+  createOperator(operator: DtoOperator){
     return this.http.post<Operator>(`${environment.apiUrl}/${SERVICE_PATH}/OperatorCreate`, operator, this.httpOptions);
-  }
-
-  unlinkManagerOperator(idOperator: number, idManager: number){
-    return this.http.put(`${environment.apiUrl}/${SERVICE_PATH}/unlinkOperatorManager`, new DtoLinkOperatorManager(idManager, idOperator), this.httpOptions);
   }
 
 }

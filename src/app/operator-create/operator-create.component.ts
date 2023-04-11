@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Operator } from '../model/operator';
 import { OperatorService } from '../_services/operator.service';
 import { AdminService } from '../_services/admin.service';
+import { DtoOperator } from '../dto/dto-operator';
 
 @Component({
   selector: 'app-operator-create',
@@ -17,6 +18,7 @@ export class OperatorCreateComponent implements OnInit {
   phoneOpt: number | undefined;
   emailOpt: string = "";
   documentOpt: string = "";
+  passwordOpt: string = "";
 
   constructor(
     private adminService: AdminService,
@@ -28,11 +30,13 @@ export class OperatorCreateComponent implements OnInit {
   }
 
   onSubmit(){
-    if(this.nameOpt && this.idOpt && this.emailOpt ){
-      this.adminService.createOperator(new Operator(this.idOpt!, this.nameOpt, this.emailOpt, this.idOpt, this.phoneOpt!, "Operator",this.locationOpt, "")).subscribe(() => {
+    if(this.nameOpt && this.idOpt && this.emailOpt && this.phoneOpt && this.documentOpt && this.passwordOpt){
+      this.adminService.createOperator(new DtoOperator(this.nameOpt, this.emailOpt, this.passwordOpt, this.idOpt, this.phoneOpt!, "Operator",this.locationOpt, "gabss@gmail.com")).subscribe(() => {
         this.router.navigate(['operator-list'])
       }
       );
+    }else{
+
     }
   }
 

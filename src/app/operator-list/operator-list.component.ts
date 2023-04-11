@@ -32,14 +32,11 @@ export class OperatorListComponent implements OnInit {
   }
 
   deleteOperator(operator: Operator){
-    this.adminService.unlinkManagerOperator(operator.id, 0).subscribe(() => {
-      this.adminService.deleteOperator(operator.id).subscribe(() => {
-        this.router.navigateByUrl('/', { skipLocationChange: true}).then(() => {
-          this.router.navigate(['/operator-list'])
-        })
+    this.adminService.deleteOperator(operator.username).subscribe(() => {
+      this.router.navigateByUrl('/', { skipLocationChange: true}).then(() => {
+        this.router.navigate(['/operator-list'])
       })
     });
-    
   }
 
   onSubmit(){

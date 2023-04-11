@@ -17,6 +17,7 @@ import { ManagerListComponent } from './manager-list/manager-list.component';
 import { OperatorListComponent } from './operator-list/operator-list.component';
 import { OperatorCreateComponent } from './operator-create/operator-create.component';
 import { AdminAddDriverComponent } from './admin-add-driver/admin-add-driver.component';
+import { WarehouseListComponent } from './warehouse-list/warehouse-list.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -35,6 +36,7 @@ const routes: Routes = [
   { path: 'operator-list', component: OperatorListComponent },
   { path: 'operator-create', component: OperatorCreateComponent },
   { path: 'driver-create', component: AdminAddDriverComponent },
+  { path: 'warehouse-list', component: WarehouseListComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 
