@@ -12,4 +12,7 @@ export class AdminAddManagerComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onSubmit(){
+    
+  }
 }

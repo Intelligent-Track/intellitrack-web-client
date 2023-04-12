@@ -9,90 +9,57 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav ml-auto"> <!-- Agregar la clase ml-auto -->
       <li class="nav-item">
-        <a class="nav-link text" href="#"style="color: white;font-weight: 200;">Rutas</a>
+        <a class="nav-link text" href="#" style="color: white;font-weight: 200;">Rutas</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text active" style="color: white; font-weight: 500;"><span class="sr-only">(current)</span>Operadores</a>
+        <a class="nav-link text" routerLink="/operator-list" style="color: white; font-weight: 200;"><span
+            class="sr-only">(current)</span>Operadores</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text" routerLink="/drivers-list"style="color: white; font-weight: 200;">Conductores</a>
+        <a class="nav-link text" routerLink="/drivers-list" style="color: white; font-weight: 200;">Conductores</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text" routerLink="/manager-list" style="color: white; font-weight: 200;">Gerentes</a>
+        <a class="nav-link text active" routerLink="/manager-list" style="color: white; font-weight: 500;">Gerentes</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text" style="color: white; font-weight: 200;"href="#">Gastos</a>
+        <a class="nav-link text" style="color: white; font-weight: 200;" href="#">Gastos</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text" style="color: white; font-weight: 200;"href="#">Perfil</a>
+        <a class="nav-link text" style="color: white; font-weight: 200;" href="#">Perfil</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text "style="color: white; font-weight: 200;">Cerrar sesión</a>
+        <a class="nav-link text " style="color: white; font-weight: 200;">Cerrar sesión</a>
       </li>
     </ul>
   </div>
 </nav>
 
-<Section class="pad">
-    <h3>Agregar gerente</h3>
-    <div class="Columnas">
-        <div class="Columna">
-            <form>
-                <div class="form-group">
-                  <input
-                    type="text"
-                    class="form-control custom-input"
-                    placeholder="Nombre"
-                    name="Nombre"
-                    required
-                    minlength="3"
-                    maxlength="20"
-                  />
-                </div>
-                <div class="form-group">
-                  <input
-                    type="text"
-                    class="form-control custom-input"
-                    placeholder="Correo electronico"
-                    required
-                    minlength="6"
-                  />
-                </div>
-                <div class="form-group">
-                  <input
-                    placeholder="Numero Telefono"
-                    type="text"
-                    class="form-control custom-input"
-                    required
-                    minlength="6"
-                  />
-                </div>
-              </form>
-        </div>
-        <div class="Columna">
-            <form>
-                <div class="form-group">
-                    <input
-                      placeholder="Puesto Cargo"
-                      type="text"
-                      class="form-control custom-input"
-                      required
-                      minlength="6"
-                    />
-                  </div>
-                  <div class="form-group">
-                    <input
-                      placeholder="Direccion"
-                      type="text"
-                      class="form-control custom-input"
-                      required
-                      minlength="6"
-                    />
-                  </div>
-                  <div class="form-group">
-                    <button class="btn btn-orange btn-block custom-btn">Registrar</button>
-                  </div>
-            </form>
-        </div>
+<div class="pad">
+  <h3>Agregar gerente</h3>
+  <form (ngSubmit)="onSubmit()" class="was-validated">
+    <div class="form-group">
+      <input type="text" class="form-control custom-input" placeholder="Nombre" name="Nombre" required minlength="3"
+        maxlength="20" />
     </div>
-</Section>
+    <div class="form-group">
+      <input type="text" class="form-control custom-input" placeholder="Correo electronico" required minlength="6" />
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control custom-input" placeholder="Usuario" required minlength="6" />
+    </div>
+    <div class="form-group">
+      <input placeholder="Numero Telefono" type="text" class="form-control custom-input" required minlength="6" />
+    </div>
+  </form>
+  <form>
+    <div class="form-group">
+      <input placeholder="Puesto Cargo" type="text" class="form-control custom-input" required minlength="6" />
+    </div>
+    <div class="form-group">
+      <input placeholder="Direccion" type="text" class="form-control custom-input" required minlength="6" />
+    </div>
+    <div class="form-group">
+      <button class="btn btn-orange btn-block custom-btn">Registrar</button>
+    </div>
+  </form>
+</div>

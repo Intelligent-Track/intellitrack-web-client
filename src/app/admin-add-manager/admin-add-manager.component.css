@@ -9,6 +9,7 @@
   border-radius: 15px;
   background-color: #f2f3f7;
   border: none;
+  width: 20vw;
 }
 
 .btn-orange {
@@ -16,9 +17,8 @@
   border-color: #ff6e59; /* aquí puedes cambiar el color del borde */
   color: black; /* aquí puedes cambiar el color de la letra */
   border-radius: 20px;
-  width: 300px;
+  width: 10vw;
 }
-
 
 .bordeLogin {
   background-color: #ff6e59;

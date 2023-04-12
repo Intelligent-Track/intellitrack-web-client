@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Warehouse } from '../model/warehouse';
 import { WarehouseService } from '../_services/warehouse.service';
+import { City } from '../model/city';
+import { Type } from '../model/type';
 
 @Component({
   selector: 'app-warehouse-list',
@@ -10,10 +12,10 @@ import { WarehouseService } from '../_services/warehouse.service';
 export class WarehouseListComponent implements OnInit {
 
   infoWarehouses: Warehouse[] | undefined;
-  cities: string[] | undefined;
-  types: string[] | undefined;
-  selectedCity: string | undefined;
-  selectedType: string | undefined;
+  cities: City[] | undefined;
+  types: Type[] | undefined;
+  selectedCity: City | undefined;
+  selectedType: Type | undefined;
   capacity: number | undefined;
 
   constructor(
@@ -24,15 +26,21 @@ export class WarehouseListComponent implements OnInit {
     this.warehouseService.listAllWarehouse().subscribe(listWarehouse => {
       this.infoWarehouses = listWarehouse
     });
+    this.warehouseService.listAllCities().subscribe(listCities => {
+      this.cities = listCities
+    });
+    this.warehouseService.listAllTypes().subscribe(listTypes =>{
+      this.types = listTypes
+    });
   }
 
   onSearchSubmit(){
     if(!this.capacity && !this.selectedType){
-      this.warehouseService.listWarehouseByCity(this.selectedCity!).subscribe(listWarehouse => {
+      this.warehouseService.listWarehouseByCity(this.selectedCity!.id).subscribe(listWarehouse => {
         this.infoWarehouses = listWarehouse
       })
     }else if(!this.selectedCity && !this.capacity){
-      this.warehouseService.listWarehouseByType(this.selectedType!).subscribe(listWarehouse => {
+      this.warehouseService.listWarehouseByType(this.selectedType!.id).subscribe(listWarehouse => {
         this.infoWarehouses = listWarehouse
       })
     }else{

@@ -28,22 +28,29 @@
 <div class="pad">
     <h2>Bodegas</h2>
     <div class="input-group pb-2">
-        <select name="cities" id="cities"  [(ngModel)]="selectedCity">
-            <option value="">  </option>
-            <option [ngValue]="city" *ngFor="let city of cities">{{city}}</option>
-        </select>
-        <select class="form-select" name="types" id="types" [(ngModel)]="selectedType">
-            <option value="">  </option>
-            <option [ngValue]="type" *ngFor="let type of types">{{type}}</option>
-        </select>
-        <input type="number" placeholder="Capacidad requerida" class="form-control border" [(ngModel)]="capacity">
-        <div class="input-group-append ml-5">
-            <form (ngSubmit)="onSearchSubmit()">
-                <button class="btn btn-outline-secondary border-0  bu">
-                    <i class="fa fa-search"></i> 
-                </button>
-            </form>
+        <div>
+            <span class="">Filtrar por ciudad</span>
+            <select class="form-select" name="cities" id="cities" *ngIf="cities" [(ngModel)]="selectedCity" >
+                <option value=""></option>
+                <option [ngValue]="city" *ngFor="let city of cities">{{city.name}}</option>
+            </select>
         </div>
+        <div>
+            <span class="">Filtrar por tipo</span>
+            <select class="form-select" name="types" id="types" *ngIf="types" [(ngModel)]="selectedType">
+                <option value=""></option>
+                <option [ngValue]="type" *ngFor="let type of types">{{type.name}}</option>
+            </select>
+        </div>
+        <div class="vertical">
+            <span class="">Capacidad</span>
+            <input  type="number" class="form-control search-input" placeholder="m³" id="validationDefault01" class="" [(ngModel)]="capacity">
+        </div>
+        <form (ngSubmit)="onSearchSubmit()">
+            <button class="btn btn-outline-secondary border-0 search bu">
+                <i class="fa  fa-search"></i> 
+            </button>
+        </form>
     </div>
 
 
@@ -56,7 +63,7 @@
                     <th scope="col">Dirección</th>
                     <th scope="col">Capacidad</th>
                     <th scope="col">Tipo</th>
-                    <th scope="col">Costo por m3</th>
+                    <th scope="col">Costo por m³</th>
                     <th class="no-border"></th>
                 </tr>
             </thead>
@@ -64,12 +71,11 @@
                 <ng-container *ngIf="infoWarehouses">
                     <tr *ngFor="let infoOperator of infoWarehouses">
                         <td scope="row">{{infoOperator.id}}</td>
-                        <td>{{infoOperator.id}}</td>
-                        <td>{{infoOperator.city}}</td>
+                        <td>{{infoOperator.city.name}}</td>
                         <td>{{infoOperator.address}}</td>
                         <td>{{infoOperator.capacity}}</td>
-                        <td>{{infoOperator.type}}</td>
-                        <td>{{infoOperator.costPerM3}}</td>
+                        <td>{{infoOperator.type.name}}</td>
+                        <td>COP {{infoOperator.costPerM3}}</td>
                         <td class="no-border">
                             <div class="btn-group" role="group">
                                 <button class="btn btn-lg" type="button">

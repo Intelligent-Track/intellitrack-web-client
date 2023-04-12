@@ -47,6 +47,24 @@ h2 {
     margin-bottom: 2%;
 }
 
+select{
+    width: 8vw;
+    margin-right: 3%;
+    height: 3vh;
+}
+
+.vertical{
+    display: flex;
+    flex-direction: column;
+}
+
 input{
-    width: 30pt;
+    width: 4vw;
+    height: 3vh;
+    text-align: center;
+}
+
+.search{
+    margin-top: 1.5vh;
+    margin-left: 2vh;
 }

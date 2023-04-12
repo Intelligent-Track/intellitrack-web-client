@@ -17,8 +17,8 @@ const SERVICE_PATH = "users/api/adm"
 export class AdminService {
 
   private httpOptions = {
-    headers : new HttpHeaders({
-      "Content-Type" : "application/json"
+    headers: new HttpHeaders({
+      "Content-Type": "application/json"
     })
   }
 
@@ -31,27 +31,27 @@ export class AdminService {
   }
 
   //Conductores
-  
+
   listAllDrivers(): Observable<Driver[]> {
     return this.http.get<Driver[]>(`${environment.apiUrl}/${SERVICE_PATH}/GetDrivers`, this.httpOptions);
   }
 
-  createDriver(driver: Driver){
+  createDriver(driver: Driver) {
     return this.http.post<Driver>(`${environment.apiUrl}/${SERVICE_PATH}/driver`, driver, this.httpOptions);
   }
 
   //Operadores
 
-  
-  listAllOperators(): Observable<Operator[]>{
+
+  listAllOperators(): Observable<Operator[]> {
     return this.http.get<Operator[]>(`${environment.apiUrl}/${SERVICE_PATH}/GetOperators`, this.httpOptions);
   }
 
-  deleteOperator(username: string){
+  deleteOperator(username: string) {
     return this.http.delete<Operator>(`${environment.apiUrl}/${SERVICE_PATH}/DeleteOperator/` + username, this.httpOptions);
   }
 
-  createOperator(operator: DtoOperator){
+  createOperator(operator: DtoOperator) {
     return this.http.post<Operator>(`${environment.apiUrl}/${SERVICE_PATH}/OperatorCreate`, operator, this.httpOptions);
   }
 
