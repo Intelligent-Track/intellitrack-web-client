@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class WarehouseListComponent implements OnInit {
 
-  infoWarehouses: Warehouse[] | undefined;
+  infoWarehouses: Warehouse[] | undefined= [new Warehouse(1,new City(1,"bogota"),"call57'12", 1000,new Type(1,"Carga"), 120000)];
   cities: City[] | undefined;
   types: Type[] | undefined;
   selectedCity: City | undefined;
