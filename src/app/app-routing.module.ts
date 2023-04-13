@@ -30,6 +30,7 @@ const routes: Routes = [
   { path: 'mod', component: BoardModeratorComponent },
   { path: 'admin', component: BoardAdminComponent },
   { path: 'drivers-list', component: DriversListComponent },
+  {path: 'adminAddDriver', component: AdminAddDriverComponent},
   { path: 'adminAddManager', component: AdminAddManagerComponent},
   { path: 'editProfileOperador', component: EditProfileOperadorComponent },
   { path: 'aboutUs', component: AboutUsComponent },
