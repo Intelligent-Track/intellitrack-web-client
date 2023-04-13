@@ -1,38 +1,91 @@
-<div class="container">
-    <h2>Operadores</h2>
-    <div class = "options-container">
-      <form (ngSubmit)="onSubmit()">
-        <input type="text" placeholder="Nombre de operador a buscar" class = "form-control" name="search" [(ngModel)]="operatorSearch">
-        <div>
-          <button class="btn btn-orange btn-block custom-btn"> Buscar</button>
-        </div>
-      </form>
+<nav class="navbar navbar-expand-lg navbar-light x">
+  <a class="navbar-brand" href="#">
+    <img src="../../assets/whitebrand.png" width="50" height="50" class="d-inline-block align-top" alt="">
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto"> <!-- Agregar la clase ml-auto -->
+      <li class="nav-item">
+        <a class="nav-link text" href="#" style="color: white;font-weight: 200;">Rutas</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text active" style="color: white; font-weight: 500;"><span
+            class="sr-only">(current)</span>Operadores</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text" routerLink="/drivers-list" style="color: white; font-weight: 200;">Conductores</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text" routerLink="/manager-list" style="color: white; font-weight: 200;">Gerentes</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text" style="color: white; font-weight: 200;" href="#">Gastos</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text" style="color: white; font-weight: 200;" href="#">Perfil</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text " style="color: white; font-weight: 200;">Cerrar sesión</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="pad">
+  <h2>Operadores</h2>
+  <div class="input-group pb-2">
+    <div class="input-group-prepend border-0">
+      <span class="input-group-text border-0 bg-transparent">
+        <i class="fa fa-search"></i>
+      </span>
+    </div>
+    <input type="text" class="form-control border">
+    <div class="input-group-append ml-5">
       <form (ngSubmit)="onAddSubmit()">
-        <div>
-          <button class="btn btn-green btn-block custom-btn"> Agregar</button>
-        </div>
+        <button class="btn btn-outline-secondary border-0  bu">
+          <i class="fa fa-plus"></i> Agregar
+        </button>
       </form>
     </div>
+  </div>
+
+
+  <div style="padding-top: 3%;" class="table-responsive  ">
     <table class="table">
       <thead>
-          <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Nombre completo</th>
-            <th scope="col">Correo</th>
-            <th scope="col">Gerente</th>
-            <th scope="col">Opciones</th>
-          </tr>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Documento</th>
+          <th scope="col">Teléfono</th>
+          <th scope="col">Ubicación</th>
+          <th class="no-border"></th>
+        </tr>
       </thead>
       <tbody>
         <ng-container *ngIf="infoOperators">
           <tr *ngFor="let infoOperator of infoOperators">
             <td scope="row">{{infoOperator.id}}</td>
-            <td>{{infoOperator.fullName}}</td>
-            <td>{{infoOperator.email}}</td>
-            <td>{{infoOperator.managerName}}</td>
-            <td> <img (click)="deleteOperator(infoOperator)" src="../../assets/icons/trashCan.png"> <img src="../../assets/icons/edit.png"></td>
+            <td>{{infoOperator.name}}</td>
+            <td>{{infoOperator.document}}</td>
+            <td>{{infoOperator.phone}}</td>
+            <td>{{infoOperator.location}}</td>
+            <td class="no-border">
+              <div class="btn-group" role="group">
+                <button class="btn btn-lg" type="button">
+                  <i class="fa fa-pencil"></i>
+                </button>
+                <button class="btn btn-lg ml-2" type="button" (click)="deleteOperator(infoOperator)">
+                  <i class="fa fa-trash"></i>
+                </button>
+              </div>
+            </td>
           </tr>
         </ng-container>
       </tbody>
-  </table>
+    </table>
   </div>
+</div>

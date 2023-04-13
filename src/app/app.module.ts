@@ -23,6 +23,8 @@ import { OperatorCreateComponent } from './operator-create/operator-create.compo
 import { AdminAddDriverComponent } from './admin-add-driver/admin-add-driver.component';
 import { QuoteServicesComponent } from './quote-services/quote-services.component';
 import { MovilMocksComponent } from './movil-mocks/movil-mocks.component';
+import { WarehouseListComponent } from './warehouse-list/warehouse-list.component';
+import { WarehouseInfoComponent } from './warehouse-info/warehouse-info.component';
 import { ChangePasswordRequestComponent } from './change-password-request/change-password-request.component';
 import { ChangePasswordSendedComponent } from './change-password-sended/change-password-sended.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
@@ -48,6 +50,8 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
     AdminAddDriverComponent,
     QuoteServicesComponent,
     MovilMocksComponent,
+    WarehouseListComponent,
+    WarehouseInfoComponent,
     ChangePasswordRequestComponent,
     ChangePasswordSendedComponent,
     ChangePasswordComponent
