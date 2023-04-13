@@ -55,7 +55,7 @@
 
 
     <div style="padding-top: 3%;" class="table-responsive  ">
-        <table class="table">
+        <table class="table" >
             <thead>
                 <tr>
                     <th scope="col">ID</th>
@@ -69,13 +69,13 @@
             </thead>
             <tbody>
                 <ng-container *ngIf="infoWarehouses">
-                    <tr *ngFor="let infoOperator of infoWarehouses">
-                        <td scope="row">{{infoOperator.id}}</td>
-                        <td>{{infoOperator.city.name}}</td>
-                        <td>{{infoOperator.address}}</td>
-                        <td>{{infoOperator.capacity}}</td>
-                        <td>{{infoOperator.type.name}}</td>
-                        <td>COP {{infoOperator.costPerM3}}</td>
+                    <tr *ngFor="let infoWarehouse of infoWarehouses" class="clickableRow" [routerLink]="['/warehouse-info/', infoWarehouse.id]">
+                        <td scope="row">{{infoWarehouse.id}}</td>
+                        <td>{{infoWarehouse.city.name}}</td>
+                        <td>{{infoWarehouse.address}}</td>
+                        <td>{{infoWarehouse.capacity}}</td>
+                        <td>{{infoWarehouse.type.name}}</td>
+                        <td>COP {{infoWarehouse.costPerM3}}</td>
                         <td class="no-border">
                             <div class="btn-group" role="group">
                                 <button class="btn btn-lg" type="button">

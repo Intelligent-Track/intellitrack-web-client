@@ -45,4 +45,8 @@ export class WarehouseService {
     return this.http.get<Type[]>(`${environment.apiUrl}/${SERVICE_PATH}/allTypes`, this.httpOptions);
   }
 
+  warehouseById(id: number): Observable<Warehouse>{
+    return this.http.get<Warehouse>(`${environment.apiUrl}/${SERVICE_PATH}/warehouse/` + id, this.httpOptions);
+  }
+
 }

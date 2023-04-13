@@ -12,7 +12,7 @@
         <a class="nav-link text" href="#" style="color: white;font-weight: 200;">Rutas</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text active" style="color: white; font-weight: 500;"><span
+        <a class="nav-link text active" routerLink="/operator-list" style="color: white; font-weight: 500;"><span
             class="sr-only">(current)</span>Operadores</a>
       </li>
       <li class="nav-item">
@@ -43,8 +43,8 @@
       required>
     <input type="password" name="passOpt" placeholder="Contraseña" class="form-control custom-input" name="phoneAdd"  ng-minlength="10"
       [(ngModel)]="passwordOpt" required>
-    <input type="text" placeholder="Ubicación" class="form-control custom-input" name="locationAdd"
-      [(ngModel)]="locationOpt" required>
+      <input type="text" placeholder="Ubicación" class="form-control custom-input" name="locationAdd" [(ngModel)]="locationOpt"
+      required>
     <input type="text" placeholder="Teléfono" class="form-control custom-input" name="phoneAdd" [(ngModel)]="phoneOpt"
       required>
     <input type="text" placeholder="Correo" class="form-control custom-input" name="emailAdd" [(ngModel)]="emailOpt"

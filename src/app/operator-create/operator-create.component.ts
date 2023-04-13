@@ -17,7 +17,6 @@ export class OperatorCreateComponent implements OnInit {
   locationOpt: string = ""; 
   phoneOpt: number | undefined;
   emailOpt: string = "";
-  documentOpt: string = "";
   passwordOpt: string = "";
 
   constructor(
@@ -30,7 +29,7 @@ export class OperatorCreateComponent implements OnInit {
   }
 
   onSubmit(){
-    if(this.nameOpt && this.idOpt && this.emailOpt && this.phoneOpt && this.documentOpt && this.passwordOpt){
+    if(this.nameOpt && this.idOpt && this.emailOpt && this.phoneOpt && this.passwordOpt && this.locationOpt){
       this.adminService.createOperator(new DtoOperator(this.nameOpt, this.emailOpt, this.passwordOpt, this.idOpt, this.phoneOpt!, "Operator",this.locationOpt, "gabss@gmail.com")).subscribe(() => {
         this.router.navigate(['operator-list'])
       }

@@ -68,3 +68,7 @@ input{
     margin-top: 1.5vh;
     margin-left: 2vh;
 }
+
+table tbody tr:hover td:not(:nth-last-child(-n+1)) {
+    background-color: gainsboro;
+}

@@ -8,6 +8,7 @@ import { Driver } from '../model/driver';
 import { Operator } from '../model/operator';
 import { DtoLinkOperatorManager } from '../dto/dto-link-operator-manager';
 import { DtoOperator } from '../dto/dto-operator';
+import { DtoDriver } from '../dto/dto-driver';
 
 const SERVICE_PATH = "users/api/adm"
 
@@ -30,14 +31,22 @@ export class AdminService {
     return this.http.get<Manager[]>(`${environment.apiUrl}/${SERVICE_PATH}/GetManager`, this.httpOptions);
   }
 
+  deleteManager(username: string) {
+    return this.http.delete<Manager>(`${environment.apiUrl}/${SERVICE_PATH}/DeleteManager/` + username, this.httpOptions);
+  }
+
+  createManager(manager: DtoManager){
+    return this.http.post<DtoManager>(`${environment.apiUrl}/${SERVICE_PATH}/ManagerCreate`, manager, this.httpOptions);
+  }
+
   //Conductores
 
   listAllDrivers(): Observable<Driver[]> {
     return this.http.get<Driver[]>(`${environment.apiUrl}/${SERVICE_PATH}/GetDrivers`, this.httpOptions);
   }
 
-  createDriver(driver: Driver) {
-    return this.http.post<Driver>(`${environment.apiUrl}/${SERVICE_PATH}/driver`, driver, this.httpOptions);
+  createDriver(driver: DtoDriver) {
+    return this.http.post<DtoDriver>(`${environment.apiUrl}/${SERVICE_PATH}/DriverCreate`, driver, this.httpOptions);
   }
 
   //Operadores

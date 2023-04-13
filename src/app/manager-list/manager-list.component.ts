@@ -3,6 +3,7 @@ import { DtoManager } from '../dto/dto-manager';
 import { ManagerService } from '../_services/manager.service';
 import { AdminService } from '../_services/admin.service';
 import { Manager } from '../model/manager';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-manager-list',
@@ -15,7 +16,10 @@ export class ManagerListComponent implements OnInit {
 
   managerSearch: string | undefined;
 
-  constructor(private adminService: AdminService) { }
+  constructor(
+    private adminService: AdminService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
     this.adminService.listAllManagers().subscribe(mans => {
@@ -23,11 +27,19 @@ export class ManagerListComponent implements OnInit {
     });
   }
 
-  onSubmit(){
+  onSubmit() {
 
   }
 
-  onAddSubmit(){
+  deleteManager(manager: Manager) {
+    this.adminService.deleteManager(manager.username).subscribe(() => {
+      this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+        this.router.navigate(['/manager-list'])
+      })
+    });
+  }
+
+  onAddSubmit() {
 
   }
 
