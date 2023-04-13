@@ -1,7 +1,5 @@
 .Continer {
-  width: 206vh;
-  height: 100vh;
-  background: linear-gradient(to right, #ff6e59 50%, #424549 50%);
+  background: url(src/assets/backgroundLandscape.png) no-repeat center;
   background-size: cover;
 }
 
@@ -12,10 +10,10 @@
   transform: translate(-50%, -50%);
   background-color: #ffffff;
   border-radius: 30px;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
   width: 80%;
-  max-width: 800px;
-  height: 65%;
+  height: 450px;
+  max-width: 500px;
   max-height: 600px;
   display: flex;
   flex-direction: row;
@@ -28,16 +26,20 @@
   padding: 20px;
 }
 
+.sss{
+  width: 100px;
+  height: 180px;
+}
+
 .mi-seccion-titulo {
   text-align: center;
   display: flex;
-
   align-items: center;
-  margin-bottom: 20px;
 }
 
 .r {
-  font-size: 290%;
+  margin-top: 50px;
+font-size: 290%;
 }
 
 .mi-seccion-titulo img {
@@ -80,7 +82,13 @@
   padding: 10px 20px;
   cursor: pointer;
 }
-
+.im{
+  display: flex;
+}
+.img4{
+  width: 150px;
+  height: 150px;
+}
 .alert {
   padding: 10px;
   border-radius: 3px;
@@ -102,22 +110,26 @@
 .custom-input {
   height: 35px;
   border-radius: 15px;
-  font-size: 130%;
+  font-size: 150%;
   background-color: #f2f3f7;
   border: none;
 }
 
 .formContainer {
-  padding: 20px;
+  padding-left: 40px;
+  padding-right: 40px;
 }
 
 .Bienvenido {
-  font-size: 150%;
+  margin-top: 50px;
+  font-size: 350%;
   text-align: center;
   padding-bottom: 10px;
+  margin-bottom: 40px;
 }
 
 .btn-orange {
+  margin-top: 20px;
   height: 35px;
   background-color: #ff6e59;
   /* aquí puedes cambiar el color de fondo */
@@ -142,10 +154,19 @@
 }
 
 .registroconten {
+  margin-top: 20px;
   text-align: center;
   text-decoration-color: #a1a4b2;
 }
 
 .textRegistrarce {
   color: #ff6e59;
+}
+
+.forgot{
+  font-size: 140%;
+  color: #7da789;
+  text-align: right;
+  display: block;
+  margin-bottom: 10px;
 }

@@ -19,6 +19,9 @@ import { OperatorCreateComponent } from './operator-create/operator-create.compo
 import { AdminAddDriverComponent } from './admin-add-driver/admin-add-driver.component';
 import { WarehouseListComponent } from './warehouse-list/warehouse-list.component';
 import { WarehouseInfoComponent } from './warehouse-info/warehouse-info.component';
+import { ChangePasswordRequestComponent } from './change-password-request/change-password-request.component';
+import { ChangePasswordSendedComponent } from './change-password-sended/change-password-sended.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -39,6 +42,9 @@ const routes: Routes = [
   { path: 'driver-create', component: AdminAddDriverComponent },
   { path: 'warehouse-list', component: WarehouseListComponent },
   { path: 'warehouse-info/:id', component: WarehouseInfoComponent },
+  { path: 'change-password-r', component: ChangePasswordRequestComponent },
+  { path: 'change-password-s', component: ChangePasswordSendedComponent},
+  { path: 'change-password', component: ChangePasswordComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 
