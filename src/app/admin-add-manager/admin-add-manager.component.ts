@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AdminService } from '../_services/admin.service';
 import { DtoManager } from '../dto/dto-manager';
 import { Router } from '@angular/router';
+import { StorageService } from '../_services/storage.service';
 
 @Component({
   selector: 'app-admin-add-manager',
@@ -21,6 +22,7 @@ export class AdminAddManagerComponent implements OnInit {
 
   constructor(
     public adminService: AdminService,
+    private storageService: StorageService,
     private router: Router
   ) { }
 
@@ -35,7 +37,7 @@ export class AdminAddManagerComponent implements OnInit {
     console.log(this.document)
     console.log(this.location)
     if(this.name && this.email && this.password && this.phone && this.document && this.location){
-      this.adminService.createManager(new DtoManager(this.name, this.password, this.email, this.document, this.phone, "Manager", this.location, this.general, "gabss@gmail.com")).subscribe(() => {
+      this.adminService.createManager(new DtoManager(this.name, this.password, this.email, this.document, this.phone, "Manager", this.location, this.general, this.storageService.getUser().username)).subscribe(() => {
         this.router.navigate(['manager-list'])
       })
     }

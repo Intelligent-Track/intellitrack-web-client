@@ -6,6 +6,7 @@ import { Operator } from '../model/operator';
 import { OperatorService } from '../_services/operator.service';
 import { ManagerService } from '../_services/manager.service';
 import { AdminService } from '../_services/admin.service';
+import { StorageService } from '../_services/storage.service';
 
 @Component({
   selector: 'app-operator-list',
@@ -15,18 +16,23 @@ import { AdminService } from '../_services/admin.service';
 export class OperatorListComponent implements OnInit {
 
   operators: Operator[] | undefined;
-  infoOperators: Operator[] | undefined;
+  infoOperators: Operator[] = [];
   operatorSearch: string | undefined;
 
   constructor(
     private adminService: AdminService,
     private route: ActivatedRoute,
+    private storageService: StorageService,
     private router: Router
   ) { }
 
   ngOnInit(): void {
     this.adminService.listAllOperators().subscribe(listInfo => {
-      this.infoOperators = listInfo
+      listInfo.forEach(operator=> {
+        if(operator.managerUsername == this.storageService.getUser().username){
+          this.infoOperators.push(operator);
+        }
+      })
     });
     
   }
