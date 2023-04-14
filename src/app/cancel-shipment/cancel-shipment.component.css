@@ -26,13 +26,6 @@
     width: 300px;
   }
   
-  .btn-green {
-    background-color: #53e19d; /* aquí puedes cambiar el color de fondo */
-    border-color: #53e19d; /* aquí puedes cambiar el color del borde */
-    color: black; /* aquí puedes cambiar el color de la letra */
-    border-radius: 20px;
-    width: 300px;
-  }
   .bordeLogin {
     background-color: #ff6e59;
     padding: 10px;
@@ -80,48 +73,22 @@
     margin-bottom: 2%;
   }
 
-  .row {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+  .col-md-6 {
+    margin-top: 50px;
+    margin-left: 50px;
+    margin-right: 50px;
   }
-  
-  .column-left {
-    flex: 1;
-    margin-right: 10px;
+
+  .col-custom {
+    width: 50%;
   }
-  
-  .column-right {
-    flex: 2;
+
+  .row{
+    margin-top: 50px;
+    margin-left: 50px;
+    margin-right: 50px;
   }
-  
-  input[type="text"], button {
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    margin-bottom: 10px;
-  }
-  
-  select {
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    width: 100%;
-  }
-  
-  table {
-    border-collapse: collapse;
-    width: 100%;
-  }
-  
-  th, td {
-    text-align: left;
-    padding: 8px;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  
-th {
-  background-color: #f2f2f2;
+
+.table1{
+    font-size: 15px;
 }

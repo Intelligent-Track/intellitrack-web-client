@@ -26,6 +26,7 @@ import { MovilMocksComponent } from './movil-mocks/movil-mocks.component';
 import { ChangePasswordRequestComponent } from './change-password-request/change-password-request.component';
 import { ChangePasswordSendedComponent } from './change-password-sended/change-password-sended.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
+import { CancelShipmentComponent } from './cancel-shipment/cancel-shipment.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
     MovilMocksComponent,
     ChangePasswordRequestComponent,
     ChangePasswordSendedComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    CancelShipmentComponent
   ],
   imports: [
     BrowserModule,

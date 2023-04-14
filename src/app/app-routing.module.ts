@@ -20,6 +20,7 @@ import { AdminAddDriverComponent } from './admin-add-driver/admin-add-driver.com
 import { ChangePasswordRequestComponent } from './change-password-request/change-password-request.component';
 import { ChangePasswordSendedComponent } from './change-password-sended/change-password-sended.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
+import { CancelShipmentComponent } from './cancel-shipment/cancel-shipment.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -41,6 +42,7 @@ const routes: Routes = [
   { path: 'change-password-r', component: ChangePasswordRequestComponent },
   { path: 'change-password-s', component: ChangePasswordSendedComponent},
   { path: 'change-password', component: ChangePasswordComponent},
+  { path: 'cancel-shipment', component: CancelShipmentComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 
