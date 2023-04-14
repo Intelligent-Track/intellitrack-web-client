@@ -22,12 +22,9 @@ import { WarehouseInfoComponent } from './warehouse-info/warehouse-info.componen
 import { ChangePasswordRequestComponent } from './change-password-request/change-password-request.component';
 import { ChangePasswordSendedComponent } from './change-password-sended/change-password-sended.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
-<<<<<<< HEAD
-import { CancelShipmentComponent } from './cancel-shipment/cancel-shipment.component';
-=======
 import { WarehouseEditComponent } from './warehouse-edit/warehouse-edit.component';
+import { ShipmentBoardComponent } from './shipment-board/shipment-board.component';
 
->>>>>>> 37959fcedce03c3a24043d49cea2757e5e0fd76c
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -52,7 +49,7 @@ const routes: Routes = [
   { path: 'change-password-r', component: ChangePasswordRequestComponent },
   { path: 'change-password-s', component: ChangePasswordSendedComponent},
   { path: 'change-password', component: ChangePasswordComponent},
-  { path: 'cancel-shipment', component: CancelShipmentComponent},
+  { path: 'shipment-board', component: ShipmentBoardComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 
