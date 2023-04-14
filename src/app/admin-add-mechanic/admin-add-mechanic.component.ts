@@ -1,9 +1,10 @@
-import { OperatorService } from './../_services/operator.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ManagerService } from '../_services/manager.service';
 import { Operator } from '../model/operator';
 import { Manager } from '../model/manager';
+import { MechanicService } from '../_services/mechanic.service';
+import { Mechanic } from '../model/mechanic';
 
 @Component({
   selector: 'app-admin-add-mechanic',
@@ -23,7 +24,7 @@ export class AdminAddMechanicComponent implements OnInit {
   constructor(
     private router: Router,
     private managerService: ManagerService,
-    private operatorService: OperatorService
+    private mechanicService: MechanicService
   ) { }
 
   ngOnInit(): void {
@@ -34,7 +35,7 @@ export class AdminAddMechanicComponent implements OnInit {
 
   onSubmit() {
     if(this.nameMech && this.idMech && this.emailMech && this.locationMech && this.phoneMech && this.selectedManager) {
-      this.operatorService.createOperator(new Operator(this.idMech, this.nameMech, this.emailMech, this.locationMech)).subscribe(() =>{
+      this.mechanicService.createMechanic(new Mechanic(this.nameMech, this.emailMech, this.idMech, this.phoneMech, this.locationMech, this.selectedManager)).subscribe(() =>{
         this.router.navigate(['operator-list'])
       });
     }
