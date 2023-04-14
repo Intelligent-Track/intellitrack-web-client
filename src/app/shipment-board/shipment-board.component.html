@@ -35,7 +35,7 @@
       </div>
       <input type="text" class="form-control border">
       <div class="input-group-append ml-5">
-        <button class="btn btn-outline-secondary border-0 bu" type="button" routerLink="/adminAddManager">
+        <button class="btn btn-outline-secondary border-0 bu" type="button" [routerLink]="['/program-shipment/']">
           <i class="fa fa-plus"></i> Programar envío
         </button>
       </div>
@@ -106,7 +106,7 @@
               <tr>
                 <th scope="col">Categoria</th>
                 <th scope="col">Nombre</th>
-                <th scope="col">Peso</th>
+                <th scope="col">Peso(t)</th>
               </tr>
             </thead>
             <tbody>

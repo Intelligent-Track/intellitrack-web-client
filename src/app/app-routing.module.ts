@@ -24,6 +24,7 @@ import { ChangePasswordSendedComponent } from './change-password-sended/change-p
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { WarehouseEditComponent } from './warehouse-edit/warehouse-edit.component';
 import { ShipmentBoardComponent } from './shipment-board/shipment-board.component';
+import { ProgramShipmentComponent } from './program-shipment/program-shipment.component';
 
 
 const routes: Routes = [
@@ -50,6 +51,7 @@ const routes: Routes = [
   { path: 'change-password-s', component: ChangePasswordSendedComponent},
   { path: 'change-password', component: ChangePasswordComponent},
   { path: 'shipment-board', component: ShipmentBoardComponent},
+  { path: 'program-shipment', component: ProgramShipmentComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

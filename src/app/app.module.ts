@@ -32,6 +32,7 @@ import { ShipmentBoardComponent } from './shipment-board/shipment-board.componen
 import { WarehouseEditComponent } from './warehouse-edit/warehouse-edit.component';
 import { ProgramShipmentComponent } from './program-shipment/program-shipment.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
