@@ -29,6 +29,7 @@ import { ChangePasswordRequestComponent } from './change-password-request/change
 import { ChangePasswordSendedComponent } from './change-password-sended/change-password-sended.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { WarehouseEditComponent } from './warehouse-edit/warehouse-edit.component';
+import { ProgramShipmentComponent } from './program-shipment/program-shipment.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { WarehouseEditComponent } from './warehouse-edit/warehouse-edit.componen
     ChangePasswordRequestComponent,
     ChangePasswordSendedComponent,
     ChangePasswordComponent,
-    WarehouseEditComponent
+    WarehouseEditComponent,
+    ProgramShipmentComponent
   ],
   imports: [
     BrowserModule,
