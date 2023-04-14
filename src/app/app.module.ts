@@ -28,6 +28,7 @@ import { WarehouseInfoComponent } from './warehouse-info/warehouse-info.componen
 import { ChangePasswordRequestComponent } from './change-password-request/change-password-request.component';
 import { ChangePasswordSendedComponent } from './change-password-sended/change-password-sended.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
+import { ShipmentBoardComponent } from './shipment-board/shipment-board.component';
 import { WarehouseEditComponent } from './warehouse-edit/warehouse-edit.component';
 
 @NgModule({
@@ -56,6 +57,7 @@ import { WarehouseEditComponent } from './warehouse-edit/warehouse-edit.componen
     ChangePasswordRequestComponent,
     ChangePasswordSendedComponent,
     ChangePasswordComponent,
+    ShipmentBoardComponent,
     WarehouseEditComponent
   ],
   imports: [

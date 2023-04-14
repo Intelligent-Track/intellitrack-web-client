@@ -23,6 +23,7 @@ import { ChangePasswordRequestComponent } from './change-password-request/change
 import { ChangePasswordSendedComponent } from './change-password-sended/change-password-sended.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { WarehouseEditComponent } from './warehouse-edit/warehouse-edit.component';
+import { ShipmentBoardComponent } from './shipment-board/shipment-board.component';
 
 
 const routes: Routes = [
@@ -48,6 +49,7 @@ const routes: Routes = [
   { path: 'change-password-r', component: ChangePasswordRequestComponent },
   { path: 'change-password-s', component: ChangePasswordSendedComponent},
   { path: 'change-password', component: ChangePasswordComponent},
+  { path: 'shipment-board', component: ShipmentBoardComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 
