@@ -8,11 +8,11 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto"> <!-- Agregar la clase ml-auto -->
-            <li class="nav-item">
+            <li class="nav-item" hidden>
                 <a class="nav-link text" href="#" style="color: white; font-weight: 200;">Rutas</a>
             </li>
             <li class="nav-item text">
-                <a class="nav-link" href="#" style="color: white; font-weight: 200;">Operadores</a>
+                <a class="nav-link" routerLink="/operator-list" href="#" style="color: white; font-weight: 200;">Operadores</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link text active"  style="color: white; font-weight: 500;"><span class="sr-only">(current)</span>Conductores</a>
@@ -20,7 +20,7 @@
             <li class="nav-item">
                 <a class="nav-link text" routerLink="/manager-list" style="color: white; font-weight: 200;">Gerentes</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" hidden>
                 <a class="nav-link text" href="#" style="color: white; font-weight: 200;">Gastos</a>
             </li>
             <li class="nav-item">
@@ -55,38 +55,27 @@
             <thead>
                 <tr>
                     <th scope="col">ID</th>
-                    <th scope="col">Nombre completo</th>
+                    <th scope="col">Nombre</th>
                     <th scope="col">Correo</th>
-                    <th scope="col">Servicios realizados</th>
-                    <th scope="col">Dinero en servicios</th>
+                    <th scope="col">Teléfono</th>
+                    <th scope="col">Dirección</th>
+                    <th scope="col">Placa vehículo</th>
+                    <th scope="col">Licencia</th>
+                    <th scope="col">Revisión automecanica</th>
                     <th class="no-border"></th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>erwrewwer</td>
-                    <td>fdifufds</td>
-                    <td>dfsfdsfd</td>
-                    <td>fddfsfsd</td>
-                    <td>sdfdsfsfd</td>
-                    <td class="no-border">
-                        <div class="btn-group" role="group">
-                            <button class="btn btn-lg" type="button" (click)="editDriver()">
-                                <i class="fa fa-pencil"></i>
-                            </button>
-                            <button class="btn btn-lg ml-2" type="button">
-                                <i class="fa fa-trash"></i>
-                            </button>
-                        </div>
-                    </td>
-                </tr>
                 <ng-container *ngIf="infoDrivers">
                     <tr *ngFor="let infodriver of infoDrivers">
                         <td>{{infodriver.id}}</td>
-                        <td>{{infodriver.fullName}}</td>
-                        <td>{{infodriver.email}}</td>
-                        <td>{{infodriver.servicesFinished}}</td>
-                        <td>{{infodriver.incomingServices}}</td>
+                        <td>{{infodriver.name}}</td>
+                        <td>{{infodriver.username}}</td>
+                        <td>{{infodriver.phone}}</td>
+                        <td>{{infodriver.location}}</td>
+                        <td>{{infodriver.placaVehiculo}}</td>
+                        <td>{{infodriver.licencia}}</td>
+                        <td>{{infodriver.revisionAutoMec}}</td>
                         <td class="no-border">
                             <div class="btn-group" role="group">
                                 <button class="btn btn-lg" type="button" (click)="editDriver()">

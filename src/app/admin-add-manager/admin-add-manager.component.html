@@ -1,63 +1,82 @@
-<Section class="Container">
-    <h3>Agregar gerente</h3>
-    <div class="Columnas">
-        <div class="Columna">
-            <form>
-                <div class="form-group">
-                  <input
-                    type="text"
-                    class="form-control custom-input"
-                    placeholder="Nombre"
-                    name="Nombre"
-                    required
-                    minlength="3"
-                    maxlength="20"
-                  />
-                </div>
-                <div class="form-group">
-                  <input
-                    type="text"
-                    class="form-control custom-input"
-                    placeholder="Correo electronico"
-                    required
-                    minlength="6"
-                  />
-                </div>
-                <div class="form-group">
-                  <input
-                    placeholder="Numero Telefono"
-                    type="text"
-                    class="form-control custom-input"
-                    required
-                    minlength="6"
-                  />
-                </div>
-              </form>
+<nav class="navbar navbar-expand-lg navbar-light x">
+  <a class="navbar-brand" href="#">
+    <img src="../../assets/whitebrand.png" width="50" height="50" class="d-inline-block align-top" alt="">
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto"> <!-- Agregar la clase ml-auto -->
+      <li class="nav-item" hidden>
+        <a class="nav-link text" href="#" style="color: white;font-weight: 200;">Rutas</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text" routerLink="/operator-list" style="color: white; font-weight: 200;">Operadores</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text" routerLink="/drivers-list" style="color: white; font-weight: 200;">Conductores</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text active" routerLink="/manager-list" style="color: white; font-weight: 500;"><span
+          class="sr-only">(current)</span>Gerentes</a>
+      </li>
+      <li class="nav-item" hidden>
+        <a class="nav-link text" style="color: white; font-weight: 200;" href="#">Gastos</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text" style="color: white; font-weight: 200;" href="#">Perfil</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text " style="color: white; font-weight: 200;">Cerrar sesión</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
+
+<div class="pad">
+  <h3>Agregar gerente</h3>
+  <div class="Columnas">
+    <div class="Columna">
+      <form (ngSubmit)="onSubmit()" class="was-validated">
+        <div class="form-group inpt">
+          <input type="text" class="form-control custom-input" placeholder="Nombre" name="Nombre" required minlength="3"
+            maxlength="20" [(ngModel)]="name" />
         </div>
-        <div class="Columna">
-            <form>
-                <div class="form-group">
-                    <input
-                      placeholder="Puesto Cargo"
-                      type="text"
-                      class="form-control custom-input"
-                      required
-                      minlength="6"
-                    />
-                  </div>
-                  <div class="form-group">
-                    <input
-                      placeholder="Direccion"
-                      type="text"
-                      class="form-control custom-input"
-                      required
-                      minlength="6"
-                    />
-                  </div>
-                  <div class="form-group">
-                    <button class="btn btn-orange btn-block custom-btn">Registrar</button>
-                  </div>
-            </form>
+        <div class="form-group inpt">
+          <input type="text" class="form-control custom-input" placeholder="Correo electronico" name="email" required minlength="3"
+            [(ngModel)]="email" />
         </div>
+        <div class="form-group inpt">
+          <input type="password" class="form-control custom-input" placeholder="Contraseña" name="password" required minlength="10"
+          [(ngModel)]="password" />
+        </div>
+        <div class="form-group">
+          <input type="checkbox" class="btn-check" id="btn-check-2" [(ngModel)]="general">
+          <label class="">Gerente general</label>
+        </div>
+      </form>
     </div>
-</Section>
+    <div class="Columna">
+      <form (ngSubmit)="onSubmit()">
+        <div class="form-group inpt">
+          <input type="number" class="form-control custom-input" placeholder="Teléfono" name="phone"  
+          [(ngModel)]="phone" />
+        </div>
+        <div class="form-group inpt">
+          <input type="number" class="form-control custom-input" placeholder="Documento" name="document"
+          [(ngModel)]="document" />
+        </div>
+        <div class="form-group inpt">
+          <input type="text" class="form-control custom-input" placeholder="Direccion" name="location" 
+          [(ngModel)]="location" />
+        </div>
+        <div class="form-group inpt">
+          <button class="btn btn-orange btn-block custom-btn">Registrar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

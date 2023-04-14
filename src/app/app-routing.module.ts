@@ -17,10 +17,17 @@ import { ManagerListComponent } from './manager-list/manager-list.component';
 import { OperatorListComponent } from './operator-list/operator-list.component';
 import { OperatorCreateComponent } from './operator-create/operator-create.component';
 import { AdminAddDriverComponent } from './admin-add-driver/admin-add-driver.component';
+import { WarehouseListComponent } from './warehouse-list/warehouse-list.component';
+import { WarehouseInfoComponent } from './warehouse-info/warehouse-info.component';
 import { ChangePasswordRequestComponent } from './change-password-request/change-password-request.component';
 import { ChangePasswordSendedComponent } from './change-password-sended/change-password-sended.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
+<<<<<<< HEAD
 import { CancelShipmentComponent } from './cancel-shipment/cancel-shipment.component';
+=======
+import { WarehouseEditComponent } from './warehouse-edit/warehouse-edit.component';
+
+>>>>>>> 37959fcedce03c3a24043d49cea2757e5e0fd76c
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -39,6 +46,9 @@ const routes: Routes = [
   { path: 'operator-list', component: OperatorListComponent },
   { path: 'operator-create', component: OperatorCreateComponent },
   { path: 'driver-create', component: AdminAddDriverComponent },
+  { path: 'warehouse-list', component: WarehouseListComponent },
+  { path: 'warehouse-info/:id', component: WarehouseInfoComponent },
+  { path: 'warehouse-edit/:id', component: WarehouseEditComponent },
   { path: 'change-password-r', component: ChangePasswordRequestComponent },
   { path: 'change-password-s', component: ChangePasswordSendedComponent},
   { path: 'change-password', component: ChangePasswordComponent},
