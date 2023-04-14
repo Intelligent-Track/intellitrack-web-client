@@ -1,22 +1,99 @@
 .Container{
-    height: 60vh;
-    align-items: center;
-    display: flex;
-    justify-content:space-around ;
-    flex-direction: column;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -30%);
+    padding: 10px;
 }
 
 .Columnas{
-    width: 50%;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+}
+
+.Columna{
+    margin-top: 20px;
+    margin-right: 40px;
+    margin-bottom: 40px;
+    margin-left: 10px;
+    padding-right: 30px;
+}
+
+.form-control {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 5px 10px;
 }
 
 .custom-input {
     border-radius: 15px;
     background-color: #F2F3F7;
     border: none;
+    width: 20vw;
+    height: 30px;
+    margin: 10px;
+}
+
+input{
+    margin: 2%;
+}
+
+button{
+    margin: 2%;
+}
+
+.bordeLogin {
+    background-color: #ff6e59;
+    padding: 10px;
+}
+
+.navbar-brand {
+    font-size: 44px;
+    /* ajusta el tamaño de la fuente a 24 píxeles */
+}
+
+li {
+    float: right;
+}
+
+.nav-link {
+    margin-right: 20px;
+
+}
+
+.bu {
+    font-size: 14px;
+}
+
+.pad {
+    padding-top: 5%;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.no-border {
+    border: none;
+}
+
+.x {
+    background-color: #ff6e59;
+}
+
+.text {
+    font-size: large;
+}
+
+.navbar-nav {
+    text-align: left;
+}
+
+h2 {
+    margin-bottom: 2%;
+}
+
+h4 {
+    margin-left: 20px;
 }
 
 .btn-orange {
@@ -24,5 +101,11 @@
     border-color: #FF6E59; /* aquí puedes cambiar el color del borde */
     color: black; /* aquí puedes cambiar el color de la letra */
     border-radius: 20px; 
-    width: 300px;
+    height: 30px;
+    width: 20vm;
+    padding: 5px 10px;
+}
+
+.Columna:not(:last-child) {
+    border-right: 1px solid black;
 }
