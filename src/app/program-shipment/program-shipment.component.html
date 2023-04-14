@@ -1,0 +1,121 @@
+<nav class="navbar navbar-expand-lg navbar-light x">
+    <a class="navbar-brand" href="#">
+        <img src="../../assets/whitebrand.png" width="50" height="50" class="d-inline-block align-top" alt="">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+</nav>
+<div class="header">
+    <h1>Programar un envío</h1>
+    <br>
+    <p class="f">Por favor llena todos los campos para programar un envío de paquetes</p>
+</div>
+<div class="row">
+    <div class="col-custom border-right pr-5 pl-5">
+        <h3>Origen</h3>
+        <br>
+        <div class="form-group">
+            <select class="form-control custom-input" required [(ngModel)]="selectedOrigin" name="selectOrigin">
+                <option value="" disabled selected>Ciudad de origen</option>
+                <option *ngFor="let city of cities" [value]="city">{{ city.name }}</option>
+            </select>
+        </div>
+        <br>
+
+
+    </div>
+    <div class="x1 col-custom pl-5 pr-5">
+        <h3>Destino</h3>
+        <br>
+        <div class="form-group">
+            <select class="form-control custom-input" required [(ngModel)]="selectedDes" name="selectedDes">
+                <option value="" disabled selected>Ciudad de destino</option>
+                <ng-container *ngFor="let city of cities">
+                    <option *ngIf="city.name !== selectedOrigin" [value]="city">{{ city.name }}</option>
+                </ng-container>
+            </select>
+        </div>
+
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-custom  pr-5 pl-5">
+        <h3>Información de los productos</h3>
+        <br>
+        <div class="input-group pb-2">
+            <div class="form-group">
+                <select class="form-control custom-input" required [(ngModel)]="selectedCategory" name="selectedDes">
+                    <option value="" disabled selected>Categoria</option>
+                    <option *ngFor="let cat of categories" [value]="cat">{{ cat }}</option>
+                </select>
+            </div>
+            <input type="text" class="form-control border ml-5" required placeholder="Nombre del producto"
+                [(ngModel)]="name">
+            <input type="number" class="form-control border ml-5" required placeholder="Peso (t)" [(ngModel)]="weight">
+            <div class="input-group-append ml-5">
+                <button class="btn btn-outline-secondary border-0 bu" type="button"
+                    (click)="addProduct(selectedCategory, name, weight)">
+                    <i class="fa fa-plus"></i> Agregar producto
+                </button>
+            </div>
+        </div>
+        <br>
+        <div style="padding-top: 3%;" class="table-responsive  ">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Categoria</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Peso</th>
+                        <th class="no-border"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <ng-container *ngIf="products">
+                        <tr *ngFor="let product of products; let i = index" [class.updated]="tableUpdated">
+                            <td scope="row">{{product.category}}</td>
+                            <td>{{product.name}}</td>
+                            <td>{{product.weight}}</td>
+                            <td class="no-border">
+                                <div class="btn-group" role="group">
+                                    <button class="btn btn-lg ml-2" type="button" (click)="deleteProduct(product)">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    </ng-container>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <div class="x1 col-custom pl-5 pr-5">
+        <div class="top">
+            <div class="input-group pb-2">
+                <input type="date" class="form-control border ml-5 mr-5" required placeholder="Fecha de entrega"
+                    [(ngModel)]="date">
+                <div class="form-group ml-5 mr-5">
+                    <select class="form-control custom-input" required [(ngModel)]="deliveryType" name="selectedDate">
+                        <option value="" disabled selected>Tipo de envío</option>
+                        <option *ngFor="let type of deliveryTypes" [value]="type">{{ type }}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="input-group-append ml-5 but">
+                <button class="btn btn-orange btn-block custom-btn bu" type="button"
+                    (click)="date && program(selectedOrigin, selectedDes, date, deliveryType)">
+                    Programar
+                </button>
+            </div>
+            <div class="ml-5 price" *ngIf="showprice">
+                <h5 [(ngModel)]="price">Tarifa de servicio es: {{price}}</h5>
+            </div>
+
+        </div>
+
+    </div>
+</div>
