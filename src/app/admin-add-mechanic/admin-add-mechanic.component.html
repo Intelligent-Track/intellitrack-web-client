@@ -1,0 +1,75 @@
+<section class="Container">
+  <h2>Agregar mecanico</h2>
+  <div class="Columnas">
+    <div class="Columna">
+      <form>
+        <div class="form-group">
+          <input 
+            type="text"
+            class="form-control custom-input"
+            placeholder="Nombre"
+            name="Nombre"
+            required
+            minlength="3"
+            maxlength="20"
+            [(ngModel)]="nameMech"
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control custom-input"
+            placeholder="Identificación"
+            name="Identificación"
+            required
+            minlength="3"
+            maxlength="20"
+            [(ngModel)]="idMech"
+          />
+      </div>
+        <div class="form-group">
+          <input 
+            type="text"
+            class="form-control custom-input"
+            placeholder="Correo electronico"
+            required
+            minlength="6"
+            [(ngModel)]="emailMech"
+          />
+        </div>
+        <div class="form-group">
+          <input 
+            type="text"
+            class="form-control custom-input"
+            placeholder="Numero telefono"
+            required
+            minlength="6"
+            [(ngModel)]="phoneMech"
+          />
+        </div>
+      </form>
+    </div>
+    <div class="columna">
+      <form>
+        <div class="form-group">
+          <input 
+            type="text"
+            placeholder="Direccion"
+            class="form-control custom-input"
+            required
+            minlength="6"
+            [(ngModel)]="locationMech"
+          />
+        </div>
+        <div class="form-group">
+          <select class="form-control custom-input" required [(ngModel)]="selectedManager">
+              <option *ngFor="let manager of managerList" [value]="manager">{{ manager.fullName }}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <button class="btn btn-orange btn-block custom-btn" (ngSubmit)="onSubmit()">Registrar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
