@@ -78,3 +78,16 @@
     font-size: 150%;
     width: 200px;
   }
+
+  .custom-input{
+    font-size: 150%;
+}
+select.form-control option:first-child {
+    color: white;
+  }
+
+  .custom-input {
+    border-radius: 10px;
+    background-color: #f2f3f7;
+    border: none;
+  }
