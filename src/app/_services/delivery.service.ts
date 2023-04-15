@@ -22,11 +22,7 @@ export class DeliveryService {
   constructor(private http: HttpClient) {}
 
   listAllProgramDeliveries(): Observable<Shipment[]>{
-    return this.http.get<Shipment[]>(`${environment.apiUrl}/${SERVICE_PATH}/allWarehouses`, this.httpOptions)
-  }
-
-  listAllCities(): Observable<City[]> {
-    return this.http.get<City[]>(`${environment.apiUrl}/${SERVICE_PATH}/allCities`, this.httpOptions);
+    return this.http.get<Shipment[]>(`${environment.apiUrl}/${SERVICE_PATH}/allDeliverysProgramed`, this.httpOptions)
   }
 
   createDelivery( shipment:DtoShipment){

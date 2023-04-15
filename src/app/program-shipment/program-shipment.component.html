@@ -18,7 +18,7 @@
         <br>
         <div class="form-group">
             <select class="form-control custom-input" required [(ngModel)]="selectedOrigin" name="selectOrigin">
-                <option value="" disabled selected>Ciudad de origen</option>
+                <option value="" disabled selected style="color: darkgrey;">Ciudad de origen</option>
                 <option *ngFor="let city of cities" [value]="city">{{ city.name }}</option>
             </select>
         </div>
@@ -31,9 +31,11 @@
         <br>
         <div class="form-group">
             <select class="form-control custom-input" required [(ngModel)]="selectedDes" name="selectedDes">
-                <option value="" disabled selected>Ciudad de destino</option>
+                <option value="" disabled selected style="color: darkgrey;">Ciudad de destino</option>
                 <ng-container *ngFor="let city of cities">
-                    <option *ngIf="city.name !== selectedOrigin" [value]="city">{{ city.name }}</option>
+                    <ng-container *ngIf="city.name !== selectedOrigin?.name">
+                        <option [value]="city">{{ city.name }}</option>
+                    </ng-container>
                 </ng-container>
             </select>
         </div>
@@ -52,12 +54,16 @@
                     <option *ngFor="let cat of categories" [value]="cat">{{ cat }}</option>
                 </select>
             </div>
-            <input type="text" class="form-control border ml-5" required placeholder="Nombre del producto"
+            <input type="text" class="form-control border ml-5 custom-input" required placeholder="Nombre"
                 [(ngModel)]="name">
-            <input type="number" class="form-control border ml-5" required placeholder="Peso (t)" [(ngModel)]="weight">
+
+            <input [(ngModel)]="weight" type="number" class="form-control border ml-5 custom-input" required placeholder="Peso (kg)" [value]="''">
+
+            <input [(ngModel)]="volume" type="number" class="form-control border ml-5 custom-input" required placeholder="Volume" [value]="''">
+
             <div class="input-group-append ml-5">
                 <button class="btn btn-outline-secondary border-0 bu" type="button"
-                    (click)="addProduct(selectedCategory, name, weight)">
+                    (click)="addProduct(selectedCategory, name, weight!, volume!)">
                     <i class="fa fa-plus"></i> Agregar producto
                 </button>
             </div>
@@ -70,6 +76,7 @@
                         <th scope="col">Categoria</th>
                         <th scope="col">Nombre</th>
                         <th scope="col">Peso</th>
+                        <th scope="col">Volumen</th>
                         <th class="no-border"></th>
                     </tr>
                 </thead>
@@ -79,6 +86,7 @@
                             <td scope="row">{{product.category}}</td>
                             <td>{{product.name}}</td>
                             <td>{{product.weight}}</td>
+                            <td>{{product.volume}}</td>
                             <td class="no-border">
                                 <div class="btn-group" role="group">
                                     <button class="btn btn-lg ml-2" type="button" (click)="deleteProduct(product)">
@@ -96,7 +104,7 @@
     <div class="x1 col-custom pl-5 pr-5">
         <div class="top">
             <div class="input-group pb-2">
-                <input type="date" class="form-control border ml-5 mr-5" required placeholder="Fecha de entrega"
+                <input type="date" class="form-control border ml-5 mr-5 custom-input" required placeholder="Fecha de entrega"
                     [(ngModel)]="date">
                 <div class="form-group ml-5 mr-5">
                     <select class="form-control custom-input" required [(ngModel)]="deliveryType" name="selectedDate">
@@ -112,7 +120,7 @@
                 </button>
             </div>
             <div class="ml-5 price" *ngIf="showprice">
-                <h5 [(ngModel)]="price">Tarifa de servicio es: {{price}}</h5>
+                <h5 [(ngModel)]="price" [class.updated]="showprice">Tarifa de servicio es: {{price}}</h5>
             </div>
 
         </div>

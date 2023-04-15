@@ -51,8 +51,8 @@
           </button>
         </h2>
         <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
-          data-bs-parent="#accordionFlushExample" *ngIf="numbers">
-          <div class="accordion-body hov" (click)="showInfoShipment(ship)" *ngFor="let ship of numbers">{{ship}} </div>
+          data-bs-parent="#accordionFlushExample" *ngIf="infoShipments">
+          <div class="accordion-body hov" (click)="showInfoShipment(ship)" *ngFor="let ship of infoShipments">{{ship.id}} - destino a {{ship.destiny}}</div>
         </div>
         <!-- <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
           data-bs-parent="#accordionFlushExample" *ngIf="infoShipments">
@@ -88,14 +88,14 @@
         <div class="wheels"></div>
       </div>
     </div>
-    <div *ngIf="infoShip">
+    <div *ngIf="infoShip && selectedShip"  [class.updated]="showproducts">
       <h1>Información del envío</h1>
       <br>
       <br>
-      <h4>Ciudad de Origen: {{origin}}</h4>
-      <h4>Ciudad de Destino: {{destiny}}</h4>
-      <h4>Fecha de entrega: {{date}}</h4>
-      <h4>Tipo de envío: {{type}}</h4>
+      <h4>Ciudad de Origen: {{selectedShip.origin}}</h4>
+      <h4>Ciudad de Destino: {{selectedShip.destiny}}</h4>
+      <h4>Fecha de entrega: {{selectedShip.date}}</h4>
+      <h4>Tipo de envío: {{selectedShip.type}}</h4>
       <br>
       <br>
       <h3>Productos</h3>
@@ -107,20 +107,22 @@
                 <th scope="col">Categoria</th>
                 <th scope="col">Nombre</th>
                 <th scope="col">Peso(t)</th>
+                <th scope="col">Volume</th>
               </tr>
             </thead>
             <tbody>
-              <tr data-toggle="modal" *ngFor="let product of infoProducts" >
+              <tr data-toggle="modal" *ngFor="let product of infoProducts">
                 <td>{{product.category}}</td>
                 <td>{{product.name}}</td>
                 <td>{{product.weight}}</td>
+                <td>{{product.volume}}</td>
               </tr>
             </tbody>
           </table>
         </ng-container>
       </div>
       <br>
-      <h4>Costo del envío: $$$</h4>
+      <h4>Costo del envío: </h4>
       <br>
        <br>
       <br>

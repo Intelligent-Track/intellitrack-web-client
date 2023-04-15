@@ -1,3 +1,4 @@
+import { QuoteService } from './../_services/quote.service';
 import { DeliveryService } from '../_services/delivery.service';
 import { DtoProduct } from '../dto/dto-product';
 import { DtoShipment } from '../dto/dto-shipment';
@@ -11,33 +12,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProgramShipmentComponent implements OnInit {
   cities: City[] | undefined;
-  selectedOrigin: string = "";
-  selectedDes: string = "";
+  selectedOrigin: City | undefined;
+  selectedDes: City| undefined;
   categories = ["General", "Grande", "Peligrosa", "Perecedera"];
   deliveryType: string ="";
   deliveryTypes = ["Normal", "Prioritario", "Acelerado"];
   selectedCategory: string = "";
   products: DtoProduct[] = [];
   tableUpdated = false;
-  weight: number = 0;
+  weight: number | undefined;
+  volume: number | undefined;
   name: string = "";
-  date: Date | undefined;
+  date: string ="";
   price: number = 0;
   showprice =false;
 
   constructor(
-    private deliveryService: DeliveryService
+    private deliveryService: DeliveryService, private quoteService :QuoteService
   ) { }
 
   ngOnInit(): void {
-    this.deliveryService.listAllCities().subscribe(listCities => {
+    this.quoteService.listAllCities().subscribe(listCities => {
       this.cities = listCities
     });
   }
 
-  addProduct(selectedCategory: string, name: string, weight: number) {
-    if (selectedCategory !== 'Categoria' && name !== '' && weight !== 0) {
-      const proc = new DtoProduct(selectedCategory, name, weight);
+  addProduct(selectedCategory: string, name: string, weight: number, volume: number) {
+    if (selectedCategory !== 'Categoria' && name !== '' && weight !== null && volume !== null) {
+      const proc = new DtoProduct(selectedCategory, name, weight, volume);
       this.products.push(proc);
       this.tableUpdated = true;
     }
@@ -48,11 +50,12 @@ export class ProgramShipmentComponent implements OnInit {
     this.tableUpdated = true;
   }
 
-  program(selectedOrigin: string, selectedDes: string, date: Date, deliveryType: string) {
-    if (selectedOrigin !== 'Ciudad de origen' && selectedDes !== 'Ciudad de destino' && date !== null && deliveryType !== 'Tipo de envío' && this.products.length > 0) {
-      const delivery = new DtoShipment(selectedOrigin, selectedDes, deliveryType, date, this.products)
+  program(selectedOrigin: City | undefined, selectedDes: City | undefined, date: string, deliveryType: string) {
+    if (selectedOrigin?.name !== 'Ciudad de origen' && selectedDes?.name !== 'Ciudad de destino' && date !== null && deliveryType !== 'Tipo de envío' && this.products.length > 0) {
+      const delivery = new DtoShipment(selectedOrigin?.id!, selectedDes?.id!, deliveryType, date, this.products)
       this.deliveryService.createDelivery(delivery).subscribe((pr: number) => {
         this.price = pr;
+        this.showprice = true;
       })
     }
   }
