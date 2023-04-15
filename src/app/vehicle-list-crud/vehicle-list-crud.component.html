@@ -1,1 +1,17 @@
-<p>vehicle-list-crud works!</p>
+<table>
+
+    <th>idPantera</th>
+    <th>Name</th>
+    <ng-container *ngFor="let Panther of pantherArray">
+        <tr>
+            <td>{{Panther.idPantera}}</td>
+            <td>{{Panther.name}}</td>
+            <button class="btn btn-primary" (click)="deletePanther(Panther.idPantera)">
+                Eliminar Pantera
+            </button>
+            <button class="btn btn-primary" (click)="editPanther(Panther)">
+                Editar Pantera
+            </button>
+        </tr>
+    </ng-container>
+</table>
