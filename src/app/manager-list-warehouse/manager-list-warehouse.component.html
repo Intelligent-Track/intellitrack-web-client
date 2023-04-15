@@ -43,35 +43,23 @@
             <thead>
                 <tr>
                     <th scope="col">ID</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Ubicacion</th>
-                    <th scope="col">Ocupacion</th>
+                    <th scope="col">Ciudad</th>
+                    <th scope="col">Direccion</th>
+                    <th scope="col">Capacidad</th>
+                    <th scope="col">Tipo</th>
+                    <th scope="col">Costo m3</th>
                     <th class="no-border"></th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Corrales</td>
-                    <td>Mosquera</td>
-                    <td>74m</td>
-                    <td class="no-border">
-                        <div class="btn-group" role="group">
-                            <button class="btn btn-lg" type="button">
-                                <i class="fa fa-pencil"></i>
-                            </button>
-                            <button class="btn btn-lg ml-2" type="button">
-                                <i class="fa fa-trash"></i>
-                            </button>
-                        </div>
-                    </td>
-                </tr>
                 <ng-container *ngIf="infoWarehouse">
                     <tr *ngFor="let infodriver of infoWarehouse">
                         <td>{{infodriver.id}}</td>
-                        <td>{{infodriver.name}}</td>
-                        <td>{{infodriver.location}}</td>
-                        <td>{{infodriver.ocupation}}</td>
+                        <td>{{infodriver.city.name}}</td>
+                        <td>{{infodriver.address}}</td>
+                        <td>{{infodriver.capacity}}</td>
+                        <td>{{infodriver.type.name}}</td>
+                        <td>{{infodriver.costPerM3}}</td>
                         <td class="no-border">
                             <div class="btn-group" role="group">
                                 <button class="btn btn-lg" type="button">
