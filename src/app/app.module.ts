@@ -25,6 +25,11 @@ import { QuoteServicesComponent } from './quote-services/quote-services.componen
 import { MovilMocksComponent } from './movil-mocks/movil-mocks.component';
 import { ClientListServicesComponent } from './client-list-services/client-list-services.component';
 import { ManagerListWarehouseComponent } from './manager-list-warehouse/manager-list-warehouse.component';
+import { WarehouseListComponent } from './warehouse-list/warehouse-list.component';
+import { WarehouseInfoComponent } from './warehouse-info/warehouse-info.component';
+import { ChangePasswordRequestComponent } from './change-password-request/change-password-request.component';
+import { ChangePasswordSendedComponent } from './change-password-sended/change-password-sended.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +53,12 @@ import { ManagerListWarehouseComponent } from './manager-list-warehouse/manager-
     QuoteServicesComponent,
     MovilMocksComponent,
     ClientListServicesComponent,
-    ManagerListWarehouseComponent
+    ManagerListWarehouseComponent,
+    WarehouseListComponent,
+    WarehouseInfoComponent,
+    ChangePasswordRequestComponent,
+    ChangePasswordSendedComponent,
+    ChangePasswordComponent
   ],
   imports: [
     BrowserModule,

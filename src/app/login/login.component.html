@@ -1,10 +1,10 @@
 <body class="Continer">
+  <div class="im">
+    <img class="img4" src="assets/icono.png" alt="Título con imagen">
+    <h3 class="r">IntelliTrack</h3>
+  </div>
   <section class="SeccionLG">
-    <div class="mi-seccion-columna mi-seccion-columna-izquierda">
-      <div class="mi-seccion-titulo">
-        <img src="assets/icono.png" alt="Título con imagen">
-        <h3 class="r">IntelliTrack</h3>
-      </div>
+    <div class="mi-seccion-columna">
       <div class="formContainer">
         <h5 class="Bienvenido">Bienvenido(a) de nuevo</h5>
         <form *ngIf="!isLoggedIn" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
@@ -27,6 +27,8 @@
               </div>
             </div>
           </div>
+          <a class="forgot" routerLink="/change-password-r">¿Olvidaste la contraseña?</a>
+
           <div class="form-group">
             <button class="btn btn-orange btn-block custom-btn" routerLink="/manager-List-Warehouse"
               style="font-size: 140%;">
@@ -43,13 +45,13 @@
           Logged in as {{ roles }}.
         </div>
       </div>
-      <div class="registroconten" style="font-size: 120%;">
+      <div class="registroconten" style="font-size: 150%;">
         ¿Aún no tienes una cuenta?
         <a (click)="navegarAPantallaSingUp()" class="textRegistrarce">REGÍSTRATE</a>
       </div>
     </div>
-    <div class="mi-seccion-columna mi-seccion-columna-derecha">
+    <!-- <div class="mi-seccion-columna mi-seccion-columna-derecha">
       <img src="assets\IniciarSesion.png" alt="Imagen de la columna derecha">
-    </div>
+    </div> -->
   </section>
 </body>

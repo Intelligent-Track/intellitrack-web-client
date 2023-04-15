@@ -39,7 +39,7 @@
 
 
 <div class="pad">
-  <h2>Conductores</h2>
+  <h2>Gerentes</h2>
   <div class="input-group pb-2">
     <div class="input-group-prepend border-0">
       <span class="input-group-text border-0 bg-transparent">
@@ -60,47 +60,31 @@
       <thead>
         <tr>
           <th scope="col">ID</th>
-          <th scope="col">Nombre completo</th>
-          <th scope="col">Región</th>
-          <th scope="col">Cantidad de conductores</th>
-          <th scope="col">Cantidad de operadores</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Documento</th>
+          <th scope="col">Teléfono</th>
+          <th scope="col">Cargo</th>
           <th scope="col">Almacén</th>
+          <th scope="col">Gerente</th>
           <th class="no-border"></th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>erwrewwer</td>
-          <td>fdifufds</td>
-          <td>dfsfdsfd</td>
-          <td>fddfsfsd</td>
-          <td>sdfdsfsfd</td>
-          <td>sdfdsfsfd</td>
-          <td class="no-border">
-            <div class="btn-group" role="group">
-              <button class="btn btn-lg" type="button">
-                <i class="fa fa-pencil"></i>
-              </button>
-              <button class="btn btn-lg ml-2" type="button">
-                <i class="fa fa-trash"></i>
-              </button>
-            </div>
-          </td>
-        </tr>
         <ng-container *ngIf="infoManagers">
           <tr *ngFor="let infoManager of infoManagers">
             <td scope="row">{{infoManager.id}}</td>
-            <td>{{infoManager.fullName}}</td>
-            <td>{{infoManager.region}}</td>
-            <td>{{infoManager.driversInCharge}}</td>
-            <td>{{infoManager.operatorsInCharge}}</td>
-            <td>{{infoManager.warehouseLocation}}</td>
+            <td>{{infoManager.name}}</td>
+            <td>{{infoManager.document}}</td>
+            <td>{{infoManager.phone}}</td>
+            <td>{{infoManager.job}}</td>
+            <td>{{infoManager.location}}</td>
+            <td>{{infoManager.managerUsername}}</td>
             <td class="no-border">
               <div class="btn-group" role="group">
                 <button class="btn btn-lg" type="button">
                   <i class="fa fa-pencil"></i>
                 </button>
-                <button class="btn btn-lg ml-2" type="button">
+                <button class="btn btn-lg ml-2" type="button" (click)="deleteManager(infoManager)">
                   <i class="fa fa-trash"></i>
                 </button>
               </div>

@@ -4,6 +4,8 @@ import { DriverService } from '../_services/driver.service';
 import { Router } from '@angular/router';
 import { DtoManager } from '../dto/dto-manager';
 import { Driver } from '../model/driver';
+import { AdminService } from '../_services/admin.service';
+import { Manager } from '../model/manager';
 
 @Component({
   selector: 'app-admin-add-driver',
@@ -19,23 +21,22 @@ export class AdminAddDriverComponent implements OnInit {
   locationDri: string = ""; 
   phoneDri: number = -1;
   emailDri: string = "";
-  managerList: DtoManager[] |undefined;
+  managerList: Manager[] |undefined;
 
   constructor(
-    private driverService: DriverService,
     private router: Router,
-    private managerService : ManagerService
+    private adminService : AdminService
   ) { }
 
   ngOnInit(): void {
-    this.managerService.listInfoManagers().subscribe(mans => {
+    this.adminService.listAllManagers().subscribe(mans => {
       this.managerList = mans
     });
   }
 
   onSubmit(){
     if(this.nameDri && this.emailDri && this.locationDri && this.phoneDri && this.selectedCity && this.selectedMan){
-      this.driverService.createDriver(new Driver(this.nameDri, this.emailDri, this.phoneDri, this.locationDri, this.selectedMan)).subscribe(() => {
+      this.adminService.createDriver(new Driver(0, this.nameDri, this.emailDri, 0 ,this.phoneDri, "", this.locationDri, true, this.selectedMan, "", "", "")).subscribe(() => {
         this.router.navigate(['operator-list'])
       }
       );

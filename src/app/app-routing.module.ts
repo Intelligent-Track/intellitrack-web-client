@@ -19,6 +19,11 @@ import { OperatorCreateComponent } from './operator-create/operator-create.compo
 import { AdminAddDriverComponent } from './admin-add-driver/admin-add-driver.component';
 import { ClientListServicesComponent } from './client-list-services/client-list-services.component';
 import { ManagerListWarehouseComponent } from './manager-list-warehouse/manager-list-warehouse.component';
+import { WarehouseListComponent } from './warehouse-list/warehouse-list.component';
+import { WarehouseInfoComponent } from './warehouse-info/warehouse-info.component';
+import { ChangePasswordRequestComponent } from './change-password-request/change-password-request.component';
+import { ChangePasswordSendedComponent } from './change-password-sended/change-password-sended.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -40,6 +45,11 @@ const routes: Routes = [
   { path: 'driver-create', component: AdminAddDriverComponent },
   { path: 'Service-List', component: ClientListServicesComponent },
   { path: 'manager-List-Warehouse', component: ManagerListWarehouseComponent },
+  { path: 'warehouse-list', component: WarehouseListComponent },
+  { path: 'warehouse-info/:id', component: WarehouseInfoComponent },
+  { path: 'change-password-r', component: ChangePasswordRequestComponent },
+  { path: 'change-password-s', component: ChangePasswordSendedComponent},
+  { path: 'change-password', component: ChangePasswordComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 
