@@ -22,7 +22,7 @@ export class OperatorService {
   constructor(private http: HttpClient) { }
 
   editProfile(operator: Operator){
-
+    return this.http.put<Operator>(`${environment.apiUrl}/${SERVICE_PATH}/operatorEdit`, operator, this.httpOptions)
   }
 
 }
