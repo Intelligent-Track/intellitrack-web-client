@@ -19,6 +19,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { ManagerListComponent } from './manager-list/manager-list.component';
 import { OperatorListComponent } from './operator-list/operator-list.component';
 import { OperatorCreateComponent } from './operator-create/operator-create.component';
+import { EditProfileClientComponent } from './edit-profile-client/edit-profile-client.component';
 import { AdminAddMechanicComponent } from './admin-add-mechanic/admin-add-mechanic.component';
 import { AdminAddDriverComponent } from './admin-add-driver/admin-add-driver.component';
 import { QuoteServicesComponent } from './quote-services/quote-services.component';
@@ -52,6 +53,7 @@ import { VehicleCreateComponent } from './vehicle-create/vehicle-create.componen
     ManagerListComponent,
     OperatorListComponent,
     OperatorCreateComponent,
+    EditProfileClientComponent,
     AdminAddMechanicComponent,
     AdminAddDriverComponent,
     QuoteServicesComponent,
