@@ -32,6 +32,8 @@ import { ShipmentBoardComponent } from './shipment-board/shipment-board.componen
 import { WarehouseEditComponent } from './warehouse-edit/warehouse-edit.component';
 import { ProgramShipmentComponent } from './program-shipment/program-shipment.component';
 import { EditProfileManagerComponent } from './edit-profile-manager/edit-profile-manager.component';
+import { VehicleListCRUDComponent } from './vehicle-list-crud/vehicle-list-crud.component';
+import { VehicleCreateComponent } from './vehicle-create/vehicle-create.component';
 
 @NgModule({
   declarations: [
@@ -63,6 +65,8 @@ import { EditProfileManagerComponent } from './edit-profile-manager/edit-profile
     ProgramShipmentComponent,
     ShipmentBoardComponent,
     WarehouseEditComponent,
+    VehicleListCRUDComponent,
+    VehicleCreateComponent,
     EditProfileManagerComponent
   ],
   imports: [
