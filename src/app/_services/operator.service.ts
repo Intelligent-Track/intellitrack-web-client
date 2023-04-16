@@ -21,4 +21,8 @@ export class OperatorService {
 
   constructor(private http: HttpClient) { }
 
+  editProfile(operator: Operator){
+
+  }
+
 }

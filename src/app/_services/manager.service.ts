@@ -19,4 +19,8 @@ export class ManagerService {
   }
   constructor(private http: HttpClient) { }
 
+  editProfile(manager: Manager){
+
+  }
+
 }

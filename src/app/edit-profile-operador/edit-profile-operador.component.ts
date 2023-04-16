@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { OperatorService } from '../_services/operator.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-edit-profile-operador',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditProfileOperadorComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router,private operatorService: OperatorService) { }
 
   ngOnInit(): void {
+  }
+
+  onSubmit(){
+
   }
 
 }
