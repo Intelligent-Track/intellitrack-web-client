@@ -25,6 +25,8 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
 import { WarehouseEditComponent } from './warehouse-edit/warehouse-edit.component';
 import { ShipmentBoardComponent } from './shipment-board/shipment-board.component';
 import { ProgramShipmentComponent } from './program-shipment/program-shipment.component';
+import { VehicleListCRUDComponent } from './vehicle-list-crud/vehicle-list-crud.component';
+import { VehicleCreateComponent } from './vehicle-create/vehicle-create.component';
 
 
 const routes: Routes = [
@@ -52,6 +54,9 @@ const routes: Routes = [
   { path: 'change-password', component: ChangePasswordComponent},
   { path: 'shipment-board', component: ShipmentBoardComponent},
   { path: 'program-shipment', component: ProgramShipmentComponent},
+  { path: 'vehicle-list', component: VehicleListCRUDComponent},
+  { path: 'vehicle-create', component: VehicleCreateComponent},
+
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

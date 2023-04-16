@@ -32,6 +32,8 @@ import { ShipmentBoardComponent } from './shipment-board/shipment-board.componen
 import { WarehouseEditComponent } from './warehouse-edit/warehouse-edit.component';
 import { ProgramShipmentComponent } from './program-shipment/program-shipment.component';
 
+import { VehicleListCRUDComponent } from './vehicle-list-crud/vehicle-list-crud.component';
+import { VehicleCreateComponent } from './vehicle-create/vehicle-create.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +64,9 @@ import { ProgramShipmentComponent } from './program-shipment/program-shipment.co
     WarehouseEditComponent,
     ProgramShipmentComponent,
     ShipmentBoardComponent,
-    WarehouseEditComponent
+    WarehouseEditComponent,
+    VehicleListCRUDComponent,
+    VehicleCreateComponent
   ],
   imports: [
     BrowserModule,
