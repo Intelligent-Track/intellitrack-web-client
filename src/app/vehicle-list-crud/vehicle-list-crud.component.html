@@ -1,17 +1,75 @@
-<table>
+<nav class="navbar navbar-expand-lg navbar-light x">
+  <a class="navbar-brand" href="#">
+      <img src="../../assets/whitebrand.png" width="50" height="50" class="d-inline-block align-top" alt="">
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto"> <!-- Agregar la clase ml-auto -->
+          <li class="nav-item">
+              <a class="nav-link text" href="#" style="color: white;font-weight: 200;">Envíos</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link text active" style="color: white; font-weight: 500;"><span
+                      class="sr-only">(current)</span>Bodegas</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link text" style="color: white; font-weight: 200;" href="#">Perfil</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link text " style="color: white; font-weight: 200;">Cerrar sesión</a>
+          </li>
+      </ul>
+  </div>
+</nav>
 
-    <th>idPantera</th>
-    <th>Name</th>
-    <ng-container *ngFor="let Panther of pantherArray">
+<div class="pad">
+  <h2>Vehiculos</h2>
+  <div class="input-group pb-2">
+    <div>
+      <span class="">Filtrar por ciudad</span>
+      <select class="form-select" name="cities" id="cities" *ngIf="cities" [(ngModel)]="selectedCity" >
+        <option value="C"></option>
+        <option [ngValue]="city" *ngFor="let city of cities">{{city.name}}</option>
+      </select>
+      <form (ngSubmit)="onSearchSubmit()">
+        <button class="btn btn-outline-secondary border-0 search bu">
+          <i class="fa  fa-search"></i>
+        </button>
+      </form>
+    </div>
+
+  </div>
+</div>
+
+<div style="padding-top: 3%;" class="table-responsive  ">
+  <table class="table" >
+    <thead>
+      <th>Modelo</th>
+      <th>Placa</th>
+      <th>Tipo</th>
+      <th>Capacidad Volumen</th>
+      <th>Capacidad Peso</th>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let Vehicle of vehicleArray">
         <tr>
-            <td>{{Panther.idPantera}}</td>
-            <td>{{Panther.name}}</td>
-            <button class="btn btn-primary" (click)="deletePanther(Panther.idPantera)">
-                Eliminar Pantera
-            </button>
-            <button class="btn btn-primary" (click)="editPanther(Panther)">
-                Editar Pantera
-            </button>
+          <td>{{Vehicle.model}}</td>
+          <td>{{Vehicle.placa}}</td>
+          <td>{{Vehicle.tipo}}</td>
+          <td>{{Vehicle.capacidadVolumen}}</td>
+          <td>{{Vehicle.capacidadVolumen}}</td>
+          <button class="btn btn-primary" (click)="deleteVehicle(Vehicle.id)">
+            Eliminar
+          </button>
         </tr>
-    </ng-container>
-</table>
+      </ng-container>
+    </tbody>
+  </table>
+  <button class="btn btn-outline-secondary border-0 search bu"  style="font-size: 140%;" (click)="agregar()">
+    Agregar <i class="fa  fa-plus"></i>
+  </button>
+</div>
+

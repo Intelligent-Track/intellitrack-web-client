@@ -22,8 +22,11 @@ export class VehicleService {
   listAllVehicles(): Observable<Vehicle[]> {
     return this.http.get<Vehicle[]>(`${environment.apiUrl}/${SERVICE_PATH}/allVehicles`, this.httpOptions);
   }
-  /*
-  findAll(): Observable<Vehicle[]>{
-    return this.http.get<Vehicle[]>(SERVICE_PATH)
-  }*/
+  listVehicleByCity(city: number): Observable<Vehicle[]> {
+    return this.http.get<Vehicle[]>(`${environment.apiUrl}/${SERVICE_PATH}/allWarehousesByCity/` + city, this.httpOptions);
+  }
+  createVehicle(vehicle: Vehicle) {
+    return this.http.post<Vehicle>(`${environment.apiUrl}/${SERVICE_PATH}/VehicleCreate`, vehicle, this.httpOptions);
+  }
+
 }

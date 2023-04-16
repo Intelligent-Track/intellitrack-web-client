@@ -23,6 +23,8 @@ import { ChangePasswordRequestComponent } from './change-password-request/change
 import { ChangePasswordSendedComponent } from './change-password-sended/change-password-sended.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { WarehouseEditComponent } from './warehouse-edit/warehouse-edit.component';
+import { VehicleListCRUDComponent } from './vehicle-list-crud/vehicle-list-crud.component';
+import { VehicleCreateComponent } from './vehicle-create/vehicle-create.component';
 
 
 const routes: Routes = [
@@ -48,6 +50,9 @@ const routes: Routes = [
   { path: 'change-password-r', component: ChangePasswordRequestComponent },
   { path: 'change-password-s', component: ChangePasswordSendedComponent},
   { path: 'change-password', component: ChangePasswordComponent},
+  { path: 'vehicle-list', component: VehicleListCRUDComponent},
+  { path: 'vehicle-create', component: VehicleCreateComponent},
+
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

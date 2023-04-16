@@ -30,6 +30,7 @@ import { ChangePasswordSendedComponent } from './change-password-sended/change-p
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { WarehouseEditComponent } from './warehouse-edit/warehouse-edit.component';
 import { VehicleListCRUDComponent } from './vehicle-list-crud/vehicle-list-crud.component';
+import { VehicleCreateComponent } from './vehicle-create/vehicle-create.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { VehicleListCRUDComponent } from './vehicle-list-crud/vehicle-list-crud.
     ChangePasswordSendedComponent,
     ChangePasswordComponent,
     WarehouseEditComponent,
-    VehicleListCRUDComponent
+    VehicleListCRUDComponent,
+    VehicleCreateComponent
   ],
   imports: [
     BrowserModule,
