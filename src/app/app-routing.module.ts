@@ -17,6 +17,18 @@ import { ManagerListComponent } from './manager-list/manager-list.component';
 import { OperatorListComponent } from './operator-list/operator-list.component';
 import { OperatorCreateComponent } from './operator-create/operator-create.component';
 import { AdminAddMechanicComponent } from './admin-add-mechanic/admin-add-mechanic.component';
+import { AdminAddDriverComponent } from './admin-add-driver/admin-add-driver.component';
+import { WarehouseListComponent } from './warehouse-list/warehouse-list.component';
+import { WarehouseInfoComponent } from './warehouse-info/warehouse-info.component';
+import { ChangePasswordRequestComponent } from './change-password-request/change-password-request.component';
+import { ChangePasswordSendedComponent } from './change-password-sended/change-password-sended.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
+import { WarehouseEditComponent } from './warehouse-edit/warehouse-edit.component';
+import { ShipmentBoardComponent } from './shipment-board/shipment-board.component';
+import { ProgramShipmentComponent } from './program-shipment/program-shipment.component';
+import { VehicleListCRUDComponent } from './vehicle-list-crud/vehicle-list-crud.component';
+import { VehicleCreateComponent } from './vehicle-create/vehicle-create.component';
+
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -34,7 +46,6 @@ const routes: Routes = [
   { path: 'manager-list', component: ManagerListComponent },
   { path: 'operator-list', component: OperatorListComponent },
   { path: 'operator-create', component: OperatorCreateComponent },
-  { path: 'adminAddMechanic', component: AdminAddMechanicComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

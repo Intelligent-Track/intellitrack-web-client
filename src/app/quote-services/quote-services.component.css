@@ -1,0 +1,72 @@
+select.form-control option:first-child {
+  color: white;
+}
+
+.Columnas {
+  width: 60%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.Container {
+    margin-top: 5%;
+    height: 60vh;
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+  }
+
+.custom-input {
+  border-radius: 10px;
+  background-color: #f2f3f7;
+  border: none;
+}
+
+.btn-orange {
+  background-color: #ff6e59; /* aquí puedes cambiar el color de fondo */
+  border-color: #ff6e59; /* aquí puedes cambiar el color del borde */
+  color: white; /* aquí puedes cambiar el color de la letra */
+  border-radius: 20px;
+  font-size: 150%;
+  width: 300px;
+}
+
+p {
+  font-size: 150%;
+}
+
+h2{
+    font-size: 270%;
+}
+
+.custom-input{
+    font-size: 150%;
+}
+
+.Columna2 {
+    position: relative;
+  }
+
+.infoImage {
+    position: absolute;
+    top: 290px;
+    left: 26px;
+    padding-left: 7%;
+    padding-right: 7%;
+    color: white ;
+    text-align: center;
+}
+
+.infoQuote {
+    position: absolute;
+    top: 350px;
+    left: 150px;
+    border-radius: 5px;
+    padding-left: 7%;
+    padding-right: 7%;
+    background-color: #f2f3f7;
+    color: black ;
+    text-align: center;
+}

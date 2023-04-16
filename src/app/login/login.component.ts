@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
   isLoggedIn = false;
   isLoginFailed = false;
   errorMessage = '';
-  roles: string[] = [];
+  roles: string = '';
 
   constructor(private authService: AuthService, private storageService: StorageService, private router: Router) { }
 
@@ -25,14 +25,20 @@ export class LoginComponent implements OnInit {
         miParametro: parametro
       }
     };
-
-    this.router.navigate(['/home'], navigationExtras);
+    if(navigationExtras.queryParams.miParametro == "ROLE_ADMIN"){
+      this.router.navigate(['/operator-list']);
+    }else if(navigationExtras.queryParams.miParametro == "ROLE_CLIENTEREPRE"){
+      this.router.navigate(['/warehouse-list']);
+    }else{
+      this.router.navigate(['/home'], navigationExtras);
+    }
   }
 
   ngOnInit(): void {
     if (this.storageService.isLoggedIn()) {
       this.isLoggedIn = true;
       this.roles = this.storageService.getUser().roles;
+      this.navegarAPantallaDestino(this.roles)
     }
   }
 
@@ -49,10 +55,10 @@ export class LoginComponent implements OnInit {
     this.authService.login(username, password).subscribe({
       next: data => {
         this.storageService.saveUser(data);
-
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.roles = this.storageService.getUser().roles;
+        this.navegarAPantallaDestino(this.roles)
         this.reloadPage();
       },
       error: err => {

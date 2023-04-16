@@ -1,7 +1,5 @@
 .Continer {
-  width: 206vh;
-  height: 100vh;
-  background: linear-gradient(to right, #FF6E59 50%, #424549 50%);
+  background: url(src/assets/backgroundLandscape.png) no-repeat center;
   background-size: cover;
 }
 
@@ -10,12 +8,12 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   border-radius: 30px;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
   width: 80%;
-  max-width: 800px;
-  height: 65%;
+  height: 450px;
+  max-width: 500px;
   max-height: 600px;
   display: flex;
   flex-direction: row;
@@ -28,18 +26,25 @@
   padding: 20px;
 }
 
+.sss{
+  width: 100px;
+  height: 180px;
+}
 
 .mi-seccion-titulo {
   text-align: center;
   display: flex;
   align-items: center;
-  margin-bottom: 20px;
+}
+
+.r {
+  margin-top: 50px;
+font-size: 290%;
 }
 
 .mi-seccion-titulo img {
   width: 30%;
 }
-
 .mi-seccion-formulario {
   display: flex;
   flex-direction: column;
@@ -49,7 +54,7 @@
 }
 
 .mi-seccion-columna-derecha img {
-  width: 100%;
+  width: 105%;
   height: 100%;
 }
 
@@ -62,7 +67,6 @@
 .form-group {
   margin-bottom: 20px;
 }
-
 
 .form-control {
   border: 1px solid #ccc;
@@ -78,7 +82,13 @@
   padding: 10px 20px;
   cursor: pointer;
 }
-
+.im{
+  display: flex;
+}
+.img4{
+  width: 150px;
+  height: 150px;
+}
 .alert {
   padding: 10px;
   border-radius: 3px;
@@ -98,26 +108,34 @@
 }
 
 .custom-input {
+  height: 35px;
   border-radius: 15px;
-  background-color: #F2F3F7;
+  font-size: 150%;
+  background-color: #f2f3f7;
   border: none;
 }
 
 .formContainer {
-  padding: 20px;
+  padding-left: 40px;
+  padding-right: 40px;
 }
 
 .Bienvenido {
+  margin-top: 50px;
+  font-size: 350%;
   text-align: center;
   padding-bottom: 10px;
+  margin-bottom: 40px;
 }
 
 .btn-orange {
-  background-color: #FF6E59;
+  margin-top: 20px;
+  height: 35px;
+  background-color: #ff6e59;
   /* aquí puedes cambiar el color de fondo */
-  border-color: #FF6E59;
+  border-color: #ff6e59;
   /* aquí puedes cambiar el color del borde */
-  color: black;
+  color: white;
   /* aquí puedes cambiar el color de la letra */
   border-radius: 20px;
   /* aquí puedes cambiar el radio de los bordes */
@@ -125,9 +143,9 @@
 
 .custom-btn:focus,
 .custom-btn:hover {
-  background-color: #FF6E59;
+  background-color: #ff6e59;
   /* aquí puedes cambiar el color de fondo en estado :hover y :focus */
-  border-color: #FF6E59;
+  border-color: #ff6e59;
   /* aquí puedes cambiar el color del borde en estado :hover y :focus */
   color: black;
   /* aquí puedes cambiar el color de la letra en estado :hover y :focus */
@@ -136,10 +154,19 @@
 }
 
 .registroconten {
+  margin-top: 20px;
   text-align: center;
-  text-decoration-color: #A1A4B2;
+  text-decoration-color: #a1a4b2;
 }
 
 .textRegistrarce {
-  color: #FF6E59;
+  color: #ff6e59;
+}
+
+.forgot{
+  font-size: 140%;
+  color: #7da789;
+  text-align: right;
+  display: block;
+  margin-bottom: 10px;
 }
