@@ -57,3 +57,57 @@ button{
     margin-top: 5%;
     height: 30px;
 }
+
+.bordeLogin {
+    background-color: #ff6e59;
+    padding: 10px;
+}
+
+.navbar-brand {
+    font-size: 44px;
+    /* ajusta el tamaño de la fuente a 24 píxeles */
+}
+
+li {
+    float: right;
+}
+
+.nav-link {
+    margin-right: 20px;
+
+}
+
+.bu {
+    font-size: 14px;
+}
+
+.pad {
+    padding-top: 5%;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.no-border {
+    border: none;
+}
+
+.x {
+    background-color: #ff6e59;
+}
+
+.text {
+    font-size: large;
+}
+
+.navbar-nav {
+    text-align: left;
+}
+
+.alert-marge{
+    margin-top: 5%;
+}
+
+h2 {
+    margin-bottom: 2%;
+}
+

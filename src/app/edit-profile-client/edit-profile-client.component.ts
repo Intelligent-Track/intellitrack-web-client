@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ClientService } from '../_services/client.service';
+import { StorageService } from '../_services/storage.service';
+import { Client } from '../model/client';
 
 @Component({
   selector: 'app-edit-profile-client',
@@ -9,24 +12,43 @@ export class EditProfileClientComponent implements OnInit {
 
   nameClt: string = "";
   emailClt: string = "";
-  phoneClt: string = "";
+  documentClt: number | undefined;
+  phoneClt: number | undefined;
   dirClt: string = "";
   nitClt: string = "";
   socialClt: string = "";
+  visible: boolean = false;
   
   passwordOld: string = "";
   passwordNew: string = "";
 
-  constructor() { }
+  constructor(
+    public clientService: ClientService,
+    public storageService: StorageService
+  ) { }
 
   ngOnInit(): void {
+    console.log(this.storageService.getUser().id)
+    this.clientService.searchClientById(this.storageService.getUser().id).subscribe(clt =>{
+      this.nameClt = clt.name
+      this.emailClt = clt.username
+      this.documentClt = clt.document
+      this.phoneClt = clt.phone
+      this.dirClt = clt.location
+      this.nitClt = clt.nit
+      this.socialClt = clt.companyName
+    });
   }
 
   onSubmit(){
-
+    let cliente: Client = new Client (this.storageService.getUser().id, this.nameClt, this.emailClt, this.documentClt!, this.phoneClt!, "Cliente ADM", this.dirClt, true, "gabss@gmail.com", this.socialClt, this.nitClt);
+    
+    this.clientService.updateClient(cliente).subscribe(() => {
+      this.visible = true
+    });
   }
 
   onPasswordSubmit(){
-
+    this.storageService.getUser().id;
   }
 }

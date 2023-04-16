@@ -1,16 +1,47 @@
+<nav class="navbar navbar-expand-lg navbar-light x">
+    <a class="navbar-brand" href="#">
+        <img src="../../assets/whitebrand.png" width="50" height="50" class="d-inline-block align-top" alt="">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto"> <!-- Agregar la clase ml-auto -->
+            <li class="nav-item">
+                <a class="nav-link text" href="#" style="color: white;font-weight: 200;">Envíos</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text" routerLink="/warehouse-list" style="color: white; font-weight: 200;">Bodegas</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text active" style="color: white; font-weight: 500;" href="#"><span
+                    class="sr-only">(current)</span>Perfil</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text " style="color: white; font-weight: 200;">Cerrar sesión</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
 <div class = "container">
     <div class = "columnas">
         <div class = "columna">
             <h1>Editar perfil</h1>
             <form (ngSubmit)="onSubmit()">
                 <input type="text" placeholder="Nombre" class="form-control custom-input" name="nameAdd" [(ngModel)]="nameClt">
-                <input type="text" placeholder="Correo" class="form-control custom-input" name="idAdd" [(ngModel)]="emailClt">
-                <input type="text" placeholder="Telefono" class="form-control custom-input" name="locationAdd" [(ngModel)]="phoneClt">
-                <input type="text" placeholder="Dirección" class="form-control custom-input" name="phoneAdd" [(ngModel)]="dirClt">
-                <input type="text" placeholder="NIT" class="form-control custom-input" name="emailAdd" [(ngModel)]="nitClt">
-                <input type="text" placeholder="Razon social" class="form-control custom-input" name="emailAdd" [(ngModel)]="socialClt">
-                <button class="btn btn-orange btn-block custom-btn" (ngSubmit)="onSubmit()"> Buscar</button>
+                <input type="text" placeholder="Correo" class="form-control custom-input" name="emailAdd" [(ngModel)]="emailClt">
+                <input type="text" placeholder="Número de documento" class="form-control custom-input" name="documentAdd" [(ngModel)]="documentClt">
+                <input type="text" placeholder="Telefono" class="form-control custom-input" name="phoneAdd" [(ngModel)]="phoneClt">
+                <input type="text" placeholder="Dirección" class="form-control custom-input" name="dirAdd" [(ngModel)]="dirClt">
+                <input type="text" placeholder="NIT" class="form-control custom-input" name="nitAdd" [(ngModel)]="nitClt">
+                <input type="text" placeholder="Nombre de la compañia" class="form-control custom-input" name="socialAdd" [(ngModel)]="socialClt">
+                <button class="btn btn-orange btn-block custom-btn" (ngSubmit)="onSubmit()"> Editar</button>
             </form>
+            <div class="alert alert-success alert-marge" role="alert" *ngIf="visible">
+                ¡Tu perfil fue actualizado exitosamente!
+            </div>
         </div>
         <div class="columna">
             <hr>
@@ -26,4 +57,6 @@
             </form>
         </div>
     </div>
+    
+
 </div>

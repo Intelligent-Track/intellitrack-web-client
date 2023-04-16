@@ -30,12 +30,6 @@ export class AdminAddManagerComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log(this.name)
-    console.log(this.email)
-    console.log(this.password)
-    console.log(this.phone)
-    console.log(this.document)
-    console.log(this.location)
     if(this.name && this.email && this.password && this.phone && this.document && this.location){
       this.adminService.createManager(new DtoManager(this.name, this.password, this.email, this.document, this.phone, "Manager", this.location, this.general, this.storageService.getUser().username)).subscribe(() => {
         this.router.navigate(['manager-list'])
