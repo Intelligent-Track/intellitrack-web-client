@@ -42,19 +42,7 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(): void {
-    const { username, email, password , enterprisename, desciption} = this.form;
-
-    this.authService.register(username, email, password).subscribe({
-      next: data => {
-        console.log(data);
-        this.isSuccessful = true;
-        this.isSignUpFailed = false;
-      },
-      error: err => {
-        this.errorMessage = err.error.message;
-        this.isSignUpFailed = true;
-      }
-    });
+    
   }
 
   navegarAPantallaInicial() {
@@ -117,6 +105,19 @@ export class RegisterComponent implements OnInit {
 
     if (this.isValid) {
       // Realizar el registro
+    const { username, email, password , enterprisename,cedula,phonenumber,nit} = this.form;
+
+    this.authService.register(username,email,phonenumber,nit,password,enterprisename,cedula).subscribe({
+      next: data => {
+        console.log(data);
+        this.isSuccessful = true;
+        this.isSignUpFailed = false;
+      },
+      error: err => {
+        this.errorMessage = err.error.message;
+        this.isSignUpFailed = true;
+      }
+    });
       alert('Registro exitoso');
     }
   }
