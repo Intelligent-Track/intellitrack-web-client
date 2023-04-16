@@ -31,6 +31,7 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
 import { ShipmentBoardComponent } from './shipment-board/shipment-board.component';
 import { WarehouseEditComponent } from './warehouse-edit/warehouse-edit.component';
 import { ProgramShipmentComponent } from './program-shipment/program-shipment.component';
+import { ClientQuoteServicesComponent } from './client-quote-services/client-quote-services.component';
 
 
 @NgModule({
@@ -62,7 +63,8 @@ import { ProgramShipmentComponent } from './program-shipment/program-shipment.co
     WarehouseEditComponent,
     ProgramShipmentComponent,
     ShipmentBoardComponent,
-    WarehouseEditComponent
+    WarehouseEditComponent,
+    ClientQuoteServicesComponent
   ],
   imports: [
     BrowserModule,

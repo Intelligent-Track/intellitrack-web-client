@@ -1,0 +1,185 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto auto;
+  grid-gap: 10px;
+}
+
+.grid-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  border: none;
+  border-radius: 15px;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  background-color: #F2F3F7;
+}
+
+.grid-item:hover {
+  background-color: #d4d4d7;
+}
+
+.selected {
+  border: 2px solid green;
+}
+
+.Container{
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -30%);
+  padding: 10px;
+}
+
+.Columnas{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.Columna{
+  margin-top: 20px;
+  margin-right: 40px;
+  margin-bottom: 40px;
+  margin-left: 10px;
+  padding-right: 30px;
+}
+
+.form-control {
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  padding: 5px 10px;
+}
+
+.custom-input {
+  border-radius: 15px;
+  background-color: #F2F3F7;
+  border: none;
+  width: 15vw;
+  height: 30px;
+  margin: 10px;
+}
+
+input{
+  margin: 2%;
+}
+
+button{
+  margin: 2%;
+}
+
+.bordeLogin {
+  background-color: #ff6e59;
+  padding: 10px;
+}
+
+.navbar-brand {
+  font-size: 44px;
+  /* ajusta el tamaño de la fuente a 24 píxeles */
+}
+
+li {
+  float: right;
+}
+
+.nav-link {
+  margin-right: 20px;
+
+}
+
+.bu {
+  font-size: 14px;
+}
+
+.pad {
+  padding-top: 5%;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.no-border {
+  border: none;
+}
+
+.x {
+  background-color: #ff6e59;
+}
+
+.text {
+  font-size: large;
+}
+
+.navbar-nav {
+  text-align: left;
+}
+
+h2 {
+  margin-bottom: 2%;
+}
+
+.btn-orange {
+  background-color: #FF6E59; /* aquí puedes cambiar el color de fondo */
+  border-color: #FF6E59; /* aquí puedes cambiar el color del borde */
+  color: black; /* aquí puedes cambiar el color de la letra */
+  border-radius: 20px; 
+  height: 30px;
+  width: 20vm;
+  padding: 5px 10px;
+  font-size: 15px;
+}
+
+img {
+  margin-right: 10px;
+}
+
+#text-d {
+  font-size: 10px;
+  color: grey;
+}
+
+.row-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+}
+
+.row-Container * {
+  box-sizing: border-box;
+  width: 100%;
+  text-align: center;
+}
+
+#tipo-envio *{
+  margin: 10px;
+  font-weight: normal;
+  font-size: 14px;
+}
+
+.column-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#total {
+  margin-top: 10px;
+}
+
+.link {
+  font-weight: bold;
+}
+
+.terminos {
+  margin: 10px;
+}
+
+#costos {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
