@@ -31,8 +31,6 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
 import { ShipmentBoardComponent } from './shipment-board/shipment-board.component';
 import { WarehouseEditComponent } from './warehouse-edit/warehouse-edit.component';
 import { ProgramShipmentComponent } from './program-shipment/program-shipment.component';
-
-import { LogOutComponent } from './log-out/log-out.component';
 import { EditProfileManagerComponent } from './edit-profile-manager/edit-profile-manager.component';
 
 @NgModule({
@@ -65,7 +63,6 @@ import { EditProfileManagerComponent } from './edit-profile-manager/edit-profile
     ProgramShipmentComponent,
     ShipmentBoardComponent,
     WarehouseEditComponent,
-    LogOutComponent,
     EditProfileManagerComponent
   ],
   imports: [
