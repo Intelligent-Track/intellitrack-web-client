@@ -79,3 +79,49 @@
   h2 {
     margin-bottom: 2%;
   }
+
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .column-left {
+    flex: 1;
+    margin-right: 10px;
+  }
+  
+  .column-right {
+    flex: 2;
+  }
+  
+  input[type="text"], button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  select {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    width: 100%;
+  }
+  
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th, td {
+    text-align: left;
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  
+th {
+  background-color: #f2f2f2;
+}

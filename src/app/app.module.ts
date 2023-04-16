@@ -28,7 +28,10 @@ import { WarehouseInfoComponent } from './warehouse-info/warehouse-info.componen
 import { ChangePasswordRequestComponent } from './change-password-request/change-password-request.component';
 import { ChangePasswordSendedComponent } from './change-password-sended/change-password-sended.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
+import { ShipmentBoardComponent } from './shipment-board/shipment-board.component';
 import { WarehouseEditComponent } from './warehouse-edit/warehouse-edit.component';
+import { ProgramShipmentComponent } from './program-shipment/program-shipment.component';
+
 import { VehicleListCRUDComponent } from './vehicle-list-crud/vehicle-list-crud.component';
 import { VehicleCreateComponent } from './vehicle-create/vehicle-create.component';
 
@@ -58,6 +61,9 @@ import { VehicleCreateComponent } from './vehicle-create/vehicle-create.componen
     ChangePasswordRequestComponent,
     ChangePasswordSendedComponent,
     ChangePasswordComponent,
+    WarehouseEditComponent,
+    ProgramShipmentComponent,
+    ShipmentBoardComponent,
     WarehouseEditComponent,
     VehicleListCRUDComponent,
     VehicleCreateComponent

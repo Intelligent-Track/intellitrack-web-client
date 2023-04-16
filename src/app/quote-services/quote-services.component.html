@@ -13,14 +13,14 @@
                 <div class="form-group">
                     <select class="form-control custom-input" required [(ngModel)]="selectedOrigin" name="selectOrigin">
                         <option value="" disabled selected>Ciudad de origen</option>
-                        <option *ngFor="let city of cities" [value]="city">{{ city }}</option>
+                        <option *ngFor="let city of cities" [value]="city.name">{{ city.name }}</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <select class="form-control custom-input" required [(ngModel)]="selectedDes" name="selectedDes">
-                        <option value="" disabled selected>Ciudad de destino</option>
-                        <ng-container *ngFor="let city of cities">
-                            <option *ngIf="city !== selectedOrigin" [value]="city">{{ city }}</option>
+                        <option  value="" disabled selected>Ciudad de destino</option>
+                        <ng-container *ngFor="let city of cities"> 
+                            <option *ngIf="city.name !== selectedOrigin?.name" [value]="city">{{ city.name }}</option>
                         </ng-container>
                     </select>
                 </div>
@@ -33,14 +33,14 @@
                         placeholder="Fecha de entrega" [(ngModel)]="selectedDate" />
                 </div>
                 <div class="form-group">
-                    <button class="btn btn-orange btn-block custom-btn">Cotizar</button>
+                    <button class="btn btn-orange btn-block custom-btn" (click)="quoteHome(selectedLoad, selectedOrigin, selectedDes, weightLoad, selectedDate)">Cotizar</button>
                 </div>
             </form>
         </div>
         <div class="Columna2">
             <img src="assets/brandquote.png" width="400" height="400" class="d-inline-block " alt="">
             <p class="infoImage">El precio por usar nuestro servicio con sus especifícaciones son:</p>
-            <p class="infoQuote">$$$$$$$</p>
+            <p class="infoQuote" [class.updated]="showPrice">{{price}}</p>
         </div>
     </div>
 
