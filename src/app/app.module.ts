@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -21,6 +20,7 @@ import { ManagerListComponent } from './manager-list/manager-list.component';
 import { OperatorListComponent } from './operator-list/operator-list.component';
 import { OperatorCreateComponent } from './operator-create/operator-create.component';
 import { EditProfileClientComponent } from './edit-profile-client/edit-profile-client.component';
+import { AdminAddMechanicComponent } from './admin-add-mechanic/admin-add-mechanic.component';
 import { AdminAddDriverComponent } from './admin-add-driver/admin-add-driver.component';
 import { QuoteServicesComponent } from './quote-services/quote-services.component';
 import { MovilMocksComponent } from './movil-mocks/movil-mocks.component';
@@ -32,7 +32,8 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
 import { ShipmentBoardComponent } from './shipment-board/shipment-board.component';
 import { WarehouseEditComponent } from './warehouse-edit/warehouse-edit.component';
 import { ProgramShipmentComponent } from './program-shipment/program-shipment.component';
-
+import { VehicleListCRUDComponent } from './vehicle-list-crud/vehicle-list-crud.component';
+import { VehicleCreateComponent } from './vehicle-create/vehicle-create.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { ProgramShipmentComponent } from './program-shipment/program-shipment.co
     OperatorListComponent,
     OperatorCreateComponent,
     EditProfileClientComponent,
+    AdminAddMechanicComponent,
     AdminAddDriverComponent,
     QuoteServicesComponent,
     MovilMocksComponent,
@@ -64,7 +66,9 @@ import { ProgramShipmentComponent } from './program-shipment/program-shipment.co
     WarehouseEditComponent,
     ProgramShipmentComponent,
     ShipmentBoardComponent,
-    WarehouseEditComponent
+    WarehouseEditComponent,
+    VehicleListCRUDComponent,
+    VehicleCreateComponent
   ],
   imports: [
     BrowserModule,

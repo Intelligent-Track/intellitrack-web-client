@@ -1,0 +1,53 @@
+<nav class="navbar navbar-expand-lg navbar-light x">
+  <a class="navbar-brand" href="#">
+    <img src="../../assets/whitebrand.png" width="50" height="50" class="d-inline-block align-top" alt="">
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto"> <!-- Agregar la clase ml-auto -->
+      <li class="nav-item" hidden>
+        <a class="nav-link text" href="#" style="color: white;font-weight: 200;">Rutas</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text active" routerLink="/operator-list" style="color: white; font-weight: 500;"><span
+            class="sr-only">(current)</span>Operadores</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text" routerLink="/drivers-list" style="color: white; font-weight: 200;">Conductores</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text" routerLink="/manager-list" style="color: white; font-weight: 200;">Gerentes</a>
+      </li>
+      <li class="nav-item" hidden>
+        <a class="nav-link text" style="color: white; font-weight: 200;" href="#">Gastos</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text" style="color: white; font-weight: 200;" href="#">Perfil</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text " style="color: white; font-weight: 200;">Cerrar sesión</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
+<div class="pad">
+  <h2>Crear un nuevo operador</h2>
+  <form (ngSubmit)="onSubmit()" class="was-validated" name="formOpt">
+    <input type="text" placeholder="Modelo" class="form-control custom-input" name="modeloAdd" [(ngModel)]="modeloOpt"
+      required>
+    <input type="text" placeholder="Placa" class="form-control custom-input" name="placaAdd" [(ngModel)]="placaOpt"
+      required>
+    <input type="text"placeholder="Tipo Vehiculo" class="form-control custom-input" name="tipoAdd" [(ngModel)]="tipoOpt"
+    required>
+    <input type="number" placeholder="Teléfono" class="form-control custom-input" name="capacidadVolAdd" [(ngModel)]="capacidadVolumenOpt"
+      required>
+    <input type="number" placeholder="Correo" class="form-control custom-input" name="capacidadPesoAdd" [(ngModel)]="capacidadPesoOpt"
+      required>
+    <button type="submit" class="btn btn-clear btn-block custom-btn"> Crear</button>
+  </form>
+</div>
