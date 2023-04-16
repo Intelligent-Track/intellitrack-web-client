@@ -14,7 +14,7 @@ export class VehicleListCRUDComponent implements OnInit {
 
   vehicleArray: Vehicle[] = [];
   cities: City[] | undefined;
-  selectedVehicle: Vehicle = new Vehicle(0, "","","","",0,0);
+  selectedVehicle: Vehicle = new Vehicle(0,"",0,"","","",0,0);
   selectedCity: City | undefined;
 
   ngOnInit(): void {
@@ -28,7 +28,7 @@ export class VehicleListCRUDComponent implements OnInit {
   deleteVehicle(id: number){
     if(confirm("¿Esta seguro que desea eliminar ese vehiculo?")){
       this.vehicleArray = this.vehicleArray.filter(x => x != this.selectedVehicle);
-      this.selectedVehicle = new Vehicle(0, "","","","",0,0);
+      this.selectedVehicle = new Vehicle(0,"",0,"","","",0,0);
       console.log(id);
     }
 

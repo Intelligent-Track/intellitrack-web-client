@@ -50,6 +50,8 @@
       <th>Modelo</th>
       <th>Placa</th>
       <th>Tipo</th>
+      <th>Histotial de fallos</th>
+      <th>Historial de mecanicos</th>
       <th>Capacidad Volumen</th>
       <th>Capacidad Peso</th>
     </thead>
@@ -57,10 +59,10 @@
       <ng-container *ngFor="let Vehicle of vehicleArray">
         <tr>
           <td>{{Vehicle.model}}</td>
-          <td>{{Vehicle.placa}}</td>
-          <td>{{Vehicle.tipo}}</td>
-          <td>{{Vehicle.capacidadVolumen}}</td>
-          <td>{{Vehicle.capacidadVolumen}}</td>
+          <td>{{Vehicle.plate}}</td>
+          <td>{{Vehicle.type}}</td>
+          <td>{{Vehicle.volumCapacity}}</td>
+          <td>{{Vehicle.weightCapacity}}</td>
           <button class="btn btn-primary" (click)="deleteVehicle(Vehicle.id)">
             Eliminar
           </button>

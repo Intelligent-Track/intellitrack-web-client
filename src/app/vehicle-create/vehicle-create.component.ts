@@ -10,19 +10,19 @@ import { Vehicle } from '../model/vehicle';
 })
 export class VehicleCreateComponent implements OnInit {
 
-  placaOpt: string = ""
+  plateOpt: number = 0
   modeloOpt: string = ""
-  tipoOpt: string = ""
-  capacidadVolumenOpt: number | undefined
-  capacidadPesoOpt: number | undefined
+  typeOpt: string = ""
+  volumCapacityOpt: number | undefined
+  weightCapacityOpt: number | undefined
   constructor(private router: Router,private vehicleService: VehicleService) { }
 
   ngOnInit(): void {
   }
 
   onSubmit(){
-    if(this.placaOpt && this.modeloOpt && this.tipoOpt && this.capacidadVolumenOpt && this.capacidadPesoOpt){
-      this.vehicleService.createVehicle(new Vehicle(0, this.modeloOpt, this.placaOpt, this.tipoOpt, "", this.capacidadPesoOpt,  this.capacidadVolumenOpt)).subscribe(() => {
+    if(this.plateOpt && this.modeloOpt && this.typeOpt && this.volumCapacityOpt && this.weightCapacityOpt){
+      this.vehicleService.createVehicle(new Vehicle(0, this.modeloOpt, this.plateOpt, this.typeOpt, "", "", this.volumCapacityOpt,  this.weightCapacityOpt)).subscribe(() => {
         this.router.navigate(['vehicle-list'])
       }
       );
