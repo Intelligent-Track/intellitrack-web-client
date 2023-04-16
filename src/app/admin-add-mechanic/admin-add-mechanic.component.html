@@ -88,7 +88,7 @@
       <div class="Columna">
         <h4>Gerente encargado</h4>
         <select class="form-control custom-input" required [(ngModel)]="selectedManager">
-            <option *ngFor="let manager of managerList" [value]="manager">{{ manager.fullName }}</option>
+            <option *ngFor="let manager of managerList" [value]="manager">{{ manager.name }}</option>
         </select>
       </div>
     </div>

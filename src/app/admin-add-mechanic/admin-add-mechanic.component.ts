@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ManagerService } from '../_services/manager.service';
-import { Operator } from '../model/operator';
 import { Manager } from '../model/manager';
 import { MechanicService } from '../_services/mechanic.service';
 import { Mechanic } from '../model/mechanic';
+import { AdminService } from '../_services/admin.service';
 
 @Component({
   selector: 'app-admin-add-mechanic',
@@ -23,12 +23,12 @@ export class AdminAddMechanicComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private managerService: ManagerService,
+    private adminService: AdminService,
     private mechanicService: MechanicService
   ) { }
 
   ngOnInit(): void {
-    this.managerService.listAllManagers().subscribe(mang => {
+    this.adminService.listAllManagers().subscribe(mang => {
       this.managerList = mang
     })
   }

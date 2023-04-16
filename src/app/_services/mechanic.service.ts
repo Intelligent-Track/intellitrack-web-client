@@ -1,11 +1,12 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { Mechanic } from '../model/mechanic';
 import { DtoMechanic } from '../dto/dto-mechanic';
 import { DtoLinkMechanicManager } from '../dto/dto-link-mechanic-manager';
 
-const ADMIN_API = 'http://localhost:8080/api/adm/MechanicCreate'
+const SERVICE_PATH = 'users/api/adm'
 
 @Injectable({
   providedIn: 'root'
@@ -21,22 +22,18 @@ export class MechanicService {
   constructor(private http: HttpClient) { }
 
   listAllMechanics(): Observable<Mechanic[]>{
-    return this.http.get<Mechanic[]>(ADMIN_API + 'allOperators', this.httpOptions);
+    return this.http.get<Mechanic[]>(`${environment.apiUrl}/${SERVICE_PATH}/GetMecanics`, this.httpOptions);
   }
 
-  deleteMechanic(id: number){
-    return this.http.delete<Mechanic>(ADMIN_API + 'operator/' + id, this.httpOptions);
+  deleteMechanic(fullName: string){
+    return this.http.delete<Mechanic>(`${environment.apiUrl}/${SERVICE_PATH}/DeleteMecanic/` + fullName, this.httpOptions);
   }
 
   createMechanic(mechanic: Mechanic){
-    return this.http.post<Mechanic>(ADMIN_API + "operator", mechanic, this.httpOptions);
-  }
-
-  unlinkManagerMechanic(idMechanic: number, idManager: number){
-    return this.http.put(ADMIN_API + "unlinkOperatorManager", new DtoLinkMechanicManager(idManager, idMechanic), this.httpOptions);
+    return this.http.post<Mechanic>(`${environment.apiUrl}/${SERVICE_PATH}/MecanicCreate`, mechanic, this.httpOptions);
   }
 
   listInfoMechanics(): Observable<DtoMechanic[]>{
-    return this.http.get<DtoMechanic[]>(ADMIN_API + 'infoOperators', this.httpOptions);
+    return this.http.get<DtoMechanic[]>(`${environment.apiUrl}/${SERVICE_PATH}/infoOperators`, this.httpOptions);
   }
 }
