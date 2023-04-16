@@ -20,6 +20,18 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { ManagerListComponent } from './manager-list/manager-list.component';
 import { OperatorListComponent } from './operator-list/operator-list.component';
 import { OperatorCreateComponent } from './operator-create/operator-create.component';
+import { AdminAddDriverComponent } from './admin-add-driver/admin-add-driver.component';
+import { QuoteServicesComponent } from './quote-services/quote-services.component';
+import { MovilMocksComponent } from './movil-mocks/movil-mocks.component';
+import { WarehouseListComponent } from './warehouse-list/warehouse-list.component';
+import { WarehouseInfoComponent } from './warehouse-info/warehouse-info.component';
+import { ChangePasswordRequestComponent } from './change-password-request/change-password-request.component';
+import { ChangePasswordSendedComponent } from './change-password-sended/change-password-sended.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
+import { ShipmentBoardComponent } from './shipment-board/shipment-board.component';
+import { WarehouseEditComponent } from './warehouse-edit/warehouse-edit.component';
+import { ProgramShipmentComponent } from './program-shipment/program-shipment.component';
+
 import { LogOutComponent } from './log-out/log-out.component';
 import { EditProfileManagerComponent } from './edit-profile-manager/edit-profile-manager.component';
 
@@ -41,6 +53,18 @@ import { EditProfileManagerComponent } from './edit-profile-manager/edit-profile
     ManagerListComponent,
     OperatorListComponent,
     OperatorCreateComponent,
+    AdminAddDriverComponent,
+    QuoteServicesComponent,
+    MovilMocksComponent,
+    WarehouseListComponent,
+    WarehouseInfoComponent,
+    ChangePasswordRequestComponent,
+    ChangePasswordSendedComponent,
+    ChangePasswordComponent,
+    WarehouseEditComponent,
+    ProgramShipmentComponent,
+    ShipmentBoardComponent,
+    WarehouseEditComponent,
     LogOutComponent,
     EditProfileManagerComponent
   ],

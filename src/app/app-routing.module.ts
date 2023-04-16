@@ -18,6 +18,16 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { ManagerListComponent } from './manager-list/manager-list.component';
 import { OperatorListComponent } from './operator-list/operator-list.component';
 import { OperatorCreateComponent } from './operator-create/operator-create.component';
+import { AdminAddDriverComponent } from './admin-add-driver/admin-add-driver.component';
+import { WarehouseListComponent } from './warehouse-list/warehouse-list.component';
+import { WarehouseInfoComponent } from './warehouse-info/warehouse-info.component';
+import { ChangePasswordRequestComponent } from './change-password-request/change-password-request.component';
+import { ChangePasswordSendedComponent } from './change-password-sended/change-password-sended.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
+import { WarehouseEditComponent } from './warehouse-edit/warehouse-edit.component';
+import { ShipmentBoardComponent } from './shipment-board/shipment-board.component';
+import { ProgramShipmentComponent } from './program-shipment/program-shipment.component';
+
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -36,7 +46,15 @@ const routes: Routes = [
   { path: 'manager-list', component: ManagerListComponent },
   { path: 'operator-list', component: OperatorListComponent },
   { path: 'operator-create', component: OperatorCreateComponent },
-  { path: 'logout', component: LogOutComponent },
+  { path: 'driver-create', component: AdminAddDriverComponent },
+  { path: 'warehouse-list', component: WarehouseListComponent },
+  { path: 'warehouse-info/:id', component: WarehouseInfoComponent },
+  { path: 'warehouse-edit/:id', component: WarehouseEditComponent },
+  { path: 'change-password-r', component: ChangePasswordRequestComponent },
+  { path: 'change-password-s', component: ChangePasswordSendedComponent},
+  { path: 'change-password', component: ChangePasswordComponent},
+  { path: 'shipment-board', component: ShipmentBoardComponent},
+  { path: 'program-shipment', component: ProgramShipmentComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 
