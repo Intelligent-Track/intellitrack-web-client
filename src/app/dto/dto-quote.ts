@@ -2,7 +2,6 @@ import { City } from "../model/city";
 
 export class DtoQuote {
     constructor(
-        public loadtype: string, public origin: City, public destiny: City, public weight: number,public date: string
-        
+        public loadType: string, public originCity: City, public destinationCity: City, public weight: number, public date: string
     ) { }
 }

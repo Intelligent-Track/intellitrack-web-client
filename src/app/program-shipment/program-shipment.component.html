@@ -18,12 +18,12 @@
         <br>
         <div class="form-group">
             <select class="form-control custom-input" required [(ngModel)]="selectedOrigin" name="selectOrigin">
-                <option value="" disabled selected style="color: darkgrey;">Ciudad de origen</option>
-                <option *ngFor="let city of cities" [value]="city">{{ city.name }}</option>
+                <option value="null" disabled selected style="color: darkgray;">Ciudad de origen</option>
+                <option *ngFor="let city of cities" [ngValue]="city">{{ city.name }}</option>
             </select>
         </div>
+        
         <br>
-
 
     </div>
     <div class="x1 col-custom pl-5 pr-5">
@@ -31,7 +31,7 @@
         <br>
         <div class="form-group">
             <select class="form-control custom-input" required [(ngModel)]="selectedDes" name="selectedDes">
-                <option value="" disabled selected style="color: darkgrey;">Ciudad de destino</option>
+                <option value="null" disabled selected style="color: darkgray;">Ciudad de destino</option>
                 <ng-container *ngFor="let city of cities">
                     <ng-container *ngIf="city.name !== selectedOrigin?.name">
                         <option [value]="city">{{ city.name }}</option>
@@ -49,7 +49,7 @@
         <br>
         <div class="input-group pb-2">
             <div class="form-group">
-                <select class="form-control custom-input" required [(ngModel)]="selectedCategory" name="selectedDes">
+                <select class="form-control custom-input" required [(ngModel)]="selectedCategory" name="selectedCat">
                     <option value="" disabled selected>Categoria</option>
                     <option *ngFor="let cat of categories" [value]="cat">{{ cat }}</option>
                 </select>
@@ -115,7 +115,7 @@
             </div>
             <div class="input-group-append ml-5 but">
                 <button class="btn btn-orange btn-block custom-btn bu" type="button"
-                    (click)="date && program(selectedOrigin, selectedDes, date, deliveryType)">
+                    (click)="date && program(selectedOrigin!, selectedDes!, date, deliveryType)">
                     Programar
                 </button>
             </div>

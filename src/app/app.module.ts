@@ -35,6 +35,7 @@ import { WarehouseEditComponent } from './warehouse-edit/warehouse-edit.componen
 import { ProgramShipmentComponent } from './program-shipment/program-shipment.component';
 import { VehicleListCRUDComponent } from './vehicle-list-crud/vehicle-list-crud.component';
 import { VehicleCreateComponent } from './vehicle-create/vehicle-create.component';
+import { EditProfileDriverComponent } from './edit-profile-driver/edit-profile-driver.component';
 
 @NgModule({
   declarations: [
@@ -70,6 +71,7 @@ import { VehicleCreateComponent } from './vehicle-create/vehicle-create.componen
     WarehouseEditComponent,
     VehicleListCRUDComponent,
     VehicleCreateComponent,
+    EditProfileDriverComponent,
     EditProfileManagerComponent
   ],
   imports: [

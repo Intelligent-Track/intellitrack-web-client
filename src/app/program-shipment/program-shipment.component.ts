@@ -4,6 +4,7 @@ import { DtoProduct } from '../dto/dto-product';
 import { DtoShipment } from '../dto/dto-shipment';
 import { City } from '../model/city';
 import { Component, OnInit } from '@angular/core';
+import { WarehouseService } from '../_services/warehouse.service';
 
 @Component({
   selector: 'app-program-shipment',
@@ -12,8 +13,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProgramShipmentComponent implements OnInit {
   cities: City[] | undefined;
-  selectedOrigin: City | undefined;
-  selectedDes: City| undefined;
+  selectedOrigin: City | null = null;
+  selectedDes: City | null = null;
   categories = ["General", "Grande", "Peligrosa", "Perecedera"];
   deliveryType: string ="";
   deliveryTypes = ["Normal", "Prioritario", "Acelerado"];
@@ -28,11 +29,11 @@ export class ProgramShipmentComponent implements OnInit {
   showprice =false;
 
   constructor(
-    private deliveryService: DeliveryService, private quoteService :QuoteService
+    private deliveryService: DeliveryService, private warehouse: WarehouseService
   ) { }
 
   ngOnInit(): void {
-    this.quoteService.listAllCities().subscribe(listCities => {
+    this.warehouse.listAllCities().subscribe(listCities => {
       this.cities = listCities
     });
   }

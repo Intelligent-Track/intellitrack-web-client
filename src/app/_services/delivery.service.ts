@@ -22,11 +22,15 @@ export class DeliveryService {
   constructor(private http: HttpClient) {}
 
   listAllProgramDeliveries(): Observable<Shipment[]>{
-    return this.http.get<Shipment[]>(`${environment.apiUrl}/${SERVICE_PATH}/allDeliverysProgramed`, this.httpOptions)
+    return this.http.get<Shipment[]>(`${environment.apiUrl}/${SERVICE_PATH}/allDeliveriesProgramed`, this.httpOptions)
   }
 
   createDelivery( shipment:DtoShipment){
     return this.http.post<number>(`${environment.apiUrl}/${SERVICE_PATH}/programDelivery`, shipment, this.httpOptions);
+  }
+
+  deleteDelivery( shipment: Shipment){
+    return this.http.delete<Shipment>(`${environment.apiUrl}/${SERVICE_PATH}/cancelDelivery` + shipment, this.httpOptions);
   }
 
 
