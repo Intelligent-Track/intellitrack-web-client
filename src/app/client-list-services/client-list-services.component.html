@@ -1,0 +1,140 @@
+<nav class="navbar navbar-expand-lg navbar-light x">
+    <a class="navbar-brand" href="#">
+        <img src="../../assets/whitebrand.png" width="50" height="50" class="d-inline-block align-top" alt="">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item text">
+                <a class="nav-link" routerLink="" style="color: white; font-weight: 200;">Envios</a>
+            </li> 
+            <li class="nav-item">
+                <a class="nav-link text" routerLink="/Service-List" style="color: white; font-weight: 500;">Servicios</a>
+            </li>
+            <li class="nav-item text">
+                <a class="nav-link" routerLink="" style="color: white; font-weight: 200;">Perfil</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text " routerLink="" style="color: white; font-weight: 200;">Cerrar sesión</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="pad">
+    <h2>Servicios</h2>
+    <div class="input-group pb-2">
+        <div class="input-group-prepend border-0">
+            <span class="input-group-text border-0 bg-transparent">
+                <i class="fa fa-search"></i>
+            </span>
+        </div>
+        <input type="text" class="form-control border">
+    </div>
+
+    <h3>Filtro:</h3>
+    <div class="filter">
+        <div class="ColumnFilter">
+            <label>
+                <input type="checkbox" name="frutas" value="manzana">
+                Activos
+              </label>
+              <br>
+              <label>
+                <input type="checkbox" name="frutas" value="naranja">
+                Pendientes
+              </label>
+              <br>
+        </div>
+        <div class="ColumnFilter">
+            <label>
+                <input type="checkbox" name="frutas" value="manzana">
+                Ultimo año
+              </label>
+              <br>
+              <label>
+                <input type="checkbox" name="frutas" value="naranja">
+                Ultimo mes
+              </label>
+              <br>
+              <label>
+                <input type="checkbox" name="frutas" value="platano">
+                Fecha
+              </label>
+        </div>
+        <div class="ColumnFilter">
+            <label>
+                <input type="checkbox" name="frutas" value="manzana">
+                Punto de salida
+              </label>
+              <br>
+              <label>
+                <input type="checkbox" name="frutas" value="naranja">
+                Punto de llegada
+              </label>
+              <br>
+        </div>
+    </div>
+
+    <div style="padding-top: 3%;" class="table-responsive  ">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nombre completo</th>
+                    <th scope="col">Punto de salida</th>
+                    <th scope="col">Punto de llegada</th>
+                    <th scope="col">Fecha</th>
+                    <th class="no-border"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>erwrewwer</td>
+                    <td>fdifufds</td>
+                    <td>dfsfdsfd</td>
+                    <td>fddfsfsd</td>
+                    <td>sdfdsfsfd</td>
+                    <td class="no-border">
+                        <div class="btn-group" role="group">
+                            <button class="btn btn-lg" type="button" (click)="editDriver()">
+                                <i class="fa fa-pencil"></i>
+                            </button>
+                            <button class="btn btn-lg ml-2" type="button">
+                                <i class="fa fa-trash"></i>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+                <ng-container *ngIf="infoservice">
+                    <tr *ngFor="let infodriver of infoservice">
+                        <td>{{infodriver.id}}</td>
+                        <td>{{infodriver.name}}</td>
+                        <td>{{infodriver.pointbegin}}</td>
+                        <td>{{infodriver.pointend}}</td>
+                        <td>{{infodriver.date}}</td>
+                        <td class="no-border">
+                            <div class="btn-group" role="group">
+                                <button class="btn btn-lg" type="button" (click)="editDriver()">
+                                    <i class="fa fa-pencil"></i>
+                                </button>
+                                <button class="btn btn-lg ml-2" type="button">
+                                    <i class="fa fa-trash"></i>
+                                </button>
+                            </div>
+                        </td>
+
+                    </tr>
+                </ng-container>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="form-group">
+        <button class="btn btn-orange btn-block custom-btn">Solicitar</button>
+      </div>
+
+</div>

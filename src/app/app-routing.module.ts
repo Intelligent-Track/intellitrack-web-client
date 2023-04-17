@@ -21,6 +21,8 @@ import { OperatorCreateComponent } from './operator-create/operator-create.compo
 import { EditProfileClientComponent } from './edit-profile-client/edit-profile-client.component';
 import { AdminAddMechanicComponent } from './admin-add-mechanic/admin-add-mechanic.component';
 import { AdminAddDriverComponent } from './admin-add-driver/admin-add-driver.component';
+import { ClientListServicesComponent } from './client-list-services/client-list-services.component';
+import { ManagerListWarehouseComponent } from './manager-list-warehouse/manager-list-warehouse.component';
 import { WarehouseListComponent } from './warehouse-list/warehouse-list.component';
 import { WarehouseInfoComponent } from './warehouse-info/warehouse-info.component';
 import { ChangePasswordRequestComponent } from './change-password-request/change-password-request.component';
@@ -45,6 +47,7 @@ const routes: Routes = [
   { path: 'mod', component: BoardModeratorComponent },
   { path: 'admin', component: BoardAdminComponent },
   { path: 'drivers-list', component: DriversListComponent },
+  {path: 'adminAddDriver', component: AdminAddDriverComponent},
   { path: 'adminAddManager', component: AdminAddManagerComponent},
   { path: 'editProfileOperador', component: EditProfileOperadorComponent },
   { path: 'editProfileManager', component: EditProfileManagerComponent},
@@ -54,6 +57,8 @@ const routes: Routes = [
   { path: 'operator-create', component: OperatorCreateComponent },
   { path: 'edit-profile-client', component: EditProfileClientComponent },
   { path: 'driver-create', component: AdminAddDriverComponent },
+  { path: 'Service-List', component: ClientListServicesComponent },
+  { path: 'manager-List-Warehouse', component: ManagerListWarehouseComponent },
   { path: 'warehouse-list', component: WarehouseListComponent },
   { path: 'warehouse-info/:id', component: WarehouseInfoComponent },
   { path: 'warehouse-edit/:id', component: WarehouseEditComponent },
