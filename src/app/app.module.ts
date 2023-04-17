@@ -70,7 +70,7 @@ import { EditProfileDriverComponent } from './edit-profile-driver/edit-profile-d
     ProgramShipmentComponent,
     ShipmentBoardComponent,
     WarehouseEditComponent,
-    ClientQuoteServicesComponent
+    ClientQuoteServicesComponent,
     VehicleListCRUDComponent,
     VehicleCreateComponent,
     EditProfileDriverComponent,
