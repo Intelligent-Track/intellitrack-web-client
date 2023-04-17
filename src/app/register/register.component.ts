@@ -63,7 +63,7 @@ export class RegisterComponent implements OnInit {
 
   register() {
     // Validar los campos
-    if (this.form.username.length < 3 || this.form.username.length > 20) {
+    if (this.form.username.length > 3 && this.form.username.length > 20) {
       this.isValid = false;
       this.form.usernameisValid= true;
       // Mostrar un mensaje de error
@@ -75,14 +75,12 @@ export class RegisterComponent implements OnInit {
     if (this.form.password !== this.form.password1) {
       this.isValid = false;
       this.form.passwordMismatch = true;
-    } else {
-      this.form.passwordMismatch = true;
     }
-    if (this.form.phonenumber.length < 3 || this.form.phonenumber.length > 20) {
+    if (this.form.phonenumber.length > 3 && this.form.phonenumber.length < 20) {
       this.isValid = false;
       this.form.phonenumberisValid= true;
     }
-    if (this.form.cedula.length < 3 || this.form.cedula.length > 20) {
+    if (this.form.cedula.length > 3 && this.form.cedula.length < 20) {
       this.isValid = false;
       this.form.cedulaisValid= true;
     }
@@ -90,15 +88,15 @@ export class RegisterComponent implements OnInit {
       this.isValid = false;
       this.form.emailisValid= true;
     }
-    if (this.form.enterprisename.length < 3 || this.form.enterprisename.length > 20) {
+    if (this.form.enterprisename.length > 3 && this.form.enterprisename.length < 20) {
       this.isValid = false;
       this.form.enterprisenameisValid= true;
     }
-    if (this.form.nit.length < 3 || this.form.nit.length > 20) {
+    if (this.form.nit.length > 3 && this.form.nit.length > 20) {
       this.isValid = false;
       this.form.nitisValid= true;
     }
-    if (this.form.position.length < 3 || this.form.position.length > 20) {
+    if (this.form.position.length > 3 && this.form.position.length < 20) {
       this.isValid = false;
       this.form.positionisValid= true;
     }
