@@ -34,13 +34,13 @@
                 <option value="null" disabled selected style="color: darkgray;">Ciudad de destino</option>
                 <ng-container *ngFor="let city of cities">
                     <ng-container *ngIf="city.name !== selectedOrigin?.name">
-                        <option [value]="city">{{ city.name }}</option>
+                        <option [ngValue]="city">{{ city.name }}</option>
                     </ng-container>
                 </ng-container>
             </select>
         </div>
-
     </div>
+    
 </div>
 
 <div class="row">
@@ -120,7 +120,16 @@
                 </button>
             </div>
             <div class="ml-5 price" *ngIf="showprice">
-                <h5 [(ngModel)]="price" [class.updated]="showprice">Tarifa de servicio es: {{price}}</h5>
+                <br>
+                <br>
+                <h5 [class.updated]="showprice">Tarifa de servicio es: {{price}}</h5>
+                <br>
+                <div class="input-group-append ml-5 but">
+                    <button class="btn btn-orange btn-block custom-btn bu" type="button"
+                    [routerLink]="['/shipment-board/']">
+                        Volver al inicio
+                    </button>
+                </div>
             </div>
 
         </div>

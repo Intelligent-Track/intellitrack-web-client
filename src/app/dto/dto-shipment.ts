@@ -5,6 +5,6 @@ import { DtoProduct } from "./dto-product";
 export class DtoShipment {
 
     constructor(
-        public origin: number, public destiny: number, public type: string, public date: string,  public products: DtoProduct[],
+        public originId: number, public destinationId: number, public type: string, public arriveDate: string,  public products: DtoProduct[],
     ) { }
 }

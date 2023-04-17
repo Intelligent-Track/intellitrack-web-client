@@ -53,8 +53,10 @@ export class ProgramShipmentComponent implements OnInit {
 
   program(selectedOrigin: City | undefined, selectedDes: City | undefined, date: string, deliveryType: string) {
     if (selectedOrigin?.name !== 'Ciudad de origen' && selectedDes?.name !== 'Ciudad de destino' && date !== null && deliveryType !== 'Tipo de envío' && this.products.length > 0) {
+      
+      console.log(selectedOrigin?.id, selectedDes?.id, deliveryType, date, this.products)
       const delivery = new DtoShipment(selectedOrigin?.id!, selectedDes?.id!, deliveryType, date, this.products)
-      this.deliveryService.createDelivery(delivery).subscribe((pr: number) => {
+      this.deliveryService.createDelivery(selectedOrigin?.id!, selectedDes?.id!, deliveryType, date, this.products).subscribe((pr: number) => {
         this.price = pr;
         this.showprice = true;
       })

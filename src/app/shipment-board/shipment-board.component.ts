@@ -10,7 +10,7 @@ import { PackagesService } from '../_services/packages.service';
   styleUrls: ['./shipment-board.component.css']
 })
 export class ShipmentBoardComponent implements OnInit {
-  typeReason = [];
+  typeReason = ["Problemas de intinerario", "Error de especificación del envío", "Otro"];
   selectedReason: string = "";
   origin: string="";
   destiny: string="";
