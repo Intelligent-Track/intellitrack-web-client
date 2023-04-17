@@ -10,7 +10,7 @@ import { PackagesService } from '../_services/packages.service';
   styleUrls: ['./shipment-board.component.css']
 })
 export class ShipmentBoardComponent implements OnInit {
-  typeReason = [];
+  typeReason = ["Problemas de intinerario", "Error de especificación del envío", "Otro"];
   selectedReason: string = "";
   origin: string="";
   destiny: string="";
@@ -22,6 +22,7 @@ export class ShipmentBoardComponent implements OnInit {
   showTruck = true;
   showproducts = false
   selectedShip: Shipment | undefined;
+  router: any;
   
   constructor(
     private packageService: PackagesService, private deliveryService: DeliveryService
@@ -34,19 +35,19 @@ export class ShipmentBoardComponent implements OnInit {
   }
 
   showProgress(){
-
     console.log("me haz clickeado")
   }
 
-  onCancel(){
-
+  onCancel(ship :Shipment){
+    this.deliveryService.deleteDelivery(ship).subscribe(() => {
+      this.router.navigateByUrl('/', { skipLocationChange: true}).then(() => {
+        this.router.navigate(['/shipment-board'])
+      })
+    });
   }
 
   showInfoShipment( ship: Shipment){
-    this.packageService.listAllPackagesByDeliveryId(ship.id).subscribe(listPackages => {
-      this.infoProducts = listPackages
-    });
-    this.showproducts = true
+    this.selectedShip = ship;
     this.infoShip = true
     this.showTruck = false
   }
