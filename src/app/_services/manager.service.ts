@@ -19,4 +19,8 @@ export class ManagerService {
   }
   constructor(private http: HttpClient) { }
 
+  editProfile(manager: Manager){
+    return this.http.put<Manager>(`${environment.apiUrl}/${SERVICE_PATH}/managerEdit`, manager, this.httpOptions)
+  }
+
 }

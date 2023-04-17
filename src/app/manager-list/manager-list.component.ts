@@ -4,6 +4,7 @@ import { ManagerService } from '../_services/manager.service';
 import { AdminService } from '../_services/admin.service';
 import { Manager } from '../model/manager';
 import { Router } from '@angular/router';
+import { StorageService } from '../_services/storage.service';
 
 @Component({
   selector: 'app-manager-list',
@@ -12,18 +13,23 @@ import { Router } from '@angular/router';
 })
 export class ManagerListComponent implements OnInit {
 
-  infoManagers: Manager[] | undefined;
+  infoManagers: Manager[] = [];
 
   managerSearch: string | undefined;
 
   constructor(
     private adminService: AdminService,
+    private storageService: StorageService,
     private router: Router
   ) { }
 
   ngOnInit(): void {
     this.adminService.listAllManagers().subscribe(mans => {
-      this.infoManagers = mans
+      mans.forEach(manager => {
+        if(manager.managerUsername == this.storageService.getUser().username){
+          this.infoManagers.push(manager);
+        }
+      });
     });
   }
 

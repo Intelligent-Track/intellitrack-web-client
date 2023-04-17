@@ -19,4 +19,12 @@ export class DriverService {
   }
   constructor(private http: HttpClient) { }
 
+  updateDriver(driver: Driver) {
+    return this.http.put<Driver>(`${environment.apiUrl}/${SERVICE_PATH}/updateDriver`, driver, this.httpOptions);
+  }
+
+  searchClientById(id: number): Observable<Driver>{
+    return this.http.get<Driver>(`${environment.apiUrl}/${SERVICE_PATH}/searchDriver/` + id, this.httpOptions);
+  }
+
 }
