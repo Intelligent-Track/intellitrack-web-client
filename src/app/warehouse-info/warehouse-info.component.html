@@ -1,0 +1,76 @@
+<nav class="navbar navbar-expand-lg navbar-light x">
+    <a class="navbar-brand" href="#">
+        <img src="../../assets/whitebrand.png" width="50" height="50" class="d-inline-block align-top" alt="">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto"> <!-- Agregar la clase ml-auto -->
+            <li class="nav-item">
+                <a class="nav-link text" [routerLink]="['/shipment-board/']" style="color: white;font-weight: 200;">Envíos</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text active" [routerLink]="['/warehouse-list/']"
+                    style="color: white; font-weight: 500;"><span class="sr-only">(current)</span>Bodegas</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text" style="color: white; font-weight: 200;" href="#">Perfil</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text " style="color: white; font-weight: 200;">Cerrar sesión</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="pad">
+    <h1>Información de la bodega</h1>
+    <h3 class="idw">ID # {{warehouse!.id}}</h3>
+    <div class="Columnas">
+        <div class="Columna" *ngIf="warehouse">
+            <div class="span-info">
+                <span>Ciudad</span> <span class="span-data"> {{warehouse.city.name}}</span>
+            </div>
+            <div class="span-info">
+                <span>Dirección</span> <span class="span-data"> {{warehouse.address}}</span>
+            </div>
+            <div class="span-info">
+                <span>Capacidad</span> <span class="span-data"> {{warehouse.capacity}}</span>
+            </div>
+            <div class="span-info">
+                <span>Tipo</span> <span class="span-data"> {{warehouse.type.name}}</span>
+            </div>
+            <div class="span-info">
+                <span>Costo por metro cúbico</span> <span class="span-data"> COP {{warehouse.costPerM3}}</span>
+            </div>
+        </div>
+        <div class="Columna columnader">
+            <h3>Realiza tu cotización</h3>
+            <form (ngSubmit)="onSubmit()" class="">
+                <div class="form-vertical">
+                    <label for="">Volumen de la carga</label>
+                    <input type="text" placeholder="m3" class="form-control custom-input" name="phoneAdd"
+                        [(ngModel)]="volume" required>
+                </div>
+                <div class="form-vertical">
+                    <label for="">Fecha de origen</label>
+                    <input type="date" class="form-control datepicker custom-input" name="fechai"
+                        placeholder="Fecha de inicio" [(ngModel)]="initDate" />
+                </div>
+                <div class="form-vertical">
+                    <label for="">Fecha de fin</label>
+                    <input type="date" class="form-control datepicker custom-input" name="fechaf"
+                        placeholder="Fecha de fin" [(ngModel)]="finalDate" />
+                </div>
+                <button type="submit" class="btn btn-orange btn-block custom-btn"> Cotizar</button>
+            </form>
+        </div>
+        <div class="Columna columnader cotizacion" *ngIf="quote">
+            <label for="">De acuerdo con su solicitud el valor de la cotización sería:</label>
+            <label for="">COP {{quote}}</label>
+        </div>
+    </div>
+
+</div>

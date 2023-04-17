@@ -3,8 +3,9 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { DtoManager } from '../dto/dto-manager';
 import { Manager } from '../model/manager';
+import { environment } from 'src/environments/environment';
 
-const MANAGER_API = 'http://localhost:8080/api/man/';
+const SERVICE_PATH = "users/api/man"
 
 @Injectable({
   providedIn: 'root'
@@ -18,12 +19,8 @@ export class ManagerService {
   }
   constructor(private http: HttpClient) { }
 
-  listAllManagers(): Observable<Manager[]> {
-    return this.http.get<Manager[]>(MANAGER_API + 'allManagers', this.httpOptions);
-  }
-
-  listInfoManagers(): Observable<DtoManager[]> {
-    return this.http.get<DtoManager[]>(MANAGER_API + 'allManagers', this.httpOptions);
+  editProfile(manager: Manager){
+    return this.http.put<Manager>(`${environment.apiUrl}/${SERVICE_PATH}/managerEdit`, manager, this.httpOptions)
   }
 
 }

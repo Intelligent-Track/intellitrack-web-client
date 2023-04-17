@@ -1,0 +1,107 @@
+<div class="Container" style="margin-bottom: 50px;">
+  <h2>Cotizar un servicio</h2>
+  <form class="was-validated" name="formCotiz">
+    <div class="Columnas">
+      <div class="Columna">
+        <h5>Ciudad origen</h5>
+        <div class="form-group">
+          <select class="form-control custom-input" required [(ngModel)]="selectedOrigin" name="selectOrigin">
+            <option value="" disabled selected>Ciudad de origen</option>
+            <option *ngFor="let city of cities" [value]="city.name">{{ city.name }}</option>
+          </select>
+        </div>
+        <h5>Ciudad destino</h5>
+        <div class="form-group">
+          <select class="form-control custom-input" required [(ngModel)]="selectedDes" name="selectedDes">
+            <option  value="" disabled selected>Ciudad de destino</option>
+            <ng-container *ngFor="let city of cities"> 
+              <option *ngIf="city.name !== selectedOrigin?.name" [value]="city">{{ city.name }}</option>
+            </ng-container>
+          </select>
+        </div>
+        <h5>Medio de transporte</h5>
+        <div class="grid-container">
+          <button class="grid-item" *ngFor="let button of buttons"
+            [class.selected]="button.selected"
+            (click)="selectedButton(button)">
+            <img src="{{button.imageUrl}}" alt="{{button.title}}">
+            <div class="text-button">
+              <p id="text-p">{{button.textP}}</p>
+              <p id="text-d">{{button.textD}}</p>
+            </div>
+          </button>
+        </div>
+      </div>
+      <div class="Columna">
+        <h5>Detalles de envio</h5>
+        <div class="row-container">
+          <div class="form-group">
+            <input [(ngModel)]="weightLoad" placeholder="Peso de la carga (kg)" type="number"
+                class="form-control custom-input" required />
+          </div>
+          <div class="form-group">
+            <input [(ngModel)]="cantidad" placeholder="Cantidad" type="number"
+                class="form-control custom-input" required />
+          </div>
+        </div>
+        <h5>Tamaño</h5>
+        <div class="form-group">
+          <select class="form-control custom-input" required [(ngModel)]="selectedLoad" name="selectLoad">
+            <option *ngFor="let type of typeLoad" [value]="type">{{type}}</option>
+          </select>
+        </div>
+        <h5>Fecha</h5>
+        <div class="row-container">
+          <div class="form-group">
+            <input type="date" class="form-control datepicker custom-input" name="fecha"
+                placeholder="Fecha de entrega" [(ngModel)]="selectedDate" />
+          </div>
+          <div class="form-group">
+            <input type="time" class="form-control datepicker custom-input" name="hora"
+                placeholder="Selecciona la hora" [(ngModel)]="selectedTime" />
+          </div>
+        </div>
+        <div class="row-container">
+          <h5>Tipo de envio:</h5>
+          <div id="tipo-envio" *ngFor="let option of options">
+            <label>
+              <input type="radio" name="grupo-envio" [(ngModel)]="selectedTipoEnvio" [value]="option.value">
+              {{ option.label }}
+            </label>
+          </div>
+        </div>
+        <div id="costos" class="column-container">
+          <div class="row-container">
+            <h5>Tarifa de servicio: $</h5>
+            <h5 class="infoQuote">{{priceTarifa}}</h5>
+          </div>
+          <div class="row-container">
+            <h5>Costo de envio: $</h5>
+            <h5 class="infoQuote">{{priceEnvio}}</h5>
+          </div>
+          <div class="row-container">
+            <h5>Impuestos: $</h5>
+            <h5 class="infoQuote">{{priceImpuestos}}</h5>
+          </div>
+          <div class="row-container">
+            <h5>Adicional: $</h5>
+            <h5 class="infoQuote">{{priceAdicional}}</h5>
+          </div>
+          <div id="total" class="row-container">
+            <h3>Total: $</h3>
+            <h3 class="infoQuote" [class.updated]="showPrice">{{price}}</h3>
+          </div>
+        </div>
+        <label class="terminos">
+          <input type="checkbox" name="terminos" value="acepto" [(ngModel)]="selectedTerminos">
+          Esta de acuerdo con los <a class="link" routerLink="">Terminos y Condiciones de Cancelación</a>
+        </label>
+        <div class="form-group">
+          <button class="btn btn-orange btn-block custom-btn" (click)="quoteHome(selectedLoad, selectedOrigin, selectedDes, weightLoad, selectedDate)">Reservar</button>
+        </div>
+      </div>
+    </div>
+  </form>
+
+
+</div>

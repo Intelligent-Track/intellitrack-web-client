@@ -1,5 +1,7 @@
 export class DtoManager {
 
-    constructor(public id: string, public fullName: string, public region: string, public driversInCharge: number, public operatorsInCharge: number, public warehouseLocation: string) { }
+    constructor(
+        public name: string, public password: string, public username: string, public document: number, public phone: number, public job: string, public location: string, public gerenteGeneral: Boolean, public managerUsername: string
+    ) { }
 
 }

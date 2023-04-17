@@ -1,5 +1,4 @@
 .Content{
-    height: 60vh;
     align-items: center;
     display: flex;
     justify-content:space-around ;
@@ -29,6 +28,22 @@
     background-color: #FF6E59; /* aquí puedes cambiar el color de fondo */
     border-color: #FF6E59; /* aquí puedes cambiar el color del borde */
     color: black; /* aquí puedes cambiar el color de la letra */
-    border-radius: 20px; 
+    border-radius: 20px;
     width: 300px;
+  }
+  .navbar-brand {
+    font-size: 44px; /* ajusta el tamaño de la fuente a 24 píxeles */
+  }
+
+  .nav-link {
+    margin-right: 20px;
+    color: #333;
+    font-weight: 500;
+  }
+
+  .navbar-nav {
+    text-align: left;
+  }
+  .x {
+    background-color: #ff6e59;
   }

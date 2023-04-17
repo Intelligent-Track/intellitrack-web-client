@@ -3,8 +3,9 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { DtoDriver } from '../dto/dto-driver';
 import { Driver } from '../model/driver';
+import { environment } from 'src/environments/environment';
 
-const DRIVER_API = 'http://localhost:8080/api/driver/';
+const SERVICE_PATH = "users/api/dri"
 
 @Injectable({
   providedIn: 'root'
@@ -18,11 +19,12 @@ export class DriverService {
   }
   constructor(private http: HttpClient) { }
 
-  listAllDrivers(): Observable<Driver[]> {
-    return this.http.get<Driver[]>(DRIVER_API + 'allDrivers', this.httpOptions);
+  updateDriver(driver: Driver) {
+    return this.http.put<Driver>(`${environment.apiUrl}/${SERVICE_PATH}/updateDriver`, driver, this.httpOptions);
   }
 
-  listInfoDrivers(): Observable<DtoDriver[]> {
-    return this.http.get<DtoDriver[]>(DRIVER_API + 'allDrivers', this.httpOptions);
+  searchClientById(id: number): Observable<Driver>{
+    return this.http.get<Driver>(`${environment.apiUrl}/${SERVICE_PATH}/searchDriver/` + id, this.httpOptions);
   }
+
 }
