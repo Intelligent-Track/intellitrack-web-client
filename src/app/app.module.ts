@@ -25,6 +25,8 @@ import { AdminAddMechanicComponent } from './admin-add-mechanic/admin-add-mechan
 import { AdminAddDriverComponent } from './admin-add-driver/admin-add-driver.component';
 import { QuoteServicesComponent } from './quote-services/quote-services.component';
 import { MovilMocksComponent } from './movil-mocks/movil-mocks.component';
+import { ClientListServicesComponent } from './client-list-services/client-list-services.component';
+import { ManagerListWarehouseComponent } from './manager-list-warehouse/manager-list-warehouse.component';
 import { WarehouseListComponent } from './warehouse-list/warehouse-list.component';
 import { WarehouseInfoComponent } from './warehouse-info/warehouse-info.component';
 import { ChangePasswordRequestComponent } from './change-password-request/change-password-request.component';
@@ -61,6 +63,8 @@ import { EditProfileDriverComponent } from './edit-profile-driver/edit-profile-d
     AdminAddDriverComponent,
     QuoteServicesComponent,
     MovilMocksComponent,
+    ClientListServicesComponent,
+    ManagerListWarehouseComponent,
     WarehouseListComponent,
     WarehouseInfoComponent,
     ChangePasswordRequestComponent,

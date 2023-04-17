@@ -5,52 +5,159 @@
   </div>
   <section class="SeccionSU">
     <div class="mi-seccion-titulo">
-      <img src="assets/icono.png" width="100" alt="Título con imagen" (click)="navegarAPantallaInicial()">
+      <img src="assets/icono.png" width="100" alt="Título con imagen" (click)="navegarAPantallaInicial()"> 
       <h4>IntelliTrack</h4>
-      <p class="parrafo">Bienvenido(a) a IntelliTrack, por favor coloca tus credenciales para empezar a usar la mejor
-        aplicación de logística y transporte.</p>
+      <p class="parrafo">Bienvenido(a) a IntelliTrack, por favor coloca tus credenciales para empezar a usar la mejor aplicación de logística y transporte.</p>
     </div>
     <div class="sectionForm">
       <div class="mi-seccion-columna mi-seccion-columna-izquierda">
         <div class="formContainer">
           <form>
-            <div class="form-group">
-              <input type="text" class="form-control custom-input" placeholder="Nombre" name="Nombre"
-                [(ngModel)]="form.username" required minlength="3" maxlength="20" #username="ngModel" />
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control custom-input"
+              placeholder="Nombre"
+              name="Nombre"
+              [(ngModel)]="form.username"
+              required
+              minlength="3"
+              maxlength="20"
+              #username="ngModel"
+            />
+            <div *ngIf="form.usernameisValid" class="text-danger">
+              El nombre debe tener entre 3 y 20 caracteres
             </div>
-            <div class="form-group">
-              <input type="password" class="form-control custom-input" name="password1" placeholder="Contraseña"
-                [(ngModel)]="form.password" required minlength="6" #password1="ngModel" />
+          </div>
+          <div class="form-group">
+            <input
+              type="password"
+              class="form-control custom-input"
+              name="password1"
+              placeholder="Contraseña"
+              [(ngModel)]="form.password"
+              required
+              minlength="6"
+              #password1="ngModel"
+              (ngModelChange)="validatePasswords()"
+            />
+            <div *ngIf="form.passwordisValid" class="text-danger">
+              Ingrese Contraseña valida
             </div>
-            <div class="form-group">
-              <input placeholder="Confirmar Contraseña" type="password" class="form-control custom-input"
-                name="password" [(ngModel)]="form.password1" required minlength="6" #password="ngModel" />
-
+          </div>
+          <div class="form-group">
+            <input
+              placeholder="Confirmar Contraseña"
+              type="password"
+              class="form-control custom-input"
+              name="password"
+              [(ngModel)]="form.password1"
+              required
+              minlength="6"
+              #password="ngModel"
+              (ngModelChange)="validatePasswords()"
+            />
+            <div *ngIf="form.passwordMismatch" class="text-danger">
+              Las contraseñas no coinciden
             </div>
-          </form>
+          </div>
+          
+          <div class="form-group">
+            <input
+              type="number"
+              class="form-control custom-input"
+              placeholder="Numero telefonico"
+              [(ngModel)]="form.phonenumber"
+              name="Nombre"
+              required
+              minlength="3"
+              maxlength="20"
+            />
+            <div *ngIf="form.phonenumberisValid" class="text-danger">
+              El número de teléfono debe tener entre 3 y 20 caracteres
+            </div>
+          </div>
+          <div class="form-group">
+            <input
+              type="number"
+              class="form-control custom-input"
+              placeholder="Cedula"
+              [(ngModel)]="form.cedula"
+              name="Nombre"
+              required
+              minlength="3"
+              maxlength="20"
+            />
+            <div *ngIf="form.cedulaisValid" class="text-danger">
+              La cédula debe tener entre 3 y 20 caracteres
+            </div>
+          </div>
+        </form>
         </div>
       </div>
       <div class="mi-seccion-columna mi-seccion-columna-derecha">
         <div class="formContainer">
           <form>
-            <div class="form-group">
-              <input type="email" class="form-control custom-input" name="Correo Electronico" [(ngModel)]="form.email"
-                placeholder="Correo electronico" required email #email="ngModel" />
-            </div>
-            <div class="form-group">
-              <input type="text" class="form-control custom-input" name="username" [(ngModel)]="form.enterprisename"
-                placeholder="Nombre de la Empresa" required minlength="3" maxlength="20" #username="ngModel" />
-            </div>
-            <div class="form-group">
-              <input type="email" class="form-control custom-input input-lg" name="email" placeholder="Descripcion"
-                [(ngModel)]="form.desciption" required email #email="ngModel" />
-            </div>
-          </form>
+        <div class="form-group">
+          <input
+            type="email"
+            class="form-control custom-input"
+            name="Correo Electronico"
+            [(ngModel)]="form.email"
+            placeholder="Correo electronico"
+            required
+            email
+            #email="ngModel"
+          />
+          <div *ngIf="form.emailisValid" class="text-danger">
+            El correo electrónico no es válido
+          </div>
+        </div>
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control custom-input"
+              [(ngModel)]="form.enterpriseName"
+              placeholder="Nombre de la Empresa"
+              required
+              minlength="3"
+              maxlength="20"          />
+              <div *ngIf="form.enterprisenameisValid" class="text-danger">
+                El nombre de la empresa debe tener entre 3 y 20 caracteres
+              </div>
+          </div>
+          <div class="form-group">
+            <input
+              type="number"
+              class="form-control custom-input"
+              placeholder="Nit de la empresa"
+              [(ngModel)]="form.nit"
+              name="Nombre"
+              required
+              minlength="3"
+              maxlength="20" 
+            />
+            <div *ngIf="form.nitisValid" class="text-danger">
+              El nit de la empresa debe tener entre 3 y 20 caracteres            </div>
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control custom-input"
+              [(ngModel)]="form.position"
+              placeholder="Cargo de la empresa"
+              required
+              minlength="3"
+              maxlength="20"/>
+              <div *ngIf="form.positionisValid" class="text-danger">
+                El cargo de la empresa debe tener entre 3 y 20 caracteres              </div>
+          </div>
+        </form>
         </div>
       </div>
     </div>
     <div class="form-group">
-      <button (click)="onSubmit()" class="btn btn-orange btn-block custom-btn">Regístrate</button>
+      <button class="btn btn-orange btn-block custom-btn"  (click)="register()">Crear Cuenta</button>
     </div>
     <div class="iniciarconten">
       ¿Ya tiene cuenta?

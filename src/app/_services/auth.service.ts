@@ -26,13 +26,17 @@ export class AuthService {
     );
   }
 
-  register(username: string, email: string, password: string): Observable<any> {
+  register(name: string, username: string, phone: string, nit: string,password: string,companyName: string,document: string): Observable<any> {
     return this.http.post(
       `${environment.apiUrl}/${SERVICE_PATH}/signup`,
       {
+        name,
         username,
-        email,
+        phone,
+        nit,
         password,
+        companyName,
+        document,
       },
       httpOptions
     );

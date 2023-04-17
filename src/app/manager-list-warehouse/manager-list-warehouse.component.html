@@ -1,0 +1,81 @@
+<nav class="navbar navbar-expand-lg navbar-light x">
+    <a class="navbar-brand" href="#">
+        <img src="../../assets/whitebrand.png" width="50" height="50" class="d-inline-block align-top" alt="">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto"> 
+          <li class="nav-item">
+              <a class="nav-link text" routerLink="/manager-List-Warehouse"style="color: white;font-weight: 500;">Bodegas</a>
+            </li><!-- Agregar la clase ml-auto -->
+            <li class="nav-item">
+                <a class="nav-link text" href="#" style="color: white; font-weight: 200;">Rutas</a>
+            </li>
+            <li class="nav-item text">
+                <a class="nav-link" routerLink="/operator-create" style="color: white; font-weight: 200;">Operadores</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text active" routerLink="/adminAddDriver" style="color: white; font-weight: 200;"><span class="sr-only">(current)</span>Conductores</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text" routerLink="/adminAddManager" style="color: white; font-weight: 200;">Gerentes</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text" href="#" style="color: white; font-weight: 200;">Gastos</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text" href="#" style="color: white;font-weight: 200;">Perfil</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text " style="color: white; font-weight: 200;">Cerrar sesión</a>
+            </li>
+        </ul>
+    </div>
+  </nav>
+
+  <div class="pad">
+    <h2>Bodegas</h2>
+    <div style="padding-top: 3%;" class="table-responsive  ">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Ciudad</th>
+                    <th scope="col">Direccion</th>
+                    <th scope="col">Capacidad</th>
+                    <th scope="col">Tipo</th>
+                    <th scope="col">Costo m3</th>
+                    <th class="no-border"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <ng-container *ngIf="infoWarehouse">
+                    <tr *ngFor="let infodriver of infoWarehouse">
+                        <td>{{infodriver.id}}</td>
+                        <td>{{infodriver.city.name}}</td>
+                        <td>{{infodriver.address}}</td>
+                        <td>{{infodriver.capacity}}</td>
+                        <td>{{infodriver.type.name}}</td>
+                        <td>{{infodriver.costPerM3}}</td>
+                        <td class="no-border">
+                            <div class="btn-group" role="group">
+                                <button class="btn btn-lg" type="button">
+                                    <i class="fa fa-pencil"></i>
+                                </button>
+                                <button class="btn btn-lg ml-2" type="button">
+                                    <i class="fa fa-trash"></i>
+                                </button>
+                            </div>
+                        </td>
+
+                    </tr>
+                </ng-container>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
