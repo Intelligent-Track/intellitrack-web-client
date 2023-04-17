@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DriverService } from '../_services/driver.service';
 import { Driver } from '../model/driver';
+import { StorageService } from '../_services/storage.service';
 
 @Component({
   selector: 'app-edit-profile-driver',
@@ -10,29 +11,48 @@ import { Driver } from '../model/driver';
 })
 export class EditProfileDriverComponent implements OnInit {
 
-  constructor(private router: Router, private driverService: DriverService) { }
+  nameDri: string = "";
+  emailDri: string = "";
+  documentDri: number | undefined;
+  phoneDri: number | undefined;
+  locDri: string = "";
+  license: string = "";
+  plate: string = "";
+  revisionAut: string = "";
+  visible: boolean = false;
+  
+  passwordOld: string = "";
+  passwordNew: string = "";
 
-  mailDri: string = ""
-  numberDri: number = 0
-  locationDri: number = 0
-
+  constructor(
+    public driverService: DriverService,
+    public storageService: StorageService
+  ) { }
 
   ngOnInit(): void {
+    console.log(this.storageService.getUser().id)
+    this.driverService.searchClientById(this.storageService.getUser().id).subscribe(dri =>{
+      this.nameDri = dri.name
+      this.emailDri = dri.username
+      this.documentDri = dri.document
+      this.phoneDri = dri.phone
+      this.locDri = dri.location
+      this.plate = dri.placaVehiculo
+      this.license = dri.licencia
+      this.revisionAut = dri.revisionAutoMec
+    });
   }
 
   onSubmit(){
-    if(this.mailDri! ){
-      this.driverService.editProfile(new Driver(0,"","",0,this.numberDri,"","",false,"", "", "", "")).subscribe(() => {
-        this.router.navigate(['home'])
-      }
-      );
-    }else if (this.numberDri!){
-      //public id: number, public name: string, public username: string, public document: number,2 public phone: number, public job: string, public location: string, public directo: Boolean, public managerUsername: string, public placaVehiculo: string, public licencia: string, public revisionAutoMec: string
-      this.driverService.editProfile(new Driver(0,"","",0,this.numberDri,"","",false,"", "", "", "")).subscribe(() => {
-        this.router.navigate(['home'])
-      }
-      );
-    }
+    let driver: Driver = new Driver (this.storageService.getUser().id, this.nameDri, this.emailDri, this.documentDri!, this.phoneDri!, "Conductor", this.locDri, true, "gabss@gmail.com", this.plate, this.license, this.revisionAut);
+    
+    this.driverService.updateDriver(driver).subscribe(() => {
+      this.visible = true
+    });
+  }
+
+  onPasswordSubmit(){
+    this.storageService.getUser().id;
   }
 
 }
