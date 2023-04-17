@@ -1,37 +1,40 @@
 <nav class="navbar navbar-expand-lg navbar-light x">
     <a class="navbar-brand" href="#">
-        <img src="../../assets/whitebrand.png" width="50" height="50" class="d-inline-block align-top" alt="">
+      <img src="../../assets/whitebrand.png" width="50" height="50" class="d-inline-block align-top" alt="">
     </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ml-auto"> <!-- Agregar la clase ml-auto -->
-            <li class="nav-item" hidden>
-                <a class="nav-link text" href="#" style="color: white; font-weight: 200;">Rutas</a>
-            </li>
-            <li class="nav-item text">
-                <a class="nav-link" routerLink="/operator-list" href="#" style="color: white; font-weight: 200;">Operadores</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text active"  style="color: white; font-weight: 500;"><span class="sr-only">(current)</span>Conductores</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text" routerLink="/manager-list" style="color: white; font-weight: 200;">Gerentes</a>
-            </li>
-            <li class="nav-item" hidden>
-                <a class="nav-link text" href="#" style="color: white; font-weight: 200;">Gastos</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text" href="#" style="color: white;font-weight: 200;">Perfil</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text " style="color: white; font-weight: 200;">Cerrar sesión</a>
-            </li>
-        </ul>
+      <ul class="navbar-nav ml-auto"> 
+        <li class="nav-item">
+          <a class="nav-link text" routerLink="/manager-List-Warehouse" href="#"style="color: white;font-weight: 200;">Bodegas</a>
+        </li><!-- Agregar la clase ml-auto -->
+        <li class="nav-item">
+          <a class="nav-link text" href="#"style="color: white;font-weight: 200;">Rutas</a>
+        </li>
+        <li class="nav-item text">
+          <a class="nav-link" href="/operator-list"style="color: white; font-weight: 200;">Operadores</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text" style="color: white; font-weight: 500;">Conductores</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text  active" routerLink="/manager-list" style="color: white; font-weight: 200;"><span class="sr-only">(current)</span>Gerentes</a>
+        </li>
+        <li class="nav-item" hidden>
+          <a class="nav-link text" style="color: white; font-weight: 200;"href="#">Gastos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text" style="color: white; font-weight: 200;"href="#">Perfil</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text "style="color: white; font-weight: 200;">Cerrar sesión</a>
+        </li>
+      </ul>
     </div>
-</nav>
+  </nav>
 
 <div class="pad">
     <h2>Conductores</h2>
@@ -43,7 +46,7 @@
         </div>
         <input type="text" class="form-control border">
         <div class="input-group-append ml-5">
-            <button class="btn btn-outline-secondary border-0  bu" type="button">
+            <button class="btn btn-outline-secondary border-0  bu" type="button" routerLink="/adminAddDriver">
                 <i class="fa fa-plus"></i> Agregar
             </button>
         </div>
