@@ -4,6 +4,7 @@ import { RouterModule, Routes, ExtraOptions  } from '@angular/router';
 
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
+
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { BoardUserComponent } from './board-user/board-user.component';
@@ -12,10 +13,13 @@ import { BoardAdminComponent } from './board-admin/board-admin.component';
 import { ProductsServicesComponent } from './products-services/products-services.component';
 import { AdminAddManagerComponent } from './admin-add-manager/admin-add-manager.component';
 import { EditProfileOperadorComponent } from './edit-profile-operador/edit-profile-operador.component';
+import { EditProfileManagerComponent } from './edit-profile-manager/edit-profile-manager.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ManagerListComponent } from './manager-list/manager-list.component';
 import { OperatorListComponent } from './operator-list/operator-list.component';
 import { OperatorCreateComponent } from './operator-create/operator-create.component';
+import { EditProfileClientComponent } from './edit-profile-client/edit-profile-client.component';
+import { AdminAddMechanicComponent } from './admin-add-mechanic/admin-add-mechanic.component';
 import { AdminAddDriverComponent } from './admin-add-driver/admin-add-driver.component';
 import { WarehouseListComponent } from './warehouse-list/warehouse-list.component';
 import { WarehouseInfoComponent } from './warehouse-info/warehouse-info.component';
@@ -42,10 +46,12 @@ const routes: Routes = [
   { path: 'drivers-list', component: DriversListComponent },
   { path: 'adminAddManager', component: AdminAddManagerComponent},
   { path: 'editProfileOperador', component: EditProfileOperadorComponent },
+  { path: 'editProfileManager', component: EditProfileManagerComponent},
   { path: 'aboutUs', component: AboutUsComponent },
   { path: 'manager-list', component: ManagerListComponent },
   { path: 'operator-list', component: OperatorListComponent },
   { path: 'operator-create', component: OperatorCreateComponent },
+  { path: 'edit-profile-client', component: EditProfileClientComponent },
   { path: 'driver-create', component: AdminAddDriverComponent },
   { path: 'warehouse-list', component: WarehouseListComponent },
   { path: 'warehouse-info/:id', component: WarehouseInfoComponent },

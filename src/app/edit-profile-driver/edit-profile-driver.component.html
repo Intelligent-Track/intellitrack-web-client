@@ -22,98 +22,16 @@
     </div>
   </nav>
 
-<Section class="Content">
+  <Section class="Content">
     <div class="Columnas">
-        <div class="Columna">
-            <h3>Editar Perfil</h3>
-            <form>
-                <div class="form-group">
-                  <input
-                    type="text"
-                    class="form-control custom-input"
-                    placeholder="Nombre"
-                    name="Nombre"
-                    required
-                    minlength="3"
-                    maxlength="20"
-                  />
-                </div>
-                <div class="form-group">
-                  <input
-                    type="text"
-                    class="form-control custom-input"
-                    placeholder="Correo electronico"
-                    required
-                    minlength="6"
-                  />
-                </div>
-                <div class="form-group">
-                  <input
-                    placeholder="Numero Telefono"
-                    type="text"
-                    class="form-control custom-input"
-                    required
-                    minlength="6"
-                  />
-                </div>
-                <div class="form-group">
-                    <input
-                      placeholder="Ubicación"
-                      type="text"
-                      class="form-control custom-input"
-                      required
-                      minlength="6"
-                    />
-                  </div>
-                  <div class="form-group">
-                    <button class="btn btn-orange btn-block custom-btn">
-                      Guardar
-                    </button>
-                  </div>
-              </form>
-        </div>
-        <div class="Columna">
-            <h3>Cambiar contraseña</h3>
-            <form>
-                <div class="form-group">
-                  <input
-                    type="password"
-                    class="form-control custom-input"
-                    name="password1"
-                    placeholder="Contraseña"
-                    required
-                    minlength="6"
-                  />
-                </div>
-                <div class="form-group">
-                  <input
-                    placeholder="Confirmar Contraseña"
-                    type="password"
-                    class="form-control custom-input"
-                    name="password"
-                    required
-                    minlength="6"
-                  />
-      
-                </div>
-                <h3>Licencia</h3>
-                <div class="form-group">
-                    <input
-                      placeholder="Licencia"
-                      type="number"
-                      class="form-control custom-input"
-                      name="number"
-                      required
-                      minlength="8"
-                    />
-        
-                </div>
-                <div class="form-group">
-                    <button class="btn btn-orange btn-block custom-btn">
-                      Cambiar
-                    </button>
-                  </div>
-              </form>
-        </div>
+      <div class="Columna">
+        <h3>Editar Perfil</h3>
+        <form (ngSubmit)="onSubmit()" class="was-validated" name="formOpt">
+          <input type="email" placeholder="Correo" class="form-control custom-input" name="correoEdit" [(ngModel)]="mailDri">
+          <input type="number" placeholder="Número" class="form-control custom-input" name="numberEdit" [(ngModel)]="numberDri">
+          <input type="text" placeholder="Ubicación" class="form-control custom-input" name="locationEdit" [(ngModel)]="locationDri">
+          <button type="submit" class="btn btn-clear btn-block custom-btn"> Crear</button>
+        </form>
+      </div>
     </div>
-</Section>
+  </Section>

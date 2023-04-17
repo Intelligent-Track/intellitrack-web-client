@@ -19,4 +19,8 @@ export class DriverService {
   }
   constructor(private http: HttpClient) { }
 
+  editProfile(driver: Driver){
+    return this.http.put<Driver>(`${environment.apiUrl}/${SERVICE_PATH}/driverEdit`, driver, this.httpOptions)
+  }
+
 }
