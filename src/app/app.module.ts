@@ -34,6 +34,7 @@ import { ProgramShipmentComponent } from './program-shipment/program-shipment.co
 
 import { VehicleListCRUDComponent } from './vehicle-list-crud/vehicle-list-crud.component';
 import { VehicleCreateComponent } from './vehicle-create/vehicle-create.component';
+import { EditProfileDriverComponent } from './edit-profile-driver/edit-profile-driver.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +67,8 @@ import { VehicleCreateComponent } from './vehicle-create/vehicle-create.componen
     ShipmentBoardComponent,
     WarehouseEditComponent,
     VehicleListCRUDComponent,
-    VehicleCreateComponent
+    VehicleCreateComponent,
+    EditProfileDriverComponent
   ],
   imports: [
     BrowserModule,

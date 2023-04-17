@@ -27,6 +27,7 @@ import { ShipmentBoardComponent } from './shipment-board/shipment-board.componen
 import { ProgramShipmentComponent } from './program-shipment/program-shipment.component';
 import { VehicleListCRUDComponent } from './vehicle-list-crud/vehicle-list-crud.component';
 import { VehicleCreateComponent } from './vehicle-create/vehicle-create.component';
+import { EditProfileDriverComponent } from './edit-profile-driver/edit-profile-driver.component';
 
 
 const routes: Routes = [
@@ -51,11 +52,12 @@ const routes: Routes = [
   { path: 'warehouse-edit/:id', component: WarehouseEditComponent },
   { path: 'change-password-r', component: ChangePasswordRequestComponent },
   { path: 'change-password-s', component: ChangePasswordSendedComponent},
-  { path: 'change-password', component: ChangePasswordComponent},
+  { path: 'change-password/:token', component: ChangePasswordComponent},
   { path: 'shipment-board', component: ShipmentBoardComponent},
   { path: 'program-shipment', component: ProgramShipmentComponent},
   { path: 'vehicle-list', component: VehicleListCRUDComponent},
   { path: 'vehicle-create', component: VehicleCreateComponent},
+  { path: 'edit-driver-profile', component: EditProfileDriverComponent},
 
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];

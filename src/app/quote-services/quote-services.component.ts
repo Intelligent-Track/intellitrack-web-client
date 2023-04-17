@@ -2,6 +2,7 @@ import { City } from './../model/city';
 import { Component, OnInit } from '@angular/core';
 import { QuoteService } from '../_services/quote.service';
 import { DtoQuote } from '../dto/dto-quote';
+import { WarehouseService } from '../_services/warehouse.service';
 
 
 @Component({
@@ -12,8 +13,8 @@ import { DtoQuote } from '../dto/dto-quote';
 export class QuoteServicesComponent implements OnInit {
   cities: City[] | undefined;
   typeLoad = ['Pequeña', 'Medianas', 'Grandes o en estibas', 'Voluminosas', 'De dimensiones especiales']
-  selectedOrigin: City | undefined;
-  selectedDes: City | undefined;
+  selectedOrigin: City | null = null;
+  selectedDes: City | null = null;
   selectedLoad: string = "";
   weightLoad: number = 0;
   selectedDate: string ="";
@@ -21,10 +22,10 @@ export class QuoteServicesComponent implements OnInit {
   showPrice= false;
 
 
-  constructor(private quoteService :QuoteService) { }
+  constructor(private quoteService :QuoteService, private wareService : WarehouseService) { }
 
   ngOnInit(): void {
-    this.quoteService.listAllCities().subscribe(listCities => {
+    this.wareService.listAllCities().subscribe(listCities => {
       this.cities = listCities
     });
   }
