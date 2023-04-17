@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
     };
     if(navigationExtras.queryParams.miParametro == "ROLE_ADMIN"){
       this.router.navigate(['/operator-list']);
-    }else if(navigationExtras.queryParams.miParametro == "ROLE_CLIENTEREPRE"){
+    }else if(navigationExtras.queryParams.miParametro == "ROLE_CLIENTEREPRE" || navigationExtras.queryParams.miParametro == "ROLE_CLIENTEADM"){
       this.router.navigate(['/warehouse-list']);
     }else{
       this.router.navigate(['/home'], navigationExtras);
