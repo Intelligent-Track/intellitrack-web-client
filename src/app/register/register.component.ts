@@ -13,7 +13,7 @@ export class RegisterComponent implements OnInit {
     email: "",
     password: "",
     password1:"",
-    enterprisename:"",
+    enterpriseName:"",
     phonenumber:"",
     nit:"",
     position:"",
@@ -63,43 +63,62 @@ export class RegisterComponent implements OnInit {
 
   register() {
     // Validar los campos
-    if (this.form.username.length > 3 && this.form.username.length > 20) {
+    if (this.form.username.length < 3 || this.form.username.length > 20) {
       this.isValid = false;
       this.form.usernameisValid= true;
       // Mostrar un mensaje de error
+    }else{
+      this.form.usernameisValid= false;
     }
     if (this.form.password.length < 6) {
       this.isValid = false;
       this.form.passwordisValid = true;
+    }else{
+      this.form.passwordisValid= false;
     }
     if (this.form.password !== this.form.password1) {
       this.isValid = false;
       this.form.passwordMismatch = true;
     }
-    if (this.form.phonenumber.length > 3 && this.form.phonenumber.length < 20) {
+    if (this.form.phonenumber.length < 3 || this.form.phonenumber.length > 20) {
       this.isValid = false;
       this.form.phonenumberisValid= true;
+    }else{
+      console.log(this.form.phonenumber);
+      this.form.phonenumberisValid= false;
     }
-    if (this.form.cedula.length > 3 && this.form.cedula.length < 20) {
+    if (this.form.cedula.length < 3 || this.form.cedula.length > 20) {
       this.isValid = false;
       this.form.cedulaisValid= true;
+    }else{
+      this.form.cedulaisValid= false;
     }
     if (!this.form.email.includes('@')) {
       this.isValid = false;
       this.form.emailisValid= true;
+    }else{
+      this.form.emailisValid= false;
     }
-    if (this.form.enterprisename.length > 3 && this.form.enterprisename.length < 20) {
+    /*if (this.form.enterpriseName.length < 3 || this.form.enterpriseName.length > 20) {
+      console.log(this.form.enterpriseName);
+      
       this.isValid = false;
       this.form.enterprisenameisValid= true;
-    }
-    if (this.form.nit.length > 3 && this.form.nit.length > 20) {
+    }else{
+      this.form.enterprisenameisValid= false;
+    }*/
+    if (this.form.nit.length < 3 || this.form.nit.length > 20) {
       this.isValid = false;
       this.form.nitisValid= true;
+    }else{
+      this.form.nitisValid= false;
     }
-    if (this.form.position.length > 3 && this.form.position.length < 20) {
+    /*if (this.form.position.length < 3 || this.form.position.length > 20) {
       this.isValid = false;
       this.form.positionisValid= true;
-    }
+    }else{
+      this.form.positionisValid= false;
+    }*/
 
     if (this.isValid) {
       // Realizar el registro
