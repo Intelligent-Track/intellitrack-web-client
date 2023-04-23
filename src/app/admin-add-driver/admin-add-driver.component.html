@@ -1,113 +1,83 @@
 <nav class="navbar navbar-expand-lg navbar-light x">
   <a class="navbar-brand" href="#">
-      <img src="../../assets/whitebrand.png" width="50" height="50" class="d-inline-block align-top" alt="">
+    <img src="../../assets/whitebrand.png" width="50" height="50" class="d-inline-block align-top" alt="">
   </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ml-auto"> 
-        <li class="nav-item">
-            <a class="nav-link text" routerLink="/manager-List-Warehouse" style="color: white;font-weight: 200;">Bodega</a>
-          </li><!-- Agregar la clase ml-auto -->
-          <li class="nav-item">
-              <a class="nav-link text" href="#" style="color: white; font-weight: 200;">Rutas</a>
-          </li>
-          <li class="nav-item text">
-              <a class="nav-link" routerLink="/operator-create" style="color: white; font-weight: 200;">Operadores</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link text active" routerLink="/adminAddDriver" style="color: white; font-weight: 500;"><span class="sr-only">(current)</span>Conductores</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link text" routerLink="/adminAddManager" style="color: white; font-weight: 200;">Gerentes</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link text" href="#" style="color: white; font-weight: 200;">Gastos</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link text" href="#" style="color: white;font-weight: 200;">Perfil</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link text " style="color: white; font-weight: 200;">Cerrar sesión</a>
-          </li>
-      </ul>
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link text" routerLink="/manager-List-Warehouse" style="color: white;font-weight: 200;">Bodega</a>
+      </li><!-- Agregar la clase ml-auto -->
+      <li class="nav-item">
+        <a class="nav-link text" href="#" style="color: white; font-weight: 200;">Rutas</a>
+      </li>
+      <li class="nav-item text">
+        <a class="nav-link" routerLink="/operator-list" style="color: white; font-weight: 200;">Operadores</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text active" routerLink="/drivers-list" style="color: white; font-weight: 500;"><span
+            class="sr-only">(current)</span>Conductores</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text" routerLink="/manager-list" style="color: white; font-weight: 200;">Gerentes</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text" href="#" style="color: white; font-weight: 200;">Gastos</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text" href="#" style="color: white;font-weight: 200;">Perfil</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text " style="color: white; font-weight: 200;">Cerrar sesión</a>
+      </li>
+    </ul>
   </div>
 </nav>
 <Section class="Container">
-    <h3 style="font-size: 200%;">Agregar conductor</h3>
-    <div class="Columnas">
-        <div class="Columna">
-            <form>
-                <div class="form-group">
-                  <input
-                    type="text"
-                    class="form-control custom-input"
-                    placeholder="Nombre"
-                    name="Nombre"
-                    required
-                    minlength="3"
-                    maxlength="20"
-                  />
-                </div>
-                <div class="form-group">
-                    <input
-                      type="text"
-                      class="form-control custom-input"
-                      placeholder="Identificación"
-                      name="Identificación"
-                      required
-                      minlength="3"
-                      maxlength="20"
-                    />
-                </div>
-                <div class="form-group">
-                    <select class="form-control custom-input" required [(ngModel)]="selectedCity">
-                        <option *ngFor="let city of cities" [value]="city">{{ city }}</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <input
-                      placeholder="Numero Telefono"
-                      type="text"
-                      class="form-control custom-input"
-                      required
-                      minlength="6"
-                    /> 
-                </div>
-                <div class="form-group">
-                  <input
-                    type="text"
-                    class="form-control custom-input"
-                    placeholder="Correo electronico"
-                    required
-                    minlength="6"
-                  />
-                </div>
-                
-              </form>
+  <h3 style="font-size: 200%;">Agregar conductor</h3>
+  <div class="Columnas">
+    <div class="Columna">
+      <form>
+        <div class="form-group">
+          <input type="text" class="form-control custom-input" placeholder="Nombre" name="Nombre" required minlength="3"
+            maxlength="20" [(ngModel)]="nameDri" />
         </div>
-        <div class="Columna">
-            <form>
-                <div class="form-group">
-                    <input
-                      placeholder="Licencia"
-                      type="text"
-                      class="form-control custom-input"
-                      required
-                      minlength="6"
-                    />
-                  </div>
-                  <div class="form-group">
-                    <select class="form-control custom-input" required [(ngModel)]="selectedCity">
-                        <option *ngFor="let city of cities" [value]="city">{{ city }}</option>
-                    </select>
-                  </div>
-                  <div class="form-group">
-                    <button class="btn btn-orange btn-block custom-btn">Registrar</button>
-                  </div>
-            </form>
+        <div class="form-group">
+          <input type="text" class="form-control custom-input" placeholder="Identificación" name="Identificación"
+            required minlength="3" maxlength="20" />
         </div>
+        <div class="form-group">
+          <select class="form-control custom-input" required [(ngModel)]="selectedCity">
+            <option *ngFor="let city of cities" [value]="city">{{ city }}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <input placeholder="Numero Telefono" type="text" class="form-control custom-input" required minlength="6" [(ngModel)]="phoneDri" />
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control custom-input" placeholder="Correo electronico" required
+            minlength="6" [(ngModel)]="emailDri" />
+        </div>
+
+      </form>
     </div>
+    <div class="Columna">
+      <form>
+        <div class="form-group">
+          <input placeholder="Licencia" type="text" class="form-control custom-input" required minlength="6" />
+        </div>
+        <div class="form-group">
+          <select class="form-control custom-input" required [(ngModel)]="selectedCity">
+            <option *ngFor="let city of cities" [value]="city">{{ city }}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <button class="btn btn-orange btn-block custom-btn">Registrar</button>
+        </div>
+      </form>
+    </div>
+  </div>
 </Section>

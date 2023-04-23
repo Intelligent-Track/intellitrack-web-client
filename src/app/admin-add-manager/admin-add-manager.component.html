@@ -1,124 +1,83 @@
 <nav class="navbar navbar-expand-lg navbar-light x">
   <a class="navbar-brand" href="#">
-      <img src="../../assets/whitebrand.png" width="50" height="50" class="d-inline-block align-top" alt="">
+    <img src="../../assets/whitebrand.png" width="50" height="50" class="d-inline-block align-top" alt="">
   </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ml-auto"> <!-- Agregar la clase ml-auto -->
-        <li class="nav-item">
-            <a class="nav-link text" routerLink="/manager-List-Warehouse"style="color: white;font-weight: 200;">Bodega</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link text" href="#" style="color: white; font-weight: 200;">Rutas</a>
-          </li>
-          <li class="nav-item text">
-              <a class="nav-link" routerLink="/operator-create" style="color: white; font-weight: 200;">Operadores</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link text active" routerLink="/adminAddDriver" style="color: white; font-weight: 200;"><span class="sr-only">(current)</span>Conductores</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link text" routerLink="/adminAddManager" style="color: white; font-weight: 500;">Gerentes</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link text" href="#" style="color: white; font-weight: 200;">Gastos</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link text" href="#" style="color: white;font-weight: 200;">Perfil</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link text " href="#" style="color: white; font-weight: 200;">Cerrar sesión</a>
-          </li>
-      </ul>
+    <ul class="navbar-nav ml-auto"> <!-- Agregar la clase ml-auto -->
+      <li class="nav-item">
+        <a class="nav-link text" routerLink="/manager-List-Warehouse" style="color: white;font-weight: 200;">Bodega</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text" href="#" style="color: white; font-weight: 200;">Rutas</a>
+      </li>
+      <li class="nav-item text">
+        <a class="nav-link" routerLink="/operator-list" style="color: white; font-weight: 200;">Operadores</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text active" routerLink="/drivers-list" style="color: white; font-weight: 200;"><span
+            class="sr-only">(current)</span>Conductores</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text" routerLink="/adminAddManager" style="color: white; font-weight: 500;">Gerentes</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text" href="#" style="color: white; font-weight: 200;">Gastos</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text" href="#" style="color: white;font-weight: 200;">Perfil</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text " href="#" style="color: white; font-weight: 200;">Cerrar sesión</a>
+      </li>
+    </ul>
   </div>
 </nav>
 <Section class="Content">
   <h1>Crear Gerentes</h1>
   <div class="Columnas">
-      <div class="Columna">
-          <h2>Editar Perfil</h2>
-          <form>
-              <div class="form-group">
-                <input
-                  type="text"
-                  class="form-control custom-input"
-                  placeholder="Nombre"
-                  name="Nombre"
-                  required
-                  minlength="3"
-                  maxlength="20"
-                />
-              </div>
-              <div class="form-group">
-                  <input
-                    placeholder="Identificacion"
-                    type="number"
-                    class="form-control custom-input"
-                    required
-                    minlength="6"
-                  />
-                </div>
-              <div class="form-group">
-                  <input
-                    placeholder="Telefono"
-                    type="number"
-                    class="form-control custom-input"
-                    required
-                    minlength="6"
-                  />
-                </div>
-                <div class="form-group">
-                  <input
-                    placeholder="Ubicacion"
-                    type="text"
-                    class="form-control custom-input"
-                    required
-                    minlength="6"
-                  />
-                </div>
-                <div class="form-group">
-                  <input
-                    type="text"
-                    class="form-control custom-input"
-                    placeholder="Correo electronico"
-                    required
-                    minlength="6"
-                  />
-                </div>
-                <div class="form-group">
-                  <input
-                    type="password"
-                    class="form-control custom-input"
-                    name="password1"
-                    placeholder="Contraseña"
-                    required
-                    minlength="6"
-                  />
-                </div>
-                <div class="form-group">
-                  <button class="btn btn-orange btn-block custom-btn">
-                    Guardar
-                  </button>
-                </div>
-            </form>
-      </div>
-      <div class="Columna">
-          <h2>Cargo</h2>
-          <form>
-              <div class="form-group">
-                <input
-                  type="text"
-                  class="form-control custom-input"
-                  name="Cargo"
-                  placeholder="Cargo"
-                  required
-                  minlength="6"
-                />
-              </div>
-            </form>
-      </div>
+    <div class="Columna">
+      <h2>Editar Perfil</h2>
+      <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <input type="text" class="form-control custom-input" placeholder="Nombre" name="Nombre" required minlength="3"
+            maxlength="20" [(ngModel)]="name" />
+        </div>
+        <div class="form-group">
+          <input placeholder="Identificacion" type="number" class="form-control custom-input" required minlength="6" [(ngModel)]="document" />
+        </div>
+        <div class="form-group">
+          <input placeholder="Telefono" type="number" class="form-control custom-input" required minlength="6" [(ngModel)]="phone" />
+        </div>
+        <div class="form-group">
+          <input placeholder="Ubicacion" type="text" class="form-control custom-input" required minlength="6" [(ngModel)]="location" />
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control custom-input" placeholder="Correo electronico" required
+            minlength="6" [(ngModel)]="email" />
+        </div>
+        <div class="form-group">
+          <input type="password" class="form-control custom-input" name="password1" placeholder="Contraseña" required
+            minlength="6" [(ngModel)]="password" />
+        </div>
+        <div class="form-group">
+          <button class="btn btn-orange btn-block custom-btn">
+            Guardar
+          </button>
+        </div>
+      </form>
+    </div>
+    <div class="Columna">
+      <h2>Cargo</h2>
+      <form>
+        <div class="form-group">
+          <input type="text" class="form-control custom-input" name="Cargo" placeholder="Cargo" required
+            minlength="6" />
+        </div>
+      </form>
+    </div>
   </div>
 </Section>
