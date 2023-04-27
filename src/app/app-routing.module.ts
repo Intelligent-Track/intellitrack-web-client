@@ -35,6 +35,7 @@ import { ClientQuoteServicesComponent } from './client-quote-services/client-quo
 import { VehicleListCRUDComponent } from './vehicle-list-crud/vehicle-list-crud.component';
 import { VehicleCreateComponent } from './vehicle-create/vehicle-create.component';
 import { EditProfileDriverComponent } from './edit-profile-driver/edit-profile-driver.component';
+import { EmailConfirmComponent } from './email-confirm/email-confirm.component';
 
 
 const routes: Routes = [
@@ -71,6 +72,7 @@ const routes: Routes = [
   { path: 'vehicle-list', component: VehicleListCRUDComponent},
   { path: 'vehicle-create', component: VehicleCreateComponent},
   { path: 'edit-driver-profile', component: EditProfileDriverComponent},
+  { path: 'confirm-email/:data', component: EmailConfirmComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

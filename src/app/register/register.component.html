@@ -3,7 +3,8 @@
     <img class="img4" src="assets/icono.png" alt="Título con imagen">
     <h3 class="r">IntelliTrack</h3>
   </div>
-  <section class="SeccionSU">
+  <div class="spinner" *ngIf="loading"></div>
+  <section class="SeccionSU" *ngIf="!loading">
     <div class="mi-seccion-titulo">
       <img src="assets/icono.png" width="100" alt="Título con imagen" (click)="navegarAPantallaInicial()"> 
       <h4>IntelliTrack</h4>
@@ -162,6 +163,9 @@
     <div class="iniciarconten">
       ¿Ya tiene cuenta?
       <a href="" class="textIniciar">Iniciar sesión</a>
+    </div>
+    <div *ngIf="isSignUpFailed" class="alert alert-danger" role="alert">
+      Registro fallo: {{ errorMessage }}
     </div>
   </section>
 </body>
