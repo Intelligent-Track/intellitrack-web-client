@@ -9,6 +9,7 @@ import { Operator } from '../model/operator';
 import { DtoLinkOperatorManager } from '../dto/dto-link-operator-manager';
 import { DtoOperator } from '../dto/dto-operator';
 import { DtoDriver } from '../dto/dto-driver';
+import { DtoDriverBasic } from '../dto/dto-driver-basic';
 
 const SERVICE_PATH = "users/api/adm"
 
@@ -45,8 +46,8 @@ export class AdminService {
     return this.http.get<Driver[]>(`${environment.apiUrl}/${SERVICE_PATH}/GetDrivers`, this.httpOptions);
   }
 
-  createDriver(driver: DtoDriver) {
-    return this.http.post<DtoDriver>(`${environment.apiUrl}/${SERVICE_PATH}/DriverCreate`, driver, this.httpOptions);
+  createDriver(driver: DtoDriverBasic) {
+    return this.http.post<DtoDriverBasic>(`${environment.apiUrl}/${SERVICE_PATH}/DriverCreate`, driver, this.httpOptions);
   }
 
   //Operadores
@@ -63,5 +64,11 @@ export class AdminService {
   createOperator(operator: DtoOperator) {
     return this.http.post<Operator>(`${environment.apiUrl}/${SERVICE_PATH}/OperatorCreate`, operator, this.httpOptions);
   }
+
+  uploadFiles(form: FormData): Observable<Driver>{
+    return this.http.put<Driver>(`${environment.apiUrl}/${SERVICE_PATH}/uploadDriverFiles`, form);
+  }
+
+
 
 }

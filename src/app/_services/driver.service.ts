@@ -27,4 +27,8 @@ export class DriverService {
     return this.http.get<Driver>(`${environment.apiUrl}/${SERVICE_PATH}/searchDriver/` + id, this.httpOptions);
   }
 
+  findByUsername(username: string): Observable<Driver>{
+    return this.http.get<Driver>(`${environment.apiUrl}/${SERVICE_PATH}/driver/` + username, this.httpOptions);
+  }
+
 }

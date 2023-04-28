@@ -65,8 +65,8 @@
           <th scope="col">Teléfono</th>
           <th scope="col">Dirección</th>
           <th scope="col">Placa vehículo</th>
-          <th scope="col">Licencia</th>
-          <th scope="col">Revisión automecanica</th>
+          <th scope="col" hidden>Licencia</th>
+          <th scope="col"hidden>Revisión automecanica</th>
           <th class="no-border"></th>
         </tr>
       </thead>
@@ -78,9 +78,9 @@
             <td>{{infodriver.username}}</td>
             <td>{{infodriver.phone}}</td>
             <td>{{infodriver.location}}</td>
-            <td>{{infodriver.placaVehiculo}}</td>
-            <td>{{infodriver.licencia}}</td>
-            <td>{{infodriver.revisionAutoMec}}</td>
+            <td>{{infodriver.vehiclePlate}}</td>
+            <td hidden>{{infodriver.license}}</td>
+            <td hidden>{{infodriver.mecReview}}</td>
             <td class="no-border">
               <div class="btn-group" role="group">
                 <button class="btn btn-lg" type="button" (click)="editDriver()">
