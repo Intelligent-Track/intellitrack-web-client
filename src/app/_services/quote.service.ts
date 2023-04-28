@@ -25,6 +25,7 @@ export class QuoteService {
   }
 
   quoteDelivery( quote : DtoQuote) {
+    console.log(quote)
     return this.http.post<number>(`${environment.apiUrl}/${SERVICE_PATH}/quoteDelivery`, quote, this.httpOptions);
   }
 }

@@ -104,9 +104,18 @@
     <div class="x1 col-custom pl-5 pr-5">
         <div class="top">
             <div class="input-group pb-2">
-                <input type="date" class="form-control border ml-5 mr-5 custom-input" required placeholder="Fecha de entrega"
-                    [(ngModel)]="date">
-                <div class="form-group ml-5 mr-5">
+                <div class="ml-2 mr-2">
+                    <label class="date-label" for="fecha_salida" style="font-size: 13px;">Fecha de salida</label>
+                    <input type="date" class="form-control custom-input" id="fecha_salida" required placeholder="Fecha de entrega"
+                    [(ngModel)]="departureDate">
+                  </div>
+                  
+                  <div class="ml-2 mr-2">
+                    <label class="date-label" for="fecha_llegada" style="font-size: 13px;">Fecha de llegada</label>
+                    <input type="date" class="form-control custom-input" id="fecha_llegada" required placeholder="Fecha de entrega"
+                    [(ngModel)]="arriveDate">
+                  </div>
+                <div class="ml-2  topi ">
                     <select class="form-control custom-input" required [(ngModel)]="deliveryType" name="selectedDate">
                         <option value="" disabled selected>Tipo de envío</option>
                         <option *ngFor="let type of deliveryTypes" [value]="type">{{ type }}</option>
@@ -115,7 +124,7 @@
             </div>
             <div class="input-group-append ml-5 but">
                 <button class="btn btn-orange btn-block custom-btn bu" type="button"
-                    (click)="date && program(selectedOrigin!, selectedDes!, date, deliveryType)">
+                    (click)="arriveDate && program(selectedOrigin!, selectedDes!, arriveDate, departureDate, deliveryType)">
                     Programar
                 </button>
             </div>

@@ -36,7 +36,11 @@
 }
 
 .top{
-    margin-top: 40px;
+    margin-top: 20px;
+}
+
+.topi{
+    margin-top: 23px;
 }
 
 .border{
@@ -86,8 +90,3 @@ select.form-control option:first-child {
     color: white;
   }
 
-  .custom-input {
-    border-radius: 10px;
-    background-color: #f2f3f7;
-    border: none;
-  }

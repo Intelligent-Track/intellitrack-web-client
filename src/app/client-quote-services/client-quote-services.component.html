@@ -54,7 +54,11 @@
         <div class="row-container">
           <div class="form-group">
             <input type="date" class="form-control datepicker custom-input" name="fecha"
-                placeholder="Fecha de entrega" [(ngModel)]="selectedDate" />
+                placeholder="Fecha de entrega" [(ngModel)]="selectedArriveDate" />
+          </div>
+          <div class="form-group">
+            <input type="date" class="form-control datepicker custom-input" name="fecha"
+                placeholder="Fecha de entrega" [(ngModel)]="selectedDepartureDate" />
           </div>
           <div class="form-group">
             <input type="time" class="form-control datepicker custom-input" name="hora"
@@ -97,7 +101,7 @@
           Esta de acuerdo con los <a class="link" routerLink="">Terminos y Condiciones de Cancelación</a>
         </label>
         <div class="form-group">
-          <button class="btn btn-orange btn-block custom-btn" (click)="quoteHome(selectedLoad, selectedOrigin, selectedDes, weightLoad, selectedDate)">Reservar</button>
+          <button class="btn btn-orange btn-block custom-btn" (click)="quoteHome(selectedLoad, selectedOrigin, selectedDes, weightLoad, selectedArriveDate, selectedDepartureDate)">Reservar</button>
         </div>
       </div>
     </div>
