@@ -11,11 +11,10 @@
   background-color: #ffffff;
   border-radius: 30px;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
-  width: 80%;
-  height: 450px;
-  max-width: 500px;
-  max-height: 600px;
+  width: 500px;
+  height: 500px;
   display: flex;
+  align-items: center;
   flex-direction: row;
 }
 
@@ -169,4 +168,19 @@ font-size: 290%;
   text-align: right;
   display: block;
   margin-bottom: 10px;
+}
+
+.spinner {
+  align-items: center;
+  border: 6px solid rgba(0, 0, 0, 0.1);
+  border-left-color: #ff6e59;
+  border-radius: 100%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+  margin: 10px auto;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
 }

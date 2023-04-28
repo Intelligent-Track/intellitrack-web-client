@@ -42,6 +42,7 @@ import { EditProfileDriverComponent } from './edit-profile-driver/edit-profile-d
 import { WarehouseCreateComponent } from './warehouse-create/warehouse-create.component';
 import { WarehouseInfoAdminComponent } from './warehouse-info-admin/warehouse-info-admin.component';
 import { WarehouseListClientComponent } from './warehouse-list-client/warehouse-list-client.component';
+import { EmailConfirmComponent } from './email-confirm/email-confirm.component';
 
 @NgModule({
   declarations: [
@@ -84,7 +85,8 @@ import { WarehouseListClientComponent } from './warehouse-list-client/warehouse-
     EditProfileManagerComponent,
     WarehouseCreateComponent,
     WarehouseInfoAdminComponent,
-    WarehouseListClientComponent
+    WarehouseListClientComponent,
+    EmailConfirmComponent
   ],
   imports: [
     BrowserModule,

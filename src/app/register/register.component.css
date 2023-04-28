@@ -5,15 +5,14 @@
 
   .SeccionSU{
     position: absolute;
-    top: 50%;
-    left: 50%;
     padding: 20px;
     transform: translate(-50%, -50%);
     background-color: #FFFFFF;
     border-radius: 30px;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
-    width: 100vh;
-    height: 100vh;
+    width: 100px;
+    height: 100px;
+    display: flex;
     flex-direction: column;
     align-items: center;
 }
@@ -118,4 +117,18 @@
   color: black; /* aquí puedes cambiar el color de la letra en estado :hover y :focus */
   box-shadow: none; /* aquí puedes cambiar la sombra */
   align-items: center;
+}
+.spinner {
+  align-items: center;
+  border: 6px solid rgba(0, 0, 0, 0.1);
+  border-left-color: #ff6e59;
+  border-radius: 100%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+  margin: 10px auto;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
 }

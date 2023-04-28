@@ -38,6 +38,7 @@ import { EditProfileDriverComponent } from './edit-profile-driver/edit-profile-d
 import { WarehouseCreateComponent } from './warehouse-create/warehouse-create.component';
 import { WarehouseInfoAdminComponent } from './warehouse-info-admin/warehouse-info-admin.component';
 import { WarehouseListClientComponent } from './warehouse-list-client/warehouse-list-client.component';
+import { EmailConfirmComponent } from './email-confirm/email-confirm.component';
 
 
 const routes: Routes = [
@@ -78,6 +79,7 @@ const routes: Routes = [
   { path: 'warehouse-list-client', component: WarehouseListClientComponent},
   { path: 'warehouse-create', component: WarehouseCreateComponent},
   { path: 'warehouse-info-admin/:id', component: WarehouseInfoAdminComponent},
+  { path: 'confirm-email/:data', component: EmailConfirmComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

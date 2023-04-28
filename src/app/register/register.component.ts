@@ -31,6 +31,7 @@ export class RegisterComponent implements OnInit {
     positionisValid: false,
     representativeisValid: false,
   };
+  loading = false;
   isValid = true;
   isSuccessful = false;
   isSignUpFailed = false;
@@ -121,21 +122,30 @@ export class RegisterComponent implements OnInit {
     }*/
 
     if (this.isValid) {
-      // Realizar el registro
-    const { username, email, password , enterprisename,cedula,phonenumber,nit} = this.form;
+      try {
+        this.loading = true; // muestra el spinner
+        const { username, email, password , enterprisename,cedula,phonenumber,nit} = this.form;
 
     this.authService.register(username,email,phonenumber,nit,password,enterprisename,cedula).subscribe({
       next: data => {
         console.log(data);
         this.isSuccessful = true;
         this.isSignUpFailed = false;
+        this.loading = false; 
+        this.router.navigate(['/confirm-email', email]);
       },
       error: err => {
         this.errorMessage = err.error.message;
         this.isSignUpFailed = true;
+        this.loading = false; 
+        //this.router.navigate(['/confirm-email', email]);
       }
-    });
-      alert('Registro exitoso');
+    });// función que toma algún tiempo en ejecutarse
+      } catch (error) {
+        console.error(error);
+        //this.router.navigate(['/confirm-email', "otroEmail.com"]);
+        this.loading = false; 
+      }
     }
   }
 }
