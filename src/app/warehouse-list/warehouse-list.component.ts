@@ -4,6 +4,9 @@ import { WarehouseService } from '../_services/warehouse.service';
 import { City } from '../model/city';
 import { Type } from '../model/type';
 import { Router } from '@angular/router';
+import { Package } from '../model/package';
+import { PackagesService } from '../_services/packages.service';
+import { StorageService } from '../_services/storage.service';
 
 @Component({
   selector: 'app-warehouse-list',
@@ -12,7 +15,7 @@ import { Router } from '@angular/router';
 })
 export class WarehouseListComponent implements OnInit {
 
-  infoWarehouses: Warehouse[] | undefined;
+  infoPackages: Package[] | undefined;
   cities: City[] | undefined;
   types: Type[] | undefined;
   selectedCity: City | undefined;
@@ -20,35 +23,14 @@ export class WarehouseListComponent implements OnInit {
   capacity: number | undefined;
 
   constructor(
-    private warehouseService: WarehouseService
+    private packageService: PackagesService,
+    private storageService: StorageService
   ) { }
 
   ngOnInit(): void {
-    this.warehouseService.listAllWarehouse().subscribe(listWarehouse => {
-      this.infoWarehouses = listWarehouse
+    this.packageService.listAllPackagesByClientId(this.storageService.getUser().id).subscribe(packs => {
+      this.infoPackages = packs
     });
-    this.warehouseService.listAllCities().subscribe(listCities => {
-      this.cities = listCities
-    });
-    this.warehouseService.listAllTypes().subscribe(listTypes =>{
-      this.types = listTypes
-    });
-  }
-
-  onSearchSubmit(){
-    if(!this.capacity && !this.selectedType){
-      this.warehouseService.listWarehouseByCity(this.selectedCity!.id).subscribe(listWarehouse => {
-        this.infoWarehouses = listWarehouse
-      })
-    }else if(!this.selectedCity && !this.capacity){
-      this.warehouseService.listWarehouseByType(this.selectedType!.id).subscribe(listWarehouse => {
-        this.infoWarehouses = listWarehouse
-      })
-    }else{
-      this.warehouseService.listWarehouseByCapacity(this.capacity!).subscribe(listWarehouse => {
-        this.infoWarehouses = listWarehouse
-      })
-    }
   }
 
 }
