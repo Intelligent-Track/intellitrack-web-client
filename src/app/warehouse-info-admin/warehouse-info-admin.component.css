@@ -1,5 +1,6 @@
 .Columnas {
     width: 100%;
+    margin-top: 3%;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -19,11 +20,8 @@
     /* aquí puedes cambiar el color de la letra */
     border-radius: 20px;
     width: 10vw;
-    height: 30px;
-}
-
-.btn-quote{
-    margin-top: 15%;
+    margin-top: 20%;
+    height: 4vh;
 }
 
 .bordeLogin {
@@ -73,7 +71,7 @@ li {
 }
 
 span {
-    font-size: 2em;
+    font-size: 12pt;
     margin-top: 20%;
 }
 
@@ -88,7 +86,7 @@ span {
 label {
     font-size: 1.5em;
     font-weight: 100;
-    margin-top: 5%;
+    margin-top: 10%;
 }
 
 .idw {
@@ -96,55 +94,30 @@ label {
     margin-top: 2%;
 }
 
-.input-quote {
+input {
     height: 4vh;
     margin-top: 5%;
     text-align: center;
 }
-
-.title-select {
-    font-size: 10pt;
-    margin-bottom: 5%;
-}
-
 
 .form-vertical {
     display: flex;
     flex-direction: column;
 }
 
-.form-package {
-    display: flex;
-    flex-direction: row;
+.cotizacion {
+    justify-content: center;
 }
 
-.input-package {
-    border-radius: 15px;
-    font-size: 150%;
-    background-color: #F2F3F7;
-    width: 10vw;
-    border: none;
-    margin-right: 2%;
-}
-
-.error-pack{
-    color: #FF6E59;
-    margin-left: 2%;
-  }
 
 .my-custom-scrollbar {
     position: relative;
-    margin-top: 5%;
-    height: 30vh;
-    margin-bottom: 5%;
+    height: 50vh;
+    width: 50vh;
     overflow: auto;
+    margin-top: 4%;
 }
 
 .table-wrapper-scroll-y {
     display: block;
-}
-
-.add-package{
-    margin-top: 5%;
-    margin-right: 5%;
 }

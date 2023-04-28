@@ -39,6 +39,9 @@ import { ClientQuoteServicesComponent } from './client-quote-services/client-quo
 import { VehicleListCRUDComponent } from './vehicle-list-crud/vehicle-list-crud.component';
 import { VehicleCreateComponent } from './vehicle-create/vehicle-create.component';
 import { EditProfileDriverComponent } from './edit-profile-driver/edit-profile-driver.component';
+import { WarehouseCreateComponent } from './warehouse-create/warehouse-create.component';
+import { WarehouseInfoAdminComponent } from './warehouse-info-admin/warehouse-info-admin.component';
+import { WarehouseListClientComponent } from './warehouse-list-client/warehouse-list-client.component';
 import { EmailConfirmComponent } from './email-confirm/email-confirm.component';
 
 @NgModule({
@@ -80,6 +83,9 @@ import { EmailConfirmComponent } from './email-confirm/email-confirm.component';
     VehicleCreateComponent,
     EditProfileDriverComponent,
     EditProfileManagerComponent,
+    WarehouseCreateComponent,
+    WarehouseInfoAdminComponent,
+    WarehouseListClientComponent,
     EmailConfirmComponent
   ],
   imports: [

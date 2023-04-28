@@ -64,6 +64,10 @@ header {
     width: 200px;
     height: 30px;
   }
+
+  table tbody tr:hover td:not(:nth-last-child(-n+1)) {
+    background-color: gainsboro;
+}
   
   .custom-btn:focus,
   .custom-btn:hover {

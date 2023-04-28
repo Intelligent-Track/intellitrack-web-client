@@ -47,11 +47,6 @@ h2 {
     margin-bottom: 2%;
 }
 
-.note-ware{
-    font-size: 10pt;
-    margin-right: 10%;
-}
-
 select{
     width: 8vw;
     margin-right: 3%;
@@ -61,6 +56,16 @@ select{
 .vertical{
     display: flex;
     flex-direction: column;
+}
+
+.note-ware{
+    font-size: 8pt;
+    font-style: italic;
+    font-weight: normal;
+}
+
+.filter-ware{
+    margin-right: 10%;
 }
 
 input{

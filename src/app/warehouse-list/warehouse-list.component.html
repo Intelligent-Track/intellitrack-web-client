@@ -9,14 +9,16 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto"> <!-- Agregar la clase ml-auto -->
             <li class="nav-item">
-                <a class="nav-link text" [routerLink]="['/shipment-board/']" style="color: white;font-weight: 200;">Envíos</a>
+                <a class="nav-link text" [routerLink]="['/shipment-board/']"
+                    style="color: white;font-weight: 200;">Envíos</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link text active" style="color: white; font-weight: 500;"><span
                         class="sr-only">(current)</span>Bodegas</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text" routerLink="/edit-profile-client" style="color: white; font-weight: 200;" href="#">Perfil</a>
+                <a class="nav-link text" routerLink="/edit-profile-client" style="color: white; font-weight: 200;"
+                    href="#">Perfil</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link text " style="color: white; font-weight: 200;">Cerrar sesión</a>
@@ -26,66 +28,38 @@
 </nav>
 
 <div class="pad">
-    <h2>Bodegas</h2>
+    <h2>Reservaciones en bodegas</h2>
     <div class="input-group pb-2">
-        <div>
-            <span class="">Filtrar por ciudad</span>
-            <select class="form-select" name="cities" id="cities" *ngIf="cities" [(ngModel)]="selectedCity" >
-                <option value=""></option>
-                <option [ngValue]="city" *ngFor="let city of cities">{{city.name}}</option>
-            </select>
-        </div>
-        <div>
-            <span class="">Filtrar por tipo</span>
-            <select class="form-select" name="types" id="types" *ngIf="types" [(ngModel)]="selectedType">
-                <option value=""></option>
-                <option [ngValue]="type" *ngFor="let type of types">{{type.name}}</option>
-            </select>
-        </div>
-        <div class="vertical">
-            <span class="">Capacidad</span>
-            <input  type="number" class="form-control search-input" placeholder="m³" id="validationDefault01" class="" [(ngModel)]="capacity">
-        </div>
-        <form (ngSubmit)="onSearchSubmit()">
-            <button class="btn btn-outline-secondary border-0 search bu">
-                <i class="fa  fa-search"></i> 
+        <p class="note-ware">
+            Para reservar un nuevo espacio donde guardar sus articulos debe darle al botón para mirar las bodegas disponibles
+        </p>
+        <form >
+            <button class="btn btn-outline-secondary bu" routerLink="/warehouse-list-client">
+              <i class="fa fa-search"></i> Buscar bodegas 
             </button>
-        </form>
+          </form>
     </div>
 
 
     <div style="padding-top: 3%;" class="table-responsive  ">
-        <table class="table" >
+        <table class="table">
             <thead>
                 <tr>
                     <th scope="col">ID</th>
-                    <th scope="col">Ciudad</th>
-                    <th scope="col">Dirección</th>
-                    <th scope="col">Capacidad</th>
-                    <th scope="col">Tipo</th>
-                    <th scope="col">Costo por m³</th>
-                    <th class="no-border"></th>
+                    <th scope="col">Nombre de la carga</th>
+                    <th scope="col">Peso</th>
+                    <th scope="col">Volumen</th>
+                    <th scope="col">Ubicación de la bodega</th>
                 </tr>
             </thead>
             <tbody>
-                <ng-container *ngIf="infoWarehouses">
-                    <tr *ngFor="let infoWarehouse of infoWarehouses" class="clickableRow" [routerLink]="['/warehouse-info/', infoWarehouse.id]">
-                        <td scope="row">{{infoWarehouse.id}}</td>
-                        <td>{{infoWarehouse.city.name}}</td>
-                        <td>{{infoWarehouse.address}}</td>
-                        <td>{{infoWarehouse.capacity}}</td>
-                        <td>{{infoWarehouse.type.name}}</td>
-                        <td>COP {{infoWarehouse.costPerM3}}</td>
-                        <td class="no-border">
-                            <div class="btn-group" role="group">
-                                <button class="btn btn-lg" type="button" routerLink="/warehouse-edit/:id">
-                                    <i class="fa fa-pencil"></i>
-                                </button>
-                                <button class="btn btn-lg ml-2" type="button">
-                                    <i class="fa fa-trash"></i>
-                                </button>
-                            </div>
-                        </td>
+                <ng-container *ngIf="infoPackages">
+                    <tr *ngFor="let infoPackage of infoPackages">
+                        <td scope="row">{{infoPackage.id}}</td>
+                        <td>{{infoPackage.type}}</td>
+                        <td>{{infoPackage.weight}}</td>
+                        <td>{{infoPackage.volume}}</td>
+                        <td>{{infoPackage.location}}</td>
                     </tr>
                 </ng-container>
             </tbody>
