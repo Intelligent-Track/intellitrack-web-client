@@ -24,7 +24,8 @@ export class ProgramShipmentComponent implements OnInit {
   weight: number | undefined;
   volume: number | undefined;
   name: string = "";
-  date: string ="";
+  arriveDate: string ="";
+  departureDate: string ="";
   price: number = 0;
   showprice =false;
 
@@ -51,12 +52,11 @@ export class ProgramShipmentComponent implements OnInit {
     this.tableUpdated = true;
   }
 
-  program(selectedOrigin: City | undefined, selectedDes: City | undefined, date: string, deliveryType: string) {
-    if (selectedOrigin?.name !== 'Ciudad de origen' && selectedDes?.name !== 'Ciudad de destino' && date !== null && deliveryType !== 'Tipo de envío' && this.products.length > 0) {
+  program(selectedOrigin: City | undefined, selectedDes: City | undefined, arriveDate: string, departureDate: string, deliveryType: string) {
+    if (selectedOrigin?.name !== 'Ciudad de origen' && selectedDes?.name !== 'Ciudad de destino' && arriveDate !== null && departureDate !== null && deliveryType !== 'Tipo de envío' && this.products.length > 0) {
       
-      console.log(selectedOrigin?.id, selectedDes?.id, deliveryType, date, this.products)
-      const delivery = new DtoShipment(selectedOrigin?.id!, selectedDes?.id!, deliveryType, date, this.products)
-      this.deliveryService.createDelivery(selectedOrigin?.id!, selectedDes?.id!, deliveryType, date, this.products).subscribe((pr: number) => {
+      console.log(selectedOrigin?.id, selectedDes?.id, deliveryType, arriveDate, this.products)
+      this.deliveryService.createDelivery(selectedOrigin?.id!, selectedDes?.id!, deliveryType, arriveDate, departureDate, this.products).subscribe((pr: number) => {
         this.price = pr;
         this.showprice = true;
       })

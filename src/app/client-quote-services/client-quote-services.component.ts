@@ -29,8 +29,10 @@ export class ClientQuoteServicesComponent implements OnInit {
   selectedDes: City | undefined;
   selectedLoad: string = "";
   weightLoad: number = 0;
+  volumeLoad: number = 0;
   cantidad: number = 0;
-  selectedDate: string ="";
+  selectedArriveDate: string ="";
+  selectedDepartureDate: string ="";
   price: number = 0;
   selectedTime: string = "";
   selectedTipoEnvio: string = "";
@@ -63,9 +65,9 @@ export class ClientQuoteServicesComponent implements OnInit {
     });
   }
 
-  quoteHome(selectedLoad: string, selectedOrigin: City | undefined, selectedDes: City | undefined, weightLoad: number, selectedDate: string):void{
-    if (selectedOrigin?.name !== 'Ciudad de origen' && selectedDes?.name !== 'Ciudad de destino' && weightLoad !== null && selectedDate!== 'Tipo de envío' && selectedLoad !== null) {
-      const quote = new DtoQuote(selectedLoad,selectedOrigin!, selectedDes!,  weightLoad, selectedDate)
+  quoteHome(selectedLoad: string, selectedOrigin: City | undefined, selectedDes: City | undefined, weightLoad: number, selectedArriveDate: string , selectedDepartureDate: string):void{
+    if (selectedOrigin?.name !== 'Ciudad de origen' && selectedDes?.name !== 'Ciudad de destino' && weightLoad !== null && selectedArriveDate!== null && selectedDepartureDate!== null && selectedLoad !== null) {
+      const quote = new DtoQuote(selectedLoad,selectedOrigin!, selectedDes!,  weightLoad, this.volumeLoad, selectedArriveDate, selectedDepartureDate)
       this.quoteService.quoteDelivery(quote).subscribe((pr: number) => {
         this.price = pr;
         this.showPrice = true

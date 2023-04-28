@@ -62,7 +62,9 @@ h2{
 .infoQuote {
     position: absolute;
     top: 350px;
-    left: 150px;
+    width: 150px;
+    margin-left: 34%;
+    margin-right: 34%;
     border-radius: 5px;
     padding-left: 7%;
     padding-right: 7%;
