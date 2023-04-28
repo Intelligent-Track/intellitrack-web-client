@@ -6,6 +6,9 @@ import { DtoManager } from '../dto/dto-manager';
 import { Driver } from '../model/driver';
 import { AdminService } from '../_services/admin.service';
 import { Manager } from '../model/manager';
+import { DtoDriver } from '../dto/dto-driver';
+import { DtoDriverBasic } from '../dto/dto-driver-basic';
+import { StorageService } from '../_services/storage.service';
 
 @Component({
   selector: 'app-admin-add-driver',
@@ -19,13 +22,21 @@ export class AdminAddDriverComponent implements OnInit {
   selectedMan: string | undefined;
   nameDri: string = "";
   locationDri: string = ""; 
-  phoneDri: number = -1;
+  phoneDri: number | undefined;
   emailDri: string = "";
+  plateDri: string = "";
+  documentDri: number | undefined;
   managerList: Manager[] |undefined;
+
+  driverExt: boolean = false;
+  fileToUpload: File | null = null;
+  photoToUpload: File | null = null;
 
   constructor(
     private router: Router,
-    private adminService : AdminService
+    private adminService : AdminService,
+    private driverService: DriverService,
+    private storageService: StorageService
   ) { }
 
   ngOnInit(): void {
@@ -35,12 +46,42 @@ export class AdminAddDriverComponent implements OnInit {
   }
 
   onSubmit(){
-    if(this.nameDri && this.emailDri && this.locationDri && this.phoneDri && this.selectedCity && this.selectedMan){
-      this.adminService.createDriver(new Driver(0, this.nameDri, this.emailDri, 0 ,this.phoneDri, "", this.locationDri, true, this.selectedMan, "", "", "")).subscribe(() => {
-        this.router.navigate(['operator-list'])
-      }
-      );
+    console.log(this.nameDri);
+    console.log(this.emailDri);
+    console.log(this.phoneDri);
+    console.log(this.driverExt);
+    console.log(this.documentDri);
+    console.log(this.locationDri);
+    console.log(this.plateDri);
+    console.log(this.storageService.getUser().username)
+    if(this.nameDri && this.emailDri && this.locationDri && this.phoneDri && this.documentDri && this.plateDri){
+      this.adminService.createDriver(new DtoDriverBasic(this.documentDri, this.nameDri, this.emailDri, "Driver", this.phoneDri, this.locationDri, this.driverExt, this.plateDri,this.storageService.getUser().username)).subscribe(() => {
+        
+        if(this.driverExt){
+          this.driverService.findByUsername(this.emailDri).subscribe(driver=>{
+            if(this.fileToUpload && this.photoToUpload){
+              const formData: FormData = new FormData();
+              formData.append('id', ""+driver.id);
+              formData.append('licPhoto', this.photoToUpload);
+              formData.append('mecPhoto', this.fileToUpload);
+              this.adminService.uploadFiles(formData).subscribe(()=>{
+                this.router.navigate(['driver-list'])
+              })
+            }
+          });
+          
+        }
+      });
+      
     }
+  }
+
+  onFileSelected(event: any) {
+    this.fileToUpload = event.target.files[0];
+  }
+
+  onFilePhotoSelected(event: any) {
+    this.photoToUpload = event.target.files[0];
   }
 
 }

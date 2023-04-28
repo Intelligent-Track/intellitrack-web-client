@@ -158,11 +158,11 @@
       </div>
     </div>
     <div class="form-group">
-      <button class="btn btn-orange btn-block custom-btn"  (click)="register()">Crear Cuenta</button>
+      <button class="btn btn-orange btn-block custom-btn" (click)="register()">Crear Cuenta</button>
     </div>
     <div class="iniciarconten">
       ¿Ya tiene cuenta?
-      <a href="" class="textIniciar">Iniciar sesión</a>
+      <a href="" class="textIniciar"  routerLink="/login" >Iniciar sesión</a>
     </div>
     <div *ngIf="isSignUpFailed" class="alert alert-danger" role="alert">
       Registro fallo: {{ errorMessage }}
