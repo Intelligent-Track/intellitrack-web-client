@@ -32,8 +32,7 @@
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
   width: 100%;
   max-width: 800px;
-  height: 500px;
-  max-height: 500px;
+  height: 600px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -131,4 +130,28 @@
 
 @keyframes spin {
   to { transform: rotate(360deg); }
+}
+
+
+
+
+
+.input-group-text {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+
+.input-group-text:hover {
+  background-color: transparent;
+}
+
+.fa-eye,
+.fa-eye-slash {
+  color: #cccccc;
+}
+
+.fa-eye:hover,
+.fa-eye-slash:hover {
+  color: #ff6e59;
 }
