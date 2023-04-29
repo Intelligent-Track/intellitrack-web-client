@@ -13,11 +13,12 @@ export class RegisterComponent implements OnInit {
     email: "",
     password: "",
     password1:"",
-    enterpriseName:"",
     phonenumber:"",
     nit:"",
+    nit2:"",
     position:"",
     representative:"",
+    empresa:"",
 
     //validaciones de los campos
     passwordMismatch: false,
@@ -28,6 +29,7 @@ export class RegisterComponent implements OnInit {
     enterprisenameisValid: false,
     phonenumberisValid: false,
     nitisValid: false,
+    nit2isValid: false,
     positionisValid: false,
     representativeisValid: false,
   };
@@ -36,6 +38,8 @@ export class RegisterComponent implements OnInit {
   isSuccessful = false;
   isSignUpFailed = false;
   errorMessage = '';
+  showPassword = false;
+
 
   constructor(private authService: AuthService,private router: Router) { }
 
@@ -61,34 +65,46 @@ export class RegisterComponent implements OnInit {
     }
   }
 
+  onNitInput() {
+    if (this.form.nit.toString().length === 9) {
+      const nit2Input = document.getElementsByName('nit2')[0] as HTMLInputElement;
+      nit2Input.focus();
+    }
+  }
+  
 
   register() {
+    this.isValid = true;
+    console.log("numero");
+    console.log(this.form.phonenumber);
+    console.log(this.form.phonenumber.toString().length);
+    console.log("Empresa");
+    console.log(this.form.empresa.toString());
+    console.log(this.form.empresa.toString().length);
+    console.log("Nit");
+    console.log(this.form.nit.toString());
+    console.log(this.form.nit.toString().length);
     // Validar los campos
-    if (this.form.username.length < 3 || this.form.username.length > 20) {
+    if (this.form.username.toString().length < 3 || this.form.username.toString().length > 20) {
       this.isValid = false;
       this.form.usernameisValid= true;
       // Mostrar un mensaje de error
     }else{
       this.form.usernameisValid= false;
     }
-    if (this.form.password.length < 6) {
+    if (!/(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{10,}/.test(this.form.password)){
       this.isValid = false;
       this.form.passwordisValid = true;
     }else{
       this.form.passwordisValid= false;
     }
-    if (this.form.password !== this.form.password1) {
-      this.isValid = false;
-      this.form.passwordMismatch = true;
-    }
-    if (this.form.phonenumber.length < 3 || this.form.phonenumber.length > 20) {
+    if (this.form.phonenumber.toString().length != 10) {
       this.isValid = false;
       this.form.phonenumberisValid= true;
     }else{
-      console.log(this.form.phonenumber);
       this.form.phonenumberisValid= false;
     }
-    if (this.form.cedula.length < 3 || this.form.cedula.length > 20) {
+    if (this.form.cedula.toString().length <10) {
       this.isValid = false;
       this.form.cedulaisValid= true;
     }else{
@@ -100,33 +116,33 @@ export class RegisterComponent implements OnInit {
     }else{
       this.form.emailisValid= false;
     }
-    /*if (this.form.enterpriseName.length < 3 || this.form.enterpriseName.length > 20) {
-      console.log(this.form.enterpriseName);
-      
+    if (this.form.empresa.toString().length < 3 || this.form.empresa.toString().length > 20) {
+      console.log(this.form.enterprisename);
       this.isValid = false;
       this.form.enterprisenameisValid= true;
     }else{
       this.form.enterprisenameisValid= false;
-    }*/
-    if (this.form.nit.length < 3 || this.form.nit.length > 20) {
+    }
+    if (this.form.nit.toString().length != 9) {
+      console.log(this.form.nit.length);
       this.isValid = false;
       this.form.nitisValid= true;
     }else{
-      this.form.nitisValid= false;
+      this.form.nitisValid = false;
     }
-    /*if (this.form.position.length < 3 || this.form.position.length > 20) {
+    if (this.form.nit2.toString().length != 1) {
       this.isValid = false;
-      this.form.positionisValid= true;
+      this.form.nit2isValid = true;
     }else{
-      this.form.positionisValid= false;
-    }*/
-
+      this.form.nit2isValid= false;
+    }
     if (this.isValid) {
+      console.log("numero");
       try {
         this.loading = true; // muestra el spinner
-        const { username, email, password , enterprisename,cedula,phonenumber,nit} = this.form;
+        const { username, email, password , enterprisename,cedula,phonenumber,nit,nit2} = this.form;
 
-    this.authService.register(username,email,phonenumber,nit,password,enterprisename,cedula).subscribe({
+    this.authService.register(username,email,phonenumber,nit + nit2,password,enterprisename,cedula).subscribe({
       next: data => {
         console.log(data);
         this.isSuccessful = true;
