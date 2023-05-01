@@ -24,7 +24,7 @@ export class ClientService {
     return this.http.put<Client>(`${environment.apiUrl}/${SERVICE_PATH}/updateClient`, client, this.httpOptions);
   }
 
-  searchClientById(id: number): Observable<Client>{
-    return this.http.get<Client>(`${environment.apiUrl}/${SERVICE_PATH}/searchClient/` + id, this.httpOptions);
+  searchClientById(username: string): Observable<Client>{
+    return this.http.get<Client>(`${environment.apiUrl}/${SERVICE_PATH}/searchClient/` + username, this.httpOptions);
   }
 }

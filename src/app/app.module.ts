@@ -43,6 +43,7 @@ import { WarehouseCreateComponent } from './warehouse-create/warehouse-create.co
 import { WarehouseInfoAdminComponent } from './warehouse-info-admin/warehouse-info-admin.component';
 import { WarehouseListClientComponent } from './warehouse-list-client/warehouse-list-client.component';
 import { EmailConfirmComponent } from './email-confirm/email-confirm.component';
+import { RegistrationRequestsComponent } from './registration-requests/registration-requests.component';
 
 @NgModule({
   declarations: [
@@ -86,7 +87,8 @@ import { EmailConfirmComponent } from './email-confirm/email-confirm.component';
     WarehouseCreateComponent,
     WarehouseInfoAdminComponent,
     WarehouseListClientComponent,
-    EmailConfirmComponent
+    EmailConfirmComponent,
+    RegistrationRequestsComponent
   ],
   imports: [
     BrowserModule,
