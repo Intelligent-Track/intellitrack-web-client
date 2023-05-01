@@ -36,7 +36,9 @@
                         <label class="date-label" for="fecha" style="font-size: 13px;">Fecha de entrega</label>
                         <input type="date" class="form-control datepicker custom-input" name="fecha" [(ngModel)]="selectedArriveDate" [min]="today" />
                     </div>
-                    
+                    <div *ngIf="!infocomplete">
+                        <p style="color: red; text-align: center;">Faltan campos por llenar.</p>
+                    </div>
                     <button class="btn btn-orange btn-block custom-btn" 
                     (click)="quoteHome(selectedLoad, selectedOriginIndex!, selectedDesIndex!, weight!,volume!, selectedArriveDate, selectedDepartureDate)">
                     Cotizar</button>

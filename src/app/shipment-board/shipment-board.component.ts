@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from '../model/product';
 import { Shipment } from '../model/shipment';
 import { PackagesService } from '../_services/packages.service';
+import { ClientService } from '../_services/client.service';
+import { StorageService } from '../_services/storage.service';
 
 @Component({
   selector: 'app-shipment-board',
@@ -23,20 +25,35 @@ export class ShipmentBoardComponent implements OnInit {
   showproducts = false
   selectedShip: Shipment | undefined;
   router: any;
+  nitClt: string = "";
   
   constructor(
-    private packageService: PackagesService, private deliveryService: DeliveryService
+    private packageService: PackagesService, 
+    private deliveryService: DeliveryService, 
+    public clientService: ClientService,
+    public storageService: StorageService
   ) { }
 
   ngOnInit(): void {
-    this.deliveryService.listAllProgramDeliveries().subscribe(listDeliveries => {
-      this.infoShipments = listDeliveries
-    });
+    
+
+    try{
+      this.clientService.searchClientById(this.storageService.getUser().id).subscribe(clt =>{
+        if(clt !=null){
+          this.nitClt = clt.nit
+        }
+      });
+      this.deliveryService.listAllDeliveriesByNit(this.nitClt).subscribe(deliveries=>{
+        if(deliveries != null){
+          this.infoShipments = deliveries
+        }
+      })
+    }catch{
+      console.log("No hay deliveries en esta empresa.")
+    }
+    
   }
 
-  showProgress(){
-    console.log("me haz clickeado")
-  }
 
   onCancel(ship :Shipment){
     this.deliveryService.deleteDelivery(ship).subscribe(() => {

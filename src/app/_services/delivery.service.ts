@@ -40,5 +40,9 @@ export class DeliveryService {
     return this.http.delete<Shipment>(`${environment.apiUrl}/${SERVICE_PATH}/cancelDelivery` + shipment, this.httpOptions);
   }
 
+  listAllDeliveriesByNit(nit: string): Observable<Shipment[]>{
+    return this.http.get<Shipment[]>(`${environment.apiUrl}/${SERVICE_PATH}/deliveriesByNit`+ nit, this.httpOptions)
+  }
+
 
 }
