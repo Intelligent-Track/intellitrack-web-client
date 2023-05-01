@@ -18,6 +18,8 @@ export class EditProfileClientComponent implements OnInit {
   nitClt: string = "";
   socialClt: string = "";
   visible: boolean = false;
+
+  client: Client | undefined;
   
   passwordOld: string = "";
   passwordNew: string = "";
@@ -28,8 +30,9 @@ export class EditProfileClientComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    console.log(this.storageService.getUser().id)
-    this.clientService.searchClientById(this.storageService.getUser().id).subscribe(clt =>{
+    console.log(this.storageService.getUser().username)
+    this.clientService.searchClientById(this.storageService.getUser().username).subscribe(clt =>{
+      this.client = clt
       this.nameClt = clt.name
       this.emailClt = clt.username
       this.documentClt = clt.document
@@ -41,11 +44,14 @@ export class EditProfileClientComponent implements OnInit {
   }
 
   onSubmit(){
-    let cliente: Client = new Client (this.storageService.getUser().id, this.nameClt, this.emailClt, this.documentClt!, this.phoneClt!, "Cliente ADM", this.dirClt, true, "gabss@gmail.com", this.socialClt, this.nitClt);
+    if(this.client){
+      let cliente: Client = new Client (this.client.id, this.nameClt, this.emailClt, this.documentClt!, this.phoneClt!, "Cliente ADM", this.dirClt, true, "gabss@gmail.com", this.socialClt, this.nitClt);
+      this.clientService.updateClient(cliente).subscribe(() => {
+        this.visible = true
+      });
+    }
     
-    this.clientService.updateClient(cliente).subscribe(() => {
-      this.visible = true
-    });
+    
   }
 
   onPasswordSubmit(){

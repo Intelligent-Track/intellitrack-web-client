@@ -9,6 +9,9 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
+        <a class="nav-link text" routerLink="/client-requests" href="#" style="color: white; font-weight: 200;">Clientes</a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link text" routerLink="/manager-list-warehouse" href="#"
           style="color: white;font-weight: 200;">Bodegas</a>
       </li><!-- Agregar la clase ml-auto -->
@@ -83,9 +86,6 @@
             <td hidden>{{infodriver.mecReview}}</td>
             <td class="no-border">
               <div class="btn-group" role="group">
-                <button class="btn btn-lg" type="button" (click)="editDriver()">
-                  <i class="fa fa-pencil"></i>
-                </button>
                 <button class="btn btn-lg ml-2" type="button">
                   <i class="fa fa-trash"></i>
                 </button>
