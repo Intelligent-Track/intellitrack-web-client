@@ -31,5 +31,9 @@ export class DriverService {
   listAllDeliveries(){
     return this.http.get<Shipment[]>(`${environment.apiUrl}/${SERVICE_PATH}/""/`, this.httpOptions);
   }
+  
+  findByUsername(username: string): Observable<Driver>{
+    return this.http.get<Driver>(`${environment.apiUrl}/${SERVICE_PATH}/driver/` + username, this.httpOptions);
+  }
 
 }

@@ -12,8 +12,9 @@ export class LoginComponent implements OnInit {
     username: null,
     password: null
   };
+  loading = false;
   isLoggedIn = false;
-  isLoginFailed = false;
+  isLoginFaile = false;
   errorMessage = '';
   roles: string = '';
 
@@ -27,7 +28,7 @@ export class LoginComponent implements OnInit {
     };
     if(navigationExtras.queryParams.miParametro == "ROLE_ADMIN"){
       this.router.navigate(['/operator-list']);
-    }else if(navigationExtras.queryParams.miParametro == "ROLE_CLIENTEREPRE"){
+    }else if(navigationExtras.queryParams.miParametro == "ROLE_CLIENTEREPRE" || navigationExtras.queryParams.miParametro == "ROLE_CLIENTEADM"){
       this.router.navigate(['/warehouse-list']);
     }else{
       this.router.navigate(['/home'], navigationExtras);
@@ -51,21 +52,32 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(): void {
-    const { username, password } = this.form;
+    console.log("Ejecuta");
+    try {
+      this.loading = true; // muestra el spinner
+      const { username, password } = this.form;
     this.authService.login(username, password).subscribe({
       next: data => {
         this.storageService.saveUser(data);
-        this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.roles = this.storageService.getUser().roles;
         this.navegarAPantallaDestino(this.roles)
         this.reloadPage();
+        this.loading = false;
       },
       error: err => {
+        console.log("EjecutaEL Errro");
         this.errorMessage = err.error.message;
-        this.isLoginFailed = true;
+        this.isLoginFaile = true;
+        this.loading = false;
       }
     });
+    } catch (error) {
+      console.error(error);
+      this.isLoginFaile = true;
+      this.loading = false;
+    }
+    
   }
 
   reloadPage(): void {

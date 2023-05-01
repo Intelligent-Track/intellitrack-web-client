@@ -24,12 +24,13 @@ export class DeliveryService {
     return this.http.get<Shipment[]>(`${environment.apiUrl}/${SERVICE_PATH}/allDeliveriesProgramed`, this.httpOptions)
   }
 
-  createDelivery(selectedOrigin: number, selectedDes: number, deliveryType: string, date: string, products: DtoProduct[]) {
+  createDelivery(selectedOrigin: number, selectedDes: number, deliveryType: string, arriveDate: string, departureDate: string,  products: DtoProduct[]) {
     const params = new HttpParams()
       .set('originId', selectedOrigin.toString())
       .set('destinationId', selectedDes.toString())
       .set('type', deliveryType)
-      .set('arriveDate', date);
+      .set('arriveDate', arriveDate)
+      .set('departureDate', departureDate);
   
     return this.http.post<number>(`${environment.apiUrl}/${SERVICE_PATH}/program`, products, { params: params });
   }

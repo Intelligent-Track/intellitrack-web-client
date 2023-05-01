@@ -47,6 +47,11 @@ h2 {
     margin-bottom: 2%;
 }
 
+.note-ware{
+    font-size: 10pt;
+    margin-right: 10%;
+}
+
 select{
     width: 8vw;
     margin-right: 3%;

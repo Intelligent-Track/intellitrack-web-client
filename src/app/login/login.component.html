@@ -4,7 +4,8 @@
     <h3 class="r">IntelliTrack</h3>
   </div>
   <section class="SeccionLG">
-    <div class="mi-seccion-columna">
+    <div class="spinner" *ngIf="loading"></div>
+    <div class="mi-seccion-columna" *ngIf="!loading">
       <div class="formContainer">
         <h5 class="Bienvenido">Bienvenido(a) de nuevo</h5>
         <form *ngIf="!isLoggedIn" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
@@ -30,14 +31,14 @@
           <a class="forgot" routerLink="/change-password-r">¿Olvidaste la contraseña?</a>
 
           <div class="form-group">
-            <button class="btn btn-orange btn-block custom-btn" routerLink="/manager-List-Warehouse"
+            <button class="btn btn-orange btn-block custom-btn"
               style="font-size: 140%;">
               Iniciar Sesión
             </button>
           </div>
           <div class="form-group">
-            <div *ngIf="f.submitted && isLoginFailed" class="alert alert-danger" role="alert">
-              Login failed: {{ errorMessage }}
+            <div *ngIf="isLoginFaile" class="alert alert-danger" role="alert">
+              IniciarSesion fallo: {{ errorMessage }}
             </div>
           </div>
         </form>
@@ -55,3 +56,4 @@
     </div> -->
   </section>
 </body>
+

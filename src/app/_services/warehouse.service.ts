@@ -5,6 +5,9 @@ import { Warehouse } from '../model/warehouse';
 import { environment } from 'src/environments/environment';
 import { City } from '../model/city';
 import { Type } from '../model/type';
+import { DtoWarehouse } from '../dto/dto-warehouse';
+import { DtoWarehousePackage } from '../dto/dto-warehouse-package';
+import { Package } from '../model/package';
 
 const SERVICE_PATH = "package/api/ware"
 
@@ -47,6 +50,18 @@ export class WarehouseService {
 
   warehouseById(id: number): Observable<Warehouse>{
     return this.http.get<Warehouse>(`${environment.apiUrl}/${SERVICE_PATH}/warehouse/` + id, this.httpOptions);
+  }
+
+  addWarehouse(warehouse: DtoWarehouse){
+    return this.http.post<DtoWarehouse>(`${environment.apiUrl}/${SERVICE_PATH}/warehouseCreate`, warehouse, this.httpOptions);
+  }
+
+  addPackageinWarehouse(dtopackware: DtoWarehousePackage){
+    return this.http.put<DtoWarehousePackage>(`${environment.apiUrl}/${SERVICE_PATH}/warehouse-package`, dtopackware, this.httpOptions);
+  }
+
+  listAllPackageByIdWarehouses(id: number): Observable<Package[]> {
+    return this.http.get<Package[]>(`${environment.apiUrl}/${SERVICE_PATH}/pack-warehouse/` + id, this.httpOptions);
   }
 
 }

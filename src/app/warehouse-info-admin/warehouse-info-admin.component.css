@@ -1,0 +1,123 @@
+.Columnas {
+    width: 100%;
+    margin-top: 3%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.Columna {
+    display: flex;
+    flex-direction: column;
+}
+
+.btn-orange {
+    background-color: #FF6E59;
+    /* aquí puedes cambiar el color de fondo */
+    border-color: #FF6E59;
+    /* aquí puedes cambiar el color del borde */
+    color: black;
+    /* aquí puedes cambiar el color de la letra */
+    border-radius: 20px;
+    width: 10vw;
+    margin-top: 20%;
+    height: 4vh;
+}
+
+.bordeLogin {
+    background-color: #ff6e59;
+    padding: 10px;
+}
+
+.navbar-brand {
+    font-size: 44px;
+    /* ajusta el tamaño de la fuente a 24 píxeles */
+}
+
+li {
+    float: right;
+}
+
+.nav-link {
+    margin-right: 20px;
+
+}
+
+.bu {
+    font-size: 14px;
+}
+
+.pad {
+    padding-top: 5%;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.no-border {
+    border: none;
+}
+
+.text {
+    font-size: large;
+}
+
+
+.x {
+    background-color: #ff6e59;
+}
+
+.navbar-nav {
+    text-align: left;
+}
+
+span {
+    font-size: 12pt;
+    margin-top: 20%;
+}
+
+.span-data {
+    font-weight: 100;
+}
+
+.span-info {
+    margin-top: 10%;
+}
+
+label {
+    font-size: 1.5em;
+    font-weight: 100;
+    margin-top: 10%;
+}
+
+.idw {
+    font-weight: 100;
+    margin-top: 2%;
+}
+
+input {
+    height: 4vh;
+    margin-top: 5%;
+    text-align: center;
+}
+
+.form-vertical {
+    display: flex;
+    flex-direction: column;
+}
+
+.cotizacion {
+    justify-content: center;
+}
+
+
+.my-custom-scrollbar {
+    position: relative;
+    height: 50vh;
+    width: 50vh;
+    overflow: auto;
+    margin-top: 4%;
+}
+
+.table-wrapper-scroll-y {
+    display: block;
+}

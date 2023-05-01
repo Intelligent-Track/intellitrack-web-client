@@ -1,0 +1,112 @@
+.Continer {
+    background: url(src/assets/backgroundLandscape.png) no-repeat center;
+    background-size: cover;
+    }
+  
+  .r {
+    margin-top: 50px;
+    font-size: 290%;
+  }
+  
+  .SeccionSU {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    padding: 20px;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    border-radius: 30px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    width: 45%;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  .im {
+    display: flex;
+  }
+  
+  .tittle {
+    margin-top: 40px;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-bottom: 50px;
+    text-align: center;
+    font-size: 350%;
+  }
+  .mi-seccion-titulo {
+    text-align: center;
+    align-items: center;
+    margin-bottom: 20px;
+    align-content: center;
+  }
+  .parrafo {
+    text-align: left;
+  }
+  
+  .sectionForm {
+    justify-content: space-around;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    padding: none;
+  }
+  
+  .input-lg {
+    height: 200px;
+  }
+  
+  .mi-seccion-columna {
+    flex-direction: column;
+    width: 40%;
+    height: 40%;
+  }
+  
+  .custom-input {
+    border-radius: 10px;
+    font-size: 150%;
+    background-color: #f2f3f7;
+    border: none;
+    height: 35px;
+  }
+  
+  .iniciarconten {
+    text-align: center;
+    text-decoration-color: #a1a4b2;
+  }
+  
+  
+  .img4{
+    width: 150px;
+    height: 150px;
+  }
+  .btn-orange {
+    margin-top: 20px;
+    height: 35px;
+    text-size-adjust: 20px;
+    width: 300px;
+    background-color: #ff6e59;
+    /* aquí puedes cambiar el color de fondo */
+    border-color: #ff6e59;
+    /* aquí puedes cambiar el color del borde */
+    color: white;
+    /* aquí puedes cambiar el color de la letra */
+    border-radius: 20px;
+    /* aquí puedes cambiar el radio de los bordes */
+  }
+  
+  .custom-btn:focus,
+  .custom-btn:hover {
+    background-color: #ff6e59;
+    /* aquí puedes cambiar el color de fondo en estado :hover y :focus */
+    border-color: #ff6e59;
+    /* aquí puedes cambiar el color del borde en estado :hover y :focus */
+    color: black;
+    /* aquí puedes cambiar el color de la letra en estado :hover y :focus */
+    box-shadow: none;
+    /* aquí puedes cambiar la sombra */
+  }

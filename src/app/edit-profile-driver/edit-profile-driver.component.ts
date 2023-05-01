@@ -37,14 +37,14 @@ export class EditProfileDriverComponent implements OnInit {
       this.documentDri = dri.document
       this.phoneDri = dri.phone
       this.locDri = dri.location
-      this.plate = dri.placaVehiculo
-      this.license = dri.licencia
-      this.revisionAut = dri.revisionAutoMec
+      this.plate = dri.vehiclePlate
+      this.license = ""
+      this.revisionAut = ""
     });
   }
 
   onSubmit(){
-    let driver: Driver = new Driver (this.storageService.getUser().id, this.nameDri, this.emailDri, this.documentDri!, this.phoneDri!, "Conductor", this.locDri, true, "gabss@gmail.com", this.plate, this.license, this.revisionAut);
+    let driver: Driver = new Driver (this.storageService.getUser().id, this.nameDri, this.emailDri, this.documentDri!, this.phoneDri!, "Conductor", this.locDri, true, "gabss@gmail.com", this.plate, new FormData, new FormData);
     
     this.driverService.updateDriver(driver).subscribe(() => {
       this.visible = true
