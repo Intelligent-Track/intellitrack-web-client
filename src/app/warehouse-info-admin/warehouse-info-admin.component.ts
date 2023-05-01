@@ -46,4 +46,16 @@ export class WarehouseInfoAdminComponent {
     }
   }
 
+  deletePackage(infoPackage: Package){
+    if(this.warehouse){
+      this.warehouseService.deletePackageinWarehouse(this.warehouse.id, infoPackage.id).subscribe(() =>{
+        this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+          if(this.warehouse){
+            this.router.navigate(['/warehouse-info-admin/', this.warehouse.id]);
+          }
+        });
+      })
+    }
+  }
+
 }

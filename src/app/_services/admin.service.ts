@@ -46,6 +46,10 @@ export class AdminService {
     return this.http.get<Driver[]>(`${environment.apiUrl}/${SERVICE_PATH}/GetDrivers`, this.httpOptions);
   }
 
+  deleteDriver(username: string) {
+    return this.http.delete<Driver>(`${environment.apiUrl}/${SERVICE_PATH}/DeleteDriver/` + username, this.httpOptions);
+  }
+
   createDriver(driver: DtoDriverBasic) {
     return this.http.post<DtoDriverBasic>(`${environment.apiUrl}/${SERVICE_PATH}/DriverCreate`, driver, this.httpOptions);
   }
