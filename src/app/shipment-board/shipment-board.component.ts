@@ -20,6 +20,9 @@ export class ShipmentBoardComponent implements OnInit {
   type: string= "";
   infoProducts: Product[] | undefined;
   infoShipments: Shipment[] |undefined;
+  infoShipWare: Shipment[] |undefined;
+  infoShipWay: Shipment[] |undefined;
+  infoShipDel: Shipment[] |undefined;
   infoShip = false;
   showTruck = true;
   showproducts = false
@@ -27,27 +30,47 @@ export class ShipmentBoardComponent implements OnInit {
   router: any;
   nitClt: string = "";
   
-  constructor(
-    private packageService: PackagesService, 
+  constructor( 
     private deliveryService: DeliveryService, 
     public clientService: ClientService,
     public storageService: StorageService
   ) { }
 
   ngOnInit(): void {
-    
-
     try{
-      this.clientService.searchClientById(this.storageService.getUser().id).subscribe(clt =>{
+      this.clientService.searchClientById(this.storageService.getUser().username).subscribe(clt =>{
         if(clt !=null){
           this.nitClt = clt.nit
+          console.log(this.nitClt)
+
+          this.deliveryService.listAllDeliveriesByNitWare(this.nitClt).subscribe(deliveries=>{
+            if(deliveries != null){
+              this.infoShipWare = deliveries
+            }else{
+              console.log("Error al cargar los envíos.")
+            }
+          })
+
+          this.deliveryService.listAllDeliveriesByNitWay(this.nitClt).subscribe(deliveries=>{
+            if(deliveries != null){
+              this.infoShipWay = deliveries
+            }else{
+              console.log("Error al cargar los envíos.")
+            }
+          })
+
+          this.deliveryService.listAllDeliveriesByNitDel(this.nitClt).subscribe(deliveries=>{
+            if(deliveries != null){
+              this.infoShipDel = deliveries
+            }else{
+              console.log("Error al cargar los envíos.")
+            }
+          })
+
+        }else{
+          console.log("error")
         }
       });
-      this.deliveryService.listAllDeliveriesByNit(this.nitClt).subscribe(deliveries=>{
-        if(deliveries != null){
-          this.infoShipments = deliveries
-        }
-      })
     }catch{
       console.log("No hay deliveries en esta empresa.")
     }
@@ -74,7 +97,6 @@ export class ShipmentBoardComponent implements OnInit {
       this.infoShip = false
       this.showTruck = true
     }
-
   }
 
 }

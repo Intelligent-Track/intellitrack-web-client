@@ -37,11 +37,23 @@ export class DeliveryService {
   
 
   deleteDelivery( shipment: Shipment){
-    return this.http.delete<Shipment>(`${environment.apiUrl}/${SERVICE_PATH}/cancelDelivery` + shipment, this.httpOptions);
+    return this.http.delete<Shipment>(`${environment.apiUrl}/${SERVICE_PATH}/cancelDelivery/` + shipment, this.httpOptions);
   }
 
   listAllDeliveriesByNit(nit: string): Observable<Shipment[]>{
-    return this.http.get<Shipment[]>(`${environment.apiUrl}/${SERVICE_PATH}/deliveriesByNit`+ nit, this.httpOptions)
+    return this.http.get<Shipment[]>(`${environment.apiUrl}/${SERVICE_PATH}/deliveriesByNit/`+ nit, this.httpOptions)
+  }
+
+  listAllDeliveriesByNitWare(nit: string): Observable<Shipment[]>{
+    return this.http.get<Shipment[]>(`${environment.apiUrl}/${SERVICE_PATH}/deliveriesInWarehouse/`+ nit, this.httpOptions)
+  }
+
+  listAllDeliveriesByNitWay(nit: string): Observable<Shipment[]>{
+    return this.http.get<Shipment[]>(`${environment.apiUrl}/${SERVICE_PATH}/deliveriesOnTheWay/`+ nit, this.httpOptions)
+  }
+
+  listAllDeliveriesByNitDel(nit: string): Observable<Shipment[]>{
+    return this.http.get<Shipment[]>(`${environment.apiUrl}/${SERVICE_PATH}/deliveriesDelivered/`+ nit, this.httpOptions)
   }
 
 
