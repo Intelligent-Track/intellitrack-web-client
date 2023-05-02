@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from '../model/product';
 import { Shipment } from '../model/shipment';
 import { PackagesService } from '../_services/packages.service';
+import { ClientService } from '../_services/client.service';
+import { StorageService } from '../_services/storage.service';
 
 @Component({
   selector: 'app-shipment-board',
@@ -18,32 +20,75 @@ export class ShipmentBoardComponent implements OnInit {
   type: string= "";
   infoProducts: Product[] | undefined;
   infoShipments: Shipment[] |undefined;
+  infoShipWare: Shipment[] |undefined;
+  infoShipWay: Shipment[] |undefined;
+  infoShipDel: Shipment[] |undefined;
   infoShip = false;
   showTruck = true;
   showproducts = false
   selectedShip: Shipment | undefined;
   router: any;
+  nitClt: string = "";
+  cancel = true;
   
-  constructor(
-    private packageService: PackagesService, private deliveryService: DeliveryService
+  constructor( 
+    private deliveryService: DeliveryService, 
+    public clientService: ClientService,
+    public storageService: StorageService
   ) { }
 
   ngOnInit(): void {
-    this.deliveryService.listAllProgramDeliveries().subscribe(listDeliveries => {
-      this.infoShipments = listDeliveries
-    });
+    try{
+      this.clientService.searchClientById(this.storageService.getUser().username).subscribe(clt =>{
+        if(clt !=null){
+          this.nitClt = clt.nit
+          console.log(this.nitClt)
+
+          this.deliveryService.listAllDeliveriesByNitWare(this.nitClt).subscribe(deliveries=>{
+            if(deliveries != null){
+              this.infoShipWare = deliveries
+            }else{
+              console.log("Error al cargar los envíos.")
+            }
+          })
+
+          this.deliveryService.listAllDeliveriesByNitWay(this.nitClt).subscribe(deliveries=>{
+            if(deliveries != null){
+              this.infoShipWay = deliveries
+            }else{
+              console.log("Error al cargar los envíos.")
+            }
+          })
+
+          this.deliveryService.listAllDeliveriesByNitDel(this.nitClt).subscribe(deliveries=>{
+            if(deliveries != null){
+              this.infoShipDel = deliveries
+            }else{
+              console.log("Error al cargar los envíos.")
+            }
+          })
+
+        }else{
+          console.log("error")
+        }
+      });
+    }catch{
+      console.log("No hay deliveries en esta empresa.")
+    }
+    
   }
 
-  showProgress(){
-    console.log("me haz clickeado")
-  }
 
   onCancel(ship :Shipment){
+    console.log(ship)
     this.deliveryService.deleteDelivery(ship).subscribe(() => {
-      this.router.navigateByUrl('/', { skipLocationChange: true}).then(() => {
-        this.router.navigate(['/shipment-board'])
-      })
+      this.refreshPage()
     });
+  }
+
+  refreshPage() {
+    // Recargue la ruta actual para actualizar el componente y la pantalla
+    window.location.reload();
   }
 
   showInfoShipment( ship: Shipment){
@@ -56,8 +101,18 @@ export class ShipmentBoardComponent implements OnInit {
     if (this.infoShip == true && this.showTruck == false){
       this.infoShip = false
       this.showTruck = true
+      if(!this.cancel){
+        this.cancel = true;
+      }
     }
+  }
 
+
+
+  showinig(){
+    if (this.cancel){
+      this.cancel = false;
+    }
   }
 
 }

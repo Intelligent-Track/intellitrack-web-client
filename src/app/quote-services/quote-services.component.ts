@@ -25,6 +25,7 @@ export class QuoteServicesComponent implements OnInit {
   price: string = "0";
   showPrice= false;
   today: string;
+  infocomplete = true;
 
   
   constructor(private quoteService :QuoteService, private wareService : WarehouseService) { 
@@ -45,21 +46,19 @@ export class QuoteServicesComponent implements OnInit {
     if (selectedOriginIndex !== null && selectedDesIndex !== null) {
       const selectedOrigin = this.cities![selectedOriginIndex];
       const selectedDes = this.cities![selectedDesIndex];
-      console.log('selectedLoad', selectedLoad);
-      console.log('selectedOrigin', selectedOrigin);
-      console.log('selectedDes', selectedDes);
-      console.log('weight', weight);
-      console.log('volume', volume);
-      console.log('selectedArriveDate', selectedArriveDate);
-      console.log('selectedDepartureDate', selectedDepartureDate);
+      this.infocomplete = true
 
       if (weight !== null && volume!== null&& selectedArriveDate!== null && selectedDepartureDate!== null && selectedLoad !== null) {
+        this.infocomplete = true
         this.quoteService.quoteDelivery(new DtoQuote(selectedLoad,selectedOrigin!, selectedDes!,  weight, volume,  selectedArriveDate, selectedDepartureDate)).subscribe((pr: number) => {
-          console.log(pr);
           this.price = "$" + pr;
           this.showPrice = true
         })
+      }else{
+        this.infocomplete = false
       }
+    } else{
+      this.infocomplete = false
     }
     
   }

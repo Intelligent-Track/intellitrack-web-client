@@ -9,6 +9,10 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
+                <a class="nav-link text" routerLink="/client-requests" href="#"
+                    style="color: white; font-weight: 200;">Clientes</a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link text" routerLink="/manager-List-Warehouse"
                     style="color: white;font-weight: 500;">Bodegas</a>
             </li><!-- Agregar la clase ml-auto -->
@@ -49,7 +53,7 @@
         <input type="text" class="form-control border">
         <div class="input-group-append ml-5">
             <form (ngSubmit)="onAddSubmit()">
-                <button class="btn btn-outline-secondary border-0  bu"  routerLink="/warehouse-create">
+                <button class="btn btn-outline-secondary border-0  bu" routerLink="/warehouse-create">
                     <i class="fa fa-plus"></i> Agregar
                 </button>
             </form>
@@ -75,7 +79,8 @@
             </thead>
             <tbody>
                 <ng-container *ngIf="infoWarehouses">
-                    <tr *ngFor="let infoWare of infoWarehouses" class="clickableRow" [routerLink]="['/warehouse-info-admin/', infoWare.id]">
+                    <tr *ngFor="let infoWare of infoWarehouses" class="clickableRow"
+                        [routerLink]="['/warehouse-info-admin/', infoWare.id]">
                         <td>{{infoWare.id}}</td>
                         <td>{{infoWare.city.name}}</td>
                         <td>{{infoWare.address}}</td>
@@ -87,7 +92,7 @@
                                 <button class="btn btn-lg" type="button" routerLink="/warehouse-edit/{{infoWare.id}}">
                                     <i class="fa fa-pencil"></i>
                                 </button>
-                                <button class="btn btn-lg ml-2" type="button">
+                                <button class="btn btn-lg ml-2" type="button" (click)="deleteWarehouse(infoWare)">
                                     <i class="fa fa-trash"></i>
                                 </button>
                             </div>

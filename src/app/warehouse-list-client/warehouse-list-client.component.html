@@ -70,7 +70,6 @@
                     <th scope="col">Capacidad</th>
                     <th scope="col">Tipo</th>
                     <th scope="col">Costo por m³</th>
-                    <th class="no-border"></th>
                 </tr>
             </thead>
             <tbody>
@@ -82,16 +81,6 @@
                         <td>{{infoWarehouse.capacity}}</td>
                         <td>{{infoWarehouse.type.name}}</td>
                         <td>COP {{infoWarehouse.costPerM3}}</td>
-                        <td class="no-border">
-                            <div class="btn-group" role="group">
-                                <button class="btn btn-lg" type="button" routerLink="/warehouse-edit/{{infoWarehouse.id}}">
-                                    <i class="fa fa-pencil"></i>
-                                </button>
-                                <button class="btn btn-lg ml-2" type="button">
-                                    <i class="fa fa-trash"></i>
-                                </button>
-                            </div>
-                        </td>
                     </tr>
                 </ng-container>
             </tbody>
