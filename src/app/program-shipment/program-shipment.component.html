@@ -126,21 +126,27 @@
             </div>
             <div class="ml-2 mr-2 mt-5">
                 <input type="text" class="form-control custom-input" id="comments" required
-                    placeholder="Comentarios del envío">
+                    placeholder="Comentarios del envío"  [(ngModel)]="comment">
             </div>
             <div class="input-group-append ml-5 but">
                 <button class="btn btn-orange btn-block custom-btn bu" type="button"
-                    (click)="arriveDate && program(selectedOrigin!, selectedDes!, arriveDate, departureDate, deliveryType)">
+                    (click)="arriveDate && program(selectedOrigin!, selectedDes!, arriveDate, departureDate, comment, deliveryType)">
                     Programar
                 </button>
             </div>
-            <div class="ml-5 price" *ngIf="showprice">
+            <div *ngIf="msgeer" class="mt-4">
+                <h3 style="color: red; text-align: center;">Falta información por llenar</h3>
+            </div>
+            <div *ngIf="msge" class="mt-4">
+                <h3 style="color: red; text-align: center;">No hay bodegas en la ciudad de origen deseada.</h3>
+            </div>
+            <div class=" price" *ngIf="showprice">
                 <br>
                 <br>
-                <h5 [class.updated]="showprice">Tarifa de servicio es: {{price}}</h5>
+                <h5 [class.updated]="showprice" style="text-align: center;">Tarifa de servicio es: {{price}}</h5>
                 <br>
                 <div class="input-group-append ml-5 but">
-                    <button class="btn btn-orange btn-block custom-btn bu" type="button"
+                    <button class="btn btn-orange btn-block custom-btn bu" style="background-color: cadetblue; border: none;" type="button"
                         [routerLink]="['/shipment-board/']">
                         Volver al inicio
                     </button>

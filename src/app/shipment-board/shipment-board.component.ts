@@ -29,6 +29,7 @@ export class ShipmentBoardComponent implements OnInit {
   selectedShip: Shipment | undefined;
   router: any;
   nitClt: string = "";
+  cancel = true;
   
   constructor( 
     private deliveryService: DeliveryService, 
@@ -79,11 +80,15 @@ export class ShipmentBoardComponent implements OnInit {
 
 
   onCancel(ship :Shipment){
+    console.log(ship)
     this.deliveryService.deleteDelivery(ship).subscribe(() => {
-      this.router.navigateByUrl('/', { skipLocationChange: true}).then(() => {
-        this.router.navigate(['/shipment-board'])
-      })
+      this.refreshPage()
     });
+  }
+
+  refreshPage() {
+    // Recargue la ruta actual para actualizar el componente y la pantalla
+    window.location.reload();
   }
 
   showInfoShipment( ship: Shipment){
@@ -96,6 +101,17 @@ export class ShipmentBoardComponent implements OnInit {
     if (this.infoShip == true && this.showTruck == false){
       this.infoShip = false
       this.showTruck = true
+      if(!this.cancel){
+        this.cancel = true;
+      }
+    }
+  }
+
+
+
+  showinig(){
+    if (this.cancel){
+      this.cancel = false;
     }
   }
 
