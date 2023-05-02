@@ -26,6 +26,8 @@ export class EmailConfirmComponent implements OnInit {
 
   Email : any;
   errorMessage = '';
+  isSuccessful = false;
+  isFailed = false;
   code: string = '';
   successMessage = "";
   form: any = {
@@ -48,19 +50,21 @@ export class EmailConfirmComponent implements OnInit {
 
   iniciarSesion(){
 
-    this.authService.Verify(this.code).subscribe({
-      next: data=>{
-       // console.log(this.code);
-       console.log(data);
-       this.successMessage = 'Cliente verificado con exito';
-       this.router.navigateByUrl('/login');
-
+    this.authService.Verify(this.code).subscribe(
+      (data) => { // handle positive response
+        console.log(data);
+        this.successMessage = "Usuario validado";
+        this.isSuccessful = true;
+        this.router.navigateByUrl('/login');
       },
-      error: err => {
-        this.errorMessage = err.error;
-        //this.router.navigate(['/confirm-email', email]);
+      (error) => { // handle negative response
+        console.log(error);
+        this.errorMessage = error.error;
+        this.isFailed = true;
       }
-    });
+    );
+
+
   // función que toma algún tiempo en ejecutarse
       }
 

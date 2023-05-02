@@ -8,6 +8,12 @@ const SERVICE_PATH = "users/api/auth"
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
+const httpOptions2 = {
+  headers: new HttpHeaders({
+    'Content-Type': 'application/json'
+  }),
+  responseType: 'text' // Set the responseType to 'text'
+};
 
 @Injectable({
   providedIn: 'root',
@@ -23,6 +29,7 @@ export class AuthService {
         username,
         password,
       },
+
       httpOptions
     );
   }
@@ -47,14 +54,12 @@ export class AuthService {
 
   Verify(code: string): Observable<any> {
     console.log("llegue")
-    return this.http.put(
-      //`${environment.apiUrl}/${SERVICE_PATH}/signin`,
-      //`${environment.apiUrl}/${SERVICE_PATH}/verifyUser`,
+    return this.http.post(
       "http://localhost:8080/api/cli/verifyUser",
       {
         code
       },
-      httpOptions
+      {responseType: 'text'}
     );
   }
 

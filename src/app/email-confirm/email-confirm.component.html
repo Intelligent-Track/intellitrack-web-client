@@ -17,7 +17,7 @@
       <div class="form-group">
         <button [disabled]="!isAllCodeFilled()" class="btn btn-orange btn-block custom-btn" (click)="iniciarSesion()">Confirmar Correo</button>
       </div>
-      <div *ngIf="errorMessage" style="font-size: 16px" class="alert alert-danger">{{ errorMessage }}</div>
-      <div *ngIf="successMessage" style="font-size: 16px" class="alert alert-success">{{ successMessage }}</div>
+      <div *ngIf="isFailed" style="font-size: 16px" class="alert alert-danger">{{ errorMessage }}</div>
+      <div *ngIf="isSuccessful" style="font-size: 16px" class="alert alert-success">Usuario validado con exito</div>
     </section>
   </body>
