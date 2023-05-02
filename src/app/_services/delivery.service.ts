@@ -31,13 +31,17 @@ export class DeliveryService {
       .set('type', deliveryType)
       .set('arriveDate', arriveDate)
       .set('departureDate', departureDate);
-  
+
     return this.http.post<number>(`${environment.apiUrl}/${SERVICE_PATH}/program`, products, { params: params });
   }
-  
+
 
   deleteDelivery( shipment: Shipment){
     return this.http.delete<Shipment>(`${environment.apiUrl}/${SERVICE_PATH}/cancelDelivery` + shipment, this.httpOptions);
+  }
+
+  updateDelivery(shipment: Shipment){
+    return this.http.put<Shipment>(`${environment.apiUrl}/${SERVICE_PATH}/updateDelivery` + shipment, this.httpOptions);
   }
 
 
