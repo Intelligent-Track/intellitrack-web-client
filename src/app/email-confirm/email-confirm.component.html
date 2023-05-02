@@ -5,10 +5,19 @@
     </div>
     <section class="SeccionSU">
       <h1>Verifica tu correo</h1>
-      <h4>Tu cuenta esta en revision porfavor revisa tu bandeja de entrada del correo </h4> 
+      <h4>Para confirmar tu cuenta, revisa porfavor tu bandeja de entrada del correo </h4>
       <h3 style="color: dimgray;">{{Email}}</h3>
-      <div class="form-group">
-        <button class="btn btn-orange btn-block custom-btn" (click)="iniciarSesion()" style="font-size: 16px;">Iniciar Sesion</button>
+      <div class="code-input">
+        <input type="text" class="code-box" name="code1" maxlength="1" (keyup)="moveFocus()" [(ngModel)]="form.code1"/>
+        <input type="text" class="code-box" name="code2" maxlength="1" (keyup)="moveFocus()" [(ngModel)]="form.code2"/>
+        <input type="text" class="code-box" name="code3" maxlength="1" (keyup)="moveFocus()" [(ngModel)]="form.code3"/>
+        <input type="text" class="code-box" name="code4" maxlength="1" (keyup)="moveFocus()" [(ngModel)]="form.code4"/>
+        <input type="text" class="code-box" name="code5" maxlength="1" (keyup)="moveFocus()" [(ngModel)]="form.code5"/>
       </div>
+      <div class="form-group">
+        <button [disabled]="!isAllCodeFilled()" class="btn btn-orange btn-block custom-btn" (click)="iniciarSesion()">Confirmar Correo</button>
+      </div>
+      <div *ngIf="errorMessage" style="font-size: 16px" class="alert alert-danger">{{ errorMessage }}</div>
+      <div *ngIf="successMessage" style="font-size: 16px" class="alert alert-success">{{ successMessage }}</div>
     </section>
   </body>

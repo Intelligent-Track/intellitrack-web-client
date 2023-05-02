@@ -6,7 +6,7 @@
   <div class="spinner" *ngIf="loading"></div>
   <section class="SeccionSU" *ngIf="!loading">
     <div class="mi-seccion-titulo">
-      <img src="assets/icono.png" width="100" alt="Título con imagen" (click)="navegarAPantallaInicial()"> 
+      <img src="assets/icono.png" width="100" alt="Título con imagen" (click)="navegarAPantallaInicial()">
       <h4>IntelliTrack</h4>
       <p class="parrafo">Bienvenido(a) a IntelliTrack, por favor coloca tus credenciales para empezar a usar la mejor aplicación de logística y transporte.</p>
     </div>
@@ -20,6 +20,7 @@
               class="form-control custom-input"
               placeholder="Nombre"
               name="username"
+
               [(ngModel)]="form.username"
               required
               minlength="3"
@@ -27,34 +28,34 @@
               #username="ngModel"
             />
             <div *ngIf="form.usernameisValid" class="text-danger">
-              El nombre debe tener entre 3 y 20 caracteres
-            </div>
+                          </div>
           </div>
           <div class="form-group">
-            <input
-              type="{{ showPassword ? 'text' : 'password' }}"
-              class="form-control custom-input"
-              name="password1"
-              placeholder="Contraseña"
-              [(ngModel)]="form.password"
-              required
-              minlength="10"
-              name="password"
-              #password1="ngModel"
-              (ngModelChange)="validatePasswords()"
-            />
-            <div class="input-group-append">
-              <span class="input-group-text"
-                    style="cursor: pointer;"
-                    (click)="showPassword = !showPassword">
-                <i class="fa fa-eye{{ showPassword ? '-slash' : '' }}" aria-hidden="true"></i>
-              </span>
+            <div class="input-group">
+              <input type="{{ showPassword ? 'text' : 'password' }}"
+                     class="form-control custom-input"
+                     name="password1"
+                     placeholder="Contraseña"
+                     [(ngModel)]="form.password"
+                     required
+                     minlength="10"
+                     name="password"
+                     #password1="ngModel"
+                     (ngModelChange)="validatePasswords()" />
+
+              <div class="input-group-append">
+                <span class="input-group-text"
+                      style="cursor: pointer;"
+                      (click)="showPassword = !showPassword">
+                  <i class="fa fa-eye{{ showPassword ? '-slash' : '' }}" aria-hidden="true"></i>
+                </span>
+              </div>
             </div>
             <div *ngIf="form.passwordisValid" class="text-danger">
-              Ingrese Contraseña invalida, minimo 1 mayuscula, minuscula,un simbolo y minimo 10 digitos
+              Contraseña inválida, mínimo 1 mayúscula, minúsculas,un simbolo y mínimo 10 digitos
             </div>
           </div>
-                   
+
           <div class="form-group">
             <input
               placeholder="Confirmar Contraseña"
@@ -72,12 +73,12 @@
               Las contraseñas no coinciden
             </div>
           </div>
-          
+
           <div class="form-group">
             <input
               type="number"
               class="form-control custom-input"
-              placeholder="Numero telefonico"
+              placeholder="Número celular"
               [(ngModel)]="form.phonenumber"
               name="phonenumber"
               required
@@ -92,7 +93,7 @@
             <input
               type="number"
               class="form-control custom-input"
-              placeholder="Cedula"
+              placeholder="Documento"
               [(ngModel)]="form.cedula"
               name="cedula"
               required
@@ -100,7 +101,7 @@
               maxlength="20"
             />
             <div *ngIf="form.cedulaisValid" class="text-danger">
-              La cédula debe tener 10 digitos
+
             </div>
           </div>
         </form>
@@ -115,7 +116,7 @@
             class="form-control custom-input"
             name="Correo Electronico"
             [(ngModel)]="form.email"
-            placeholder="Correo electronico"
+            placeholder="Correo electrónico"
             required
             email
             #email="ngModel"
@@ -135,46 +136,37 @@
               minlength="3"
               maxlength="20"          />
               <div *ngIf="form.enterprisenameisValid" class="text-danger">
-                Ingrese el nombre de la empresa 
+                Ingrese el nombre de la empresa
               </div>
           </div>
-          <div class="form-group">
-            <input
-              type="text"
-              class="form-control custom-input"
-              [(ngModel)]="form.position"
-              placeholder="Ubicación de la empresa"
-              required
-              name="location"
-              minlength="3"
-              maxlength="20"          />
-              <div *ngIf="form.positionisValid" class="text-danger">
-                Ingrese la ubicación de la empresa
-              </div>
-          </div>
-          <div class="d-flex">
+          <div class="d-flex align-items-center">
             <div class="form-group flex-grow-1">
               <input
                 type="number"
                 class="form-control custom-input"
                 placeholder="Nit de la empresa"
                 [(ngModel)]="form.nit"
-                name="nit"
+                name="Nit"
                 required
                 maxlength="9"
                 (input)="onNitInput()"
               />
             </div>
-            <div class="form-group ml-2">
+            <span class="mx-2 h6">-</span>
+            <div class="form-group">
               <input
                 type="number"
                 class="form-control custom-input"
                 placeholder="Último digito"
+                class="form-control custom-input form-control-sm"
                 [(ngModel)]="form.nit2"
                 name="nit2"
                 required
                 maxlength="1"
+                size="1"
+                style="width: 30px;"
               />
+
             </div>
           </div>
           <div *ngIf="form.nit2isValid" class="text-danger">
@@ -188,13 +180,13 @@
       </div>
     </div>
     <div class="form-group">
-      <button class="btn btn-orange btn-block custom-btn" (click)="register()">Crear Cuenta</button>
+      <button class="btn btn-orange btn-block custom-btn" style="font-size: 16px; color: white" (click)="register()">Crear Cuenta</button>
     </div>
     <div class="iniciarconten">
       ¿Ya tiene cuenta?
       <a href="" class="textIniciar"  routerLink="/login" >Iniciar sesión</a>
     </div>
-    <div *ngIf="isSignUpFailed" class="alert alert-danger" role="alert">
+    <div *ngIf="isSignUpFailed" style="font-size: 16px" class="alert alert-danger" role="alert">
       Registro fallo: {{ errorMessage }}
     </div>
   </section>
