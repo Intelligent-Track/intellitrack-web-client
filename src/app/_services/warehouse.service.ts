@@ -64,4 +64,12 @@ export class WarehouseService {
     return this.http.get<Package[]>(`${environment.apiUrl}/${SERVICE_PATH}/pack-warehouse/` + id, this.httpOptions);
   }
 
+  deletePackageinWarehouse(idWare: number, idPack: number){
+    return this.http.delete(`${environment.apiUrl}/${SERVICE_PATH}/warehouse-package/` + idWare + `/` +idPack , this.httpOptions)
+  }
+
+  deleteWarehouseById(idWare: number){
+    return this.http.delete(`${environment.apiUrl}/${SERVICE_PATH}/warehouse/` + idWare , this.httpOptions)
+  }
+
 }

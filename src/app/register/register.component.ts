@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../_services/auth.service';
 import { Router } from '@angular/router';
+import { RegisterService } from '../_services/register.service';
+import { Register } from '../model/register';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -41,7 +43,7 @@ export class RegisterComponent implements OnInit {
   showPassword = false;
 
 
-  constructor(private authService: AuthService,private router: Router) { }
+  constructor(private authService: AuthService,private router: Router, private registerService: RegisterService) { }
 
   ngOnInit(): void {
   }
@@ -140,9 +142,9 @@ export class RegisterComponent implements OnInit {
       console.log("numero");
       try {
         this.loading = true; // muestra el spinner
-        const { username, email, password , enterprisename,cedula,phonenumber,nit,nit2} = this.form;
+        const { username, email, password , enterprisename,cedula,phonenumber,nit,nit2, position, empresa} = this.form;
 
-    this.authService.register(username,email,phonenumber,nit + nit2,password,enterprisename,cedula).subscribe({
+    this.registerService.addNewRequest(new Register(username, email, password, cedula, phonenumber, "Cliente ADM", position, true, "", empresa, nit+nit2, false)).subscribe({
       next: data => {
         console.log(data);
         this.isSuccessful = true;
@@ -156,7 +158,8 @@ export class RegisterComponent implements OnInit {
         this.loading = false; 
         //this.router.navigate(['/confirm-email', email]);
       }
-    });// función que toma algún tiempo en ejecutarse
+    });
+    // función que toma algún tiempo en ejecutarse
       } catch (error) {
         console.error(error);
         //this.router.navigate(['/confirm-email', "otroEmail.com"]);

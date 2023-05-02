@@ -39,6 +39,7 @@ import { WarehouseCreateComponent } from './warehouse-create/warehouse-create.co
 import { WarehouseInfoAdminComponent } from './warehouse-info-admin/warehouse-info-admin.component';
 import { WarehouseListClientComponent } from './warehouse-list-client/warehouse-list-client.component';
 import { EmailConfirmComponent } from './email-confirm/email-confirm.component';
+import { RegistrationRequestsComponent } from './registration-requests/registration-requests.component';
 import { ExtraInfoShipmentComponent } from './extra-info-shipment/extra-info-shipment.component';
 
 const routes: Routes = [
@@ -80,7 +81,6 @@ const routes: Routes = [
   { path: 'warehouse-create', component: WarehouseCreateComponent},
   { path: 'warehouse-info-admin/:id', component: WarehouseInfoAdminComponent},
   { path: 'confirm-email/:data', component: EmailConfirmComponent},
-  { path: 'extra-info',component: ExtraInfoShipmentComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

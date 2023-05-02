@@ -9,6 +9,9 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
+                <a class="nav-link text" routerLink="/client-requests" href="#" style="color: white; font-weight: 200;">Clientes</a>
+              </li>
+            <li class="nav-item">
                 <a class="nav-link text" routerLink="/manager-List-Warehouse"
                     style="color: white;font-weight: 500;">Bodegas</a>
             </li><!-- Agregar la clase ml-auto -->
@@ -80,7 +83,7 @@
                                     <td>{{infoPackage.volume}}</td>
                                     <td class="no-border">
                                         <div class="btn-group" role="group">
-                                            <button class="btn btn-lg ml-2" type="button">
+                                            <button class="btn btn-lg ml-2" type="button" (click)="deletePackage(infoPackage)">
                                                 <i class="fa fa-trash"></i>
                                             </button>
                                         </div>

@@ -16,7 +16,7 @@
         <a class="nav-link text" [routerLink]="['/warehouse-list/']" style="color: white;font-weight: 200;">Bodegas</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text" style="color: white; font-weight: 200;" href="#">Perfil</a>
+        <a class="nav-link text" [routerLink]="['/edit-profile-client']" style="color: white; font-weight: 200;" href="#">Perfil</a>
       </li>
       <li class="nav-item">
         <a class="nav-link text " style="color: white; font-weight: 200;">Cerrar sesión</a>
@@ -47,33 +47,39 @@
         <h2 class="accordion-header" id="flush-headingOne">
           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
             data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne" (click)="showing()">
-            Envíos programados
+            Envíos en bodega
           </button>
         </h2>
         <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
-          data-bs-parent="#accordionFlushExample" *ngIf="infoShipments">
-          <div class="accordion-body hov" (click)="showInfoShipment(ship)" *ngFor="let ship of infoShipments">{{ship.id}} - Destino a {{ship.destination}}</div>
+          data-bs-parent="#accordionFlushExample" *ngIf="infoShipWare">
+          <div class="accordion-body hov" (click)="showInfoShipment(ship)" *ngFor="let ship of infoShipWare">{{ship.id}} - Destino a {{ship.destination}}</div>
         </div>
-        <!-- <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
-          data-bs-parent="#accordionFlushExample" *ngIf="infoShipments">
-          <div class="accordion-body hov" (click)="showInfoShipment(ship)" *ngFor="let ship of infoShipments">{{ship.origin}} </div>
-        </div> -->
       </div>
       <div class="accordion-item">
         <h2 class="accordion-header" id="flush-headingTwo">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" (click)="showinig()"
             data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
             Envíos en progreso
           </button>
         </h2>
         <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
-          data-bs-parent="#accordionFlushExample">
-          <div class="accordion-body hov" (click)="showProgress()">Placeholder content.</div>
+          data-bs-parent="#accordionFlushExample" *ngIf="infoShipWay">
+          <div class="accordion-body hov" (click)="showInfoShipment(ship)" *ngFor="let ship of infoShipWay">{{ship.id}} - Destino a {{ship.destination}}</div>
         </div>
       </div>
-
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-headingThree">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" (click)="showinig()"
+            data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+            Envíos entregados
+          </button>
+        </h2>
+        <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree"
+          data-bs-parent="#accordionFlushExample" *ngIf="infoShipDel">
+          <div class="accordion-body hov" (click)="showInfoShipment(ship)" *ngFor="let ship of infoShipDel">{{ship.id}} - Destino a {{ship.destination}}</div>
+        </div>
+      </div>
     </div>
-
   </div>
   <div class="x1 col-custom pl-5 pr-5">
     <div *ngIf="showTruck">
@@ -94,6 +100,8 @@
       <br>
       <h4>Ciudad de Origen: {{selectedShip.origin}}</h4>
       <h4>Ciudad de Destino: {{selectedShip.destination}}</h4>
+      <br>
+      <h4>Fecha de salida: {{selectedShip.departureDate}}</h4>
       <h4>Fecha de entrega: {{selectedShip.arriveDate}}</h4>
       <h4>Tipo de envío: {{selectedShip.type}}</h4>
       <br>
@@ -122,20 +130,14 @@
         </ng-container>
       </div>
       <br>
+      <h4>Comentarios del envío: {{selectedShip.comments}}</h4>
+      <br>
       <h4>Costo del envío: {{selectedShip.travelCost}} </h4>
       <br>
-       <br>
       <br>
-      <h3>Cancelación</h3>
       <br>
-      <div class="form-group">
-        <select class="form-control custom-input" required [(ngModel)]="selectedReason" name="selectedLoad">
-          <option value="" disabled selected>Motivo de cancelación</option>
-          <option *ngFor="let reason of typeReason" [value]="reason">{{ reason }}</option>
-        </select>
-      </div>
       <br>
-      <div class="form-group center-btn">
+      <div class="form-group center-btn" *ngIf="cancel">
         <button (click)="onCancel(selectedShip)" class="btn btn-orange btn-block custom-btn">Cancelar</button>
       </div>
     </div>
