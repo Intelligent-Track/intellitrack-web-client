@@ -52,7 +52,7 @@
         </h2>
         <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
           data-bs-parent="#accordionFlushExample" *ngIf="infoShipWare">
-          <div class="accordion-body hov" (click)="showInfoShipment(ship)" *ngFor="let ship of infoShipWare">{{ship.id}} - Destino a {{ship.destination}}</div>
+          <div class="accordion-body hov" (click)="showInfoShipment(ship, 's')" *ngFor="let ship of infoShipWare">{{ship.id}} - Destino a {{ship.destination}}</div>
         </div>
       </div>
       <div class="accordion-item">
@@ -64,7 +64,7 @@
         </h2>
         <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
           data-bs-parent="#accordionFlushExample" *ngIf="infoShipWay">
-          <div class="accordion-body hov" (click)="showInfoShipment(ship)" *ngFor="let ship of infoShipWay">{{ship.id}} - Destino a {{ship.destination}}</div>
+          <div class="accordion-body hov" (click)="showInfoShipment(ship, 'n')" *ngFor="let ship of infoShipWay">{{ship.id}} - Destino a {{ship.destination}}</div>
         </div>
       </div>
       <div class="accordion-item">
@@ -76,7 +76,7 @@
         </h2>
         <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree"
           data-bs-parent="#accordionFlushExample" *ngIf="infoShipDel">
-          <div class="accordion-body hov" (click)="showInfoShipment(ship)" *ngFor="let ship of infoShipDel">{{ship.id}} - Destino a {{ship.destination}}</div>
+          <div class="accordion-body hov" (click)="showInfoShipment(ship, 'n')" *ngFor="let ship of infoShipDel">{{ship.id}} - Destino a {{ship.destination}}</div>
         </div>
       </div>
     </div>

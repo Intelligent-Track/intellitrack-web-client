@@ -12,8 +12,6 @@ import { StorageService } from '../_services/storage.service';
   styleUrls: ['./shipment-board.component.css']
 })
 export class ShipmentBoardComponent implements OnInit {
-  typeReason = ["Problemas de intinerario", "Error de especificación del envío", "Otro"];
-  selectedReason: string = "";
   origin: string="";
   destiny: string="";
   date: Date | undefined;
@@ -80,8 +78,8 @@ export class ShipmentBoardComponent implements OnInit {
 
 
   onCancel(ship :Shipment){
-    console.log(ship)
-    this.deliveryService.deleteDelivery(ship).subscribe(() => {
+    console.log(ship.id)
+    this.deliveryService.deleteDelivery(ship.id).subscribe(() => {
       this.refreshPage()
     });
   }
@@ -91,28 +89,34 @@ export class ShipmentBoardComponent implements OnInit {
     window.location.reload();
   }
 
-  showInfoShipment( ship: Shipment){
+  showInfoShipment( ship: Shipment, otp: string){
     this.selectedShip = ship;
     this.infoShip = true
     this.showTruck = false
+    if(otp == 'n'){
+      this.cancel = false
+    }else{
+      this.cancel = true
+    }
   }
 
   showing(){
-    if (this.infoShip == true && this.showTruck == false){
+    if (this.infoShip == true && this.showTruck == false && this.cancel == false){
       this.infoShip = false
       this.showTruck = true
-      if(!this.cancel){
-        this.cancel = true;
-      }
+      this.cancel = true
     }
   }
 
 
 
   showinig(){
-    if (this.cancel){
-      this.cancel = false;
+    if (this.infoShip == true && this.showTruck == false ){
+      this.infoShip = false
+      this.showTruck = true
+      this.cancel = false
     }
+    
   }
 
 }
