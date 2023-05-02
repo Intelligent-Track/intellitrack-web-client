@@ -5,6 +5,8 @@ import { DtoShipment } from '../dto/dto-shipment';
 import { City } from '../model/city';
 import { Component, OnInit } from '@angular/core';
 import { WarehouseService } from '../_services/warehouse.service';
+import { ClientService } from '../_services/client.service';
+import { StorageService } from '../_services/storage.service';
 
 @Component({
   selector: 'app-program-shipment',
@@ -23,17 +25,29 @@ export class ProgramShipmentComponent implements OnInit {
   tableUpdated = false;
   weight: number | undefined;
   volume: number | undefined;
+  comment: string = "";
   name: string = "";
   arriveDate: string ="";
   departureDate: string ="";
   price: number = 0;
   showprice =false;
+  nitClt: string = "";
+  msge = false;
+  msgeer = false;
 
   constructor(
-    private deliveryService: DeliveryService, private warehouse: WarehouseService
+    private deliveryService: DeliveryService, private warehouse: WarehouseService, public clientService: ClientService,
+    public storageService: StorageService
   ) { }
 
   ngOnInit(): void {
+    this.clientService.searchClientById(this.storageService.getUser().username).subscribe(clt =>{
+      if(clt !=null){
+        this.nitClt = clt.nit
+        console.log(this.nitClt)
+      }
+    })
+
     this.warehouse.listAllCities().subscribe(listCities => {
       this.cities = listCities
     });
@@ -52,14 +66,21 @@ export class ProgramShipmentComponent implements OnInit {
     this.tableUpdated = true;
   }
 
-  program(selectedOrigin: City | undefined, selectedDes: City | undefined, arriveDate: string, departureDate: string, deliveryType: string) {
-    if (selectedOrigin?.name !== 'Ciudad de origen' && selectedDes?.name !== 'Ciudad de destino' && arriveDate !== null && departureDate !== null && deliveryType !== 'Tipo de envío' && this.products.length > 0) {
-      
-      console.log(selectedOrigin?.id, selectedDes?.id, deliveryType, arriveDate, this.products)
-      this.deliveryService.createDelivery(selectedOrigin?.id!, selectedDes?.id!, deliveryType, arriveDate, departureDate, this.products).subscribe((pr: number) => {
-        this.price = pr;
-        this.showprice = true;
+  program(selectedOrigin: City | undefined, selectedDes: City | undefined, arriveDate: string, departureDate: string, comments:string, deliveryType: string) {
+    if (selectedOrigin?.name != 'Ciudad de origen' && selectedDes?.name != 'Ciudad de destino' && arriveDate != null && departureDate != null && deliveryType != 'Tipo de envío' && comments != '' && this.products.length > 0) {
+      this.msgeer = false; 
+      console.log(selectedOrigin?.id, selectedDes?.id, deliveryType, arriveDate, departureDate, comments,this.nitClt, this.products)
+      this.deliveryService.createDelivery(selectedOrigin?.id!, selectedDes?.id!, deliveryType, arriveDate, departureDate, comments, this.nitClt, this.products).subscribe((pr: number) => {
+        if(pr != null){
+          this.price = pr;
+          this.showprice = true;
+          this.msge = false;
+        }else{
+          this.msge = true;
+        }
       })
+    }else{
+      this.msgeer = true;
     }
   }
 
