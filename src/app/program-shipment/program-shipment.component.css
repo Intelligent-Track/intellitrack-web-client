@@ -40,7 +40,7 @@
 }
 
 .topi{
-    margin-top: 23px;
+    margin-top: 24px;
 }
 
 .border{
@@ -49,6 +49,15 @@
 
 .custom-input{
     font-size: 14px;
+    border-radius: 20px;
+    background-color: #F1F0F0;
+    border-color: #F1F0F0;
+}
+
+.custom-input1{
+    font-size: 14px;
+    background-color: #F1F0F0;
+    border-color: #F1F0F0;
 }
 
 .bu{
