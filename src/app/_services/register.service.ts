@@ -19,10 +19,10 @@ export class RegisterService {
 
   constructor(private http: HttpClient) { }
 
-  addNewRequest(request: Register){
+ /* addNewRequest(request: Register){
     return this.http.post<Register>(`${environment.apiUrl}/${SERVICE_PATH}/addRequest`, request, this.httpOptions);
   }
-
+*/
   listAllManagers(): Observable<Register[]> {
     return this.http.get<Register[]>(`${environment.apiUrl}/${SERVICE_PATH}/allRequests`, this.httpOptions);
   }

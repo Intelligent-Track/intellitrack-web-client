@@ -23,8 +23,8 @@ export class AuthService {
 
   login(username: string, password: string): Observable<any> {
     return this.http.post(
-      `${environment.apiUrl}/${SERVICE_PATH}/signin`,
-      //"http://localhost:8080/api/auth/signin",
+      //`${environment.apiUrl}/${SERVICE_PATH}/signin`,
+      "http://localhost:8080/api/auth/signin",
       {
         username,
         password,
@@ -37,8 +37,7 @@ export class AuthService {
   register(name: string, username: string, phone: string, nit: string,password: string,companyName: string,document: string): Observable<any> {
     return this.http.post(
       //`${environment.apiUrl}/${SERVICE_PATH}/signup`,
-      //`${environment.apiUrl}/${SERVICE_PATH}/ClientCreate`,
-      "http://localhost:8080/api/cli/ClientCreate",
+      'http://localhost:8080/api/cli/ClientCreate',
       {
         name,
         username,
@@ -48,7 +47,8 @@ export class AuthService {
         companyName,
         document,
       },
-      httpOptions
+      //httpOptions
+      {responseType: 'text'}
     );
   }
 

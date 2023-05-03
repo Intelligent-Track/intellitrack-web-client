@@ -49,7 +49,7 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(): void {
-    
+
   }
 
   navegarAPantallaInicial() {
@@ -73,7 +73,7 @@ export class RegisterComponent implements OnInit {
       nit2Input.focus();
     }
   }
-  
+
 
   register() {
     this.isValid = true;
@@ -144,18 +144,19 @@ export class RegisterComponent implements OnInit {
         this.loading = true; // muestra el spinner
         const { username, email, password , enterprisename,cedula,phonenumber,nit,nit2, position, empresa} = this.form;
 
-    this.registerService.addNewRequest(new Register(username, email, password, cedula, phonenumber, "Cliente ADM", position, true, "", empresa, nit+nit2, false)).subscribe({
+    //this.registerService.addNewRequest(new Register(username, email, password, cedula, phonenumber, "Cliente ADM", position, true, "", empresa, nit+nit2, false)).subscribe({
+      this.authService.register(username,email,phonenumber,nit+nit2,password,empresa,cedula).subscribe({
       next: data => {
         console.log(data);
         this.isSuccessful = true;
         this.isSignUpFailed = false;
-        this.loading = false; 
+        this.loading = false;
         this.router.navigate(['/confirm-email', email]);
       },
       error: err => {
-        this.errorMessage = err.error.message;
+        this.errorMessage = err.error;
         this.isSignUpFailed = true;
-        this.loading = false; 
+        this.loading = false;
         //this.router.navigate(['/confirm-email', email]);
       }
     });
@@ -163,7 +164,7 @@ export class RegisterComponent implements OnInit {
       } catch (error) {
         console.error(error);
         //this.router.navigate(['/confirm-email', "otroEmail.com"]);
-        this.loading = false; 
+        this.loading = false;
       }
     }
   }
