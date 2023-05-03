@@ -1,17 +1,17 @@
-import { DeliveryService } from './../_services/delivery.service';
 import { Component, OnInit } from '@angular/core';
-import { Product } from '../model/product';
 import { Shipment } from '../model/shipment';
-import { PackagesService } from '../_services/packages.service';
-import { ClientService } from '../_services/client.service';
+import { Product } from '../model/product';
+import { DriverService } from '../_services/driver.service';
+import { DeliveryService } from '../_services/delivery.service';
 import { StorageService } from '../_services/storage.service';
+import { ClientService } from '../_services/client.service';
 
 @Component({
-  selector: 'app-shipment-board',
-  templateUrl: './shipment-board.component.html',
-  styleUrls: ['./shipment-board.component.css']
+  selector: 'app-driver-board',
+  templateUrl: './driver-board.component.html',
+  styleUrls: ['./driver-board.component.css']
 })
-export class ShipmentBoardComponent implements OnInit {
+export class DriverBoardComponent implements OnInit {
   origin: string="";
   destiny: string="";
   date: Date | undefined;
@@ -26,7 +26,7 @@ export class ShipmentBoardComponent implements OnInit {
   showproducts = false
   selectedShip: Shipment | undefined;
   router: any;
-  nitClt: string = "";
+  idDri: number = 0;
   cancel = true;
   
   constructor( 
@@ -37,12 +37,12 @@ export class ShipmentBoardComponent implements OnInit {
 
   ngOnInit(): void {
     try{
-      this.clientService.searchClientById(this.storageService.getUser().username).subscribe(clt =>{
-        if(clt !=null){
-          this.nitClt = clt.nit
-          console.log(this.nitClt)
+      this.clientService.searchClientById(this.storageService.getUser().username).subscribe(dri =>{
+        if(dri != null){
+          this.idDri = dri.id
+          console.log(this.idDri)
 
-          this.deliveryService.listAllDeliveriesByNitWare(this.nitClt).subscribe(deliveries=>{
+          this.deliveryService.listAllDeliveriesByDriWare(this.idDri).subscribe(deliveries=>{
             if(deliveries != null){
               this.infoShipWare = deliveries
             }else{
@@ -50,7 +50,7 @@ export class ShipmentBoardComponent implements OnInit {
             }
           })
 
-          this.deliveryService.listAllDeliveriesByNitWay(this.nitClt).subscribe(deliveries=>{
+          this.deliveryService.listAllDeliveriesByDriWay(this.idDri).subscribe(deliveries=>{
             if(deliveries != null){
               this.infoShipWay = deliveries
             }else{
@@ -58,7 +58,7 @@ export class ShipmentBoardComponent implements OnInit {
             }
           })
 
-          this.deliveryService.listAllDeliveriesByNitDel(this.nitClt).subscribe(deliveries=>{
+          this.deliveryService.listAllDeliveriesByDriDel(this.idDri).subscribe(deliveries=>{
             if(deliveries != null){
               this.infoShipDel = deliveries
             }else{
@@ -78,7 +78,7 @@ export class ShipmentBoardComponent implements OnInit {
 
 
   onCancel(ship :Shipment){
-    console.log(ship.id)
+    console.log(ship)
     this.deliveryService.deleteDelivery(ship.id).subscribe(() => {
       this.refreshPage()
     });
@@ -89,32 +89,23 @@ export class ShipmentBoardComponent implements OnInit {
     window.location.reload();
   }
 
-  showInfoShipment( ship: Shipment, otp: string){
+  showInfoShipment( ship: Shipment){
     this.selectedShip = ship;
     this.infoShip = true
     this.showTruck = false
-    if(otp == 'n'){
-      this.cancel = false
-    }else{
-      this.cancel = true
-    }
   }
 
   showing(){
     if (this.infoShip == true && this.showTruck == false && this.cancel == false){
       this.infoShip = false
       this.showTruck = true
-      this.cancel = true
     }
   }
-
-
 
   showinig(){
     if (this.infoShip == true && this.showTruck == false ){
       this.infoShip = false
       this.showTruck = true
-      this.cancel = false
     }
     
   }
