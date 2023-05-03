@@ -1,0 +1,205 @@
+header {
+  background-size: cover;
+  min-height: 100vh;
+}
+
+.bordeLogin {
+  background-color: #ff6e59;
+  padding: 10px;
+}
+
+.navbar-brand {
+  font-size: 44px;
+  /* ajusta el tamaño de la fuente a 24 píxeles */
+}
+
+li {
+  float: right;
+}
+
+.nav-link {
+  margin-right: 20px;
+  color: white;
+}
+
+.bu {
+  font-size: 14px;
+}
+
+.pad {
+  padding-top: 5%;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.no-border {
+  border: none;
+}
+
+h2 {
+  margin-bottom: 2%;
+}
+
+.x {
+  background-color: #ff6e59;
+}
+
+.text {
+  font-size: large;
+}
+
+.navbar-nav {
+  text-align: left;
+}
+
+.container {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -30%);
+}
+
+.btn-orange {
+  background-color: #FF6E59;
+  /* aquí puedes cambiar el color de fondo */
+  border-color: #FF6E59;
+  /* aquí puedes cambiar el color del borde */
+  color: black;
+  /* aquí puedes cambiar el color de la letra */
+  border-radius: 20px;
+  width: 10vw;
+}
+
+.form-control {
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  padding: 5px 10px;
+}
+
+.custom-input {
+  border-radius: 15px;
+  background-color: #F2F3F7;
+  border: none;
+  width: 20vw;
+}
+
+
+.bordeLogin {
+  background-color: #ff6e59;
+  padding: 10px;
+}
+
+.navbar-brand {
+  font-size: 44px;
+  /* ajusta el tamaño de la fuente a 24 píxeles */
+}
+
+li {
+  float: right;
+}
+
+.nav-link {
+  margin-right: 20px;
+
+}
+
+.bu {
+  font-size: 14px;
+}
+
+.pad {
+  padding-top: 5%;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.no-border {
+  border: none;
+}
+
+.x {
+  background-color: #ff6e59;
+}
+
+.text {
+  font-size: large;
+}
+
+.navbar-nav {
+  text-align: left;
+}
+
+h2 {
+  margin-bottom: 2%;
+}
+
+
+.Container {
+  height: 60vh;
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+.Columnas {
+  width: 60%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.Columna {
+  margin-right: 5%;
+}
+
+.custom-input {
+  border-radius: 15px;
+  font-size: 150%;
+  background-color: #F2F3F7;
+  width: 20vw;
+  border: none;
+}
+
+.btn-orange {
+  background-color: #FF6E59;
+  /* aquí puedes cambiar el color de fondo */
+  border-color: #FF6E59;
+  /* aquí puedes cambiar el color del borde */
+  color: black;
+  /* aquí puedes cambiar el color de la letra */
+  border-radius: 20px;
+  width: 350px;
+}
+
+.elements-form {
+  margin-bottom: 10%;
+}
+
+.title-select {
+  font-size: 10pt;
+}
+
+.form-package {
+  display: flex;
+  flex-direction: row;
+}
+
+.input-package {
+  border-radius: 15px;
+  font-size: 150%;
+  background-color: #F2F3F7;
+  width: 10vw;
+  border: none;
+  margin-right: 2%;
+}
+
+.my-custom-scrollbar {
+  position: relative;
+  height: 20vh;
+  overflow: auto;
+}
+
+.table-wrapper-scroll-y {
+  display: block;
+}

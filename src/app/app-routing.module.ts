@@ -1,5 +1,5 @@
 import { DriversListComponent } from './drivers-list/drivers-list.component';
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes, ExtraOptions  } from '@angular/router';
 
 import { RegisterComponent } from './register/register.component';
@@ -35,6 +35,12 @@ import { ClientQuoteServicesComponent } from './client-quote-services/client-quo
 import { VehicleListCRUDComponent } from './vehicle-list-crud/vehicle-list-crud.component';
 import { VehicleCreateComponent } from './vehicle-create/vehicle-create.component';
 import { EditProfileDriverComponent } from './edit-profile-driver/edit-profile-driver.component';
+import { WarehouseCreateComponent } from './warehouse-create/warehouse-create.component';
+import { WarehouseInfoAdminComponent } from './warehouse-info-admin/warehouse-info-admin.component';
+import { WarehouseListClientComponent } from './warehouse-list-client/warehouse-list-client.component';
+import { EmailConfirmComponent } from './email-confirm/email-confirm.component';
+import { RegistrationRequestsComponent } from './registration-requests/registration-requests.component';
+import { DriverBoardComponent } from './driver-board/driver-board.component';
 
 
 const routes: Routes = [
@@ -48,6 +54,7 @@ const routes: Routes = [
   { path: 'admin', component: BoardAdminComponent },
   { path: 'drivers-list', component: DriversListComponent },
   {path: 'adminAddDriver', component: AdminAddDriverComponent},
+  {path: 'adminAddMechanic', component: AdminAddMechanicComponent},
   { path: 'adminAddManager', component: AdminAddManagerComponent},
   { path: 'editProfileOperador', component: EditProfileOperadorComponent },
   { path: 'editProfileManager', component: EditProfileManagerComponent},
@@ -58,7 +65,7 @@ const routes: Routes = [
   { path: 'edit-profile-client', component: EditProfileClientComponent },
   { path: 'driver-create', component: AdminAddDriverComponent },
   { path: 'Service-List', component: ClientListServicesComponent },
-  { path: 'manager-List-Warehouse', component: ManagerListWarehouseComponent },
+  { path: 'manager-list-warehouse', component: ManagerListWarehouseComponent },
   { path: 'warehouse-list', component: WarehouseListComponent },
   { path: 'warehouse-info/:id', component: WarehouseInfoComponent },
   { path: 'warehouse-edit/:id', component: WarehouseEditComponent },
@@ -71,6 +78,12 @@ const routes: Routes = [
   { path: 'vehicle-list', component: VehicleListCRUDComponent},
   { path: 'vehicle-create', component: VehicleCreateComponent},
   { path: 'edit-driver-profile', component: EditProfileDriverComponent},
+  { path: 'warehouse-list-client', component: WarehouseListClientComponent},
+  { path: 'warehouse-create', component: WarehouseCreateComponent},
+  { path: 'warehouse-info-admin/:id', component: WarehouseInfoAdminComponent},
+  { path: 'confirm-email/:data', component: EmailConfirmComponent},
+  { path: 'client-requests', component: RegistrationRequestsComponent},
+  { path: 'driver-board', component: DriverBoardComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

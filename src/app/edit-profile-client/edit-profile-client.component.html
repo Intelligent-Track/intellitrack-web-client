@@ -9,7 +9,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto"> <!-- Agregar la clase ml-auto -->
             <li class="nav-item">
-                <a class="nav-link text" href="#" style="color: white;font-weight: 200;">Envíos</a>
+                <a class="nav-link text" [routerLink]="['/shipment-board/']" href="#" style="color: white;font-weight: 200;">Envíos</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link text" routerLink="/warehouse-list" style="color: white; font-weight: 200;">Bodegas</a>
@@ -24,24 +24,22 @@
         </ul>
     </div>
 </nav>
-
+<h1 class="title">Editar perfil</h1>
 <div class = "container">
+    
+    
     <div class = "columnas">
         <div class = "columna">
-            <h1>Editar perfil</h1>
             <form (ngSubmit)="onSubmit()">
+                <h3>Información de la persona</h3>
+                <label for="">Nombre</label>
                 <input type="text" placeholder="Nombre" class="form-control custom-input" name="nameAdd" [(ngModel)]="nameClt">
+                <label for="">Correo</label>
                 <input type="text" placeholder="Correo" class="form-control custom-input" name="emailAdd" [(ngModel)]="emailClt">
+                <label for="">Documento</label>
                 <input type="text" placeholder="Número de documento" class="form-control custom-input" name="documentAdd" [(ngModel)]="documentClt">
-                <input type="text" placeholder="Telefono" class="form-control custom-input" name="phoneAdd" [(ngModel)]="phoneClt">
-                <input type="text" placeholder="Dirección" class="form-control custom-input" name="dirAdd" [(ngModel)]="dirClt">
-                <input type="text" placeholder="NIT" class="form-control custom-input" name="nitAdd" [(ngModel)]="nitClt">
-                <input type="text" placeholder="Nombre de la compañia" class="form-control custom-input" name="socialAdd" [(ngModel)]="socialClt">
                 <button class="btn btn-orange btn-block custom-btn" (ngSubmit)="onSubmit()"> Editar</button>
             </form>
-            <div class="alert alert-success alert-marge" role="alert" *ngIf="visible">
-                ¡Tu perfil fue actualizado exitosamente!
-            </div>
         </div>
         <div class="columna">
             <hr>
@@ -49,14 +47,26 @@
         
         <div class="columna vertical-center">
            
-            <form (ngSubmit)="onPasswordSubmit()">
-                <h3>Cambiar contraseña</h3>
-                <input type="text" placeholder="Contraseña actual" class="form-control custom-input" name="nameAdd" [(ngModel)]="passwordOld">
-                <input type="text" placeholder="Contraseña nueva" class="form-control custom-input" name="idAdd" [(ngModel)]="passwordNew">
-                <button class="btn btn-orange btn-block custom-btn" (ngSubmit)="onPasswordSubmit()"> Cambiar contraseña</button>
+            <form (ngSubmit)="onSubmit()">
+                <h3>Información de la empresa</h3>
+                <label for="">Nombre</label>
+                <input type="text" placeholder="Nombre de la compañia" class="form-control custom-input" name="socialAdd" [(ngModel)]="socialClt">
+                <label for="">NIT</label>
+                <input type="text" placeholder="NIT" class="form-control custom-input" name="nitAdd" [(ngModel)]="nitClt">
+                <label for="">Dirección</label>
+                <input type="text" placeholder="Dirección" class="form-control custom-input" name="dirAdd" [(ngModel)]="dirClt">
+                <label for="">Teléfono</label>
+                <input type="text" placeholder="Teléfono" class="form-control custom-input" name="phoneAdd" [(ngModel)]="phoneClt">
+                <button class="btn btn-orange btn-block custom-btn" (ngSubmit)="onSubmit()"> Editar</button>
             </form>
         </div>
+        
     </div>
     
+    
 
+</div>
+
+<div class="alert alert-success alert-marge" role="alert" *ngIf="visible">
+    ¡Tu perfil fue actualizado exitosamente!
 </div>

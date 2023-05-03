@@ -22,7 +22,7 @@
                 <option *ngFor="let city of cities" [ngValue]="city">{{ city.name }}</option>
             </select>
         </div>
-        
+
         <br>
 
     </div>
@@ -40,7 +40,7 @@
             </select>
         </div>
     </div>
-    
+
 </div>
 
 <div class="row">
@@ -54,12 +54,14 @@
                     <option *ngFor="let cat of categories" [value]="cat">{{ cat }}</option>
                 </select>
             </div>
-            <input type="text" class="form-control border ml-5 custom-input" required placeholder="Nombre"
+            <input type="text" class="form-control border ml-3 custom-input" required placeholder="Nombre"
                 [(ngModel)]="name">
 
-            <input [(ngModel)]="weight" type="number" class="form-control border ml-5 custom-input" required placeholder="Peso (kg)" [value]="''">
+            <input [(ngModel)]="weight" type="number" class="form-control ml-3 custom-input" required
+                placeholder="Peso (kg)" [value]="''">
 
-            <input [(ngModel)]="volume" type="number" class="form-control border ml-5 custom-input" required placeholder="Volume" [value]="''">
+            <input [(ngModel)]="volume" type="number" class="form-control border ml-3 custom-input" required
+                placeholder="Volume" [value]="''">
 
             <div class="input-group-append ml-5">
                 <button class="btn btn-outline-secondary border-0 bu" type="button"
@@ -104,29 +106,48 @@
     <div class="x1 col-custom pl-5 pr-5">
         <div class="top">
             <div class="input-group pb-2">
-                <input type="date" class="form-control border ml-5 mr-5 custom-input" required placeholder="Fecha de entrega"
-                    [(ngModel)]="date">
-                <div class="form-group ml-5 mr-5">
-                    <select class="form-control custom-input" required [(ngModel)]="deliveryType" name="selectedDate">
+                <div class="ml-2 mr-2">
+                    <label class="date-label" for="fecha_salida" style="font-size: 13px;">Fecha de salida</label>
+                    <input type="date" class="form-control custom-input1" id="fecha_salida" required
+                        placeholder="Fecha de entrega" [(ngModel)]="departureDate">
+                </div>
+
+                <div class="ml-2 mr-2">
+                    <label class="date-label" for="fecha_llegada" style="font-size: 13px;">Fecha de llegada</label>
+                    <input type="date" class="form-control custom-input1" id="fecha_llegada" required
+                        placeholder="Fecha de entrega" [(ngModel)]="arriveDate">
+                </div>
+                <div class="ml-2 mr-2 topi ">
+                    <select class="form-control custom-input1" required [(ngModel)]="deliveryType" name="selectedType">
                         <option value="" disabled selected>Tipo de envío</option>
                         <option *ngFor="let type of deliveryTypes" [value]="type">{{ type }}</option>
                     </select>
                 </div>
             </div>
+            <div class="ml-2 mr-2 mt-5">
+                <input type="text" class="form-control custom-input" id="comments" required
+                    placeholder="Comentarios del envío"  [(ngModel)]="comment">
+            </div>
             <div class="input-group-append ml-5 but">
                 <button class="btn btn-orange btn-block custom-btn bu" type="button"
-                    (click)="date && program(selectedOrigin!, selectedDes!, date, deliveryType)">
+                    (click)="arriveDate && program(selectedOrigin!, selectedDes!, arriveDate, departureDate, comment, deliveryType)">
                     Programar
                 </button>
             </div>
-            <div class="ml-5 price" *ngIf="showprice">
+            <div *ngIf="msgeer" class="mt-4">
+                <h3 style="color: red; text-align: center;">Falta información por llenar</h3>
+            </div>
+            <div *ngIf="msge" class="mt-4">
+                <h3 style="color: red; text-align: center;">No hay bodegas en la ciudad de origen deseada.</h3>
+            </div>
+            <div class=" price" *ngIf="showprice">
                 <br>
                 <br>
-                <h5 [class.updated]="showprice">Tarifa de servicio es: {{price}}</h5>
+                <h5 [class.updated]="showprice" style="text-align: center;">Tarifa de servicio es: {{price}}</h5>
                 <br>
                 <div class="input-group-append ml-5 but">
-                    <button class="btn btn-orange btn-block custom-btn bu" type="button"
-                    [routerLink]="['/shipment-board/']">
+                    <button class="btn btn-orange btn-block custom-btn bu" style="background-color: cadetblue; border: none;" type="button"
+                        [routerLink]="['/shipment-board/']">
                         Volver al inicio
                     </button>
                 </div>

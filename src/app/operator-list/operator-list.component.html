@@ -9,7 +9,10 @@
   <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ml-auto"> 
         <li class="nav-item">
-            <a class="nav-link text" routerLink="/manager-List-Warehouse"style="color: white;font-weight: 200;">Bodegas</a>
+          <a class="nav-link text" routerLink="/client-requests" href="#" style="color: white; font-weight: 200;">Clientes</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text" routerLink="/manager-list-warehouse"style="color: white;font-weight: 200;">Bodegas</a>
           </li><!-- Agregar la clase ml-auto -->
           <li class="nav-item">
               <a class="nav-link text" href="#" style="color: white; font-weight: 200;">Rutas</a>
@@ -77,9 +80,6 @@
             <td>{{infoOperator.location}}</td>
             <td class="no-border">
               <div class="btn-group" role="group">
-                <button class="btn btn-lg" type="button">
-                  <i class="fa fa-pencil"></i>
-                </button>
                 <button class="btn btn-lg ml-2" type="button" (click)="deleteOperator(infoOperator)">
                   <i class="fa fa-trash"></i>
                 </button>

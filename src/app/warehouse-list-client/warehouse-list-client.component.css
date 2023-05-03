@@ -1,0 +1,84 @@
+.bordeLogin {
+    background-color: #ff6e59;
+    padding: 10px;
+}
+
+.navbar-brand {
+    font-size: 44px;
+    /* ajusta el tamaño de la fuente a 24 píxeles */
+}
+
+li {
+    float: right;
+}
+
+.nav-link {
+    margin-right: 20px;
+
+}
+
+.bu {
+    font-size: 14px;
+}
+
+.pad {
+    padding-top: 5%;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.no-border {
+    border: none;
+}
+
+.x {
+    background-color: #ff6e59;
+}
+
+.text {
+    font-size: large;
+}
+
+.navbar-nav {
+    text-align: left;
+}
+
+h2 {
+    margin-bottom: 2%;
+}
+
+select{
+    width: 8vw;
+    margin-right: 3%;
+    height: 3vh;
+}
+
+.vertical{
+    display: flex;
+    flex-direction: column;
+}
+
+.note-ware{
+    font-size: 8pt;
+    font-style: italic;
+    font-weight: normal;
+}
+
+.filter-ware{
+    margin-right: 10%;
+}
+
+input{
+    width: 4vw;
+    height: 3vh;
+    text-align: center;
+}
+
+.search{
+    margin-top: 1.5vh;
+    margin-left: 2vh;
+}
+
+table tbody tr:hover td:not(:nth-last-child(-n)) {
+    background-color: gainsboro;
+}

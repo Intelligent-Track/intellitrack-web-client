@@ -1,0 +1,86 @@
+<nav class="navbar navbar-expand-lg navbar-light x">
+    <a class="navbar-brand" href="#">
+        <img src="../../assets/whitebrand.png" width="50" height="50" class="d-inline-block align-top" alt="">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link text" routerLink="/client-requests" href="#" style="color: white; font-weight: 200;">Clientes</a>
+              </li>
+            <li class="nav-item">
+                <a class="nav-link text" style="color: white;font-weight: 500;">Bodegas</a>
+            </li><!-- Agregar la clase ml-auto -->
+            <li class="nav-item">
+                <a class="nav-link text" href="#" style="color: white; font-weight: 200;">Rutas</a>
+            </li>
+            <li class="nav-item text">
+                <a class="nav-link" routerLink="/operator-list" style="color: white; font-weight: 200;">Operadores</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text active" routerLink="/drivers-list" style="color: white; font-weight: 200;"><span
+                        class="sr-only">(current)</span>Conductores</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text" routerLink="/manager-list" style="color: white; font-weight: 200;">Gerentes</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text" href="#" style="color: white; font-weight: 200;">Gastos</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text" href="#" style="color: white;font-weight: 200;">Perfil</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text " style="color: white; font-weight: 200;">Cerrar sesión</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<Section class="Container">
+    <h3 style="font-size: 200%;">Agregar bodega</h3>
+    <div class="Columnas">
+        <div class="Columna">
+            <form>
+                <div class="form-group elements-form">
+                    <input type="text" class="form-control custom-input" placeholder="Ubicación" name="location"
+                        required minlength="3" maxlength="20" [(ngModel)]="location" />
+                </div>
+
+                <div class="form-group elements-form">
+                    <input placeholder="Capacidad" type="number" class="form-control custom-input" name="capacity" required
+                        minlength="6" [(ngModel)]="capacity" />
+                </div>
+                <div class="form-group elements-form">
+                    <input type="number" class="form-control custom-input" name="costPerM3" placeholder="Costo por m³" required
+                        minlength="6" [(ngModel)]="costPerM3" />
+                </div>
+
+            </form>
+        </div>
+        <div class="Columna">
+            <form>
+                <div class="form-group elements-form">
+                    <p class="title-select">Escoge una ciudad</p>
+                    <select class="form-select custom-input" name="cities" id="cities" *ngIf="cities" [(ngModel)]="selectedCity" >
+                        <option value=""></option>
+                        <option [ngValue]="city" *ngFor="let city of cities">{{city.name}}</option>
+                    </select>
+                </div>
+                <div class="form-group elements-form">
+                    <p class="title-select">Escoge un tipo</p>
+                    <select class="form-select custom-input" name="types" id="types" *ngIf="types" [(ngModel)]="selectedType">
+                        <option value=""></option>
+                        <option [ngValue]="type" *ngFor="let type of types">{{type.name}}</option>
+                    </select>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="form-group" >
+        <button class="btn btn-orange btn-block custom-btn" (click)="onSubmit()" routerLink="manager-list-warehouse">Agregar</button>
+    </div>
+</Section>

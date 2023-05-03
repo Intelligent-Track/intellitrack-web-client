@@ -3,41 +3,49 @@
     <p style="margin-bottom: 3%;">Puedes cotizar nuestros servicios con los siguientes datos:</p>
     <div class="Columnas">
         <div class="Columna">
-            <form style="margin-top: 30%;">
+            <form style="margin-top: 5%;">
                 <div class="form-group">
-                    <select class="form-control custom-input" required [(ngModel)]="selectedLoad" name="selectedLoad">
-                        <option value="" disabled selected>Tipo de carga según su volúmen</option>
-                        <option *ngFor="let load of typeLoad" [value]="load">{{ load }}</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <select class="form-control custom-input" required [(ngModel)]="selectedOrigin" name="selectOrigin">
-                        <option value="null" disabled selected style="color: darkgray;">Ciudad de origen</option>
-                        <option *ngFor="let city of cities" [value]="city.name">{{ city.name }}</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <select class="form-control custom-input" required [(ngModel)]="selectedDes" name="selectedDes">
-                        <option  value="null" disabled selected style="color: darkgray;">Ciudad de destino</option>
-                        <ng-container *ngFor="let city of cities"> 
-                            <option *ngIf="city.name !== selectedOrigin?.name" [value]="city">{{ city.name }}</option>
-                        </ng-container>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <input [(ngModel)]="weightLoad" placeholder="Peso de la carga (kg)" type="number"
-                        class="form-control custom-input" required />
-                </div>
-                <div class="form-group">
-                    <input type="date" class="form-control datepicker custom-input" name="fecha"
-                        placeholder="Fecha de entrega" [(ngModel)]="selectedDate" />
-                </div>
-                <div class="form-group">
-                    <button class="btn btn-orange btn-block custom-btn" (click)="quoteHome(selectedLoad, selectedOrigin!, selectedDes!, weightLoad, selectedDate)">Cotizar</button>
+                    <div class="form-group">
+                        <select class="form-control custom-input" required [(ngModel)]="selectedLoad" name="selectedLoad">
+                            <option value="" disabled selected>Tipo de carga según su volúmen</option>
+                            <option *ngFor="let load of typeLoad" [value]="load">{{ load }}</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <select class="form-control custom-input" required [(ngModel)]="selectedOriginIndex" name="selectOrigin">
+                            <option value="null" disabled selected style="color: darkgray;">Ciudad de origen</option>
+                            <option *ngFor="let city of cities; let i = index" [value]="i">{{ city.name }}</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <select class="form-control custom-input" required [(ngModel)]="selectedDesIndex" name="selectedDes">
+                            <option value="null" disabled selected style="color: darkgray;">Ciudad de destino</option>
+                            <ng-container *ngFor="let city of cities; let i = index"> 
+                                <option *ngIf="i != selectedOriginIndex" [value]="i">{{ city.name }}</option>
+                            </ng-container>
+                        </select>
+                    </div>
+                    <input [(ngModel)]="weight" type="number" class="form-control datepicker custom-input mb-3" name="weight" required placeholder="Peso (t)" [value]="''">
+
+                    <input [(ngModel)]="volume" type="number" class="form-control datepicker custom-input mb-3" name="volume" required placeholder="Volumen (m³)" [value]="''">
+                    <div class="form-group">
+                        <label class="date-label" for="fecha" style="font-size: 13px;">Fecha de salida</label>
+                        <input type="date" class="form-control datepicker custom-input" name="fecha" [(ngModel)]="selectedDepartureDate" [min]="today"/>
+                    </div>
+                    <div class="form-group">
+                        <label class="date-label" for="fecha" style="font-size: 13px;">Fecha de entrega</label>
+                        <input type="date" class="form-control datepicker custom-input" name="fecha" [(ngModel)]="selectedArriveDate" [min]="today" />
+                    </div>
+                    <div *ngIf="!infocomplete">
+                        <p style="color: red; text-align: center;">Faltan campos por llenar.</p>
+                    </div>
+                    <button class="btn btn-orange btn-block custom-btn" 
+                    (click)="quoteHome(selectedLoad, selectedOriginIndex!, selectedDesIndex!, weight!,volume!, selectedArriveDate, selectedDepartureDate)">
+                    Cotizar</button>
                 </div>
             </form>
         </div>
-        <div class="Columna2">
+        <div class="Columna2 ml-5">
             <img src="assets/brandquote.png" width="400" height="400" class="d-inline-block " alt="">
             <p class="infoImage">El precio por usar nuestro servicio con sus especifícaciones es:</p>
             <p class="infoQuote" [class.updated]="showPrice">{{price}}</p>

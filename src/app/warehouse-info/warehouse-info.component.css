@@ -1,6 +1,5 @@
 .Columnas {
     width: 100%;
-    margin-top: 3%;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -12,13 +11,19 @@
 }
 
 .btn-orange {
-    background-color: #FF6E59; /* aquí puedes cambiar el color de fondo */
-    border-color: #FF6E59; /* aquí puedes cambiar el color del borde */
-    color: black; /* aquí puedes cambiar el color de la letra */
-    border-radius: 20px; 
+    background-color: #FF6E59;
+    /* aquí puedes cambiar el color de fondo */
+    border-color: #FF6E59;
+    /* aquí puedes cambiar el color del borde */
+    color: black;
+    /* aquí puedes cambiar el color de la letra */
+    border-radius: 20px;
     width: 10vw;
-    margin-top: 20%;
-    height: 3vh;
+    height: 30px;
+}
+
+.btn-quote{
+    margin-top: 15%;
 }
 
 .bordeLogin {
@@ -56,8 +61,8 @@ li {
 
 .text {
     font-size: large;
-  }
-  
+}
+
 
 .x {
     background-color: #ff6e59;
@@ -67,45 +72,79 @@ li {
     text-align: left;
 }
 
-span{
+span {
     font-size: 2em;
     margin-top: 20%;
 }
 
-.span-data{
+.span-data {
     font-weight: 100;
 }
 
-.span-info{
-    margin-top: 20%;
-}
-
-label{
-    font-size: 1.5em;
-    font-weight: 100;
+.span-info {
     margin-top: 10%;
 }
 
-.idw{
+label {
+    font-size: 1.5em;
+    font-weight: 100;
+    margin-top: 5%;
+}
+
+.idw {
     font-weight: 100;
     margin-top: 2%;
 }
 
-input{
+.input-quote {
     height: 4vh;
     margin-top: 5%;
     text-align: center;
 }
 
-.columnader{
-    margin-left: 30%;
+.title-select {
+    font-size: 10pt;
+    margin-bottom: 5%;
 }
 
-.form-vertical{
+
+.form-vertical {
     display: flex;
     flex-direction: column;
 }
 
-.cotizacion{
-    justify-content: center;
+.form-package {
+    display: flex;
+    flex-direction: row;
+}
+
+.input-package {
+    border-radius: 15px;
+    font-size: 150%;
+    background-color: #F2F3F7;
+    width: 10vw;
+    border: none;
+    margin-right: 2%;
+}
+
+.error-pack{
+    color: #FF6E59;
+    margin-left: 2%;
+  }
+
+.my-custom-scrollbar {
+    position: relative;
+    margin-top: 5%;
+    height: 30vh;
+    margin-bottom: 5%;
+    overflow: auto;
+}
+
+.table-wrapper-scroll-y {
+    display: block;
+}
+
+.add-package{
+    margin-top: 5%;
+    margin-right: 5%;
 }

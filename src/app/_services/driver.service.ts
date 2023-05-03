@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { DtoDriver } from '../dto/dto-driver';
 import { Driver } from '../model/driver';
 import { environment } from 'src/environments/environment';
+import { Shipment } from '../model/shipment';
 
 const SERVICE_PATH = "users/api/dri"
 
@@ -25,6 +26,14 @@ export class DriverService {
 
   searchClientById(id: number): Observable<Driver>{
     return this.http.get<Driver>(`${environment.apiUrl}/${SERVICE_PATH}/searchDriver/` + id, this.httpOptions);
+  }
+
+  listAllDeliveries(){
+    return this.http.get<Shipment[]>(`${environment.apiUrl}/${SERVICE_PATH}/""/`, this.httpOptions);
+  }
+  
+  findByUsername(username: string): Observable<Driver>{
+    return this.http.get<Driver>(`${environment.apiUrl}/${SERVICE_PATH}/driver/` + username, this.httpOptions);
   }
 
 }

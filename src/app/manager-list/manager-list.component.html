@@ -9,7 +9,10 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav ml-auto"> 
       <li class="nav-item">
-        <a class="nav-link text" routerLink="/manager-List-Warehouse" href="#"style="color: white;font-weight: 200;">Bodegas</a>
+        <a class="nav-link text" routerLink="/client-requests" href="#" style="color: white; font-weight: 200;">Clientes</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text" routerLink="/manager-list-warehouse" href="#"style="color: white;font-weight: 200;">Bodegas</a>
       </li><!-- Agregar la clase ml-auto -->
       <li class="nav-item">
         <a class="nav-link text" href="#"style="color: white;font-weight: 200;">Rutas</a>
@@ -65,7 +68,7 @@
           <th scope="col">Teléfono</th>
           <th scope="col">Cargo</th>
           <th scope="col">Almacén</th>
-          <th scope="col">Gerente</th>
+          <th scope="col">Correo</th>
           <th class="no-border"></th>
         </tr>
       </thead>
@@ -78,12 +81,9 @@
             <td>{{infoManager.phone}}</td>
             <td>{{infoManager.job}}</td>
             <td>{{infoManager.location}}</td>
-            <td>{{infoManager.managerUsername}}</td>
+            <td>{{infoManager.username}}</td>
             <td class="no-border">
               <div class="btn-group" role="group">
-                <button class="btn btn-lg" type="button">
-                  <i class="fa fa-pencil"></i>
-                </button>
                 <button class="btn btn-lg ml-2" type="button" (click)="deleteManager(infoManager)">
                   <i class="fa fa-trash"></i>
                 </button>

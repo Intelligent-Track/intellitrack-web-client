@@ -9,7 +9,8 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto"> <!-- Agregar la clase ml-auto -->
             <li class="nav-item">
-                <a class="nav-link text" [routerLink]="['/shipment-board/']" style="color: white;font-weight: 200;">Envíos</a>
+                <a class="nav-link text" [routerLink]="['/shipment-board/']"
+                    style="color: white;font-weight: 200;">Envíos</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link text active" [routerLink]="['/warehouse-list/']"
@@ -51,25 +52,77 @@
             <form (ngSubmit)="onSubmit()" class="">
                 <div class="form-vertical">
                     <label for="">Volumen de la carga</label>
-                    <input type="text" placeholder="m3" class="form-control custom-input" name="phoneAdd"
+                    <input type="text" placeholder="m3" class="form-control custom-input input-quote" name="phoneAdd"
                         [(ngModel)]="volume" required>
                 </div>
                 <div class="form-vertical">
                     <label for="">Fecha de origen</label>
-                    <input type="date" class="form-control datepicker custom-input" name="fechai"
+                    <input type="date" class="form-control datepicker custom-input input-quote" name="fechai"
                         placeholder="Fecha de inicio" [(ngModel)]="initDate" />
                 </div>
                 <div class="form-vertical">
                     <label for="">Fecha de fin</label>
-                    <input type="date" class="form-control datepicker custom-input" name="fechaf"
+                    <input type="date" class="form-control datepicker custom-input input-quote" name="fechaf"
                         placeholder="Fecha de fin" [(ngModel)]="finalDate" />
                 </div>
-                <button type="submit" class="btn btn-orange btn-block custom-btn"> Cotizar</button>
+                <button type="submit" class="btn btn-orange btn-block custom-btn btn-quote"> Cotizar</button>
+                <button type="button" class="btn btn-orange btn-block custom-btn btn-quote" (click)="packAdd = true">Reservar
+                    espacio</button>
             </form>
         </div>
-        <div class="Columna columnader cotizacion" *ngIf="quote">
+        <div class="Columna cotizacion" *ngIf="!packAdd && quote">
             <label for="">De acuerdo con su solicitud el valor de la cotización sería:</label>
             <label for="">COP {{quote}}</label>
+        </div>
+        <div class="Columna" *ngIf="packAdd">
+            <h3 class="title-select">Agregar producto</h3>
+            <form class="form-package">
+                <input type="text" class="form-control input-package" placeholder="Nombre" name="namePackage"
+                    [(ngModel)]="namePackage" />
+                <input type="number" class="form-control input-package" placeholder="Peso" name="weightPackage"
+                    [(ngModel)]="weightPackage" />
+                <input type="number" class="form-control input-package" placeholder="Volumen" name="volumePackage"
+                    [(ngModel)]="volumePackage" />
+                <button class="btn btn-outline-secondary border-0  bu" (click)="addPackage()">
+                    <i class="fa fa-plus"></i>
+                </button>
+                <p for="" class="error-pack" *ngIf="volumeErr">Volumen supera capacidad</p>
+            </form>
+            <div>
+                <div class="table-wrapper-scroll-y my-custom-scrollbar">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Peso (kg)</th>
+                                <th scope="col">Volumen (m³)</th>
+                                <th class="no-border"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <ng-container *ngIf="packages">
+                                <tr *ngFor="let infoPackage of packages">
+                                    <td>{{infoPackage.type}}</td>
+                                    <td>{{infoPackage.weight}}</td>
+                                    <td>{{infoPackage.volume}}</td>
+                                    <td class="no-border">
+                                        <div class="btn-group" role="group">
+                                            <button class="btn btn-lg ml-2" type="button"
+                                                (click)="deletePackage(infoPackage)">
+                                                <i class="fa fa-trash"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </ng-container>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="form-package">
+                <button type="button" class="btn btn-orange btn-block custom-btn add-package" (click)="packageInWarehouse()"> Agregar mercancia</button>
+                <label>Su precio será de COP {{totalReservation}}</label >
+            </div>
         </div>
     </div>
 

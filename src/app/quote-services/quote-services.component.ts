@@ -16,13 +16,25 @@ export class QuoteServicesComponent implements OnInit {
   selectedOrigin: City | null = null;
   selectedDes: City | null = null;
   selectedLoad: string = "";
-  weightLoad: number = 0;
-  selectedDate: string ="";
-  price: number = 0;
+  selectedOriginIndex: number | null = null;
+  selectedDesIndex: number | null = null;
+  weight: number | undefined;
+  volume: number | undefined;
+  selectedDepartureDate: string ="";
+  selectedArriveDate: string ="";
+  price: string = "0";
   showPrice= false;
+  today: string;
+  infocomplete = true;
 
-
-  constructor(private quoteService :QuoteService, private wareService : WarehouseService) { }
+  
+  constructor(private quoteService :QuoteService, private wareService : WarehouseService) { 
+    const currentDate = new Date();
+    const year = currentDate.getFullYear();
+    const month = ('0' + (currentDate.getMonth() + 1)).slice(-2);
+    const day = ('0' + currentDate.getDate()).slice(-2);
+    this.today = `${year}-${month}-${day}`;
+  }
 
   ngOnInit(): void {
     this.wareService.listAllCities().subscribe(listCities => {
@@ -30,14 +42,25 @@ export class QuoteServicesComponent implements OnInit {
     });
   }
 
-  quoteHome(selectedLoad: string, selectedOrigin: City | undefined, selectedDes: City | undefined, weightLoad: number, selectedDate: string):void{
-    if (selectedOrigin?.name !== 'Ciudad de origen' && selectedDes?.name !== 'Ciudad de destino' && weightLoad !== null && selectedDate!== 'Tipo de envío' && selectedLoad !== null) {
-      const quote = new DtoQuote(selectedLoad,selectedOrigin!, selectedDes!,  weightLoad, selectedDate)
-      this.quoteService.quoteDelivery(quote).subscribe((pr: number) => {
-        this.price = pr;
-        this.showPrice = true
-      })
+  quoteHome(selectedLoad: string,selectedOriginIndex: number | null, selectedDesIndex: number | null, weight: number, volume: number, selectedArriveDate: string, selectedDepartureDate: string):void{
+    if (selectedOriginIndex !== null && selectedDesIndex !== null) {
+      const selectedOrigin = this.cities![selectedOriginIndex];
+      const selectedDes = this.cities![selectedDesIndex];
+      this.infocomplete = true
+
+      if (weight !== null && volume!== null&& selectedArriveDate!== null && selectedDepartureDate!== null && selectedLoad !== null) {
+        this.infocomplete = true
+        this.quoteService.quoteDelivery(new DtoQuote(selectedLoad,selectedOrigin!, selectedDes!,  weight, volume,  selectedArriveDate, selectedDepartureDate)).subscribe((pr: number) => {
+          this.price = "$" + pr;
+          this.showPrice = true
+        })
+      }else{
+        this.infocomplete = false
+      }
+    } else{
+      this.infocomplete = false
     }
+    
   }
 
 }

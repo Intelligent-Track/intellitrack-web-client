@@ -1,99 +1,101 @@
 <nav class="navbar navbar-expand-lg navbar-light x">
-    <a class="navbar-brand" href="#">
-      <img src="../../assets/whitebrand.png" width="50" height="50" class="d-inline-block align-top" alt="">
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
-      aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ml-auto"> 
-        <li class="nav-item">
-          <a class="nav-link text" routerLink="/manager-List-Warehouse" href="#"style="color: white;font-weight: 200;">Bodegas</a>
-        </li><!-- Agregar la clase ml-auto -->
-        <li class="nav-item">
-          <a class="nav-link text" href="#"style="color: white;font-weight: 200;">Rutas</a>
-        </li>
-        <li class="nav-item text">
-          <a class="nav-link" href="/operator-list"style="color: white; font-weight: 200;">Operadores</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text" style="color: white; font-weight: 500;">Conductores</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text  active" routerLink="/manager-list" style="color: white; font-weight: 200;"><span class="sr-only">(current)</span>Gerentes</a>
-        </li>
-        <li class="nav-item" hidden>
-          <a class="nav-link text" style="color: white; font-weight: 200;"href="#">Gastos</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text" style="color: white; font-weight: 200;"href="#">Perfil</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text "style="color: white; font-weight: 200;">Cerrar sesión</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
+  <a class="navbar-brand" href="#">
+    <img src="../../assets/whitebrand.png" width="50" height="50" class="d-inline-block align-top" alt="">
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link text" routerLink="/client-requests" href="#" style="color: white; font-weight: 200;">Clientes</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text" routerLink="/manager-list-warehouse" href="#"
+          style="color: white;font-weight: 200;">Bodegas</a>
+      </li><!-- Agregar la clase ml-auto -->
+      <li class="nav-item">
+        <a class="nav-link text" href="#" style="color: white;font-weight: 200;">Rutas</a>
+      </li>
+      <li class="nav-item text">
+        <a class="nav-link" href="/operator-list" style="color: white; font-weight: 200;">Operadores</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text" style="color: white; font-weight: 500;">Conductores</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text  active" routerLink="/manager-list" style="color: white; font-weight: 200;"><span
+            class="sr-only">(current)</span>Gerentes</a>
+      </li>
+      <li class="nav-item" hidden>
+        <a class="nav-link text" style="color: white; font-weight: 200;" href="#">Gastos</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text" style="color: white; font-weight: 200;" href="#">Perfil</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text " style="color: white; font-weight: 200;">Cerrar sesión</a>
+      </li>
+    </ul>
+  </div>
+</nav>
 
 <div class="pad">
-    <h2>Conductores</h2>
-    <div class="input-group pb-2">
-        <div class="input-group-prepend border-0">
-            <span class="input-group-text border-0 bg-transparent">
-                <i class="fa fa-search"></i>
-            </span>
-        </div>
-        <input type="text" class="form-control border">
-        <div class="input-group-append ml-5">
-            <button class="btn btn-outline-secondary border-0  bu" type="button" routerLink="/adminAddDriver">
-                <i class="fa fa-plus"></i> Agregar
-            </button>
-        </div>
+  <h2>Conductores</h2>
+  <div class="input-group pb-2">
+    <div class="input-group-prepend border-0">
+      <span class="input-group-text border-0 bg-transparent">
+        <i class="fa fa-search"></i>
+      </span>
     </div>
-
-
-    <div style="padding-top: 3%;" class="table-responsive  ">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Correo</th>
-                    <th scope="col">Teléfono</th>
-                    <th scope="col">Dirección</th>
-                    <th scope="col">Placa vehículo</th>
-                    <th scope="col">Licencia</th>
-                    <th scope="col">Revisión automecanica</th>
-                    <th class="no-border"></th>
-                </tr>
-            </thead>
-            <tbody>
-                <ng-container *ngIf="infoDrivers">
-                    <tr *ngFor="let infodriver of infoDrivers">
-                        <td>{{infodriver.id}}</td>
-                        <td>{{infodriver.name}}</td>
-                        <td>{{infodriver.username}}</td>
-                        <td>{{infodriver.phone}}</td>
-                        <td>{{infodriver.location}}</td>
-                        <td>{{infodriver.placaVehiculo}}</td>
-                        <td>{{infodriver.licencia}}</td>
-                        <td>{{infodriver.revisionAutoMec}}</td>
-                        <td class="no-border">
-                            <div class="btn-group" role="group">
-                                <button class="btn btn-lg" type="button" (click)="editDriver()">
-                                    <i class="fa fa-pencil"></i>
-                                </button>
-                                <button class="btn btn-lg ml-2" type="button">
-                                    <i class="fa fa-trash"></i>
-                                </button>
-                            </div>
-                        </td>
-
-                    </tr>
-                </ng-container>
-            </tbody>
-        </table>
+    <input type="text" class="form-control border">
+    <div class="input-group-append ml-5">
+      <button class="btn btn-outline-secondary border-0  bu" type="button" routerLink="/adminAddDriver">
+        <i class="fa fa-plus"></i> Agregar
+      </button>
     </div>
+  </div>
+
+
+  <div style="padding-top: 3%;" class="table-responsive  ">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Correo</th>
+          <th scope="col">Teléfono</th>
+          <th scope="col">Dirección</th>
+          <th scope="col">Placa vehículo</th>
+          <th scope="col" hidden>Licencia</th>
+          <th scope="col"hidden>Revisión automecanica</th>
+          <th class="no-border"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngIf="infoDrivers">
+          <tr *ngFor="let infodriver of infoDrivers">
+            <td>{{infodriver.id}}</td>
+            <td>{{infodriver.name}}</td>
+            <td>{{infodriver.username}}</td>
+            <td>{{infodriver.phone}}</td>
+            <td>{{infodriver.location}}</td>
+            <td>{{infodriver.vehiclePlate}}</td>
+            <td hidden>{{infodriver.license}}</td>
+            <td hidden>{{infodriver.mecReview}}</td>
+            <td class="no-border">
+              <div class="btn-group" role="group">
+                <button class="btn btn-lg ml-2" type="button" (click)="deleteDriver(infodriver)">
+                  <i class="fa fa-trash"></i>
+                </button>
+              </div>
+            </td>
+
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>
 
 </div>

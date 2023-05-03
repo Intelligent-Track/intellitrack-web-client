@@ -7,9 +7,14 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ml-auto"> 
-          <li class="nav-item">
-              <a class="nav-link text" routerLink="/manager-List-Warehouse"style="color: white;font-weight: 500;">Bodegas</a>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link text" routerLink="/client-requests" href="#"
+                    style="color: white; font-weight: 200;">Clientes</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text" routerLink="/manager-List-Warehouse"
+                    style="color: white;font-weight: 500;">Bodegas</a>
             </li><!-- Agregar la clase ml-auto -->
             <li class="nav-item">
                 <a class="nav-link text" href="#" style="color: white; font-weight: 200;">Rutas</a>
@@ -18,7 +23,8 @@
                 <a class="nav-link" routerLink="/operator-list" style="color: white; font-weight: 200;">Operadores</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text active" routerLink="/drivers-list" style="color: white; font-weight: 200;"><span class="sr-only">(current)</span>Conductores</a>
+                <a class="nav-link text active" routerLink="/drivers-list" style="color: white; font-weight: 200;"><span
+                        class="sr-only">(current)</span>Conductores</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link text" routerLink="/manager-list" style="color: white; font-weight: 200;">Gerentes</a>
@@ -34,11 +40,31 @@
             </li>
         </ul>
     </div>
-  </nav>
+</nav>
 
-  <div class="pad">
+<div class="pad">
     <h2>Bodegas</h2>
-    <div style="padding-top: 3%;" class="table-responsive  ">
+    <div class="input-group pb-2">
+        <div class="input-group-prepend border-0">
+            <span class="input-group-text border-0 bg-transparent">
+                <i class="fa fa-search"></i>
+            </span>
+        </div>
+        <input type="text" class="form-control border">
+        <div class="input-group-append ml-5">
+            <form (ngSubmit)="onAddSubmit()">
+                <button class="btn btn-outline-secondary border-0  bu" routerLink="/warehouse-create">
+                    <i class="fa fa-plus"></i> Agregar
+                </button>
+            </form>
+        </div>
+    </div>
+    <div class="input-group pb-2">
+        <p class="note-ware">
+            Seleccione una bodega de la tabla
+        </p>
+    </div>
+    <div class="table-responsive  ">
         <table class="table">
             <thead>
                 <tr>
@@ -47,25 +73,26 @@
                     <th scope="col">Direccion</th>
                     <th scope="col">Capacidad</th>
                     <th scope="col">Tipo</th>
-                    <th scope="col">Costo m3</th>
+                    <th scope="col">Costo m³</th>
                     <th class="no-border"></th>
                 </tr>
             </thead>
             <tbody>
-                <ng-container *ngIf="infoWarehouse">
-                    <tr *ngFor="let infodriver of infoWarehouse">
-                        <td>{{infodriver.id}}</td>
-                        <td>{{infodriver.city.name}}</td>
-                        <td>{{infodriver.address}}</td>
-                        <td>{{infodriver.capacity}}</td>
-                        <td>{{infodriver.type.name}}</td>
-                        <td>{{infodriver.costPerM3}}</td>
+                <ng-container *ngIf="infoWarehouses">
+                    <tr *ngFor="let infoWare of infoWarehouses" class="clickableRow"
+                        [routerLink]="['/warehouse-info-admin/', infoWare.id]">
+                        <td>{{infoWare.id}}</td>
+                        <td>{{infoWare.city.name}}</td>
+                        <td>{{infoWare.address}}</td>
+                        <td>{{infoWare.capacity}}</td>
+                        <td>{{infoWare.type.name}}</td>
+                        <td>{{infoWare.costPerM3}}</td>
                         <td class="no-border">
                             <div class="btn-group" role="group">
-                                <button class="btn btn-lg" type="button">
+                                <button class="btn btn-lg" type="button" routerLink="/warehouse-edit/{{infoWare.id}}">
                                     <i class="fa fa-pencil"></i>
                                 </button>
-                                <button class="btn btn-lg ml-2" type="button">
+                                <button class="btn btn-lg ml-2" type="button" (click)="deleteWarehouse(infoWare)">
                                     <i class="fa fa-trash"></i>
                                 </button>
                             </div>
@@ -78,4 +105,3 @@
     </div>
 
 </div>
-
