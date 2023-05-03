@@ -81,6 +81,7 @@ const routes: Routes = [
   { path: 'warehouse-create', component: WarehouseCreateComponent},
   { path: 'warehouse-info-admin/:id', component: WarehouseInfoAdminComponent},
   { path: 'confirm-email/:data', component: EmailConfirmComponent},
+  { path: 'extraInfo', component: ExtraInfoShipmentComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 
