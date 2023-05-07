@@ -18,7 +18,7 @@ export class DriversListComponent implements OnInit {
   constructor(
     private router: Router,
     private adminService: AdminService,
-    private storageService: StorageService,
+    private storageService: StorageService
   ) { }
 
   ngOnInit(): void {
@@ -37,6 +37,11 @@ export class DriversListComponent implements OnInit {
         this.router.navigate(['/drivers-list/']);
       });
     })
+  }
+
+  logout(): void {
+    this.storageService.clean();
+    this.router.navigate(['home'])
   }
 
 }

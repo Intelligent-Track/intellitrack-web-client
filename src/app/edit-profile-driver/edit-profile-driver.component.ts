@@ -25,6 +25,7 @@ export class EditProfileDriverComponent implements OnInit {
   passwordNew: string = "";
 
   constructor(
+    private router: Router,
     public driverService: DriverService,
     public storageService: StorageService
   ) { }
@@ -53,6 +54,11 @@ export class EditProfileDriverComponent implements OnInit {
 
   onPasswordSubmit(){
     this.storageService.getUser().id;
+  }
+
+  logout(): void {
+    this.storageService.clean();
+    this.router.navigate(['home'])
   }
 
 }

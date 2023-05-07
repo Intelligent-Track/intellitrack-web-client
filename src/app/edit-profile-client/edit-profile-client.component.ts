@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ClientService } from '../_services/client.service';
 import { StorageService } from '../_services/storage.service';
 import { Client } from '../model/client';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-edit-profile-client',
@@ -25,6 +26,7 @@ export class EditProfileClientComponent implements OnInit {
   passwordNew: string = "";
 
   constructor(
+    private router: Router,
     public clientService: ClientService,
     public storageService: StorageService
   ) { }
@@ -50,11 +52,15 @@ export class EditProfileClientComponent implements OnInit {
         this.visible = true
       });
     }
-    
-    
   }
 
   onPasswordSubmit(){
     this.storageService.getUser().id;
   }
+
+  logout(): void {
+    this.storageService.clean();
+    this.router.navigate(['home'])
+  }
+
 }
