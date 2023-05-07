@@ -3,6 +3,7 @@ import { Vehicle } from '../model/vehicle';
 import { VehicleService } from '../_services/vehicle.service';
 import { City } from '../model/city';
 import { Router } from '@angular/router';
+import { StorageService } from '../_services/storage.service';
 @Component({
   selector: 'app-vehicle-list-crud',
   templateUrl: './vehicle-list-crud.component.html',
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class VehicleListCRUDComponent implements OnInit {
 
-  constructor(private vehicleService: VehicleService, private router: Router) { }
+  constructor(private vehicleService: VehicleService, private router: Router, public storageService: StorageService) { }
 
   vehicleArray: Vehicle[] = [];
   cities: City[] | undefined;
@@ -39,5 +40,10 @@ export class VehicleListCRUDComponent implements OnInit {
         this.vehicleArray = listVehicle
       })
 
+  }
+
+  logout(): void {
+    this.storageService.clean();
+    this.router.navigate(['home'])
   }
 }

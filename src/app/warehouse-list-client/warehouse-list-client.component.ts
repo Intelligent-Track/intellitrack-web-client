@@ -3,6 +3,8 @@ import { WarehouseService } from '../_services/warehouse.service';
 import { Warehouse } from '../model/warehouse';
 import { City } from '../model/city';
 import { Type } from '../model/type';
+import { Router } from '@angular/router';
+import { StorageService } from '../_services/storage.service';
 
 @Component({
   selector: 'app-warehouse-list-client',
@@ -20,7 +22,9 @@ export class WarehouseListClientComponent {
   capacity: number | undefined;
 
   constructor(
-    private warehouseService: WarehouseService
+    private warehouseService: WarehouseService,
+    private router: Router,
+    private storageService: StorageService
   ) { }
 
   ngOnInit(): void {
@@ -58,5 +62,10 @@ export class WarehouseListClientComponent {
       this.selectedType = undefined
       this.selectedCity = undefined
     }
+  }
+
+  logout(): void {
+    this.storageService.clean();
+    this.router.navigate(['home'])
   }
 }

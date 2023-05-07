@@ -46,5 +46,10 @@ export class RegistrationRequestsComponent implements OnInit {
     })
   }
 
+  logout(): void {
+    this.storageService.clean();
+    this.router.navigate(['home'])
+  }
+
 
 }

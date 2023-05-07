@@ -87,4 +87,9 @@ export class WarehouseInfoComponent implements OnInit {
     }
   }
 
+  logout(): void {
+    this.storageService.clean();
+    this.router.navigate(['home'])
+  }
+
 }

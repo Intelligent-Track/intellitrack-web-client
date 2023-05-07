@@ -5,6 +5,7 @@ import { Shipment } from '../model/shipment';
 import { PackagesService } from '../_services/packages.service';
 import { ClientService } from '../_services/client.service';
 import { StorageService } from '../_services/storage.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-shipment-board',
@@ -25,11 +26,11 @@ export class ShipmentBoardComponent implements OnInit {
   showTruck = true;
   showproducts = false
   selectedShip: Shipment | undefined;
-  router: any;
   nitClt: string = "";
   cancel = true;
   
   constructor( 
+    private router: Router,
     private deliveryService: DeliveryService, 
     public clientService: ClientService,
     public storageService: StorageService
@@ -117,6 +118,11 @@ export class ShipmentBoardComponent implements OnInit {
       this.cancel = false
     }
     
+  }
+
+  logout(): void {
+    this.storageService.clean();
+    this.router.navigate(['home'])
   }
 
 }
