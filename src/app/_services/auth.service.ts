@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 const SERVICE_PATH = "users/api/auth"
+const SERVICE_PATH1 = "users/api/reg";
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -36,8 +37,8 @@ export class AuthService {
 
   register(name: string, username: string, phone: string, nit: string,password: string,companyName: string,document: string): Observable<any> {
     return this.http.post(
-      //`${environment.apiUrl}/${SERVICE_PATH}/signup`,
-      'http://localhost:8080/api/cli/ClientCreate',
+      `${environment.apiUrl}/${SERVICE_PATH1}/ClientCreate`,
+      //'http://localhost:8080/api/cli/ClientCreate',
       {
         name,
         username,
@@ -55,7 +56,8 @@ export class AuthService {
   Verify(code: string): Observable<any> {
     console.log("llegue")
     return this.http.post(
-      "http://localhost:8080/api/cli/verifyUser",
+      //"http://localhost:8080/api/cli/verifyUser",
+      `${environment.apiUrl}/${SERVICE_PATH1}/verifyUser`,
       {
         code
       },
