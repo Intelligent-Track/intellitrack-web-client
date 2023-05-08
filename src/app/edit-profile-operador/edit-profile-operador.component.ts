@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { OperatorService } from '../_services/operator.service';
 import { Router } from '@angular/router';
 import { Operator } from '../model/operator';
+import { StorageService } from '../_services/storage.service';
 
 @Component({
   selector: 'app-edit-profile-operador',
@@ -13,7 +14,7 @@ export class EditProfileOperadorComponent implements OnInit {
 
   mailOpt: string =""
   numberOpt: number =0
-  constructor(private router: Router,private operatorService: OperatorService) { }
+  constructor(private router: Router,private operatorService: OperatorService, private storageService: StorageService) { }
 
   ngOnInit(): void {
   }
@@ -31,4 +32,10 @@ export class EditProfileOperadorComponent implements OnInit {
       );
     }
   }
+
+  logout(): void {
+    this.storageService.clean();
+    this.router.navigate(['home'])
+  }
+  
 }

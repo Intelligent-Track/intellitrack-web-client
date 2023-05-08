@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { switchMap } from 'rxjs';
 import { Warehouse } from '../model/warehouse';
 import { WarehouseService } from '../_services/warehouse.service';
+import { StorageService } from '../_services/storage.service';
 
 @Component({
   selector: 'app-warehouse-edit',
@@ -22,7 +23,8 @@ export class WarehouseEditComponent implements OnInit {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private warehouseService: WarehouseService
+    private warehouseService: WarehouseService,
+    public storageService: StorageService
   ) { }
 
   ngOnInit(): void {
@@ -31,6 +33,11 @@ export class WarehouseEditComponent implements OnInit {
     ).subscribe(war => {
       this.warehouse = war
     })
+  }
+
+  logout(): void {
+    this.storageService.clean();
+    this.router.navigate(['home'])
   }
 
 }

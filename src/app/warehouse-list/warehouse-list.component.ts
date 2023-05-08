@@ -15,14 +15,6 @@ import { StorageService } from '../_services/storage.service';
 })
 export class WarehouseListComponent implements OnInit {
 
-  logout(): void {
-    console.log(this.storageService.getUser());
-    this.storageService.clean
-    //if(window.)
-    //window.location.reload();
-    this.router.navigateByUrl("/login")
-  }
-
   infoPackages: Package[] | undefined;
   cities: City[] | undefined;
   types: Type[] | undefined;
