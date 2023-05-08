@@ -56,8 +56,8 @@ export class AuthService {
   Verify(code: string): Observable<any> {
     console.log("llegue")
     return this.http.post(
-      //"http://localhost:8080/api/cli/verifyUser",
-      `${environment.apiUrl}/${SERVICE_PATH1}/verifyUser`,
+      //"http://localhost:8080/api/cli/verifyUser", //Addres to check on localhost
+      `${environment.apiUrl}/${SERVICE_PATH1}/verifyUser`, //address to check on server
       {
         code
       },
