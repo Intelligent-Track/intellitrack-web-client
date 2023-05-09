@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 const SERVICE_PATH = "users/api/auth"
+const SERVICE_PATH1 = "users/api/auth"
+const SERVICE_PATH2 = "users/api/cli"
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -41,6 +43,31 @@ export class AuthService {
       httpOptions
     );
   }
+
+  RequestPasswordChange(username: string): Observable<any> {
+    return this.http.post(
+      //`${environment.apiUrl}/${SERVICE_PATH}/signin`,
+      'http://localhost:8080/api/auth/forgotPassword',
+      {
+        username,
+      },
+      httpOptions
+    );
+  }
+
+  ResetPasswordChange(username: string, token:string): Observable<any> {
+    return this.http.post(
+      `${environment.apiUrl}/${SERVICE_PATH}/ResetPassword/${token}`,
+      //'http://localhost:8080/api/auth/ResetPassword/${this.token}',
+      //`http://localhost:8080/api/auth/ResetPassword/${token}`,
+      {
+        username,
+        token
+      },
+      httpOptions
+    );
+  }
+
 
   logout(): Observable<any> {
     return this.http.post(`${environment.apiUrl}/${SERVICE_PATH}/signout`, { }, httpOptions);
