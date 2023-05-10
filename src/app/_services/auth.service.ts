@@ -24,8 +24,8 @@ export class AuthService {
 
   login(username: string, password: string): Observable<any> {
     return this.http.post(
-      //`${environment.apiUrl}/${SERVICE_PATH}/signin`,
-      "http://localhost:8080/api/auth/signin",
+      `${environment.apiUrl}/${SERVICE_PATH}/signin`,
+
       {
         username,
         password,
@@ -38,7 +38,7 @@ export class AuthService {
   register(name: string, username: string, phone: string, nit: string,password: string,companyName: string,document: string): Observable<any> {
     return this.http.post(
       `${environment.apiUrl}/${SERVICE_PATH1}/ClientCreate`,
-      //'http://localhost:8080/api/cli/ClientCreate',
+
       {
         name,
         username,
@@ -56,7 +56,7 @@ export class AuthService {
   Verify(code: string): Observable<any> {
     console.log("llegue")
     return this.http.post(
-      //"http://localhost:8080/api/cli/verifyUser", //Addres to check on localhost
+
       `${environment.apiUrl}/${SERVICE_PATH1}/verifyUser`, //address to check on server
       {
         code
