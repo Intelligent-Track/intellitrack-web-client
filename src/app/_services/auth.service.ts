@@ -47,7 +47,7 @@ export class AuthService {
   RequestPasswordChange(username: string): Observable<any> {
     return this.http.post(
       `${environment.apiUrl}/${SERVICE_PATH}/forgotPassword`,
-      //'http://localhost:8080/api/auth/forgotPassword',
+
       {
         username,
       },
@@ -58,8 +58,6 @@ export class AuthService {
   ResetPasswordChange(username: string, token:string): Observable<any> {
     return this.http.post(
       `${environment.apiUrl}/${SERVICE_PATH}/ResetPassword/${token}`,
-      //'http://localhost:8080/api/auth/ResetPassword/${this.token}',
-      //`http://localhost:8080/api/auth/ResetPassword/${token}`,
       {
         username,
         token
