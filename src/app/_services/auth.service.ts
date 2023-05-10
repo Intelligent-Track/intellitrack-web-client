@@ -46,8 +46,8 @@ export class AuthService {
 
   RequestPasswordChange(username: string): Observable<any> {
     return this.http.post(
-      //`${environment.apiUrl}/${SERVICE_PATH}/signin`,
-      'http://localhost:8080/api/auth/forgotPassword',
+      `${environment.apiUrl}/${SERVICE_PATH}/forgotPassword`,
+      //'http://localhost:8080/api/auth/forgotPassword',
       {
         username,
       },
