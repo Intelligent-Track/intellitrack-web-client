@@ -69,7 +69,7 @@ export class LoginComponent implements OnInit {
       },
       error: err => {
         console.log("EjecutaEL Errro");
-        this.errorMessage = err.error.message;
+        this.errorMessage = err.error;
         this.isLoginFaile = true;
         this.loading = false;
       }
@@ -79,7 +79,7 @@ export class LoginComponent implements OnInit {
       this.isLoginFaile = true;
       this.loading = false;
     }
-    
+
   }
 
   reloadPage(): void {

@@ -21,7 +21,7 @@
                     href="#">Perfil</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text "  href="#" style="color: white; font-weight: 200;" (click)="logout()">Cerrar sesión</a>
+                <a (click)="logout()" class="nav-link text "  href="#" style="color: white; font-weight: 200;" >Cerrar sesión</a>
             </li>
         </ul>
     </div>
@@ -35,7 +35,7 @@
         </p>
         <form >
             <button class="btn btn-outline-secondary bu" routerLink="/warehouse-list-client">
-              <i class="fa fa-search"></i> Buscar bodegas 
+              <i class="fa fa-search"></i> Buscar bodegas
             </button>
           </form>
     </div>

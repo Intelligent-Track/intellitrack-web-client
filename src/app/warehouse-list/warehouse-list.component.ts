@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Warehouse } from '../model/warehouse';
-import { WarehouseService } from '../_services/warehouse.service';
 import { City } from '../model/city';
 import { Type } from '../model/type';
 import { Router } from '@angular/router';

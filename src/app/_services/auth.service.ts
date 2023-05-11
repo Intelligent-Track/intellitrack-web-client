@@ -4,11 +4,16 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 const SERVICE_PATH = "users/api/auth"
-const SERVICE_PATH1 = "users/api/auth"
-const SERVICE_PATH2 = "users/api/cli"
+const SERVICE_PATH1 = "users/api/reg";
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
+const httpOptions2 = {
+  headers: new HttpHeaders({
+    'Content-Type': 'application/json'
+  }),
+  responseType: 'text' // Set the responseType to 'text'
 };
 
 @Injectable({
@@ -20,17 +25,20 @@ export class AuthService {
   login(username: string, password: string): Observable<any> {
     return this.http.post(
       `${environment.apiUrl}/${SERVICE_PATH}/signin`,
+
       {
         username,
         password,
       },
+
       httpOptions
     );
   }
 
   register(name: string, username: string, phone: string, nit: string,password: string,companyName: string,document: string): Observable<any> {
     return this.http.post(
-      `${environment.apiUrl}/${SERVICE_PATH}/signup`,
+      `${environment.apiUrl}/${SERVICE_PATH1}/ClientCreate`,
+
       {
         name,
         username,
@@ -40,7 +48,20 @@ export class AuthService {
         companyName,
         document,
       },
-      httpOptions
+      //httpOptions
+      {responseType: 'text'}
+    );
+  }
+
+  Verify(code: string): Observable<any> {
+    console.log("llegue")
+    return this.http.post(
+
+      `${environment.apiUrl}/${SERVICE_PATH1}/verifyUser`, //address to check on server
+      {
+        code
+      },
+      {responseType: 'text'}
     );
   }
 

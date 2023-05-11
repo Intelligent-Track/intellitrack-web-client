@@ -14,13 +14,13 @@ export class RegisterComponent implements OnInit {
     cedula: "",
     email: "",
     password: "",
-    password1:"",
-    phonenumber:"",
-    nit:"",
-    nit2:"",
-    position:"",
-    representative:"",
-    empresa:"",
+    password1: "",
+    phonenumber: "",
+    nit: "",
+    nit2: "",
+    position: "",
+    representative: "",
+    empresa: "",
 
     //validaciones de los campos
     passwordMismatch: false,
@@ -43,13 +43,13 @@ export class RegisterComponent implements OnInit {
   showPassword = false;
 
 
-  constructor(private authService: AuthService,private router: Router, private registerService: RegisterService) { }
+  constructor(private authService: AuthService, private router: Router, private registerService: RegisterService) { }
 
   ngOnInit(): void {
   }
 
   onSubmit(): void {
-    
+
   }
 
   navegarAPantallaInicial() {
@@ -73,97 +73,84 @@ export class RegisterComponent implements OnInit {
       nit2Input.focus();
     }
   }
-  
+
 
   register() {
     this.isValid = true;
-    console.log("numero");
-    console.log(this.form.phonenumber);
-    console.log(this.form.phonenumber.toString().length);
-    console.log("Empresa");
-    console.log(this.form.empresa.toString());
-    console.log(this.form.empresa.toString().length);
-    console.log("Nit");
-    console.log(this.form.nit.toString());
-    console.log(this.form.nit.toString().length);
     // Validar los campos
     if (this.form.username.toString().length < 3 || this.form.username.toString().length > 20) {
       this.isValid = false;
-      this.form.usernameisValid= true;
+      this.form.usernameisValid = true;
       // Mostrar un mensaje de error
-    }else{
-      this.form.usernameisValid= false;
+    } else {
+      this.form.usernameisValid = false;
     }
-    if (!/(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{10,}/.test(this.form.password)){
+    if (!/(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{10,}/.test(this.form.password)) {
       this.isValid = false;
       this.form.passwordisValid = true;
-    }else{
-      this.form.passwordisValid= false;
+    } else {
+      this.form.passwordisValid = false;
     }
     if (this.form.phonenumber.toString().length != 10) {
       this.isValid = false;
-      this.form.phonenumberisValid= true;
-    }else{
-      this.form.phonenumberisValid= false;
+      this.form.phonenumberisValid = true;
+    } else {
+      this.form.phonenumberisValid = false;
     }
-    if (this.form.cedula.toString().length <10) {
+    if (this.form.cedula.toString().length < 10) {
       this.isValid = false;
-      this.form.cedulaisValid= true;
-    }else{
-      this.form.cedulaisValid= false;
+      this.form.cedulaisValid = true;
+    } else {
+      this.form.cedulaisValid = false;
     }
     if (!this.form.email.includes('@')) {
       this.isValid = false;
-      this.form.emailisValid= true;
-    }else{
-      this.form.emailisValid= false;
+      this.form.emailisValid = true;
+    } else {
+      this.form.emailisValid = false;
     }
     if (this.form.empresa.toString().length < 3 || this.form.empresa.toString().length > 20) {
-      console.log(this.form.enterprisename);
       this.isValid = false;
-      this.form.enterprisenameisValid= true;
-    }else{
-      this.form.enterprisenameisValid= false;
+      this.form.enterprisenameisValid = true;
+    } else {
+      this.form.enterprisenameisValid = false;
     }
     if (this.form.nit.toString().length != 9) {
-      console.log(this.form.nit.length);
       this.isValid = false;
-      this.form.nitisValid= true;
-    }else{
+      this.form.nitisValid = true;
+    } else {
       this.form.nitisValid = false;
     }
     if (this.form.nit2.toString().length != 1) {
       this.isValid = false;
       this.form.nit2isValid = true;
-    }else{
-      this.form.nit2isValid= false;
+    } else {
+      this.form.nit2isValid = false;
     }
     if (this.isValid) {
-      console.log("numero");
       try {
         this.loading = true; // muestra el spinner
-        const { username, email, password , enterprisename,cedula,phonenumber,nit,nit2, position, empresa} = this.form;
+        const { username, email, password, enterprisename, cedula, phonenumber, nit, nit2, position, empresa } = this.form;
 
-    this.registerService.addNewRequest(new Register(username, email, password, cedula, phonenumber, "Cliente ADM", position, true, "", empresa, nit+nit2, false)).subscribe({
-      next: data => {
-        console.log(data);
-        this.isSuccessful = true;
-        this.isSignUpFailed = false;
-        this.loading = false; 
-        this.router.navigate(['/confirm-email', email]);
-      },
-      error: err => {
-        this.errorMessage = err.error.message;
-        this.isSignUpFailed = true;
-        this.loading = false; 
-        //this.router.navigate(['/confirm-email', email]);
-      }
-    });
-    // función que toma algún tiempo en ejecutarse
+        this.registerService.addNewRequest(new Register(username, email, password, cedula, phonenumber, "Cliente ADM", position, true, "", empresa, nit + nit2, false)).subscribe(() => {
+          this.authService.register(username, email, phonenumber, nit + nit2, password, empresa, cedula).subscribe({
+            next: data => {
+              this.isSuccessful = true;
+              this.isSignUpFailed = false;
+              this.loading = false;
+              this.router.navigate(['/confirm-email', email]);
+            },
+            error: err => {
+              this.errorMessage = err.error;
+              this.isSignUpFailed = true;
+              this.loading = false;
+            }
+          })
+        });
+        // función que toma algún tiempo en ejecutarse
       } catch (error) {
         console.error(error);
-        //this.router.navigate(['/confirm-email', "otroEmail.com"]);
-        this.loading = false; 
+        this.loading = false;
       }
     }
   }

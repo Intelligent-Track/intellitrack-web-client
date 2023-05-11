@@ -21,6 +21,18 @@
   font-size: 290%;
 }
 
+.form-group small{
+  width: 10px;
+}
+
+.mx-2 {
+  size:10px;
+}
+
+.form-group ml-2{
+  width: 10px;
+}
+
 .SeccionSU {
   position: absolute;
   top: 50%;
@@ -140,6 +152,11 @@
   cursor: pointer;
   background-color: transparent;
   border: none;
+}
+
+.input-group-append{
+  background-color: #d6d8e2;
+  border-radius: 10px;
 }
 
 .input-group-text:hover {
