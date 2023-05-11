@@ -117,7 +117,6 @@ export class ShipmentBoardComponent implements OnInit {
       this.showTruck = true
       this.cancel = false
     }
-    
   }
 
   logout(): void {
