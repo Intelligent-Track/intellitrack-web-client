@@ -4,7 +4,8 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 const SERVICE_PATH = "users/api/auth"
-const SERVICE_PATH1 = "users/api/reg";
+const SERVICE_PATH1 = "users/api/adm";
+const SERVICE_PATH2 = "users/api/cli";
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -37,8 +38,7 @@ export class AuthService {
 
   register(name: string, username: string, phone: string, nit: string,password: string,companyName: string,document: string): Observable<any> {
     return this.http.post(
-      `${environment.apiUrl}/${SERVICE_PATH1}/ClientCreate`,
-
+      `${environment.apiUrl}/${SERVICE_PATH2}/ClientCreate`,
       {
         name,
         username,
@@ -48,18 +48,39 @@ export class AuthService {
         companyName,
         document,
       },
-      //httpOptions
       {responseType: 'text'}
     );
   }
 
-  Verify(code: string): Observable<any> {
-    console.log("llegue")
+  Verify(code: string,username:string): Observable<any> {
+
     return this.http.post(
 
-      `${environment.apiUrl}/${SERVICE_PATH1}/verifyUser`, //address to check on server
+      `${environment.apiUrl}/${SERVICE_PATH2}/verifyUser`, //address to check on server
       {
-        code
+        code,
+        username
+      },
+      {responseType: 'text'}
+    );
+  }
+
+  GetPendingAprov(): Observable<any> {
+
+    return this.http.get(
+
+      `${environment.apiUrl}/${SERVICE_PATH1}/ClientstoAccept`, //address to check on server
+          )
+  }
+
+  ApproveAnswer(result: string,username:string): Observable<any> {
+
+    return this.http.post(
+
+      `${environment.apiUrl}/${SERVICE_PATH1}/AcceptUser`, //address to check on server
+      {
+        result,
+        username
       },
       {responseType: 'text'}
     );
