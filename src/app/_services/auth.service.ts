@@ -86,6 +86,29 @@ export class AuthService {
     );
   }
 
+  RequestPasswordChange(username: string): Observable<any> {
+    return this.http.post(
+      `${environment.apiUrl}/${SERVICE_PATH}/forgotPassword`,
+
+      {
+        username,
+      },
+      httpOptions
+    );
+  }
+
+  ResetPasswordChange(username: string, token:string): Observable<any> {
+    return this.http.post(
+      `${environment.apiUrl}/${SERVICE_PATH}/ResetPassword/${token}`,
+      {
+        username,
+        token
+      },
+      httpOptions
+    );
+  }
+
+
   logout(): Observable<any> {
     return this.http.post(`${environment.apiUrl}/${SERVICE_PATH}/signout`, { }, httpOptions);
   }
