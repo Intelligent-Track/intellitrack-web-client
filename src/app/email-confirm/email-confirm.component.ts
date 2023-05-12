@@ -50,11 +50,12 @@ export class EmailConfirmComponent implements OnInit {
 
   iniciarSesion(){
 
-    this.authService.Verify(this.code).subscribe(
+    this.authService.Verify(this.code,this.Email).subscribe(
       (data) => { // handle positive response
         console.log(data);
         this.successMessage = "Usuario validado";
         this.isSuccessful = true;
+
         this.router.navigateByUrl('/login');
       },
       (error) => { // handle negative response
