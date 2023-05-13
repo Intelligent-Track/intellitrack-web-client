@@ -84,10 +84,12 @@ export class ShipmentBoardComponent implements OnInit {
 
   //enviar info extra
   onSubmit(shipEdits : Shipment){
-    shipEdits.comments.concat(this.comment)
-    shipEdits.departureDate = this.modDepartureDate;
-    shipEdits.arriveDate = this.modArriveDate;
-    this.deliveryService.updateDelivery(shipEdits)
+    if (shipEdits.status == 'IN_WAREHOUSE'){
+      shipEdits.comments.concat(this.comment)
+      shipEdits.departureDate = this.modDepartureDate;
+      shipEdits.arriveDate = this.modArriveDate;
+      this.deliveryService.updateDelivery(shipEdits)
+    }
 
   }
 
