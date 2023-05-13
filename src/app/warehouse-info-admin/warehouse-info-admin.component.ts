@@ -5,6 +5,7 @@ import { WarehouseService } from '../_services/warehouse.service';
 import { switchMap } from 'rxjs';
 import { Package } from '../model/package';
 import { DtoWarehousePackage } from '../dto/dto-warehouse-package';
+import { StorageService } from '../_services/storage.service';
 
 @Component({
   selector: 'app-warehouse-info-admin',
@@ -25,7 +26,8 @@ export class WarehouseInfoAdminComponent {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private warehouseService: WarehouseService
+    private warehouseService: WarehouseService,
+    public storageService: StorageService
   ) { }
 
   ngOnInit(): void {
@@ -56,6 +58,11 @@ export class WarehouseInfoAdminComponent {
         });
       })
     }
+  }
+
+  logout(): void {
+    this.storageService.clean();
+    this.router.navigate(['home'])
   }
 
 }

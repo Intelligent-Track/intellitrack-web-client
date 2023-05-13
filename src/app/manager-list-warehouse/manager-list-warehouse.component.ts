@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Warehouse } from '../model/warehouse';
 import { WarehouseService } from '../_services/warehouse.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { StorageService } from '../_services/storage.service';
 
 @Component({
   selector: 'app-manager-list-warehouse',
@@ -15,7 +16,8 @@ export class ManagerListWarehouseComponent implements OnInit {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private warehouseService: WarehouseService
+    private warehouseService: WarehouseService,
+    private storageService: StorageService
   ) { }
 
   ngOnInit(): void {
@@ -37,4 +39,8 @@ export class ManagerListWarehouseComponent implements OnInit {
 
   }
 
+  logout(): void {
+    this.storageService.clean();
+    this.router.navigate(['home'])
+  }
 }

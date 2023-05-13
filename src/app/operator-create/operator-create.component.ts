@@ -41,4 +41,9 @@ export class OperatorCreateComponent implements OnInit {
     }
   }
 
+  logout(): void {
+    this.storageService.clean();
+    this.router.navigate(['home'])
+  }
+
 }

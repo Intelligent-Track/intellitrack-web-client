@@ -53,4 +53,9 @@ export class OperatorListComponent implements OnInit {
     this.router.navigate(['operator-create']);
   }
 
+  logout(): void {
+    this.storageService.clean();
+    this.router.navigate(['home'])
+  }
+
 }
