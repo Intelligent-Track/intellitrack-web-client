@@ -13,8 +13,7 @@ import { AuthService } from '../_services/auth.service';
 export class RegistrationRequestsComponent implements OnInit {
 
   infoRegisters: Register[] = [];
-  clients: any[]=[];
-  result: string = "";
+  clients: any[] = [];
   errorMessage = '';
   isSuccessful = false;
   isFailed = false;
@@ -29,15 +28,14 @@ export class RegistrationRequestsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-     this.authService.GetPendingAprov().subscribe((data: any[])=>{
+    this.authService.GetPendingAprov().subscribe((data: any[]) => {
       this.clients = data;
     })
 
   }
-  acceptRequest(username: string){
-    this.result = "true";
 
-    this.authService.ApproveAnswer(this.result,username).subscribe(
+  acceptRequest(username: string) {
+    this.authService.ApproveAnswer(true, username).subscribe(
       (data) => { // handle positive response
         console.log(data);
         this.successMessage = "Usuario validado";
@@ -50,13 +48,10 @@ export class RegistrationRequestsComponent implements OnInit {
         this.isFailed = true;
       }
     );
-
   }
 
-  declineRequest(username: string){
-    this.result = "false";
-
-    this.authService.ApproveAnswer(this.result,username).subscribe(
+  declineRequest(username: string) {
+    this.authService.ApproveAnswer(false, username).subscribe(
       (data) => { // handle positive response
         console.log(data);
         this.successMessage = "Usuario no validado";
@@ -68,7 +63,6 @@ export class RegistrationRequestsComponent implements OnInit {
         this.isFailed = true;
       }
     );
-
   }
 
 
