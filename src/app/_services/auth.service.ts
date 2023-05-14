@@ -21,7 +21,7 @@ const httpOptions2 = {
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   login(username: string, password: string): Observable<any> {
     return this.http.post(
@@ -36,7 +36,7 @@ export class AuthService {
     );
   }
 
-  register(name: string, username: string, phone: string, nit: string,password: string,companyName: string,document: string): Observable<any> {
+  register(name: string, username: string, phone: string, nit: string, password: string, companyName: string, document: string): Observable<any> {
     return this.http.post(
       `${environment.apiUrl}/${SERVICE_PATH2}/ClientCreate`,
       {
@@ -48,11 +48,11 @@ export class AuthService {
         companyName,
         document,
       },
-      {responseType: 'text'}
+      { responseType: 'text' }
     );
   }
 
-  Verify(code: string,username:string): Observable<any> {
+  Verify(code: string, username: string): Observable<any> {
 
     return this.http.post(
 
@@ -61,7 +61,7 @@ export class AuthService {
         code,
         username
       },
-      {responseType: 'text'}
+      { responseType: 'text' }
     );
   }
 
@@ -70,19 +70,18 @@ export class AuthService {
     return this.http.get(
 
       `${environment.apiUrl}/${SERVICE_PATH1}/ClientstoAccept`, //address to check on server
-          )
+    )
   }
 
-  ApproveAnswer(result: string,username:string): Observable<any> {
-
+  ApproveAnswer(accepted: boolean, username: string): Observable<any> {
     return this.http.post(
 
       `${environment.apiUrl}/${SERVICE_PATH1}/AcceptUser`, //address to check on server
       {
-        result,
-        username
+        username,
+        accepted
       },
-      {responseType: 'text'}
+      { responseType: 'text' }
     );
   }
 
@@ -97,7 +96,7 @@ export class AuthService {
     );
   }
 
-  ResetPasswordChange(username: string, token:string): Observable<any> {
+  ResetPasswordChange(username: string, token: string): Observable<any> {
     return this.http.post(
       `${environment.apiUrl}/${SERVICE_PATH}/ResetPassword/${token}`,
       {
@@ -110,6 +109,6 @@ export class AuthService {
 
 
   logout(): Observable<any> {
-    return this.http.post(`${environment.apiUrl}/${SERVICE_PATH}/signout`, { }, httpOptions);
+    return this.http.post(`${environment.apiUrl}/${SERVICE_PATH}/signout`, {}, httpOptions);
   }
 }
