@@ -28,10 +28,14 @@ export class ShipmentBoardComponent implements OnInit {
   selectedShip: Shipment | undefined;
   nitClt: string = "";
   cancel = true;
-  
-  constructor( 
+  comment: string ='';
+  warehouseState = true;
+  modDepartureDate: Date = new Date();
+  modArriveDate: Date = new Date();
+
+  constructor(
     private router: Router,
-    private deliveryService: DeliveryService, 
+    private deliveryService: DeliveryService,
     public clientService: ClientService,
     public storageService: StorageService
   ) { }
@@ -74,10 +78,23 @@ export class ShipmentBoardComponent implements OnInit {
     }catch{
       console.log("No hay deliveries en esta empresa.")
     }
-    
+
+  }
+
+  //enviar info extra
+  onSubmit(shipEdits : Shipment){
+    if (shipEdits.status == 'IN_WAREHOUSE'){
+      shipEdits.comments.concat(this.comment)
+      shipEdits.departureDate = this.modDepartureDate;
+      shipEdits.arriveDate = this.modArriveDate;
+      this.deliveryService.updateDelivery(shipEdits)
+    }
+
   }
 
 
+
+  //
   onCancel(ship :Shipment){
     console.log(ship.id)
     this.deliveryService.deleteDelivery(ship.id).subscribe(() => {

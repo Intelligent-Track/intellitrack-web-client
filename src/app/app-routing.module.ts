@@ -41,7 +41,7 @@ import { WarehouseListClientComponent } from './warehouse-list-client/warehouse-
 import { EmailConfirmComponent } from './email-confirm/email-confirm.component';
 import { RegistrationRequestsComponent } from './registration-requests/registration-requests.component';
 import { DriverBoardComponent } from './driver-board/driver-board.component';
-
+import { ExtraInfoShipmentComponent } from './extra-info-shipment/extra-info-shipment.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -53,8 +53,8 @@ const routes: Routes = [
   { path: 'mod', component: BoardModeratorComponent },
   { path: 'admin', component: BoardAdminComponent },
   { path: 'drivers-list', component: DriversListComponent },
-  {path: 'adminAddDriver', component: AdminAddDriverComponent},
-  {path: 'adminAddMechanic', component: AdminAddMechanicComponent},
+  { path: 'adminAddDriver', component: AdminAddDriverComponent},
+  { path: 'adminAddMechanic', component: AdminAddMechanicComponent},
   { path: 'adminAddManager', component: AdminAddManagerComponent},
   { path: 'editProfileOperador', component: EditProfileOperadorComponent },
   { path: 'editProfileManager', component: EditProfileManagerComponent},
@@ -82,7 +82,7 @@ const routes: Routes = [
   { path: 'warehouse-create', component: WarehouseCreateComponent},
   { path: 'warehouse-info-admin/:id', component: WarehouseInfoAdminComponent},
   { path: 'confirm-email/:data', component: EmailConfirmComponent},
-  { path: 'client-requests', component: RegistrationRequestsComponent},
+  { path: 'extraInfo', component: ExtraInfoShipmentComponent},
   { path: 'driver-board', component: DriverBoardComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];

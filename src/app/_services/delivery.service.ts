@@ -33,10 +33,10 @@ export class DeliveryService {
       .set('departureDate', departureDate)
       .set('comments', comments)
       .set('nit', nit);
-  
+
     return this.http.post<number>(`${environment.apiUrl}/${SERVICE_PATH}/program`, products, { params: params });
   }
-  
+
 
   deleteDelivery( id: number){
     return this.http.delete<Shipment>(`${environment.apiUrl}/${SERVICE_PATH}/cancelDelivery/`+ id,  this.httpOptions);
@@ -72,6 +72,10 @@ export class DeliveryService {
   }
 
 
+
+  updateDelivery(shipment: Shipment){
+    return this.http.put<Shipment>(`${environment.apiUrl}/${SERVICE_PATH}/updateDelivery` + shipment, this.httpOptions);
+  }
 
 
 }

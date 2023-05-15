@@ -131,6 +131,15 @@
       </div>
       <br>
       <h4>Comentarios del envío: {{selectedShip.comments}}</h4>
+      <h3>Información extra</h3>
+      <form (ngSubmit)="onSubmit(selectedShip)">
+        <div *ngIf="warehouseState">
+          <input type="text" class="form-control custom-input" name="commentAdd" [(ngModel)]="comment">
+          <input type="date" name="dateArri" [(ngModel)]="modDepartureDate">
+          <input type="date" name="dateArri" [(ngModel)]="modArriveDate">
+          <button class="btn btn-orange btn-block custom-btn" (ngSubmit)="onSubmit(selectedShip)"> Editar</button>
+        </div>
+    </form>
       <br>
       <h4>Costo del envío: {{selectedShip.travelCost}} </h4>
       <br>
@@ -141,6 +150,6 @@
         <button (click)="onCancel(selectedShip)" class="btn btn-orange btn-block custom-btn">Cancelar</button>
       </div>
     </div>
-    
+
   </div>
 </div>
