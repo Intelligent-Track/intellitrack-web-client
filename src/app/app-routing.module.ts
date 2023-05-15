@@ -43,10 +43,10 @@ import { DriverBoardComponent } from './driver-board/driver-board.component';
 import { AuthGuard } from './_services/AuthGuard';
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: 'home', component: HomeComponent },
   { path: 'prdServic', component: ProductsServicesComponent, canActivate: [AuthGuard]},
-  { path: 'login', component: LoginComponent, canActivate: [AuthGuard] },
-  { path: 'register', component: RegisterComponent, canActivate: [AuthGuard] },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
   { path: 'user', component: BoardUserComponent, canActivate: [AuthGuard] },
   { path: 'mod', component: BoardModeratorComponent, canActivate: [AuthGuard] },
@@ -68,9 +68,9 @@ const routes: Routes = [
   { path: 'warehouse-list', component: WarehouseListComponent, canActivate: [AuthGuard] },
   { path: 'warehouse-info/:id', component: WarehouseInfoComponent, canActivate: [AuthGuard] },
   { path: 'warehouse-edit/:id', component: WarehouseEditComponent, canActivate: [AuthGuard] },
-  { path: 'change-password-r', component: ChangePasswordRequestComponent, canActivate: [AuthGuard] },
-  { path: 'change-password-s', component: ChangePasswordSendedComponent, canActivate: [AuthGuard]},
-  { path: 'change-password/:token', component: ChangePasswordComponent, canActivate: [AuthGuard]},
+  { path: 'change-password-r', component: ChangePasswordRequestComponent},
+  { path: 'change-password-s', component: ChangePasswordSendedComponent},
+  { path: 'change-password/:token', component: ChangePasswordComponent},
   { path: 'shipment-board', component: ShipmentBoardComponent, canActivate: [AuthGuard]},
   { path: 'program-shipment', component: ProgramShipmentComponent, canActivate: [AuthGuard]},
   { path: 'quote-service', component: ClientQuoteServicesComponent, canActivate: [AuthGuard]},
@@ -80,7 +80,7 @@ const routes: Routes = [
   { path: 'warehouse-list-client', component: WarehouseListClientComponent, canActivate: [AuthGuard]},
   { path: 'warehouse-create', component: WarehouseCreateComponent, canActivate: [AuthGuard]},
   { path: 'warehouse-info-admin/:id', component: WarehouseInfoAdminComponent, canActivate: [AuthGuard]},
-  { path: 'confirm-email/:data', component: EmailConfirmComponent, canActivate: [AuthGuard]},
+  { path: 'confirm-email/:data', component: EmailConfirmComponent},
   { path: 'driver-board', component: DriverBoardComponent, canActivate: [AuthGuard]},
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
