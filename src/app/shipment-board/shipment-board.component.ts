@@ -2,7 +2,6 @@ import { DeliveryService } from './../_services/delivery.service';
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../model/product';
 import { Shipment } from '../model/shipment';
-import { PackagesService } from '../_services/packages.service';
 import { ClientService } from '../_services/client.service';
 import { StorageService } from '../_services/storage.service';
 import { Router } from '@angular/router';

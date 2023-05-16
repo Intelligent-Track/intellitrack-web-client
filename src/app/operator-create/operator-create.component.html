@@ -1,41 +1,43 @@
 <nav class="navbar navbar-expand-lg navbar-light x">
   <a class="navbar-brand" href="#">
-      <img src="../../assets/whitebrand.png" width="50" height="50" class="d-inline-block align-top" alt="">
+    <img src="../../assets/whitebrand.png" width="50" height="50" class="d-inline-block align-top" alt="">
   </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ml-auto"> 
-        <li class="nav-item">
-          <a class="nav-link text" routerLink="/client-requests" href="#" style="color: white; font-weight: 200;">Clientes</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link text" routerLink="/manager-list-warehouse"style="color: white;font-weight: 200;">Bodegas</a>
-          </li><!-- Agregar la clase ml-auto -->
-          <li class="nav-item">
-              <a class="nav-link text" routerLink="/not-yet-implemented" style="color: white; font-weight: 200;">Rutas</a>
-          </li>
-          <li class="nav-item text">
-              <a class="nav-link" routerLink="/operator-list" style="color: white; font-weight: 500;">Operadores</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link text active" routerLink="/drivers-list" style="color: white; font-weight: 200;"><span class="sr-only">(current)</span>Conductores</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link text" routerLink="/manager-list" style="color: white; font-weight: 200;">Gerentes</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link text" routerLink="/not-yet-implemented" style="color: white; font-weight: 200;">Gastos</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link text" routerLink="/not-yet-implemented" style="color: white;font-weight: 200;">Perfil</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link text " href="#" style="color: white; font-weight: 200;" (click)="logout()">Cerrar sesión</a>
-          </li>
-      </ul>
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link text" routerLink="/client-requests" href="#"
+          style="color: white; font-weight: 200;">Clientes</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text" routerLink="/manager-list-warehouse" style="color: white;font-weight: 200;">Bodegas</a>
+      </li><!-- Agregar la clase ml-auto -->
+      <li class="nav-item">
+        <a class="nav-link text" routerLink="/not-yet-implemented" style="color: white; font-weight: 200;">Rutas</a>
+      </li>
+      <li class="nav-item text">
+        <a class="nav-link" routerLink="/operator-list" style="color: white; font-weight: 500;">Operadores</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text active" routerLink="/drivers-list" style="color: white; font-weight: 200;"><span
+            class="sr-only">(current)</span>Conductores</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text" routerLink="/manager-list" style="color: white; font-weight: 200;">Gerentes</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text" routerLink="/not-yet-implemented" style="color: white; font-weight: 200;">Gastos</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text" routerLink="/not-yet-implemented" style="color: white;font-weight: 200;">Perfil</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text " href="#" style="color: white; font-weight: 200;" (click)="logout()">Cerrar sesión</a>
+      </li>
+    </ul>
   </div>
 </nav>
 
@@ -46,10 +48,15 @@
       required>
     <input type="text" placeholder="Identificación" class="form-control custom-input" name="idAdd" [(ngModel)]="idOpt"
       required>
-    <input type="password" name="passOpt" placeholder="Contraseña" class="form-control custom-input" name="phoneAdd"  ng-minlength="10"
-      [(ngModel)]="passwordOpt" required>
-      <input type="text" placeholder="Ubicación" class="form-control custom-input" name="locationAdd" [(ngModel)]="locationOpt"
-      required>
+    <div>
+      <input type="password" name="passOpt" placeholder="Contraseña" class="form-control custom-input" name="phoneAdd"
+        ng-minlength="10" [(ngModel)]="passwordOpt" required>
+      <div *ngIf="validPassword" class="text-danger">
+        <span>La contraseña debe tener mínimo 10 caracteres</span>
+      </div>
+    </div>
+    <input type="text" placeholder="Ubicación" class="form-control custom-input" name="locationAdd"
+      [(ngModel)]="locationOpt" required>
     <input type="text" placeholder="Teléfono" class="form-control custom-input" name="phoneAdd" [(ngModel)]="phoneOpt"
       required>
     <input type="text" placeholder="Correo" class="form-control custom-input" name="emailAdd" [(ngModel)]="emailOpt"

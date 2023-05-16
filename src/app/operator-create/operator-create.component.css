@@ -95,6 +95,10 @@ button{
     /* ajusta el tamaño de la fuente a 24 píxeles */
 }
 
+span{
+  margin-left: 2%;
+}
+
 li {
     float: right;
 }

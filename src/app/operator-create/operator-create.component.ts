@@ -19,6 +19,7 @@ export class OperatorCreateComponent implements OnInit {
   phoneOpt: number | undefined;
   emailOpt: string = "";
   passwordOpt: string = "";
+  validPassword: boolean = false;
 
   constructor(
     private adminService: AdminService,
@@ -32,12 +33,14 @@ export class OperatorCreateComponent implements OnInit {
 
   onSubmit(){
     if(this.nameOpt && this.idOpt && this.emailOpt && this.phoneOpt && this.passwordOpt && this.locationOpt){
-      this.adminService.createOperator(new DtoOperator(this.nameOpt, this.emailOpt, this.passwordOpt, this.idOpt, this.phoneOpt!, "Operator",this.locationOpt, this.storageService.getUser().username)).subscribe(() => {
-        this.router.navigate(['operator-list'])
+      if(this.passwordOpt.length < 10){
+        this.validPassword = true;
+      }else{
+        this.adminService.createOperator(new DtoOperator(this.nameOpt, this.emailOpt, this.passwordOpt, this.idOpt, this.phoneOpt!, "Operator",this.locationOpt, this.storageService.getUser().username)).subscribe(() => {
+          this.router.navigate(['operator-list'])
+        }
+        );
       }
-      );
-    }else{
-
     }
   }
 

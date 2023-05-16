@@ -36,7 +36,8 @@
                 <a class="nav-link text" routerLink="/not-yet-implemented" style="color: white;font-weight: 200;">Perfil</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text " href="#" style="color: white; font-weight: 200;" (click)="logout()">Cerrar sesión</a>
+                <a class="nav-link text " href="#" style="color: white; font-weight: 200;" (click)="logout()">Cerrar
+                    sesión</a>
             </li>
         </ul>
     </div>
@@ -45,36 +46,48 @@
 <div class="pad">
     <h2>Bodegas</h2>
     <div class="input-group pb-2">
-        <div class="input-group-prepend border-0">
-            <span class="input-group-text border-0 bg-transparent">
-                <i class="fa fa-search"></i>
-            </span>
+        <div class="filter-ware">
+            <span class="">Filtrar por ciudad</span>
+            <select class="form-select filter-ware" name="cities" id="cities" *ngIf="cities" [(ngModel)]="selectedCity">
+                <option value=""></option>
+                <option [ngValue]="city" *ngFor="let city of cities">{{city.name}}</option>
+            </select>
         </div>
-        <input type="text" class="form-control border">
-        <div class="input-group-append ml-5">
-            <form (ngSubmit)="onAddSubmit()">
-                <button class="btn btn-outline-secondary border-0  bu" routerLink="/warehouse-create">
-                    <i class="fa fa-plus"></i> Agregar
-                </button>
-            </form>
+        <div class="filter-ware">
+            <span class="">Filtrar por tipo</span>
+            <select class="form-select" name="types" id="types" *ngIf="types" [(ngModel)]="selectedType">
+                <option value=""></option>
+                <option [ngValue]="type" *ngFor="let type of types">{{type.name}}</option>
+            </select>
         </div>
+        <div class="vertical filter-ware">
+            <span class="">Capacidad</span>
+            <input type="number" class="form-control search-input" placeholder="m³" id="validationDefault01" class=""
+                [(ngModel)]="capacity">
+        </div>
+        <form (ngSubmit)="onSearchSubmit()">
+            <button class="btn btn-outline-secondary border-0 search bu">
+                <i class="fa  fa-search"></i>
+            </button>
+        </form>
     </div>
+
     <div class="input-group pb-2">
         <p class="note-ware">
             Seleccione una bodega de la tabla
         </p>
     </div>
+
     <div class="table-responsive  ">
         <table class="table">
             <thead>
                 <tr>
                     <th scope="col">ID</th>
                     <th scope="col">Ciudad</th>
-                    <th scope="col">Direccion</th>
+                    <th scope="col">Dirección</th>
                     <th scope="col">Capacidad</th>
                     <th scope="col">Tipo</th>
-                    <th scope="col">Costo m³</th>
-                    <th class="no-border"></th>
+                    <th scope="col">Costo por m³</th>
                 </tr>
             </thead>
             <tbody>
@@ -103,5 +116,4 @@
             </tbody>
         </table>
     </div>
-
 </div>

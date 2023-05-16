@@ -1,79 +1,84 @@
-header {
-    background-size: cover;
-    min-height: 100vh;
-  }
-  
-  .bordeLogin {
-    background-color: #ff6e59;
-    padding: 10px;
-  }
-  
-  .navbar-brand {
-    font-size: 44px; /* ajusta el tamaño de la fuente a 24 píxeles */
-  }
-  
-  li {
-    float: right;
-  }
-  
-  .nav-link {
-    margin-right: 20px;
-    color: white;
-  }
-  
-  .bu {
-    font-size: 14px;
-  }
-  
-  .pad {
-    padding-top: 5%;
-    padding-left: 10%;
-    padding-right: 10%;
-  }
-  
-  .no-border {
-    border: none;
-  }
-  
-  h2 {
-    margin-bottom: 2%;
-  }
-  .x {
-    background-color: #ff6e59;
-  }
-  
-  .text {
-    font-size: large;
-  }
-  
-  .navbar-nav {
-    text-align: left;
-  }
-
-  .filter{
-    justify-content: space-around;
-    width: 400px;
-    display: flex;
-    flex-direction: row;
-  }
-  .btn-orange {
-    background-color: #FF6E59; /* aquí puedes cambiar el color de fondo */
-    border-color: #FF6E59; /* aquí puedes cambiar el color del borde */
-    color: black; /* aquí puedes cambiar el color de la letra */
-    border-radius: 20px; 
-    width: 200px;
-    height: 30px;
-  }
-
-  table tbody tr:hover td:not(:nth-last-child(-n+1)) {
-    background-color: gainsboro;
+.bordeLogin {
+  background-color: #ff6e59;
+  padding: 10px;
 }
-  
-  .custom-btn:focus,
-  .custom-btn:hover {
-    background-color: #FF6E59; /* aquí puedes cambiar el color de fondo en estado :hover y :focus */
-    border-color: #FF6E59; /* aquí puedes cambiar el color del borde en estado :hover y :focus */
-    color: black; /* aquí puedes cambiar el color de la letra en estado :hover y :focus */
-    box-shadow: none; /* aquí puedes cambiar la sombra */
-    align-items: center;
-  }
+
+.navbar-brand {
+  font-size: 44px;
+  /* ajusta el tamaño de la fuente a 24 píxeles */
+}
+
+li {
+  float: right;
+}
+
+.nav-link {
+  margin-right: 20px;
+
+}
+
+.bu {
+  font-size: 14px;
+}
+
+.pad {
+  padding-top: 5%;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.no-border {
+  border: none;
+}
+
+.x {
+  background-color: #ff6e59;
+}
+
+.text {
+  font-size: large;
+}
+
+.navbar-nav {
+  text-align: left;
+}
+
+h2 {
+  margin-bottom: 2%;
+}
+
+select{
+  width: 8vw;
+  margin-right: 3%;
+  height: 3vh;
+}
+
+.vertical{
+  display: flex;
+  flex-direction: column;
+}
+
+.note-ware{
+  font-size: 8pt;
+  font-style: italic;
+  font-weight: normal;
+}
+
+.filter-ware{
+  margin-right: 10%;
+}
+
+input{
+  width: 4vw;
+  height: 3vh;
+  text-align: center;
+}
+
+.search{
+  margin-top: 1.5vh;
+  margin-left: 2vh;
+}
+
+table tbody tr:hover td:not(:nth-last-child(-n)) {
+  background-color: gainsboro;
+}
