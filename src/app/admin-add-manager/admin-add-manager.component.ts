@@ -19,6 +19,7 @@ export class AdminAddManagerComponent implements OnInit {
   location: string | undefined;
 
   general: boolean = false;
+  validPassword: boolean = false;
 
   constructor(
     public adminService: AdminService,
@@ -29,11 +30,21 @@ export class AdminAddManagerComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSubmit(){
-    if(this.name && this.email && this.password && this.phone && this.document && this.location){
-      this.adminService.createManager(new DtoManager(this.name, this.password, this.email, this.document, this.phone, "Manager", this.location, this.general, this.storageService.getUser().username)).subscribe(() => {
-        this.router.navigate(['manager-list'])
-      })
+  onSubmit() {
+    if (this.name && this.email && this.password && this.phone && this.document && this.location) {
+      if (this.password.length < 10) {
+        this.validPassword = true;
+      } else {
+        this.adminService.createManager(new DtoManager(this.name, this.password, this.email, this.document, this.phone, "Manager", this.location, this.general, this.storageService.getUser().username)).subscribe(() => {
+          this.router.navigate(['manager-list'])
+        })
+      }
     }
   }
+
+  logout(): void {
+    this.storageService.clean();
+    this.router.navigate(['home'])
+  }
+
 }

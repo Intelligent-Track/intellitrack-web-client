@@ -5,6 +5,7 @@ import { WarehouseService } from '../_services/warehouse.service';
 import { Package } from '../model/package';
 import { DtoWarehouse } from '../dto/dto-warehouse';
 import { Router } from '@angular/router';
+import { StorageService } from '../_services/storage.service';
 
 @Component({
   selector: 'app-warehouse-create',
@@ -25,7 +26,8 @@ export class WarehouseCreateComponent implements OnInit {
 
   constructor(
     private warehouseService: WarehouseService,
-    private router: Router
+    private router: Router,
+    public storageService: StorageService
   ) { }
 
   ngOnInit(): void {
@@ -49,6 +51,11 @@ export class WarehouseCreateComponent implements OnInit {
 
       }   );
     }
+  }
+
+  logout(): void {
+    this.storageService.clean();
+    this.router.navigate(['home'])
   }
 
 }

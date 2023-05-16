@@ -45,6 +45,8 @@ import { WarehouseInfoAdminComponent } from './warehouse-info-admin/warehouse-in
 import { WarehouseListClientComponent } from './warehouse-list-client/warehouse-list-client.component';
 import { EmailConfirmComponent } from './email-confirm/email-confirm.component';
 import { RegistrationRequestsComponent } from './registration-requests/registration-requests.component';
+import { NotImplementedComponent } from './not-implemented/not-implemented.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -90,7 +92,9 @@ import { RegistrationRequestsComponent } from './registration-requests/registrat
     WarehouseInfoAdminComponent,
     WarehouseListClientComponent,
     EmailConfirmComponent,
-    RegistrationRequestsComponent
+    RegistrationRequestsComponent,
+    NotImplementedComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

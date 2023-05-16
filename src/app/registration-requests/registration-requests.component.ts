@@ -3,6 +3,7 @@ import { Register } from '../model/register';
 import { StorageService } from '../_services/storage.service';
 import { RegisterService } from '../_services/register.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from '../_services/auth.service';
 
 @Component({
   selector: 'app-registration-requests',
@@ -12,38 +13,62 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class RegistrationRequestsComponent implements OnInit {
 
   infoRegisters: Register[] = [];
+  clients: any[] = [];
+  errorMessage = '';
+  isSuccessful = false;
+  isFailed = false;
+  successMessage = "";
 
   constructor(
     private registerService: RegisterService,
+    private authService: AuthService,
     private route: ActivatedRoute,
     private router: Router,
     private storageService: StorageService,
   ) { }
 
   ngOnInit(): void {
-    this.registerService.listAllManagers().subscribe(requests => {
-      this.infoRegisters = requests
+    this.authService.GetPendingAprov().subscribe((data: any[]) => {
+      this.clients = data;
     })
+
   }
 
-  acceptRequest(infoRegister: Register){
-    infoRegister.accepted = true;
-    infoRegister.managerUsername = this.storageService.getUser().username;
-    this.registerService.manageRequest(infoRegister).subscribe(()=>{
-      this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-        this.router.navigate(['client-requests']);
-      });
-    })
+  acceptRequest(username: string) {
+    this.authService.ApproveAnswer(true, username).subscribe(
+      (data) => { // handle positive response
+        console.log(data);
+        this.successMessage = "Usuario validado";
+        this.isSuccessful = true;
+
+      },
+      (error) => { // handle negative response
+        console.log(error);
+        this.errorMessage = error.error;
+        this.isFailed = true;
+      }
+    );
   }
 
-  declineRequest(infoRegister: Register){
-    infoRegister.accepted = false;
-    infoRegister.managerUsername = this.storageService.getUser().username;
-    this.registerService.manageRequest(infoRegister).subscribe(()=>{
-      this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-        this.router.navigate(['client-requests']);
-      });
-    })
+  declineRequest(username: string) {
+    this.authService.ApproveAnswer(false, username).subscribe(
+      (data) => { // handle positive response
+        console.log(data);
+        this.successMessage = "Usuario no validado";
+        this.isSuccessful = true;
+      },
+      (error) => { // handle negative response
+        console.log(error);
+        this.errorMessage = error.error;
+        this.isFailed = true;
+      }
+    );
+  }
+
+
+  logout(): void {
+    this.storageService.clean();
+    this.router.navigate(['home'])
   }
 
 

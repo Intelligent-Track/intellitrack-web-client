@@ -2,9 +2,9 @@ import { DeliveryService } from './../_services/delivery.service';
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../model/product';
 import { Shipment } from '../model/shipment';
-import { PackagesService } from '../_services/packages.service';
 import { ClientService } from '../_services/client.service';
 import { StorageService } from '../_services/storage.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-shipment-board',
@@ -25,12 +25,16 @@ export class ShipmentBoardComponent implements OnInit {
   showTruck = true;
   showproducts = false
   selectedShip: Shipment | undefined;
-  router: any;
   nitClt: string = "";
   cancel = true;
-  
-  constructor( 
-    private deliveryService: DeliveryService, 
+  comment: string ='';
+  warehouseState = true;
+  modDepartureDate: Date = new Date();
+  modArriveDate: Date = new Date();
+
+  constructor(
+    private router: Router,
+    private deliveryService: DeliveryService,
     public clientService: ClientService,
     public storageService: StorageService
   ) { }
@@ -73,10 +77,23 @@ export class ShipmentBoardComponent implements OnInit {
     }catch{
       console.log("No hay deliveries en esta empresa.")
     }
-    
+
+  }
+
+  //enviar info extra
+  onSubmit(shipEdits : Shipment){
+    if (shipEdits.status == 'IN_WAREHOUSE'){
+      shipEdits.comments.concat(this.comment)
+      shipEdits.departureDate = this.modDepartureDate;
+      shipEdits.arriveDate = this.modArriveDate;
+      this.deliveryService.updateDelivery(shipEdits)
+    }
+
   }
 
 
+
+  //
   onCancel(ship :Shipment){
     console.log(ship.id)
     this.deliveryService.deleteDelivery(ship.id).subscribe(() => {
@@ -116,7 +133,11 @@ export class ShipmentBoardComponent implements OnInit {
       this.showTruck = true
       this.cancel = false
     }
-    
+  }
+
+  logout(): void {
+    this.storageService.clean();
+    this.router.navigate(['home'])
   }
 
 }

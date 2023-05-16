@@ -17,7 +17,7 @@
                     style="color: white;font-weight: 200;">Bodegas</a>
             </li><!-- Agregar la clase ml-auto -->
             <li class="nav-item">
-                <a class="nav-link text" href="#" style="color: white; font-weight: 200;">Rutas</a>
+                <a class="nav-link text" routerLink="/not-yet-implemented" style="color: white; font-weight: 200;">Rutas</a>
             </li>
             <li class="nav-item text">
                 <a class="nav-link" routerLink="/operator-list" style="color: white; font-weight: 200;">Operadores</a>
@@ -29,13 +29,13 @@
                 <a class="nav-link text" routerLink="/manager-list" style="color: white; font-weight: 200;">Gerentes</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text" href="#" style="color: white; font-weight: 200;">Gastos</a>
+                <a class="nav-link text" routerLink="/not-yet-implemented" style="color: white; font-weight: 200;">Gastos</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text" href="#" style="color: white;font-weight: 200;">Perfil</a>
+                <a class="nav-link text" routerLink="/not-yet-implemented" style="color: white;font-weight: 200;">Perfil</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text " style="color: white; font-weight: 200;">Cerrar sesión</a>
+                <a class="nav-link text " href="#" style="color: white; font-weight: 200;" (click)="logout()">Cerrar sesión</a>
             </li>
         </ul>
     </div>
@@ -55,27 +55,27 @@
                     <th scope="col">Nombre de la persona</th>
                     <th scope="col">Documento</th>
                     <th scope="col">Teléfono</th>
-                    <th scope="col">Ubicación</th>
+                    <!--<th scope="col">Ubicación</th>-->
                     <th class="no-border"></th>
                 </tr>
             </thead>
             <tbody>
-                <ng-container *ngIf="infoRegisters">
-                    <tr *ngFor="let infoRegister of infoRegisters">
-                        <td scope="row">{{infoRegister.nit}}</td>
-                        <td>{{infoRegister.companyName}}</td>
-                        <td>{{infoRegister.name}}</td>
-                        <td>{{infoRegister.document}}</td>
-                        <td>{{infoRegister.phone}}</td>
-                        <td>{{infoRegister.location}}</td>
+                <ng-container *ngIf="clients">
+                    <tr *ngFor="let clients of clients">
+                        <td scope="row">{{clients.nit}}</td>
+                        <td>{{clients.companyName}}</td>
+                        <td>{{clients.name}}</td>
+                        <td>{{clients.document}}</td>
+                        <td>{{clients.phone}}</td>
+                        <!--<td>{{clients.location}}</td>-->
                         <td class="no-border">
                             <div class="btn-group" role="group">
                                 <button class="btn btn-lg check-design" type="button"
-                                    (click)="acceptRequest(infoRegister)">
+                                    (click)="acceptRequest(clients.username)">
                                     <i class="fa fa-check-circle-o"></i>
                                 </button>
                                 <button class="btn btn-lg ml-2 times-design" type="button"
-                                    (click)="declineRequest(infoRegister)">
+                                    (click)="declineRequest(clients.username)">
                                     <i class="fa fa-times-circle-o"></i>
                                 </button>
                             </div>

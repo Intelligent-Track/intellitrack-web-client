@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { VehicleService } from '../_services/vehicle.service';
 import { Vehicle } from '../model/vehicle';
+import { StorageService } from '../_services/storage.service';
 
 @Component({
   selector: 'app-vehicle-create',
@@ -15,7 +16,7 @@ export class VehicleCreateComponent implements OnInit {
   typeOpt: string = ""
   volumCapacityOpt: number | undefined
   weightCapacityOpt: number | undefined
-  constructor(private router: Router,private vehicleService: VehicleService) { }
+  constructor(private router: Router,private vehicleService: VehicleService, public storageService: StorageService) { }
 
   ngOnInit(): void {
   }
@@ -29,5 +30,10 @@ export class VehicleCreateComponent implements OnInit {
     }else{
 
     }
+  }
+
+  logout(): void {
+    this.storageService.clean();
+    this.router.navigate(['home'])
   }
 }

@@ -4,6 +4,7 @@ import { Register } from '../model/register';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
+
 const SERVICE_PATH = "users/api/reg";
 
 @Injectable({

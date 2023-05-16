@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Warehouse } from '../model/warehouse';
-import { WarehouseService } from '../_services/warehouse.service';
 import { City } from '../model/city';
 import { Type } from '../model/type';
 import { Router } from '@angular/router';
 import { Package } from '../model/package';
 import { PackagesService } from '../_services/packages.service';
 import { StorageService } from '../_services/storage.service';
+import { AuthService } from '../_services/auth.service';
 
 @Component({
   selector: 'app-warehouse-list',
@@ -24,13 +23,20 @@ export class WarehouseListComponent implements OnInit {
 
   constructor(
     private packageService: PackagesService,
-    private storageService: StorageService
+    private storageService: StorageService,
+    public authService: AuthService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
     this.packageService.listAllPackagesByClientId(this.storageService.getUser().id).subscribe(packs => {
       this.infoPackages = packs
     });
+  }
+
+  logout(): void {
+    this.storageService.clean();
+    this.router.navigate(['home'])
   }
 
 }

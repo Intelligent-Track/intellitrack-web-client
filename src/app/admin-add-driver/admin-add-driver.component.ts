@@ -46,14 +46,6 @@ export class AdminAddDriverComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log(this.nameDri);
-    console.log(this.emailDri);
-    console.log(this.phoneDri);
-    console.log(this.driverExt);
-    console.log(this.documentDri);
-    console.log(this.locationDri);
-    console.log(this.plateDri);
-    console.log(this.storageService.getUser().username)
     if(this.nameDri && this.emailDri && this.locationDri && this.phoneDri && this.documentDri && this.plateDri){
       this.adminService.createDriver(new DtoDriverBasic(this.documentDri, this.nameDri, this.emailDri, "Driver", this.phoneDri, this.locationDri, this.driverExt, this.plateDri,this.storageService.getUser().username)).subscribe(() => {
         
@@ -82,6 +74,11 @@ export class AdminAddDriverComponent implements OnInit {
 
   onFilePhotoSelected(event: any) {
     this.photoToUpload = event.target.files[0];
+  }
+
+  logout(): void {
+    this.storageService.clean();
+    this.router.navigate(['home'])
   }
 
 }

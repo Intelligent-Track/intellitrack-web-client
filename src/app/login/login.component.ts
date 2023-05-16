@@ -54,7 +54,6 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log("Ejecuta");
     try {
       this.loading = true; // muestra el spinner
       const { username, password } = this.form;
@@ -68,8 +67,7 @@ export class LoginComponent implements OnInit {
         this.loading = false;
       },
       error: err => {
-        console.log("EjecutaEL Errro");
-        this.errorMessage = err.error.message;
+        this.errorMessage = err.error;
         this.isLoginFaile = true;
         this.loading = false;
       }
@@ -79,7 +77,7 @@ export class LoginComponent implements OnInit {
       this.isLoginFaile = true;
       this.loading = false;
     }
-    
+
   }
 
   reloadPage(): void {

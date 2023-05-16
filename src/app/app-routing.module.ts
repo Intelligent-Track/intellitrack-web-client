@@ -39,52 +39,56 @@ import { WarehouseCreateComponent } from './warehouse-create/warehouse-create.co
 import { WarehouseInfoAdminComponent } from './warehouse-info-admin/warehouse-info-admin.component';
 import { WarehouseListClientComponent } from './warehouse-list-client/warehouse-list-client.component';
 import { EmailConfirmComponent } from './email-confirm/email-confirm.component';
-import { RegistrationRequestsComponent } from './registration-requests/registration-requests.component';
 import { DriverBoardComponent } from './driver-board/driver-board.component';
-
+import { AuthGuard } from './_services/AuthGuard';
+import { NotImplementedComponent } from './not-implemented/not-implemented.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { RegistrationRequestsComponent } from './registration-requests/registration-requests.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
-  { path: 'prdServic', component: ProductsServicesComponent},
+  { path: 'prdServic', component: ProductsServicesComponent, canActivate: [AuthGuard]},
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'profile', component: ProfileComponent },
-  { path: 'user', component: BoardUserComponent },
-  { path: 'mod', component: BoardModeratorComponent },
-  { path: 'admin', component: BoardAdminComponent },
-  { path: 'drivers-list', component: DriversListComponent },
-  {path: 'adminAddDriver', component: AdminAddDriverComponent},
-  {path: 'adminAddMechanic', component: AdminAddMechanicComponent},
-  { path: 'adminAddManager', component: AdminAddManagerComponent},
-  { path: 'editProfileOperador', component: EditProfileOperadorComponent },
-  { path: 'editProfileManager', component: EditProfileManagerComponent},
-  { path: 'aboutUs', component: AboutUsComponent },
-  { path: 'manager-list', component: ManagerListComponent },
-  { path: 'operator-list', component: OperatorListComponent },
-  { path: 'operator-create', component: OperatorCreateComponent },
-  { path: 'edit-profile-client', component: EditProfileClientComponent },
-  { path: 'driver-create', component: AdminAddDriverComponent },
-  { path: 'Service-List', component: ClientListServicesComponent },
-  { path: 'manager-list-warehouse', component: ManagerListWarehouseComponent },
-  { path: 'warehouse-list', component: WarehouseListComponent },
-  { path: 'warehouse-info/:id', component: WarehouseInfoComponent },
-  { path: 'warehouse-edit/:id', component: WarehouseEditComponent },
-  { path: 'change-password-r', component: ChangePasswordRequestComponent },
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
+  { path: 'user', component: BoardUserComponent, canActivate: [AuthGuard] },
+  { path: 'mod', component: BoardModeratorComponent, canActivate: [AuthGuard] },
+  { path: 'admin', component: BoardAdminComponent, canActivate: [AuthGuard] },
+  { path: 'drivers-list', component: DriversListComponent, canActivate: [AuthGuard] },
+  { path: 'adminAddDriver', component: AdminAddDriverComponent, canActivate: [AuthGuard]},
+  { path: 'adminAddMechanic', component: AdminAddMechanicComponent, canActivate: [AuthGuard]},
+  { path: 'adminAddManager', component: AdminAddManagerComponent, canActivate: [AuthGuard]},
+  { path: 'editProfileOperador', component: EditProfileOperadorComponent, canActivate: [AuthGuard] },
+  { path: 'editProfileManager', component: EditProfileManagerComponent, canActivate: [AuthGuard]},
+  { path: 'aboutUs', component: AboutUsComponent, canActivate: [AuthGuard] },
+  { path: 'manager-list', component: ManagerListComponent, canActivate: [AuthGuard] },
+  { path: 'operator-list', component: OperatorListComponent, canActivate: [AuthGuard] },
+  { path: 'operator-create', component: OperatorCreateComponent, canActivate: [AuthGuard] },
+  { path: 'edit-profile-client', component: EditProfileClientComponent, canActivate: [AuthGuard] },
+  { path: 'driver-create', component: AdminAddDriverComponent, canActivate: [AuthGuard] },
+  { path: 'Service-List', component: ClientListServicesComponent, canActivate: [AuthGuard] },
+  { path: 'manager-list-warehouse', component: ManagerListWarehouseComponent, canActivate: [AuthGuard] },
+  { path: 'warehouse-list', component: WarehouseListComponent, canActivate: [AuthGuard] },
+  { path: 'warehouse-info/:id', component: WarehouseInfoComponent, canActivate: [AuthGuard] },
+  { path: 'warehouse-edit/:id', component: WarehouseEditComponent, canActivate: [AuthGuard] },
+  { path: 'change-password-r', component: ChangePasswordRequestComponent},
   { path: 'change-password-s', component: ChangePasswordSendedComponent},
   { path: 'change-password/:token', component: ChangePasswordComponent},
-  { path: 'shipment-board', component: ShipmentBoardComponent},
-  { path: 'program-shipment', component: ProgramShipmentComponent},
-  { path: 'quote-service', component: ClientQuoteServicesComponent},
-  { path: 'vehicle-list', component: VehicleListCRUDComponent},
-  { path: 'vehicle-create', component: VehicleCreateComponent},
-  { path: 'edit-driver-profile', component: EditProfileDriverComponent},
-  { path: 'warehouse-list-client', component: WarehouseListClientComponent},
-  { path: 'warehouse-create', component: WarehouseCreateComponent},
-  { path: 'warehouse-info-admin/:id', component: WarehouseInfoAdminComponent},
+  { path: 'shipment-board', component: ShipmentBoardComponent, canActivate: [AuthGuard]},
+  { path: 'program-shipment', component: ProgramShipmentComponent, canActivate: [AuthGuard]},
+  { path: 'quote-service', component: ClientQuoteServicesComponent, canActivate: [AuthGuard]},
+  { path: 'vehicle-list', component: VehicleListCRUDComponent, canActivate: [AuthGuard]},
+  { path: 'vehicle-create', component: VehicleCreateComponent, canActivate: [AuthGuard]},
+  { path: 'edit-driver-profile', component: EditProfileDriverComponent, canActivate: [AuthGuard]},
+  { path: 'warehouse-list-client', component: WarehouseListClientComponent, canActivate: [AuthGuard]},
+  { path: 'warehouse-create', component: WarehouseCreateComponent, canActivate: [AuthGuard]},
+  { path: 'warehouse-info-admin/:id', component: WarehouseInfoAdminComponent, canActivate: [AuthGuard]},
   { path: 'confirm-email/:data', component: EmailConfirmComponent},
-  { path: 'client-requests', component: RegistrationRequestsComponent},
-  { path: 'driver-board', component: DriverBoardComponent},
-  { path: '', redirectTo: 'home', pathMatch: 'full' }
+  { path: 'driver-board', component: DriverBoardComponent, canActivate: [AuthGuard]},
+  { path: 'client-requests', component: RegistrationRequestsComponent, canActivate: [AuthGuard]},
+  { path: 'not-yet-implemented', component: NotImplementedComponent, canActivate: [AuthGuard]},
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '**', component: NotFoundComponent}
 ];
 
 const routerOptions: ExtraOptions = {

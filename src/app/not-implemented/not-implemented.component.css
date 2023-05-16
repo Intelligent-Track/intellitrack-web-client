@@ -1,0 +1,64 @@
+.navbar-brand {
+    font-size: 44px;
+}
+
+li {
+    float: right;
+}
+
+.nav-link {
+    margin-right: 20px;
+
+}
+
+.bu {
+    font-size: 14px;
+}
+
+.pad {
+    padding-top: 5%;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.no-border {
+    border: none;
+}
+
+.text {
+    font-size: large;
+}
+
+
+.x {
+    background-color: #ff6e59;
+}
+
+.navbar-nav {
+    text-align: left;
+}
+
+span {
+    font-size: 2em;
+    margin-top: 20%;
+}
+
+.span-data {
+    font-weight: 100;
+}
+
+.span-info {
+    margin-top: 10%;
+}
+
+img.back {
+    transition: transform 0.3s ease;
+}
+
+img.back:hover {
+    transform: scale(1.08)
+}
+
+p {
+    font-size: 5em;
+}
