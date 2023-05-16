@@ -17,6 +17,8 @@ export class ManagerListComponent implements OnInit {
 
   managerSearch: string | undefined;
 
+  sManager: string = "";
+
   constructor(
     private adminService: AdminService,
     private storageService: StorageService,
@@ -52,6 +54,28 @@ export class ManagerListComponent implements OnInit {
   logout(): void {
     this.storageService.clean();
     this.router.navigate(['home'])
+  }
+
+  searchManager(){
+    if(this.sManager){
+      this.adminService.listManagersByName(this.sManager).subscribe(man=>{
+        this.infoManagers = []
+        man.forEach(manager => {
+          if(manager.managerUsername == this.storageService.getUser().username){
+            this.infoManagers.push(manager);
+          }
+        });
+      })
+    }else{
+      this.adminService.listAllManagers().subscribe(mans => {
+        this.infoManagers = []
+        mans.forEach(manager => {
+          if(manager.managerUsername == this.storageService.getUser().username){
+            this.infoManagers.push(manager);
+          }
+        });
+      });
+    }
   }
 
 }

@@ -14,6 +14,7 @@ import { Router } from '@angular/router';
 export class DriversListComponent implements OnInit {
 
   infoDrivers: Driver[] = [];
+  sManager: string = "";
 
   constructor(
     private router: Router,
@@ -42,6 +43,28 @@ export class DriversListComponent implements OnInit {
   logout(): void {
     this.storageService.clean();
     this.router.navigate(['home'])
+  }
+
+  searchDriver() {
+    if (this.sManager) {
+      this.adminService.listDriversByName(this.sManager).subscribe(drivs => {
+        this.infoDrivers = []
+        drivs.forEach(dr => {
+          if (dr.managerUsername == this.storageService.getUser().username) {
+            this.infoDrivers.push(dr)
+          }
+        });
+      })
+    } else {
+      this.adminService.listAllDrivers().subscribe(driver => {
+        this.infoDrivers = []
+        driver.forEach(dr => {
+          if (dr.managerUsername == this.storageService.getUser().username) {
+            this.infoDrivers.push(dr)
+          }
+        });
+      });
+    }
   }
 
 }

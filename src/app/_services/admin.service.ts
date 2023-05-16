@@ -32,6 +32,10 @@ export class AdminService {
     return this.http.get<Manager[]>(`${environment.apiUrl}/${SERVICE_PATH}/GetManager`, this.httpOptions);
   }
 
+  listManagersByName(name: string): Observable<Manager[]> {
+    return this.http.get<Manager[]>(`${environment.apiUrl}/${SERVICE_PATH}/GetManagers/` + name, this.httpOptions);
+  }
+
   deleteManager(username: string) {
     return this.http.delete<Manager>(`${environment.apiUrl}/${SERVICE_PATH}/DeleteManager/` + username, this.httpOptions);
   }
@@ -44,6 +48,10 @@ export class AdminService {
 
   listAllDrivers(): Observable<Driver[]> {
     return this.http.get<Driver[]>(`${environment.apiUrl}/${SERVICE_PATH}/GetDrivers`, this.httpOptions);
+  }
+
+  listDriversByName(name: string): Observable<Driver[]> {
+    return this.http.get<Driver[]>(`${environment.apiUrl}/${SERVICE_PATH}/GetDrivers/` + name, this.httpOptions);
   }
 
   deleteDriver(username: string) {
@@ -59,6 +67,10 @@ export class AdminService {
 
   listAllOperators(): Observable<Operator[]> {
     return this.http.get<Operator[]>(`${environment.apiUrl}/${SERVICE_PATH}/GetOperators`, this.httpOptions);
+  }
+
+  listOperatorsByName(name: string): Observable<Operator[]> {
+    return this.http.get<Operator[]>(`${environment.apiUrl}/${SERVICE_PATH}/GetOperators/`+name, this.httpOptions);
   }
 
   deleteOperator(username: string) {

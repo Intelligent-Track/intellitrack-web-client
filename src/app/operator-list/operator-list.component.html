@@ -47,7 +47,7 @@
         <i class="fa fa-search"></i>
       </span>
     </div>
-    <input type="text" class="form-control border">
+    <input type="text" placeholder="Búsqueda por nombre" class="form-control border" [(ngModel)]="sOperator" (keyup.enter)="searchOperator()" >
     <div class="input-group-append ml-5">
       <form (ngSubmit)="onAddSubmit()">
         <button class="btn btn-outline-secondary border-0  bu">
