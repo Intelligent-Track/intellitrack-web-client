@@ -41,6 +41,9 @@ import { WarehouseListClientComponent } from './warehouse-list-client/warehouse-
 import { EmailConfirmComponent } from './email-confirm/email-confirm.component';
 import { DriverBoardComponent } from './driver-board/driver-board.component';
 import { AuthGuard } from './_services/AuthGuard';
+import { NotImplementedComponent } from './not-implemented/not-implemented.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { RegistrationRequestsComponent } from './registration-requests/registration-requests.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -82,7 +85,10 @@ const routes: Routes = [
   { path: 'warehouse-info-admin/:id', component: WarehouseInfoAdminComponent, canActivate: [AuthGuard]},
   { path: 'confirm-email/:data', component: EmailConfirmComponent},
   { path: 'driver-board', component: DriverBoardComponent, canActivate: [AuthGuard]},
-  { path: '', redirectTo: 'home', pathMatch: 'full' }
+  { path: 'client-requests', component: RegistrationRequestsComponent, canActivate: [AuthGuard]},
+  { path: 'not-yet-implemented', component: NotImplementedComponent, canActivate: [AuthGuard]},
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '**', component: NotFoundComponent}
 ];
 
 const routerOptions: ExtraOptions = {

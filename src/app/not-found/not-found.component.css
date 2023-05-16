@@ -1,0 +1,11 @@
+img.back {
+    transition: transform 0.3s ease;
+}
+
+img.back:hover {
+    transform: scale(1.08)
+}
+
+p {
+    font-size: 5em;
+}
