@@ -5,79 +5,82 @@ import { DriverService } from '../_services/driver.service';
 import { DeliveryService } from '../_services/delivery.service';
 import { StorageService } from '../_services/storage.service';
 import { ClientService } from '../_services/client.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-driver-board',
   templateUrl: './driver-board.component.html',
   styleUrls: ['./driver-board.component.css']
 })
+
 export class DriverBoardComponent implements OnInit {
-  origin: string="";
-  destiny: string="";
+
+  origin: string = "";
+  destiny: string = "";
   date: Date | undefined;
-  type: string= "";
+  type: string = "";
   infoProducts: Product[] | undefined;
-  infoShipments: Shipment[] |undefined;
-  infoShipWare: Shipment[] |undefined;
-  infoShipWay: Shipment[] |undefined;
-  infoShipDel: Shipment[] |undefined;
+  infoShipments: Shipment[] | undefined;
+  infoShipWare: Shipment[] | undefined;
+  infoShipWay: Shipment[] | undefined;
+  infoShipDel: Shipment[] | undefined;
   infoShip = false;
   showTruck = true;
   showproducts = false
   selectedShip: Shipment | undefined;
-  router: any;
   idDri: number = 0;
   cancel = true;
-  
-  constructor( 
-    private deliveryService: DeliveryService, 
+
+  constructor(
+    private router: Router,
+    private deliveryService: DeliveryService,
     public clientService: ClientService,
     public storageService: StorageService
   ) { }
 
   ngOnInit(): void {
-    try{
-      this.clientService.searchClientById(this.storageService.getUser().username).subscribe(dri =>{
-        if(dri != null){
+    try {
+      this.clientService.searchClientById(this.storageService.getUser().username).subscribe(dri => {
+        if (dri != null) {
           this.idDri = dri.id
           console.log(this.idDri)
 
-          this.deliveryService.listAllDeliveriesByDriWare(this.idDri).subscribe(deliveries=>{
-            if(deliveries != null){
+          this.deliveryService.listAllDeliveriesByDriWare(this.idDri).subscribe(deliveries => {
+            if (deliveries != null) {
               this.infoShipWare = deliveries
-            }else{
+            } else {
               console.log("Error al cargar los envíos.")
             }
           })
 
-          this.deliveryService.listAllDeliveriesByDriWay(this.idDri).subscribe(deliveries=>{
-            if(deliveries != null){
+          this.deliveryService.listAllDeliveriesByDriWay(this.idDri).subscribe(deliveries => {
+            if (deliveries != null) {
               this.infoShipWay = deliveries
-            }else{
+            } else {
               console.log("Error al cargar los envíos.")
             }
           })
 
-          this.deliveryService.listAllDeliveriesByDriDel(this.idDri).subscribe(deliveries=>{
-            if(deliveries != null){
+          this.deliveryService.listAllDeliveriesByDriDel(this.idDri).subscribe(deliveries => {
+            if (deliveries != null) {
               this.infoShipDel = deliveries
-            }else{
+            } else {
               console.log("Error al cargar los envíos.")
             }
           })
 
-        }else{
+        } else {
           console.log("error")
         }
       });
-    }catch{
+    } catch {
       console.log("No hay deliveries en esta empresa.")
     }
-    
+
   }
 
 
-  onCancel(ship :Shipment){
+  onCancel(ship: Shipment) {
     console.log(ship)
     this.deliveryService.deleteDelivery(ship.id).subscribe(() => {
       this.refreshPage()
@@ -89,25 +92,29 @@ export class DriverBoardComponent implements OnInit {
     window.location.reload();
   }
 
-  showInfoShipment( ship: Shipment){
+  showInfoShipment(ship: Shipment) {
     this.selectedShip = ship;
     this.infoShip = true
     this.showTruck = false
   }
 
-  showing(){
-    if (this.infoShip == true && this.showTruck == false && this.cancel == false){
+  showing() {
+    if (this.infoShip == true && this.showTruck == false && this.cancel == false) {
       this.infoShip = false
       this.showTruck = true
     }
   }
 
-  showinig(){
-    if (this.infoShip == true && this.showTruck == false ){
+  showinig() {
+    if (this.infoShip == true && this.showTruck == false) {
       this.infoShip = false
       this.showTruck = true
     }
-    
+  }
+
+  logout(): void {
+    this.storageService.clean();
+    this.router.navigate(['home'])
   }
 
 }

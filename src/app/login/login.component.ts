@@ -2,11 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../_services/auth.service';
 import { StorageService } from '../_services/storage.service';
 import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
 export class LoginComponent implements OnInit {
   form: any = {
     username: null,
@@ -26,13 +28,13 @@ export class LoginComponent implements OnInit {
         miParametro: parametro
       }
     };
-    if(navigationExtras.queryParams.miParametro == "ROLE_ADMIN"){
+    if (navigationExtras.queryParams.miParametro == "ROLE_ADMIN") {
       this.router.navigate(['/operator-list']);
-    }else if(navigationExtras.queryParams.miParametro == "ROLE_CLIENTEREPRE" || navigationExtras.queryParams.miParametro == "ROLE_CLIENTEADM"){
+    } else if (navigationExtras.queryParams.miParametro == "ROLE_CLIENTEREPRE" || navigationExtras.queryParams.miParametro == "ROLE_CLIENTEADM") {
       this.router.navigate(['/warehouse-list']);
-    }else if(navigationExtras.queryParams.miParametro == "ROLE_CONDUCTOR"){
+    } else if (navigationExtras.queryParams.miParametro == "ROLE_CONDUCTOR" || navigationExtras.queryParams.miParametro == "ROLE_CONDUCTORVIS") {
       this.router.navigate(['/driver-board']);
-    }else{
+    } else {
       this.router.navigate(['/home'], navigationExtras);
     }
   }
@@ -57,21 +59,21 @@ export class LoginComponent implements OnInit {
     try {
       this.loading = true; // muestra el spinner
       const { username, password } = this.form;
-    this.authService.login(username, password).subscribe({
-      next: data => {
-        this.storageService.saveUser(data);
-        this.isLoggedIn = true;
-        this.roles = this.storageService.getUser().roles;
-        this.navegarAPantallaDestino(this.roles)
-        this.reloadPage();
-        this.loading = false;
-      },
-      error: err => {
-        this.errorMessage = err.error;
-        this.isLoginFaile = true;
-        this.loading = false;
-      }
-    });
+      this.authService.login(username, password).subscribe({
+        next: data => {
+          this.storageService.saveUser(data);
+          this.isLoggedIn = true;
+          this.roles = this.storageService.getUser().roles;
+          this.navegarAPantallaDestino(this.roles)
+          this.reloadPage();
+          this.loading = false;
+        },
+        error: err => {
+          this.errorMessage = err.error;
+          this.isLoginFaile = true;
+          this.loading = false;
+        }
+      });
     } catch (error) {
       console.error(error);
       this.isLoginFaile = true;
