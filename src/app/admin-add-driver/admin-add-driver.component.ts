@@ -15,18 +15,19 @@ import { StorageService } from '../_services/storage.service';
   templateUrl: './admin-add-driver.component.html',
   styleUrls: ['./admin-add-driver.component.css']
 })
+
 export class AdminAddDriverComponent implements OnInit {
   cities = ['Medellín', 'Bogotá', 'Monteria', 'Cali', 'Cartagena', 'Barranquilla', 'Valledupar', 'Santa Marta', 'Bucaramga'];
-  
+
   selectedCity: string | undefined;
   selectedMan: string | undefined;
   nameDri: string = "";
-  locationDri: string = ""; 
+  locationDri: string = "";
   phoneDri: number | undefined;
   emailDri: string = "";
   plateDri: string = "";
   documentDri: number | undefined;
-  managerList: Manager[] |undefined;
+  managerList: Manager[] | undefined;
 
   driverExt: boolean = false;
   fileToUpload: File | null = null;
@@ -34,7 +35,7 @@ export class AdminAddDriverComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private adminService : AdminService,
+    private adminService: AdminService,
     private driverService: DriverService,
     private storageService: StorageService
   ) { }
@@ -45,26 +46,26 @@ export class AdminAddDriverComponent implements OnInit {
     });
   }
 
-  onSubmit(){
-    if(this.nameDri && this.emailDri && this.locationDri && this.phoneDri && this.documentDri && this.plateDri){
-      this.adminService.createDriver(new DtoDriverBasic(this.documentDri, this.nameDri, this.emailDri, "Driver", this.phoneDri, this.locationDri, this.driverExt, this.plateDri,this.storageService.getUser().username)).subscribe(() => {
-        
-        if(this.driverExt){
-          this.driverService.findByUsername(this.emailDri).subscribe(driver=>{
-            if(this.fileToUpload && this.photoToUpload){
+  onSubmit() {
+    if (this.nameDri && this.emailDri && this.locationDri && this.phoneDri && this.documentDri && this.plateDri) {
+      this.adminService.createDriver(new DtoDriverBasic(this.documentDri, this.nameDri, this.emailDri, "Driver", this.phoneDri, this.locationDri, this.driverExt, this.plateDri, this.storageService.getUser().username)).subscribe(() => {
+        if (this.driverExt) {
+          this.driverService.findByUsername(this.emailDri).subscribe(driver => {
+            if (this.fileToUpload && this.photoToUpload) {
               const formData: FormData = new FormData();
-              formData.append('id', ""+driver.id);
+              formData.append('id', "" + driver.id);
               formData.append('licPhoto', this.photoToUpload);
               formData.append('mecPhoto', this.fileToUpload);
-              this.adminService.uploadFiles(formData).subscribe(()=>{
-                this.router.navigate(['driver-list'])
+              this.adminService.uploadFiles(formData).subscribe(() => {
+                this.router.navigate(['drivers-list'])
               })
             }
           });
-          
+        } else {
+          this.router.navigate(['drivers-list'])
         }
       });
-      
+
     }
   }
 
